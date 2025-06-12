@@ -1,6 +1,6 @@
-package dao;
+package sevlet;
 
-public class SP {
+public class PchatServlet {
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
