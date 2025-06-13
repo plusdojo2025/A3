@@ -30,13 +30,6 @@ public class SikijoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 		// メニューページにフォワードする
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/sikijo.jsp");  
@@ -44,6 +37,14 @@ public class SikijoServlet extends HttpServlet {
 
 					dispatcher.forward(request, response);  
 					// メニューページへリクエストとレスポンスを転送
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
