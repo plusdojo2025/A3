@@ -9,9 +9,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/style.css">  
+<link rel="stylesheet" href="css/all.css">  
 </head>
-<body>
+<body id="mainBody">
 <ul>
 <li><a href="/webapp/HomeServlet">ホーム</a></li>
 <li><a href="/webapp/ApplyServlet">申し込み</a></li>
