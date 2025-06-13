@@ -31,6 +31,10 @@
 <li>本文</li>
 <li>本文</li>
 </ul>
+<form method="POST" action="">
+	<input type="text" name="test">
+	<input type="submit" value="クリック">
+</form>
 <!-- メイン（ここまで） -->
 
 <!-- フッター（ここから） -->
