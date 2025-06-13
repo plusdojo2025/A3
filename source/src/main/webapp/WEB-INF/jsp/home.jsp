@@ -27,6 +27,7 @@
 <p id="welcome_message">ようこそ、${username}さん！</p>
 <ul>
 <h3>見出し1</h3>
+<h3></h3>
 <li>本文</li>
 <li>本文</li>
 <li>本文</li>

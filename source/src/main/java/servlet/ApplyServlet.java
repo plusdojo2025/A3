@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +30,17 @@ public class ApplyServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+			
 
+			// ユーザ名（ID）をメニュー画面に渡す
+					//request.setAttribute("username", user.getId());
+					// リクエストスコープにユーザーIDを"username"という名前で保存
+					// メニューページにフォワードする
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply.jsp");
+					// メニューページ（menu.jsp）へのディスパッチャを取得
+					dispatcher.forward(request, response);
+					// メニューページへリクエストとレスポンスを転送
+			}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
