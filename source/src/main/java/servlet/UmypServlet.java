@@ -1,6 +1,6 @@
-package sevlet;
+package servlet;
 
-public class PloginServlet {
+public class UmypServlet {
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
