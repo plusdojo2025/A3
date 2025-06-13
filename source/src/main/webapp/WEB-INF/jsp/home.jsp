@@ -35,6 +35,8 @@
 	<input type="text" name="test">
 	<input type="submit" value="クリック">
 </form>
+
+<a href ="サーブレットのパス">クリック</a>
 <!-- メイン（ここまで） -->
 
 <!-- フッター（ここから） -->
