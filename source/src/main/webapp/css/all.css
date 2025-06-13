@@ -1,1 +1,15 @@
 @charset "UTF-8";
+
+
+/* bodyタグ */
+body {
+  background-image: notinsertyet;
+  margin: 0px 0px 0px 0px;	/* マージンなし（後で個別に設定） */
+  padding: 0px 0px 0px 0px;	/* パディングなし（後で個別に設定） */
+  color: #FFFFFF;         /* 本文・見出しに白 */
+  text-shadow: 0 0 5px #FF0000; /* ネオン効果の影 */
+  font-size: 16px;
+  background-color: #F5F5F5;
+  
+}
+
