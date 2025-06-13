@@ -50,7 +50,7 @@ public class HomeServlet extends HttpServlet {
 			// リクエストスコープにユーザーIDを"username"という名前で保存
 
 			// メニューページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Home.jsp");  
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");  
 			// メニューページ（menu.jsp）へのディスパッチャを取得
 
 			dispatcher.forward(request, response);  
