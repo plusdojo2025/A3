@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PChatServlet
+ * Servlet implementation class UChat
  */
-@WebServlet("/PChatServlet")
-public class PChatServlet extends HttpServlet {
+@WebServlet("/UChatServlet")
+public class UChatServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PChatServlet() {
+    public UChatServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,9 +30,8 @@ public class PChatServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
 		// メニューページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pchat.jsp");  
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/uchat.jsp");  
 				// メニューページ（menu.jsp）へのディスパッチャを取得
 
 				dispatcher.forward(request, response);  
