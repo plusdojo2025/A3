@@ -1,8 +1,12 @@
 @charset "UTF-8";
 
-
-
-
+/*headerすべてに適用*/
+#nav {
+	justify-content: space-between;/*左右に分ける*/
+	list-style:none;/*点を消す*/
+	display: flex;/*横並びにする*/
+	padding-right:60px;/*区切りを開ける*/	
+	}
 
 /* bodyタグ */
 body {
@@ -12,13 +16,5 @@ body {
   color: #FFFFFF;         /* 本文・見出しに白 */
   text-shadow: 0 0 5px #FF0000; /* ネオン効果の影 */
   font-size: 16px;
-  background-color: #F5F5F5;
+  background-color:#f4dbd0;
 }
-
-/*bodyの中*/
-#mainbody{
-	background-color:#f4dbd0;
-}
-
-
-
