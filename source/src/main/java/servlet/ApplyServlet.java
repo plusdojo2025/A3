@@ -28,19 +28,12 @@ public class ApplyServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-			
-
-			// ユーザ名（ID）をメニュー画面に渡す
-					//request.setAttribute("username", user.getId());
-					// リクエストスコープにユーザーIDを"username"という名前で保存
-					// メニューページにフォワードする
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply.jsp");
-					// メニューページ（menu.jsp）へのディスパッチャを取得
-					dispatcher.forward(request, response);
-					// メニューページへリクエストとレスポンスを転送
-			}
+		//申し込みページ（apply.jsp）へのディスパッチャを取得
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply.jsp");
+		//申し込みページへリクエストとレスポンスを転送
+		dispatcher.forward(request, response);
+	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
