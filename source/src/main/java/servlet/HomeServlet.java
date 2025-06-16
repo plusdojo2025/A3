@@ -57,6 +57,38 @@ public class HomeServlet extends HttpServlet {
 			// メニューページへリクエストとレスポンスを転送
 
 	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException,IOException{
+		
+		// もしもログインしていなかったらログインサーブレットにリダイレクト
+		HttpSession session = request.getSession();
+		
+		//セッションに"id"属性を取得してUserDTO型にキャスト
+		UserDTO user = (UserDTO) session.getAttribute("id");
+		
+		//セッションから"id"が存在しない場合の条件をチェック
+		//if(session.getAttribute("id") == null) {
+			
+			//ログインしていない場合はLoginServletにリダイレクト
+			//response.sendRedirect("/A3/HomeServlet");
+
+			
+	//	
+//			return;
+//		}
+		// ユーザ名（ID）をメニュー画面に渡す
+				//request.setAttribute("username", user.getId());  
+				// リクエストスコープにユーザーIDを"username"という名前で保存
+
+				// メニューページにフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");  
+				// メニューページ（menu.jsp）へのディスパッチャを取得
+
+				dispatcher.forward(request, response);  
+				// メニューページへリクエストとレスポンスを転送
+
+		}
 
 }
 
