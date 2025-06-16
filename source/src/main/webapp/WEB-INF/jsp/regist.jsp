@@ -104,12 +104,12 @@
 </tr>
 <tr>
 	<td>
-		<label>
-		<input type="radio" name="gender "value="men" onclick="radioDeselection(this, men)">男性</label><br>
+		<label id="genderbox">
+		<input type="radio" name="gender "value="male"onclick="radioDeselection(this, 1)">男性</label><br>
     </td>
     <td>
         <label>
-        <input type="radio" name="gender" value="women" onclick="radioDeselection(this, women)">女性<br>
+        <input type="radio" name="gender" value="female" onclick="radioDeselection(this, 2)">女性<br>
 		</label>
 	</td>
 </tr>

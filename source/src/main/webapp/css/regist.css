@@ -3,11 +3,19 @@ body {
 	background-image: url('');
   	background-repeat: no-repeat;
   	background-size: cover; /* 画面全体にフィット */
-    color: #F4DBD0;
+    font-family: Times New Roman
   }
 .hero.contact {
+	
     background-image: url(../img/WhiteFlower.png);
+    padding: 180px 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #FFFFFF;
+    text-align:center;
 }
+
 form {
   /* padding: 6px;*/
   color: #2B2721;
@@ -42,7 +50,7 @@ input[name=zipcode]{
 }
 
 input[name=address]{
-  width: 38em;
+  width: 60em;
 }
 
 input[name=email]{
@@ -51,4 +59,20 @@ input[name=email]{
 
 input[name=phone]{
   width: 30em;
+}
+
+form {
+    margin: 0 auto;
+    max-width: 500px;
+    
+}
+input[type="text"], textarea {
+    padding: 6px;
+    width: 90%;
+    height:4px;
+    font-size: 1rem;
+}
+textarea {
+    height: 120px;
+	text-align: center;
 }
