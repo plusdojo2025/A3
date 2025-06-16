@@ -42,7 +42,7 @@ public class CourseServlet extends HttpServlet {
 		//JSPに渡す
 		request.setAttribute("courseList", courseList);		
 		// コースページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cours.jsp");  
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/course.jsp");  
 		dispatcher.forward(request, response);  
 		// メニューページへリクエストとレスポンスを転送
 	}
