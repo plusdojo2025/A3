@@ -5,7 +5,7 @@ public class CourseDTO {
 	
 	private int courseId; //コースID
 	private String courseName; //コース名
-	private int jmNumber; //和洋とかのやつ
+	private String jmNumber; //和洋とかのやつ
 	private String comment; //コース詳細
 	private String option1; 
 	private String option2;
@@ -25,10 +25,10 @@ public class CourseDTO {
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
 	}
-	public int getJmNumber() {
+	public String getJmNumber() {
 		return jmNumber;
 	}
-	public void setJmNumber(int jmNumber) {
+	public void setJmNumber(String jmNumber) {
 		this.jmNumber = jmNumber;
 	}
 	public String getComment() {

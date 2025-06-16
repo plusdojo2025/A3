@@ -42,7 +42,7 @@ public class CourseDAO {
 				//上のDTOに値を入れていく（DBの値をDTOへコピーしてく）
 				dto.setCourseId(rs.getInt("course_id"));
 				dto.setCourseName(rs.getString("course_name"));
-				dto.setJmNumber(rs.getInt("jm_number"));
+				dto.setJmNumber(rs.getString("jm_number"));
 				dto.setComment(rs.getString("comment"));
 				dto.setOption1(rs.getString("option1"));
 				dto.setOption2(rs.getString("option2"));
