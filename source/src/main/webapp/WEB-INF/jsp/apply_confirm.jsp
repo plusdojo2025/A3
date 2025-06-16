@@ -1,30 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("UTF8");
+String option = request.getParameter("option");
+String sikijo = request.getParameter("sikijo");
+String planner = request.getParameter("planner");
+%>   
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>申し込み</title>
-<link rel="stylesheet" href="css/all.css">  
+<title>Insert title here</title>
 </head>
-
 <body>
-	<header>
-<!-- 		<h1>aaaaaaaaaa</h1>-->
-		<ul id="nav">
-			<li><a href="/webapp/HomeServlet">ホーム</a></li>
-			<li><a href="/webapp/ApplyServlet">申し込み</a></li>
-			<li><a href="/webapp/〇〇Servlet">式場/コース/プランナー 一覧</a></li>
-			<li><a href="/webapp/SimuServlet">シミュレーション機能</a></li>
-			<li><a href="/webapp/〇〇Servlet">チャット(Q＆A)</a></li>
-			<li><a href="/webapp/UmypServlet">マイページ</a></li>
-		</ul>
-	</header>
 <main>
+</main>
 <h2 id="regist">申し込み</h2>
-<!-- 	<form method="POST" action="/webapp/RegistServlet"
-			id="regist_form" action="result.html">
---->		
+ 	<form method="POST" action="/A3/ApplyServlet"
+			id="apply_confirm_form">
+	
     <div>
         <details name="a_course">
             <summary><input type="radio" name="course" value="Jpn">Aコース</summary>
@@ -48,7 +41,7 @@
 	            <div class="radio_container1">
                     <label>式場</label>
                     <div>
-                        <label><input type="radio" name="sikijo" id="radio_change" value="tom" onClick="rdo(this);">
+                        <label><input type="radio" name="sikijo" id="radio_change" value="0" onClick="rdo(this);">
                         トム・クルージョン</label>
                     </div>
                     <div class="radio_inner">
@@ -67,7 +60,7 @@
                 </div>
                 <div class="radio_container2">
                     <div>
-                        <label><input type="radio" name="sikijo" id="radio_change" value="d4c" onClick="rdo(this);">
+                        <label><input type="radio" name="sikijo" id="radio_change" value="1" onClick="rdo(this);">
                         D4C館</label>
                     </div>
                     <div class="radio_inner">
@@ -76,7 +69,7 @@
                 </div>
 	            <div class="radio_container2">
                     <div>
-                        <label><input type="radio" name="sikijo" id="radio_change" value="brother" onClick="rdo(this);">
+                        <label><input type="radio" name="sikijo" id="radio_change" value="2" onClick="rdo(this);">
                         ドウェイン・ブラザー</label>
                     </div>
                     <div class="radio_inner">
@@ -86,7 +79,7 @@
                 </div>
                 <div class="radio_container3">
                     <div>
-                        <label><input type="radio" name="sikijo" id="radio_change" value="ema" onClick="rdo(this);">
+                        <label><input type="radio" name="sikijo" id="radio_change" value="3" onClick="rdo(this);">
                         エマ・ワトシン</label>
                     </div>
                     <div class="radio_inner">
@@ -115,26 +108,7 @@
 
 	<p><input type="submit" id="search" name="submit" value="申し込む"></p>
 
-</main>
-<footer>
+	 </form>
 
-</footer>
-
-<script>
-function rdo(naka3){
-	var naka = document.hall.sikijo.length - 0;
-	var naka2 = naka3.value;
-	if(naka3.checked){
-        for(naka4=0; naka>naka4; naka4++){
-	        var naka5=""+naka4;
-	        document.getElementById(naka5).style.display="none";
-        }
-		document.getElementById(naka2).style.display="inline";
-	}
-}
-
-
-
-</script>
 </body>
 </html>
