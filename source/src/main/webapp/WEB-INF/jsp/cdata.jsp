@@ -11,8 +11,11 @@ pageEncoding="UTF-8"%>
 <body>
 <h1>検索</h1><br>
 <form method="POST" action="/A3/CDataServlet">
-セイ<input type="text" name="k_f_name"><br>
-メイ<input type="text" name="k_l_name"><br>
+ミョウジ<input type="text" name="k_f_name"><br>
+苗字<input type="text" name="f_name"><br>
+ナマエ<input type="text" name="k_l_name"><br>
+名前<input type="text" name="l_name"><br>
+性別<input type="text" name="gender"><br>
 住所<input type="text" name="address"><br>
 電話番号<input type="text" name="phone"><br>
 
