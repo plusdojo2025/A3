@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.CourseDAO;
+import dto.CourseDTO;
+
 
 /**
  * Servlet implementation class CourseServlet
@@ -30,10 +36,13 @@ public class CourseServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		// メニューページにフォワードする
+		//DAOインスタンス化
+		CourseDAO dao = new CourseDAO();
+		List<CourseDTO>courseList = new ArrayList<>();
+		//JSPに渡す
+		request.setAttribute("courseList", courseList);		
+		// コースページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cours.jsp");  
-		// メニューページ（menu.jsp）へのディスパッチャを取得
-
 		dispatcher.forward(request, response);  
 		// メニューページへリクエストとレスポンスを転送
 	}
