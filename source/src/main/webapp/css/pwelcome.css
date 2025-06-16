@@ -1,1 +1,20 @@
 @charset "UTF-8";
+
+body {
+  background-image: url(/A3/img/WhiteFlower.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.name-box {
+ background-color: rgba(251,232,211,0.5);
+ padding: 20px;
+ border-radius: 100px;
+ box-shadow: 0 0 10px rgba(0,0,0,0.1);
+ width: 370px;
+ margin: 300px 0 70px 200px; /*上右下左の順番*/
+ font-size: 20px;
+ text-align: center;
+}

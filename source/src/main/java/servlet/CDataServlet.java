@@ -1,7 +1,6 @@
  package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import dao.BcDAO;
-import dto.Bc;
 
 /**
  * Servlet implementation class CDataServlet
@@ -23,21 +19,24 @@ public class CDataServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CDataServlet() {
-        super();
+    //public CDataServlet() {
+      //  super();
         // TODO Auto-generated constructor stub
-    }
+   // }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");  
 		// メニューページ（menu.jsp）へのディスパッチャを取得
 		dispatcher.forward(request, response); 
+		
 	}
 
 	/**
@@ -56,8 +55,8 @@ public class CDataServlet extends HttpServlet {
 		
 				
 				// 検索処理を行う
-				BcDAO bDao = new BcDAO();
-				List<Bc> cardList = bDao.select(new Bc(k_f_name,k_l_name,address,phone));
+				//BcDAO bDao = new BcDAO();
+				//List<Bc> cardList = bDao.select(new Bc(k_f_name,k_l_name,address,phone));
 	}
 	
 	
