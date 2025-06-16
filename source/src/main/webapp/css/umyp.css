@@ -1,1 +1,51 @@
 @charset "UTF-8";
+body { 
+	
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.myp {
+    padding: 40px 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/* 仮の丸い画像スペース */
+.user-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 0 auto 10px auto;
+}
+
+/* 名前表示のブロック */
+.user-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* ボタンの共通スタイル */
+form {
+    margin: 20px 0;
+}
+
+button {
+    width: 80%;
+    max-width: 400px;
+    padding: 15px 0;
+    font-size: 20px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #eee;
+}

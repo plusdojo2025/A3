@@ -1,25 +1,26 @@
 @charset "UTF-8";
 
-.searcher-box form {
+.searcher-box {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 600px;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
- 
-.searcher-box form label,
-.searcher-box form input[type="text"] {
-  width: 200px;
-  display: inline-block;
-  margin-bottom: 5px;
+.form-row label {
+  width: 100px;
+  font-weight: bold;
 }
 
-/* 電話番号みぎにする */
-.searcher-box form label:nth-of-type(5),
-.searcher-box form input[type="text"]:nth-of-type(5) {
-  margin-left: auto;
-  width: 200px;
+.form-row input[type="text"] {
+  flex: 1;
+  padding: 4px 8px;
+  
+
 }
 }
 
