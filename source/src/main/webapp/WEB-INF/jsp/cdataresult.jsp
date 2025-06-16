@@ -12,10 +12,10 @@
 
 <c:forEach var="e" items="${cardList}" >
 	<form method="POST" action="/A3/CDataServlet">
-	会社名<input type="text" name="k_f_name" value="${e.k_f_name}"><br>
-	部署名<input type="text" name="k_l_name" value="${e.k_l_name}"><br>
-	役職名<input type="text" name="address" value="${e.address}"><br>
-	氏名<input type="text" name="phone" value="${e.phone}"><br>
+	セイ<input type="text" name="k_f_name" value="${e.k_f_name}"><br>
+	メイ<input type="text" name="k_l_name" value="${e.k_l_name}"><br>
+	住所<input type="text" name="address" value="${e.address}"><br>
+	電話番号<input type="text" name="phone" value="${e.phone}"><br>
 	</form>
 	<hr>
 </c:forEach>

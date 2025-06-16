@@ -1,8 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,40 +9,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.CourseDAO;
-import dto.CourseDTO;
-
-
 /**
- * Servlet implementation class CourseServlet
+ * Servlet implementation class UMyChangeServlet
  */
-@WebServlet("/CourseServlet")
-public class CourseServlet extends HttpServlet {
+@WebServlet("/UMyChangeServlet")
+public class UMyChangeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CourseServlet() {
+    public UMyChangeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		//DAOインスタンス化
-		CourseDAO dao = new CourseDAO();
-		List<CourseDTO>courseList = new ArrayList<>();
-		//JSPに渡す
-		request.setAttribute("courseList", courseList);		
-		// コースページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cours.jsp");  
-		dispatcher.forward(request, response);  
-		// メニューページへリクエストとレスポンスを転送
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/umychange.jsp");  
+		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -53,7 +39,6 @@ public class CourseServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
 	}
 
 }
