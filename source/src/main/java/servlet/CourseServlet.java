@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -38,7 +37,7 @@ public class CourseServlet extends HttpServlet {
 		
 		//DAOインスタンス化
 		CourseDAO dao = new CourseDAO();
-		List<CourseDTO>courseList = new ArrayList<>();
+		List<CourseDTO>courseList = dao.select();
 		//JSPに渡す
 		request.setAttribute("courseList", courseList);		
 		// コースページにフォワードする

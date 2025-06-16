@@ -1,1 +1,54 @@
 @charset "UTF-8";
+body {
+	background-image: url('');
+  	background-repeat: no-repeat;
+  	background-size: cover; /* 画面全体にフィット */
+    color: #F4DBD0;
+  }
+.hero.contact {
+    background-image: url(../img/WhiteFlower.png);
+}
+form {
+  /* padding: 6px;*/
+  color: #2B2721;
+}
+
+input[name=id] {
+  width: 16em;
+}
+
+input[name=pw] {
+  width: 16em;
+}
+
+input[name=f_name]{
+  width: 16em;
+}
+
+input[name=l_name]{
+  width: 16em;
+}
+
+input[name=k_f_name]{
+  width: 16em;
+}
+
+input[name=k_l_name]{
+  width: 16em;
+}
+
+input[name=zipcode]{
+  width: 8em;
+}
+
+input[name=address]{
+  width: 38em;
+}
+
+input[name=email]{
+  width: 30em;
+}
+
+input[name=phone]{
+  width: 30em;
+}

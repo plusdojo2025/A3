@@ -12,7 +12,7 @@
 <body>
 <h1>〇３つのコース</h1>
 <c:forEach var="e" items="${courseList}" >
-	<li><a href="SikijoServlet?course_id=${e.courseId}">${e.name}コース</a></li>
+	<li><a href="SikijoServlet?course_id=${e.courseId}">${e.courseName}コース</a></li>
 	<p>${e.comment}</p>
 </c:forEach>
 <%-- <li><a href="SikijoServlet?courseId=2">${e.name}</a>
