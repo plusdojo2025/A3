@@ -26,7 +26,7 @@ public class CourseDAO {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kkss?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 					"root", "password");
-			// SQL文の準備（コースのデータ全て取得）
+			// SQL文の準備（コースのデータ全て取得）（ハッピーセット）
 			String sql = "SELECT * FROM course ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
