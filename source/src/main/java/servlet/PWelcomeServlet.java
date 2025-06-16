@@ -28,12 +28,17 @@ public class PWelcomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//LoginUser user = (LoginUser) session.getAttribute("id");
+		// ユーザ名（ID）をメニュー画面に渡す
+		//request.setAttribute("username", user.getId());
+		
 		// メニューページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pwelcome.jsp");  
 		// メニューページ（menu.jsp）へのディスパッチャを取得
-
 		dispatcher.forward(request, response);  
 		// メニューページへリクエストとレスポンスを転送
+		
+		
 	}
 
 	/**

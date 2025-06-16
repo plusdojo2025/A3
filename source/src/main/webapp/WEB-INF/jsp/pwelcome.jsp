@@ -22,8 +22,7 @@
 </ul>
 
 <div class="name-box">
-	<h1>ようこそ</h1>
-	<h1><%= userName %>さん</h1>
+	<p>ようこそ${userName}さん</p>
 </div>
 </body>
 </html>
