@@ -12,6 +12,7 @@
 <h1>〇３つのコース</h1>
 
 <li><a href="/A3/Asikijo">Aコース(Japanese Style)</a>
+<>
 <li><a href="/A3/Bsikijo">Bコース(Western Style)</a>
 <li><a href="/A3/Csikijo">Cコース(和洋折衷 Style)</a>
 
