@@ -47,7 +47,7 @@
 </main>
  
 
- <%-- ユーザーログインの整合性を取る
+ 
  <script>
       'use strict';
 
@@ -59,8 +59,10 @@
         document.getElementById('ptag').textContent = 'IDとPWを両方入力してください！';
       } 
     };
+    
+    sessionStorage.setItem('username', formObj.id.value);//ユーザー名を保存（セッションストレージ）
   </script>
-  --%>
+
   
 </body>
 </html>

@@ -8,13 +8,12 @@ body {
   background-attachment: fixed;
 }
 
-.name-box {
+.change {
  background-color: rgba(251,232,211,0.5);
- padding: 20px;
- border-radius: 100px;
+ padding: 50px;
  box-shadow: 0 0 10px rgba(0,0,0,0.1);
  width: 500px;
- margin: 300px 0 70px 200px; /*上右下左の順番*/
- font-size: 20px;
+ margin: 160px 0 70px 500px; /*上右下左の順番*/
+ font-size: 50px;
  text-align: center;
 }
