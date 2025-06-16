@@ -7,4 +7,5 @@ create table planner (
  phone varchar (11),
  siki_add varchar (100),
  strong_fild varchar (200)
+ image varchar (50)
 );
