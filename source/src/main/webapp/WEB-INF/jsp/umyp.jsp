@@ -3,10 +3,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+	<meta charset="UTF-8">
+	<title>ユーザーマイページ</title>
 
+</head>
+	
+<body>
+	<div class="myp">
+		<h2>登録情報確認</h2>
+		
+		<form method="get" action="/webapp/UMypServlet" method="get" class="umyp-form">
+			<button type="submit">登録情報の確認、変更</button>
+		</form>
+		
+		<form method="get" action="/webapp/UMypServlet" >
+		<button type="submit">申し込み履歴</button>
+		</form>
+		
+		<form method="get" action="/webapp/UMypServlet" >
+		<button type="submit">ログアウト</button>
+		</form>
+		
+	</div>
 </body>
 </html>
