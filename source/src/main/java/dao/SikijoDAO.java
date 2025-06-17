@@ -24,7 +24,7 @@ public class SikijoDAO {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
-			conn = DriverManager.getConnection("jdbc:mysql://lovalhost:kkss?"
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kkss?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 					"root", "password");
 			//SQL文準備（式場のデータ全て取得）
@@ -41,9 +41,9 @@ public class SikijoDAO {
 				
 				//上のDTOに値を入れていく（DBの値をDTOへコピー）
 				dto.setSikijoId(rs.getInt("sikijo_id"));
-				dto.setSikijoName(rs.getString("sikijo_name"));//要変更
 				dto.setSikijoJmNumber(rs.getString("jm_number"));//要変更
-				dto.setSikijoComment(rs.getString("comment"));//要変更
+				dto.setSikijoName(rs.getString("name"));//要変更
+				dto.setSikijoAddress(rs.getString("address"));//要変更
 				
 				//値が入った枝豆（上のDTO）をArrayListに追加
 				sikijoList.add(dto);
