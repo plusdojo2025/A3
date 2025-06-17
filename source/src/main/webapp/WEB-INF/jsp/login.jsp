@@ -50,7 +50,7 @@
 </form>            
         
         <c:if test="${not empty errorMsg}">
-            <p style="color:red;">${errorMsg}</p>
+            <p style="color:white;">${errorMsg}</p>
         </c:if>
         
 	<form method="POST" action="/A3/RegistServlet">
