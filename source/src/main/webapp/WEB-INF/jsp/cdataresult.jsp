@@ -14,7 +14,7 @@
 <hr>
 
 <c:forEach var="e" items="${cardList}" >
-	<form method="GET" action="/A3/CDataServlet">
+	<form method="GET" action="/A3/CDataResultServlet">
 	ミョウジ<input type="text" name="k_f_name" value="${e.k_f_name}">
 	苗字<input type="text" name="f_name" value="${e.f_name}"><br>
 	ナマエ<input type="text" name="k_l_name" value="${e.k_l_name}">
