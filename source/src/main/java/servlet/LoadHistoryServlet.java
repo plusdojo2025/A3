@@ -31,7 +31,7 @@ public class LoadHistoryServlet extends HttpServlet {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/sample?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Tokyo",
+                "jdbc:mysql://localhost:3306/kkss?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Tokyo",
                 "root", "password"
             );
 
