@@ -3,4 +3,5 @@ create table sikijo (
  jm_number int (30) not null,
  name varchar (30) not null,
  address varchar (30) not null
+ image varchar (50)
 );

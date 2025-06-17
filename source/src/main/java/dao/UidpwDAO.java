@@ -11,7 +11,7 @@ import dto.Uidpw;
 public class UidpwDAO {
 
 	// 引数で指定されたidpwでログイン成功ならtrueを返す
-		public String isLoginOK(Uidpw Uidpw) {
+		public String isLoginOK(Uidpw uidpw) {
 			Connection conn = null;
 			String result = null;
 
@@ -25,10 +25,10 @@ public class UidpwDAO {
 						"root", "password");
 
 				// SELECT文を準備する
-				String sql = "SELECT * FROM User WHERE id=? AND pw=?";
+				String sql = "SELECT * FROM user WHERE id=? AND pw=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
-				pStmt.setString(1, Uidpw.getId());
-				pStmt.setString(2, Uidpw.getPw());
+				pStmt.setString(1, uidpw.getId());
+				pStmt.setString(2, uidpw.getPw());
 
 				// SELECT文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();
