@@ -1,20 +1,30 @@
 @charset "UTF-8";
-body {
-	background-image: url('');
-  	background-repeat: no-repeat;
-  	background-size: cover; /* 画面全体にフィット */
-    font-family: Times New Roman
-  }
-.hero.contact {
+
+.hero {
 	
     background-image: url(../img/WhiteFlower.png);
-    padding: 180px 0;
+    padding: 5px 0;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     color: #FFFFFF;
     text-align:center;
    
+}
+.herocontact{
+ margin: 10px auto;/*上右下左の順番*/
+ background-color: rgba(251,232,211,0.5);
+ padding: 180px;
+ border-radius: 100px;
+ box-shadow: 0 0 10px rgba(0,0,0,0.1);
+ height:50px;
+ width: 370px;
+ font-size: 20px;
+ text-align: center;
+}
+
+error_message{
+	font-size: 0.4rem;
 }
 
 form {

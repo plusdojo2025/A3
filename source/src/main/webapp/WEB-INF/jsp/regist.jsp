@@ -22,17 +22,16 @@
 </ul>
 <!-- ヘッダーここまで -->
 <!-- メインここから -->
-<h2 class="hero contact">新規登録</h2>
+<div class="hero">
+<h2 class="herocontact">新規登録</h2>
+</div>
 <form method="POST" id="form" action="/A3/RegistServlet">
 <table>
 <tr>
 	<td>
-		<p id="error_message"></p><br>
-		<label>ID(必須)</label>
+		<label>ID(必須)<span id="error_message"></span></label>
 	</td>
 	<td>
-	<br>
-		<p id="error_message1"></p><br>
 		<label>Password(必須)</label>
 		
 	</td>
