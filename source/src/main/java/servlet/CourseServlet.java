@@ -35,8 +35,10 @@ public class CourseServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		
 		//DAOインスタンス化
 		CourseDAO dao = new CourseDAO();
+		
 		List<CourseDTO>courseList = dao.select();
 		//JSPに渡す
 		request.setAttribute("courseList", courseList);		

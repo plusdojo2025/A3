@@ -4,9 +4,9 @@ public class SikijoDTO {
 
 	
 	private int sikijoId;
-	private String sikijoName;
 	private String jmNumber;
-	private String comment;
+	private String name;
+	private String address;
 	
 	//ゲッターセッター
 	public int getSikijoId() {
@@ -15,22 +15,22 @@ public class SikijoDTO {
 	public void setSikijoId(int sikijoId) {
 		this.sikijoId = sikijoId;
 	}
-	public String getSikijoName() {
-		return sikijoName;
-	}
-	public void setSikijoName(String sikijoName) {
-		this.sikijoName = sikijoName;
-	}
-	public String getJmNumber() {
+	public String getSikijoJmNumber() {
 		return jmNumber;
 	}
-	public void setJmNumber(String jmNumber) {
+	public void setSikijoJmNumber(String jmNumber) {
 		this.jmNumber = jmNumber;
 	}
-	public String getComment() {
-		return comment;
+	public String getSikijoName() {
+		return name;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setSikijoName(String sikijoName) {
+		this.name = sikijoName;
+	}
+	public String getSikijoAddress() {
+		return address;
+	}
+	public void setSikijoAddress(String sikijoAddress) {
+		this.address = sikijoAddress;
 	}
 }

@@ -13,7 +13,8 @@
 <h1></h1>
 <c:forEach var="e" items="${sikijoList}">
 	<li><a href="PlannerServlet?sikijo_id=${e.sikijoId}">${e.sikijoName}</a></li>
-	<p>${e.comment}</p><!-- ココ住所かも？あと、写真も入れる！！ -->
+	<p>${e.sikijoJmNumber}</p>
+	<p>${e.sikijoAddress}</p><!-- ココ住所かも？あと、写真も入れる！！ -->
 </c:forEach>
 </body>
 </html>

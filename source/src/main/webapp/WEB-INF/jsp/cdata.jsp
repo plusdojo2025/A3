@@ -15,12 +15,12 @@ pageEncoding="UTF-8"%>
 
 <form method="POST" action="/A3/CDataServlet" class="searcher-box">
 
-	<%-- <div class="form-row">
+    <div class="form-row">
 	<label>名前検索</label>
 	<input type="text" name="full_name" placeholder="氏名を入力してください">
-	</div><br>--%>
+	</div><br>
 
-
+<%--
 	<div class="form-row">
 	<label>ミョウジ</label>
 	<input type="text" name="k_f_name"></div><br>
@@ -40,7 +40,7 @@ pageEncoding="UTF-8"%>
 	<div class="form-row">
 	<label>電話番号</label>
 	<input type="text" name="phone"></div><br>
-	
+	--%>
 	<input type="submit" name="search" value="検索" class=sercher-botton><br>
 	
 </form>

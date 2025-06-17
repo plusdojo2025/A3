@@ -14,7 +14,7 @@ public class SikijoDAO {
 	
 	
 	//コーステーブルの全てのデータを取得するメソッド
-	public List<SikijoDTO> select(){
+	public List<SikijoDTO> select(int courseId){
 		//返却するArrayListをあらかじめ用意しておく（中身なし）
 		List<SikijoDTO> sikijoList = new ArrayList<>();
 		//DBへの道筋を入れる箱を用意（あとで中身入れる）
@@ -24,13 +24,15 @@ public class SikijoDAO {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
-			conn = DriverManager.getConnection("jdbc:mysql://lovalhost:kkss?"
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kkss?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 					"root", "password");
 			//SQL文準備（式場のデータ全て取得）
-			String sql = "SELECT * FROM sikijo ";
+			String sql = "SELECT sikijo.sikijo_id,sikijo.jm_number,sikijo.name,sikijo.address FROM sikijo "
+					+ "JOIN sc ON sikijo.sikijo_id = sc.sikijo_id "
+					+ "WHERE course_id =?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			
+			pStmt.setInt(1, courseId);
 			//SQL文実行
 			ResultSet rs = pStmt.executeQuery();
 			
@@ -41,9 +43,9 @@ public class SikijoDAO {
 				
 				//上のDTOに値を入れていく（DBの値をDTOへコピー）
 				dto.setSikijoId(rs.getInt("sikijo_id"));
-				dto.setSikijoName(rs.getString("sikijo_name"));//要変更
 				dto.setSikijoJmNumber(rs.getString("jm_number"));//要変更
-				dto.setSikijoComment(rs.getString("comment"));//要変更
+				dto.setSikijoName(rs.getString("name"));//要変更
+				dto.setSikijoAddress(rs.getString("address"));//要変更
 				
 				//値が入った枝豆（上のDTO）をArrayListに追加
 				sikijoList.add(dto);
