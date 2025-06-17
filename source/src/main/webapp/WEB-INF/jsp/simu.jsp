@@ -26,14 +26,15 @@
 <h2 class="herosimu">シミュレーション</h2>
 </div>
 <form method="POST" id="simu" action="/A3/SimuServlet">
-  <label for="course">コースを選択</label>
+  
 <!-- Aコース -->
 <div class="tab">
+<label for="course">コースを選択</label>
 <details>
 	<summary>
 	  <input type="radio" name="course" value="350000">Aコース<br>
 	</summary>
-		<table>
+		<table class="course">
 			<tr>
 				<td>
 				  <p>オプション選択</p>
@@ -42,7 +43,7 @@
 			<tr>
 				<td>
 					<label>
-					<input type="checkbox" name="option" value="1300000">魚入刀（本マグロ５０キロ）<br>
+					<input type="checkbox" name="option" value="1300000">魚入刀<br>
 					</label>
 				</td>
 			</tr>
@@ -62,7 +63,7 @@
 			  </tr>
 		  </table>
 
-		  <table>
+		  <table class="course">
 			<tr>
 				<td>
 				  <p>式場選択</p>
@@ -104,7 +105,7 @@
 	<summary>
 	  <input type="radio" name="course" value="1810000">Bコース<br>
 	</summary>
-		<table>
+		<table class="course">
 			<tr>
 				<td>
 				  <p>オプション選択</p>
@@ -133,7 +134,7 @@
 			  </tr>
 		  </table>
 
-		  <table>
+		  <table class="course">
 			<tr>
 				<td>
 				  <p>式場選択</p>
@@ -187,9 +188,9 @@
 <!-- Cコース -->
 <details>
 	<summary>
-	  <input type="radio" name="course" value="">Cコース<br>
+	  <input type="radio" name="course" value="2330000">Cコース<br>
 	</summary>
-		<table>
+		<table class="course">
 			<tr>
 				<td>
 				  <p>オプション選択</p>
@@ -218,7 +219,7 @@
 			  </tr>
 		  </table>
 
-		  <table>
+		  <table class="course">
 			<tr>
 				<td>
 				  <p>式場選択</p>
@@ -248,8 +249,10 @@
 		  </table>
 </details>
 <!-- Cコース -->
-<input type="button" onclick="price.value=Math.round(Number(option.value)+Number(sikijo.value));" value="計算する"><br>
-合計<output name="price"></output> 円
+
+<input type="button" onclick="return calc()" value="計算する">
+	<br>
+合計<output name="price" id="pr"></output> 円
 </div>
 <!-- <button onclick="calculate()">計算</button>
 <div id="result"></div> -->
@@ -260,7 +263,28 @@
 </div>
 <!-- ふっだーここまで -->
 </form>
+<script>
+function calc() {
+	  const checked = document.querySelectorAll('input[name="option"]:checked');
+	  const values = Array.from(checked).map(cb => Number(cb.value));
+	  /* constは値画変えられないのでansはletで設定 */
+	  let ans = 0;
+	  for (let i = 0; i < values.length; i++) {
+	    ans += values[i];
+	  }
+	  /* コースと式場がチェックされたら */
+	  const course = document.querySelector('input[name="course"]:checked');
+	  const sikijo = document.querySelector('input[name="sikijo"]:checked');
+	  /* course ? Number(course.value)で文字列になってしまっている値を数字に変える */
+	  const courseValue = course ? Number(course.value) : 0;
+	  const sikijoValue = sikijo ? Number(sikijo.value) : 0;
+	  /* 足し算 */
+	  const total = ans + courseValue + sikijoValue;
+	  const price = document.getElementById("pr");
+	  price.value = total;
+	}
 
+</script>
 
 </body>
 </html>
