@@ -51,4 +51,3 @@ public class SampleDAO {
         return result;
     }
 }
-
