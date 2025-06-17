@@ -1,6 +1,6 @@
 create table course (
  course_id int  primary key auto_increment,
- course_name VARCHAR (5) not null,
+ course_name VARCHAR (5) not null,/*INT　から　VARCHAR　に変更しました*/
  jm_number VARCHAR (5) not null,
  comment VARCHAR(150) not null,
  option1 VARCHAR (20) not null,
