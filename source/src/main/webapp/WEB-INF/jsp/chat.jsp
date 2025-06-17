@@ -25,6 +25,7 @@
 	
 	    function connect() {
 	        // WebSocketを初期化するで
+	        loadChatHistory(); // ← 先に履歴を取って表示
 	        socket = new WebSocket("ws://" + window.location.host + "/etcProject/chat");
 	
 	        // 接続が開いたときの処理やで
@@ -78,6 +79,28 @@
 	        socket.send(messageToSend);
 	        document.getElementById("message").value = "";
 	    }
+	    function loadChatHistory() {
+	        fetch("/etcProject/loadHistory", {
+	            method: "POST",
+	            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+	            body: "user_id_speaker=" + user_id_speaker + "&user_id_listener=" + user_id_listener
+	        })
+	        .then(res => res.json())
+	        .then(data => {
+	            data.forEach(msg => {
+	                const messageClass = (msg.speaker === user_id_speaker) ? "sent-message" : "received-message";
+	                const messageElement = `
+	                    <div class="${messageClass}">
+	                        <div class="message-time">${msg.createdAt}</div>
+	                        <div class="message-content">${msg.message}</div>
+	                    </div>
+	                `;
+	                document.getElementById("messages").innerHTML += messageElement;
+	            });
+	            document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
+	        });
+	    }
+
 	</script>
 </body>
 </html>
