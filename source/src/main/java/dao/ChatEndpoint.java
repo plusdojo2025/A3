@@ -125,4 +125,3 @@ public class ChatEndpoint {
         logger.log(Level.SEVERE, "Error in session " + session.getId(), throwable);
     }
 }
-
