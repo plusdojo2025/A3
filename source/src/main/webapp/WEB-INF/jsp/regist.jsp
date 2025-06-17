@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>結婚しなサイト｜新規登録</title>
+<link rel="stylesheet" href="<c:url value='/css/all.css' />">
+<link rel="stylesheet" href="<c:url value='/css/regist.css' />">
 <link rel="stylesheet" href="css/all.css"> 
 <link rel="stylesheet" href="css/regist.css"> 
 </head>
@@ -21,26 +23,27 @@
 <!-- ヘッダーここまで -->
 <!-- メインここから -->
 <h2 class="hero contact">新規登録</h2>
-<form method="POST" action="/A3/RegistServlet">
+<form method="POST" id="form" action="/A3/RegistServlet">
 <table>
 <tr>
 	<td>
-	<span id="error_message"></span>
+		<p id="error_message"></p><br>
 		<label>ID(必須)</label>
 	</td>
 	<td>
-		<span id="error_message"></span>
+	<br>
+		<p id="error_message1"></p><br>
 		<label>Password(必須)</label>
 		
 	</td>
 <tr>
 	<td>
-	<input type="text" name="id"><br>
+	<input type="text" name="id" id="id"><br>
 	</td>
 
 	<td>
 		<label>
-		<input type="text" name="pw"><br>
+		<input type="text" name="pw" id="pw"><br>
 		</label>
 	</td>
 </tr>
@@ -140,7 +143,7 @@
 <tr>
 	<td>
 	<span id="error_message2"></span>
-		<label>メールアドレス</label>
+		<label>メールアドレス(@マークも入力してください)</label>
 	</td>
 </tr>
 <tr>
@@ -163,9 +166,10 @@
 	</td>
 </tr>
 </table>
+<p id="error_message"></p>
 </form>
 <form method="POST" action="/A3/RegistServlet">
-<input type="submit" name="regist" value="登録">
+<input type="submit" name="regist" value="登録" onclick="return touroku()">
 </form>
 <!-- メインここまで -->
 <!-- ふっだーここから -->
@@ -189,23 +193,37 @@ function radioDeselection(already, numeric) {
 let formObj = document.getElementById('regist_form');
 let errorMessageObj = document.getElementById('error_message');
 
-/* [実行]ボタンをクリックしたときの処理 */
-formObj.onsubmit = function() {
-  /* 氏名を必須入力項目とします */
-  if (!formObj.name.value) {
-    errorMessageObj.textContent = '※IDとPWを入力してください！';
-    return false;
-  }else if(!foemObj.email.value){
-	
-  }
+/* ボタンをクリックしたときの処理 */
+  /* IDPWを必須入力項目とします */
 
+    /* document.getElementById('form').onsubmit = function(event){
+        const user_id = document.getElementById('id').value.trim();
+        const user_pw = document.getElementById('pw').value.trim();
+        if(user_id === '' || user_pw === '') {
+          event.preventDefault();
+          document.getElementById('error_message').textContent = 'IDとPWを両方入力してください！';
+        }
+      }; */
+      
   /* 確認ダイアログボックスを表示します */
-  if (!window.confirm('実行します。よろしいですか？')) {
-    return false;
-  }
-
-  errorMessageObj.textContent = null;
-};
+function touroku(event){
+    	 
+     const user_id = document.getElementById('id').value.trim();
+    const user_pw = document.getElementById('pw').value.trim();
+    
+    if(user_id === '' || user_pw === '') {
+      /* event.preventDefault(); */
+      document.getElementById('error_message').textContent = 'IDとPWを両方入力してください！';
+   
+      return false;
+      
+    }  
+    
+     if (!window.confirm('実行します。よろしいですか？')) {
+	   	 /* event.preventDefault();  */
+		return false;
+	} 
+}
 
 </script>
 </body>
