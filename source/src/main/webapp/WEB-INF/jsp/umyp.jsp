@@ -27,14 +27,14 @@
 		<button type="submit">申し込み履歴</button>
 		</form>
 		
-		<form method="get" action="/A3/UMypServlet" >
-		<button type="submit">ログアウト</button><br>
-		</form>
-		
-		<form method="get" action="/A3/UMypServlet" >
+		<form method="get" action="/A3/HomeServlet" >
 		<button type="submit">ホームへ戻る</button><br>
 		</form>
 		
+		
+		<form method="get" action="/A3/UMypServlet" >
+		<button type="submit">ログアウト</button><br>
+		</form>
 	</div>
 </body>
 </html>

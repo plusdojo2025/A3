@@ -46,8 +46,9 @@ public class CDataServlet extends HttpServlet {
 		
 		// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
-				String k_f_name= request.getParameter("k_f_name");
-				String k_l_name= request.getParameter("k_l_name");
+				String fName= request.getParameter("fName");
+				String lName= request.getParameter("lName");
+				String gender= request.getParameter("gender");
 				String address = request.getParameter("adress");
 				String phone = request.getParameter("phone");
 		
