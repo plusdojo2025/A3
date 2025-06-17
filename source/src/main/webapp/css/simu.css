@@ -24,7 +24,7 @@
 }
 
 .tab {
- margin: 10px auto;
+ margin: 10px auto;/*上右下左の順番*/
  text-align: center;
  background-color: rgba(251,232,211,0.5);
  padding: 180px;
@@ -36,6 +36,6 @@
 }
 
 .course{
-	margin: 10px auto;
-	text-align: center;
+	margin: auto 40px auto 10px;
+	text-align: left;
 }

@@ -100,6 +100,7 @@
 		  </table>
 </details>
 <!-- Aコース -->
+<br>
 <!-- Bコース -->
 <details>
 	<summary>
@@ -185,6 +186,7 @@
 		  </table>
 </details>
 <!-- Bコース -->
+<br>
 <!-- Cコース -->
 <details>
 	<summary>
