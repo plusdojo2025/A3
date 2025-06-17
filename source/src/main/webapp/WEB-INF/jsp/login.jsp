@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,11 +48,10 @@
             </table>
             <p id="ptag"></p>
 </form>            
-        <!-- 失敗時のメッセージ表示
+        
         <c:if test="${not empty errorMsg}">
             <p style="color:red;">${errorMsg}</p>
         </c:if>
-        -->
         
 	<form method="POST" action="/A3/RegistServlet">
 	<input type="submit" name="submit" value="新規の方はこちら">	
