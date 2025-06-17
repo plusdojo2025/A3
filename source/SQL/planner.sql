@@ -6,6 +6,6 @@ create table planner (
  gender varchar (2),
  phone varchar (11),
  siki_add varchar (100),
- strong_fild varchar (200)
+ strong_fild varchar (200),
  image varchar (50)
 );
