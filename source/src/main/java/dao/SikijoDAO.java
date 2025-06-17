@@ -24,15 +24,15 @@ public class SikijoDAO {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kkss?"
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/A3?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 					"root", "password");
 			//SQL文準備（式場のデータ全て取得）
-			String sql = "SELECT sikijo.sikijo_id,sikijo.jm_number,sikijo.name,sikijo.address FROM sikijo "
+			String sql = "SELECT sikijo.sikijo_id,sikijo.jm_number,sikijo.name,sikijo.address,sikijo.image FROM sikijo "
 					+ "JOIN sc ON sikijo.sikijo_id = sc.sikijo_id "
 					+ "WHERE course_id =?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setInt(1, courseId);
+			pStmt.setInt(1, courseId);//SQL内の 1つ目の ? に sikijoId の値（int型）を設定
 			//SQL文実行
 			ResultSet rs = pStmt.executeQuery();
 			
@@ -46,7 +46,7 @@ public class SikijoDAO {
 				dto.setSikijoJmNumber(rs.getString("jm_number"));//要変更
 				dto.setSikijoName(rs.getString("name"));//要変更
 				dto.setSikijoAddress(rs.getString("address"));//要変更
-				
+				dto.setSikijoImage(rs.getString("image"));//要変更
 				//値が入った枝豆（上のDTO）をArrayListに追加
 				sikijoList.add(dto);
 			}

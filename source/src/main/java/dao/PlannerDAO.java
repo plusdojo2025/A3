@@ -13,7 +13,7 @@ import dto.PlannerDTO;
 public class PlannerDAO {
 	
 	//インスタンス化＝（セレクトメソッド）
-	public List<PlannerDTO> select(){
+	public List<PlannerDTO> select(int sikijoId){
 		//返却用ArrayList
 		List<PlannerDTO> plannerList = new ArrayList<>();
 		//DBの道筋用conn
@@ -23,13 +23,16 @@ public class PlannerDAO {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kkss?"
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/A3?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 					"root", "password");
 			//SQL準備（プランナーのデータすべて取得）（ハッピーセット）
-			String sql = "SELECT * FROM planner";
+			String sql = "SELECT * FROM planner "
+			           + "JOIN sp ON planner.planner_id = sp.planner_id "
+			           + "WHERE sikijo_id = ?";
+
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			
+			pStmt.setInt(1, sikijoId);//SQL内の 1つ目の ? に sikijoId の値（int型）を設定
 			//SQL文実行（結果を返すSQLの実行用）
 			ResultSet rs = pStmt.executeQuery();
 			
@@ -41,10 +44,13 @@ public class PlannerDAO {
 				//上のDTOに値を入れていく（DTOにコピー）
 				dto.setPlannerId(rs.getInt("planner_id"));
 				dto.setId(rs.getString("id"));
-				dto.setPassword(rs.getString("id"));
-				dto.setPlannerName(rs.getString("planner_name"));
-				dto.setPlanner(rs.getString(""));//要変更
-				
+				dto.setPassword(rs.getString("password"));
+				dto.setPlannerName(rs.getString("name"));
+				dto.setPlannerGender(rs.getString("gender"));//要変更
+				dto.setPlannerPhone(rs.getString("phone"));
+				dto.setPlannerSikiAdd(rs.getString("siki_add"));
+				dto.setPlannerStrongFild(rs.getString("strong_fild"));
+				dto.setPlannerImage(rs.getString("image"));
 				//枝豆をArrayListに追加
 				plannerList.add(dto);
 			}

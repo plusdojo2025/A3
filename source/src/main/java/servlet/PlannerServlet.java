@@ -34,14 +34,17 @@ public class PlannerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String str = request.getParameter("sikijo_id");
+		int sikijoId = Integer.parseInt(str);
+		 
 		
 		//DAOのインスタンス化
 		PlannerDAO dao = new PlannerDAO();
-		List<PlannerDTO>plannerList = dao.select();
+		List<PlannerDTO>plannerList = dao.select(sikijoId);
 		
 		//JSPに渡す
 		request.setAttribute("plannerList", plannerList);
-		
+		//request.setAttribute("sikijoName", sikijoName);
 		// プランナーページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/planner.jsp");  
 		// ディスパッチャを取得

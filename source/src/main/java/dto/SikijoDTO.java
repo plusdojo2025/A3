@@ -7,6 +7,7 @@ public class SikijoDTO {
 	private String jmNumber;
 	private String name;
 	private String address;
+	private String image;
 	
 	//ゲッターセッター
 	public int getSikijoId() {
@@ -32,5 +33,11 @@ public class SikijoDTO {
 	}
 	public void setSikijoAddress(String sikijoAddress) {
 		this.address = sikijoAddress;
+	}
+	public String getSikijoImage() {
+		return image;
+	}
+	public void setSikijoImage(String sikijoImage) {
+		this.image = sikijoImage;
 	}
 }
