@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 <main>
 <div class="login_box">
 <h2>ログイン</h2>
-<form  id="check" method="POST" action="/A3/PWelcomeServlet">
+<form  id="check" method="POST" action="/A3/PLoginServlet">
             <table>
               <tr>
                 <td>
@@ -38,11 +39,14 @@
             </table>
             <p id="ptag"></p>
 </form>
+        <c:if test="${not empty errorMsg}">
+            <p style="color:white;">${errorMsg}</p>
+        </c:if>
 </div>
 </main>
  
 
- <%-- ユーザーログインの整合性を取る
+ <%-- ユーザーログインの整合性を取る--%>
  <script>
       'use strict';
 
@@ -54,7 +58,10 @@
         document.getElementById('ptag').textContent = 'IDとPWを両方入力してください！';
       } 
     };
+    
+    const formObj = document.getElementById('check');
+    sessionStorage.setItem('plannername', document.getElementById('id').value);//ユーザー名を保存（セッションストレージ）
   </script>
-  --%>
+  
 </body>
 </html>

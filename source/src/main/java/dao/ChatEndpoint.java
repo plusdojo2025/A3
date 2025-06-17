@@ -58,7 +58,7 @@ public class ChatEndpoint {
                     String user_id_listener = (String) session.getUserProperties().get("user_id_listener");
 
                     try {
-                        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kkss?"
+                        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 					"root", "password");
                         String sql = "SELECT user_id_speaker, user_id_listener, talk, created_at FROM chat WHERE (user_id_speaker = ? AND user_id_listener = ?) OR (user_id_speaker = ? AND user_id_listener = ?) ORDER BY created_at ASC";

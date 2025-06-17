@@ -6,14 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dto.Uidpw;
+import dto.AllDTO;
 
 public class UidpwDAO {
 
 	// 引数で指定されたidpwでログイン成功ならtrueを返す
-		public String isLoginOK(Uidpw uidpw) {
+			public AllDTO findUserByLogin(String id, String pw) {
 			Connection conn = null;
-			String result = null;
+			AllDTO user = null;
 
 			try {
 				// JDBCドライバを読み込む
@@ -27,16 +27,19 @@ public class UidpwDAO {
 				// SELECT文を準備する
 				String sql = "SELECT * FROM user WHERE id=? AND pw=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
-				pStmt.setString(1, uidpw.getId());
-				pStmt.setString(2, uidpw.getPw());
+				pStmt.setString(1,id);
+				pStmt.setString(2,pw);
 
 				// SELECT文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();
 
-				// ユーザーIDとパスワードが一致するユーザーがいれば結果をtrueにする
-				while (rs.next()) {
-					result = rs.getString("name");
-				}
+	            if (rs.next()) {
+	                user = new AllDTO();
+	                user.setId(rs.getString("id"));
+	                user.setPw(rs.getString("pw"));
+	                user.setlName(rs.getString("l_name"));
+	            }
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -46,6 +49,6 @@ public class UidpwDAO {
 					e.printStackTrace();
 				}
 			}
-			return result;
+			return user;
 		}
 }
