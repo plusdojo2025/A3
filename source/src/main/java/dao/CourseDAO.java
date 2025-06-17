@@ -28,6 +28,7 @@ public class CourseDAO {
 					"root", "password");
 			// SQL文の準備（コースのデータ全て取得）（ハッピーセット）
 			String sql = "SELECT * FROM course ";
+					
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			

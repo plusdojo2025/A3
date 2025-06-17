@@ -40,8 +40,10 @@ public class PlannerDAO {
 				
 				//上のDTOに値を入れていく（DTOにコピー）
 				dto.setPlannerId(rs.getInt("planner_id"));
+				dto.setId(rs.getString("id"));
+				dto.setPassword(rs.getString("id"));
 				dto.setPlannerName(rs.getString("planner_name"));
-				dto.setPlanner〇〇(rs.getString("〇〇"));//要変更
+				dto.setPlanner(rs.getString(""));//要変更
 				
 				//枝豆をArrayListに追加
 				plannerList.add(dto);
