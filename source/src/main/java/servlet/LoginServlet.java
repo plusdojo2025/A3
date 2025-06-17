@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UidpwDAO;
-import dto.LoginUser;
-import dto.Uidpw;
+import dto.AllDTO;
 
 /**
  * Servlet implementation class LoginServlet
@@ -36,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 	// メニューページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");  
-		// メニューページ（login.jsp）へのディスパッチャを取得
+		// メニューページ（.jsp）へのディスパッチャを取得
 		dispatcher.forward(request, response);  
 		// メニューページへリクエストとレスポンスを転送
 	}
@@ -52,11 +51,11 @@ public class LoginServlet extends HttpServlet {
 		String pw = request.getParameter("pw");
 		
 		UidpwDAO uDao = new UidpwDAO();
-		String name = uDao.isLoginOK(new Uidpw(id, pw));
-		if (name != null) { // ログイン成功
+		AllDTO user = uDao.findUserByLogin(id, pw);
+		if (user != null) { // ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", new LoginUser(id,name));
+			session.setAttribute("loginUser",user);
 
 			// メニューサーブレットにリダイレクトする
 			response.sendRedirect("/webapp/HomeServlet");
