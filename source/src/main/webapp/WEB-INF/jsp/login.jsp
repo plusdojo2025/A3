@@ -27,7 +27,7 @@
 -->    
 <div class="login_box">
 <h2>ログイン</h2>
-<form  id="check" method="POST" action="/A3/HomeServlet">
+<form  id="check" method="POST" action="/A3/LoginServlet">
             <table>
               <tr>
                 <td>
