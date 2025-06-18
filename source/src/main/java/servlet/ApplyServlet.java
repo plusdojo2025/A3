@@ -28,7 +28,8 @@ public class ApplyServlet extends HttpServlet {
 		
 		List<CourseDTO>courseList = dao.select();
 		//JSPに渡す
-		request.setAttribute("courseList", courseList);		
+		request.setAttribute("courseList", courseList);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply2.jsp");
 		dispatcher.forward(request, response);	
 	}
@@ -38,12 +39,12 @@ public class ApplyServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-//		CourseDAO dao = new CourseDAO();
-//		
-//		List<CourseDTO>courseList = dao.select();
-//		//JSPに渡す
-//		request.setAttribute("courseList", courseList);		
-//		
+		//apply2.jspのデータを取得
+		request.setCharacterEncoding("UTF-8");
+		String course = request.getParameter("course");
+		
+		//aply3.jspへ
+		request.setAttribute("course", course);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply3.jsp");
 		dispatcher.forward(request, response);			
