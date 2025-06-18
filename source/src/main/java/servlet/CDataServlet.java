@@ -1,6 +1,7 @@
  package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.UserDAO;
 
 /**
  * Servlet implementation class CDataServlet
@@ -46,16 +49,23 @@ public class CDataServlet extends HttpServlet {
 		
 		// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
+				String fullName= request.getParameter("fullName");
 				String fName= request.getParameter("fName");
 				String lName= request.getParameter("lName");
 				String gender= request.getParameter("gender");
 				String address = request.getParameter("adress");
 				String phone = request.getParameter("phone");
 		
+				UserDAO bDao = new UserDAO();
+				List<user> cardList = UserDAO.select(new user(fName,lName,gender,"",phone));
 				
+				request.setAttribute("cardList", cardList);
 				// 検索処理を行う
 				//BcDAO bDao = new BcDAO();
 				//List<Bc> cardList = bDao.select(new Bc(k_f_name,k_l_name,address,phone));
+				//jspに処理を飛ばして
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
+				dispatcher.forward(request, response);
 	}
 	
 	
