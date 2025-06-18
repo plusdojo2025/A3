@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>マイページ</title>
+<link rei="stylesheet" type=""tte>
 </head>
 <body>
 
