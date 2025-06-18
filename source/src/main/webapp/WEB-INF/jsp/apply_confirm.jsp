@@ -10,7 +10,7 @@
 <main>
 </main>
 <h2 id="regist">申し込み確認</h2>
- 	<form method="POST" action="/A3/ApplyServlet"
+ 	<form method="POST" action="/A3/ApplyCompServlet"
 			id="apply_confirm_form">
 	
 	<p>
