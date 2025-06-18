@@ -10,4 +10,6 @@ CREATE TABLE apply (
   FOREIGN KEY (`course_id`)  REFERENCES `course`(`course_id`)
 );
 insert into apply (apply_id,user_id,planner_id,sikijo_id,course_id) value
-()
+(
+
+)

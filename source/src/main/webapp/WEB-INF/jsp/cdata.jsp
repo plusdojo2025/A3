@@ -69,6 +69,6 @@ pageEncoding="UTF-8"%>
     <p>一致するデータがありません</p>
 </c:if>
 
-<a href="/A3/HomeServlet">ホームへ戻る</a>
+<a href="/A3/PWelcomeServlet">ホームへ戻る</a>
 </body>
 </html>
