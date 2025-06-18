@@ -21,7 +21,7 @@
 </ul>
 
 <div class="name-box">
-	 ようこそ<c:out value="${planner.pName}"/>
+<P>ようこそ<c:out value="${planner.pName}"/></P>
 </div>
 </body>
 </html>
