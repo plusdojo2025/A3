@@ -14,7 +14,7 @@
 <main>
 <div class="login_box">
 <h2>ログイン</h2>
-<form  id="check" method="POST" action="/A3/PLoginServlet">
+<form  id="check" method="POST" action="/A3/PWelcomeServlet">
             <table>
               <tr>
                 <td>

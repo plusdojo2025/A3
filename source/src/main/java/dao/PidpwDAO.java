@@ -10,7 +10,7 @@ import dto.AllDTO;
 
 public class PidpwDAO {
 	// 引数で指定されたidpwでログイン成功ならtrueを返す
-			public AllDTO findPlannerByLogin(String id, String pw) {
+			public AllDTO findPlannerByLogin(String id, String password) {
 				Connection conn = null;
 				AllDTO planner = null;
 
@@ -19,7 +19,7 @@ public class PidpwDAO {
 					Class.forName("com.mysql.cj.jdbc.Driver");
 
 					// データベースに接続する
-					conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/planner?"
+					conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
 							+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 							"root", "password");
 
@@ -27,7 +27,7 @@ public class PidpwDAO {
 					String sql = "SELECT * FROM planner WHERE id=? AND password=?";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 					pStmt.setString(1, id);
-					pStmt.setString(2, pw);
+					pStmt.setString(2, password);
 
 					// SELECT文を実行し、結果表を取得する
 					ResultSet rs = pStmt.executeQuery();
