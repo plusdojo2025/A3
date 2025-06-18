@@ -103,55 +103,40 @@ public class UserDAO {
 				pStmt.setString(1, "");
 			}
 			if (user.getfName() != null) {
-				pStmt.setString(1, user.getFname());
+				pStmt.setString(1, user.getfName());
 			} else {
 				pStmt.setString(1, "");
 			}
-			if (user.getlName() != null) {
-				pStmt.setString(2, user.getlName());
+			if (user.getBirthday() != null) {
+				pStmt.setString(2, user.getBirthday());
 			} else {
 				pStmt.setString(2, "");
 			}
 			
-			if (user.get() != null) {
-				pStmt.setString(3, user.getPosition());
+			if (user.getGender() != null) {
+				pStmt.setString(3, user.getGender());
 			} else {
 				pStmt.setString(3, "");
 			}
-			if (card.getName() != null) {
-				pStmt.setString(4, card.getName());
+			if (user.getZipcode() != null) {
+				pStmt.setString(4, user.getZipcode());
 			} else {
 				pStmt.setString(4, "");
 			}
-			if (card.getZipcode() != null) {
-				pStmt.setString(5, card.getZipcode());
+			if (user.getAddress() != null) {
+				pStmt.setString(5, user.getAddress());
 			} else {
 				pStmt.setString(5, "");
 			}
-			if (card.getAddress() != null) {
-				pStmt.setString(6, card.getAddress());
+			if (user.getEmail() != null) {
+				pStmt.setString(6, user.getEmail());
 			} else {
 				pStmt.setString(6, "");
 			}
-			if (card.getPhone() != null) {
-				pStmt.setString(7, card.getPhone());
+			if (user.getPhone() != null) {
+				pStmt.setString(7, user.getPhone());
 			} else {
 				pStmt.setString(7, "");
-			}
-			if (card.getFax() != null) {
-				pStmt.setString(8, card.getFax());
-			} else {
-				pStmt.setString(8, "");
-			}
-			if (card.getEmail() != null) {
-				pStmt.setString(9, card.getEmail());
-			} else {
-				pStmt.setString(9, "");
-			}
-			if (card.getRemarks() != null) {
-				pStmt.setString(10, card.getRemarks());
-			} else {
-				pStmt.setString(10, "");
 			}
 
 			// SQL文を実行する
