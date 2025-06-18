@@ -48,17 +48,18 @@ public class PLoginServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");//idをjspで書かないとString""=となる　nullではない
-		String pw = request.getParameter("pw");
+		String password = request.getParameter("password");
 		
 		PidpwDAO pDao = new PidpwDAO();
-		AllDTO planner = pDao.findPlannerByLogin(id, pw);
+		AllDTO planner = pDao.findPlannerByLogin(id, password);
 		if (planner != null) { // ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("loginPlanner",planner);
-
+			session.setAttribute("planner",planner);
 			// メニューサーブレットにリダイレクトする
-			response.sendRedirect("/webapp/PWelcomeServlet");
+			response.sendRedirect("PWelcomeServlet");
+		    //RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pwelcome.jsp");
+		    //dispatcher.forward(request, response);
 		} else { // ログイン失敗
 			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
 			request.setAttribute("errorMsg", "IDまたはPWに間違いがあります。");

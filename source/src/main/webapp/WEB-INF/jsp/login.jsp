@@ -17,6 +17,7 @@
 <body>
 
 <main>
+
 <!--<c:choose>
     <c:when test="${not empty userName}">
         <h2>ようこそ、${userName} さん！</h2>

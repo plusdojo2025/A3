@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/all.css">
-<link rel="stylesheet" type="text/css" href="css/pwelcome.css">
+<link rel="stylesheet" href="<c:url value='/css/all.css' />">
+<link rel="stylesheet" href="<c:url value='/css/pwelcome.css' />">
 </head>
 <body>
 <ul id="nav">
@@ -21,7 +21,7 @@
 </ul>
 
 <div class="name-box">
-	<!-- ようこそ<c:out value="${sessionScope.loginPlanner.pName}"/> -->
+	 ようこそ<c:out value="${planner.pName}"/>
 </div>
 </body>
 </html>
