@@ -3,3 +3,31 @@ body{
 	text-align:center;
 	white-spece:nowrap;
 }
+
+#ikinou{
+	background-image: url(../img/whiteflowerremake.png);
+	padding: 14px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+}
+
+.footer {
+	padding: 170px;
+	max-width: 240px;
+	text-align: left;
+	margin-left:auto;
+	font-size: 16px;
+}
+
+#asita {
+ background-color: rgba(251,232,211,0.5);
+ padding: 20px;
+ border-radius: 100px;
+ box-shadow: 0 0 10px rgba(0,0,0,0.1);
+ width: 430px;
+ margin: 150px 0 70px 200px; /*上右下左の順番*/
+ font-size: 20px;
+ text-align: center;
+}

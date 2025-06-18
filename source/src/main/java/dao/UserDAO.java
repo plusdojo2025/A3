@@ -3,13 +3,11 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import dto.AllDTO;
-import util.DBConnection;
 
 public class UserDAO {
 
@@ -19,58 +17,47 @@ public class UserDAO {
         List<AllDTO> list = new ArrayList<>();
        
         
-        String sql = "SELECT * FROM users WHERE CONCAT(f_name, ' ', l_name) LIKE ?";
-        //${All,fName} ${All,lName}
-            
-            AllDTO dto = new AllDTO();
-          dto.setfName(rs.getString("fName"));           
-          dto.setlName(rs.getString("lName"));
-          dto.setGender(rs.getString("gender"));
+        String sql = "SELECT * FROM users WHERE fName like=? || lNmae like=?";
+        PreparedStatement pStmt = conn.prepareStatement(sql);
+		//pStmt.setString(1,id);
+		//pStmt.setString(2,pw);
+          dto.setAddress(rs.getString("fName"));
+          dto.setAddress(rs.getString("lName"));
+          dto.setAddress(rs.getString("gender"));
           dto.setAddress(rs.getString("address"));
           dto.setPhone(rs.getString("phone"));
               list.add(dto);
             
     
-              // SQL文を実行し、結果表を取得する
-		//ここではけっかがすぐにかえってこさせてる（resultset型は票のなんでも取りますよって感じ
-		ResultSet rs = pStmt.executeQuery();
-		
-		// 結果表をコレクションにコピーする
-		//BC.setName(rs.getInt("number")):
-		//リザルトセットはカードリストはDAOだから仕事が終わってサーブレットに渡す。カードリストの中にアレイリスト
-		while (rs.next()) {
-			Bc bc = new Bc(rs.getInt("number"),
-						   rs.getString("company"),
-						   rs.getString("department"),
-						   rs.getString("position"),
-						   rs.getString("name"),
-						   rs.getString("zipcode"),
-						   rs.getString("address"),
-						   rs.getString("phone"),
-						   rs.getString("fax"),
-						   rs.getString("email"),
-						   rs.getString("remarks"));
-			cardList.add(bc);
-		}
+       
 
-
-
+        String sql = "INSERT INTO Bc VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	    PreparedStatement pStmt = conn.prepareStatement(sql);
-	    if (user.getCompany() != null) {
-			pStmt.setString(1, "%" + user.getCompany() + "%");
+	    if (user.getfName() != null) {
+			pStmt.setString(1, "%" + user.getfName() + "%");
 		} else {
 			pStmt.setString(1, "%");
 		}
-		if (user.getDepartment() != null) {
-			pStmt.setString(2, "%" +user.getDepartment() + "%");
+		if (user.getlName() != null) {
+			pStmt.setString(2, "%" +user.getlName() + "%");
 		} else {
 			pStmt.setString(2, "%");
 		}
-		if (user.getPosition() != null) {
-			pStmt.setString(3, "%" + user.getPosition() + "%");
+		if (user.getgender() != null) {
+			pStmt.setString(3, "%" + user.getgender() + "%");
 		} else {
 			pStmt.setString(3, "%");
 		}
+		if (user.getaddress() != null) {
+			pStmt.setString(4, "%" + user.getaddress() + "%");
+		} else {
+			pStmt.setString(4, "%");
+		} 
+		if (user.getphone() != null) {
+			pStmt.setString(5, "%" + user.getphone() + "%");
+		} else {
+			pStmt.setString(5, "%");
+		}	
     }
 	//新規登録
 	public boolean insert(AllDTO user) {
@@ -104,6 +91,16 @@ public class UserDAO {
 			}
 			if (user.getfName() != null) {
 				pStmt.setString(1, user.getfName());
+			} else {
+				pStmt.setString(1, "");
+			}
+			if (user.getkfName() != null) {
+				pStmt.setString(1, user.getkfName());
+			} else {
+				pStmt.setString(1, "");
+			}
+			if (user.getklName() != null) {
+				pStmt.setString(1, user.getklName());
 			} else {
 				pStmt.setString(1, "");
 			}
@@ -164,4 +161,3 @@ public class UserDAO {
 	
 	}
       
-}

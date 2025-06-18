@@ -10,6 +10,8 @@ public class AllDTO implements Serializable {
 	private String pw;
 	private String fName;
 	private String lName;
+	private String kfName;
+	private String klName;
 	private String birthday;
 	private String gender;
 	private String zipcode;
@@ -95,6 +97,20 @@ public class AllDTO implements Serializable {
 
 	public void setlName(String lName) {
 		this.lName = lName;
+	}
+	
+	public String getkfName() {
+		return kfName;
+	}
+	public void setkfName(String kfName) {
+		this.kfName = kfName;
+	}
+	
+	public String getklName() {
+		return klName;
+	}
+	public void setklName(String klName) {
+		this.klName = klName;
 	}
 
 	public String getBirthday() {

@@ -21,7 +21,7 @@ public class ApplyDAO {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// データベース(webapp2)に接続する
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kkss?"
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 						"root", "password");
 			
@@ -36,10 +36,11 @@ public class ApplyDAO {
 				ApplyDTO app = new ApplyDTO();
 				
 				app.setCourseId(rs.getInt("apply_id"));
-				app.setCourseId(rs.getInt("user_id"));
-				app.setCourseId(rs.getInt("sikijo_id"));
-				app.setCourseId(rs.getInt("planner_id"));
+				app.setUserId(rs.getInt("user_id"));
+				app.setSikijoId(rs.getInt("sikijo_id"));
+				app.setPlannerId(rs.getInt("planner_id"));
 				app.setCourseId(rs.getInt("course_id"));
+				app.setOptioneId(rs.getInt("option_id"));
 				
 				//applyListに表の1行目から結果を入れていく
 				applyList.add(app);
