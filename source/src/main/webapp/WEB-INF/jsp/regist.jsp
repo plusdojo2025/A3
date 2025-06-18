@@ -13,12 +13,12 @@
 <body>
 <!-- ヘッダーここkら -->
 <ul id="nav">
-<li><a href="/webapp/HomeServlet">ホーム</a></li>
-<li><a href="/webapp/ApplyServlet">申し込み</a></li>
-<li><a href="/webapp/SikijoServlet">式場/コース/プランナー 一覧</a></li>
-<li><a href="/webapp/SimuServlet">シミュレーション機能</a></li>
-<li><a href="/webapp/OOServlet">チャット(Q＆A)</a></li>
-<li><a href="/webapp/UmypServlet">マイページ</a></li>
+<li><a href="/A3/HomeServlet">ホーム</a></li>
+<li><a href="/A3/ApplyServlet">申し込み</a></li>
+<li><a href="/A3/SikijoServlet">式場/コース/プランナー 一覧</a></li>
+<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
+<li><a href="/A3/OOServlet">チャット(Q＆A)</a></li>
+<li><a href="/A3/UMypServlet">マイページ</a></li>
 </ul>
 <!-- ヘッダーここまで -->
 <!-- メインここから -->
