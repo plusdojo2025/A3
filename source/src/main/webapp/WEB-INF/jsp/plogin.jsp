@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/login.css">
-<link rel="stylesheet" type="text/css" href="css/all.css">
+<link rel="stylesheet" href="<c:url value='/css/all.css' />">
+<link rel="stylesheet" href="<c:url value='/css/login.css' />">
 </head>
 <body>
 
@@ -59,8 +59,8 @@
       } 
     };
     
-    const formObj = document.getElementById('check');
-    sessionStorage.setItem('plannername', document.getElementById('id').value);//ユーザー名を保存（セッションストレージ）
+    const plannername = document.getElementById('check');
+    sessionStorage.setItem('plannername',plannername);//ユーザー名を保存（セッションストレージ）
   </script>
   
 </body>
