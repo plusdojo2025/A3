@@ -4,10 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+
+</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/login.css">
-<link rel="stylesheet" type="text/css" href="css/all.css">
+<link rel="stylesheet" href="<c:url value='/css/all.css' />">
+<link rel="stylesheet" href="<c:url value='/css/login.css' />">
+
 
 </head>
 <body>
