@@ -3,7 +3,8 @@ create table sikijo (
  jm_number varchar (30) not null,
  name varchar (30) not null,
  address varchar (30) not null,
- image varchar (50)
+ image varchar (50),
+ sikijo_price varchar (30)
 );
 
 INSERT INTO sikijo VALUES

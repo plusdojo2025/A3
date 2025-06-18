@@ -5,7 +5,8 @@ create table course (
  comment VARCHAR(150) not null,
  option1 VARCHAR (20) not null,
  option2 VARCHAR (20) not null,
- option3 VARCHAR (20) not null
+ option3 VARCHAR (20) not null,
+ course_price varchar (30)
 );
 
 INSERT INTO course VALUES
