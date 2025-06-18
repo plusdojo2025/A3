@@ -1,10 +1,12 @@
-create table sp (
+/*create table sp (
  sp_id int  primary key auto_increment,
  sikijo_id int (30) not null,
  planner_id int (20) not null
 );
+*/
 
-/*複数値をリレーションテーブルで処理できる
+/*複数値をリレーションテーブルで処理できる*/
+
  CREATE TABLE sp (
   sp_id INT AUTO_INCREMENT PRIMARY KEY,
   sikijo_id INT NOT NULL,
@@ -32,4 +34,4 @@ INSERT INTO sp (sp_id, sikijo_id, planner_id) VALUES
 (NULL, 7, 19),
 (NULL, 7, 20),
 (NULL, 7, 21);
- */
+ 
