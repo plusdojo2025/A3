@@ -19,6 +19,17 @@
     <!-- 名前表示（仮） -->
     <div class="user-name">ボス（ディアボロ）</div>
     
+    <%--  <c:forEach var="e" items="${cardList}">
+    <div class="user-name">
+      <p>ユーザー名：${e.fullName}</p>
+    </div>
+  </details>
+</c:forEach>
+     --%>
+    
+    
+    
+    
 		<form method="get" action="/A3/UMyChangeServlet" method="get" class="umyp-form">
 			<button type="submit">登録情報の確認、変更</button>
 		</form>
