@@ -28,8 +28,9 @@
 <form method="POST" id="simu" action="/A3/SimuServlet">
   
 <!-- Aコース -->
+
+<label for="course" id=sentaku>コースを選択</label>
 <div class="tab">
-<label for="course">コースを選択</label>
 <details>
 	<summary>
 	  <input type="radio" name="course" value="350000">Aコース<br>
