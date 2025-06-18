@@ -31,10 +31,10 @@ public class SikijoDAO {
 			String sql = "SELECT sikijo.sikijo_id,sikijo.jm_number,sikijo.name,sikijo.address,sikijo.image FROM sikijo "
 					+ "JOIN sc ON sikijo.sikijo_id = sc.sikijo_id "
 					+ "WHERE course_id =?";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
+			PreparedStatement pStmt = conn.prepareStatement(sql);//全部凝縮されたのが「ｐStmt」
 			pStmt.setInt(1, courseId);//SQL内の 1つ目の ? に sikijoId の値（int型）を設定
 			//SQL文実行
-			ResultSet rs = pStmt.executeQuery();
+			ResultSet rs = pStmt.executeQuery();//なんでも表が入るResultSet型に格納（DAOでしか使えない）
 			
 			//結果表をコレクションにコピー
 			while(rs.next()) {
