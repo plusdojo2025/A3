@@ -57,7 +57,7 @@ public class CDataServlet extends HttpServlet {
 				String phone = request.getParameter("phone");
 		
 				UserDAO bDao = new UserDAO();
-				List<user> cardList = UserDAO.select(new user(fName,lName,gender,"",phone));
+				List<User> cardList = UserDAO.select(new User(fName,lName,gender,"",phone));
 				
 				request.setAttribute("cardList", cardList);
 				// 検索処理を行う
