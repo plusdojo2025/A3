@@ -4,7 +4,7 @@ CREATE TABLE apply (
   planner_id INT NOT NULL,
   sikijo_id  INT NOT NULL,
   course_id  INT NOT NULL,
-  option_id  INT NOT NULL;
+  option_id  INT NOT NULL,
   FOREIGN KEY (`user_id`)    REFERENCES `user`(`user_id`),
   FOREIGN KEY (`planner_id`) REFERENCES `planner`(`planner_id`),
   FOREIGN KEY (`sikijo_id`)  REFERENCES `sikijo`(`sikijo_id`),

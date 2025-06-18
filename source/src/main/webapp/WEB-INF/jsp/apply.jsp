@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<title>申し込み</title>
 	<link rel="stylesheet" href="css/all.css">
+	<link rel="stylesheet" href="css/Apply.css">
 </head>
 
 <body>
@@ -22,9 +23,10 @@
 	</header>
 	
 <main>
-	<h2 id="regist">申し込み</h2>
+	<div class="hero">
+		<h2>申し込み</h2>
+ 	</div>
  	<form method="POST" action="/A3/ApplyConfirmServlet">
- 	
  	    <input type="radio" name="course" value="Acourse" onchange="showDiv('Acourse')">Aコース<br>
 		<div id="divA" style="display:none;">
 		    <details>

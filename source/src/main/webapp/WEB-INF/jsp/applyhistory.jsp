@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,12 +21,13 @@
 		</ul>
 	</header>
 <main>
-	<h2 id="regist">申し込み完了</h2>
-	<p>コース</p>
-	<p>希望式場</p>
-	<p>オプション</p>
-	<p>プランナー</p>
-
+<c:forEach var="e" items="${applyList}">
+	<h2>申し込み完了</h2>
+	<p>コース<br>${e.courseId}</p>
+	<p>希望式場<br>${e.sikijoId}</p>
+	<%-- <p>オプション<br>${e.courseId}</p> --%>
+	<p>プランナー<br>${e.plannerId}</p>
+</c:forEach>
 </main>
 
 
