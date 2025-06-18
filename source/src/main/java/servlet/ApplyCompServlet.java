@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,44 +9,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.CourseDAO;
-import dto.CourseDTO;
-
 /**
- * Servlet implementation class ApplyServlet
+ * Servlet implementation class ApplyCompServlet
  */
-@WebServlet("/ApplyServlet")
-public class ApplyServlet extends HttpServlet {
+@WebServlet("/ApplyCompServlet")
+public class ApplyCompServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CourseDAO dao = new CourseDAO();
 		
-		List<CourseDTO>courseList = dao.select();
-		//JSPに渡す
-		request.setAttribute("courseList", courseList);		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply2.jsp");
-		dispatcher.forward(request, response);	
 	}
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-//		CourseDAO dao = new CourseDAO();
-//		
-//		List<CourseDTO>courseList = dao.select();
-//		//JSPに渡す
-//		request.setAttribute("courseList", courseList);		
-//		
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply3.jsp");
-		dispatcher.forward(request, response);			
-			
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/applyhistory.jsp");
+		dispatcher.forward(request,response);
 	}
 
 }

@@ -50,9 +50,13 @@ pageEncoding="UTF-8"%>
 <div class="form-row">
         <label>名前検索</label>
         <input type="text" name="full_name" placeholder="氏名を入力してください">
+        
     </div>
     <input type="submit" name="search" value="検索" class="sercher-botton"><br>
 </form>
+
+
+
 
 <!-- ↓ 検索結果表示 -->
 <c:forEach var="e" items="${cardList}">

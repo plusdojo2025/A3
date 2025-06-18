@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% String userName = (String) request.getAttribute("userName");
-%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +21,7 @@
 </ul>
 
 <div class="name-box">
-	<p>ようこそ${userName}さん</p>
+	<!-- ようこそ<c:out value="${sessionScope.loginPlanner.pName}"/> -->
 </div>
 </body>
 </html>
