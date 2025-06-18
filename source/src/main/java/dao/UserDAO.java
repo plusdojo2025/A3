@@ -94,6 +94,16 @@ public class UserDAO {
 			} else {
 				pStmt.setString(1, "");
 			}
+			if (user.getkfName() != null) {
+				pStmt.setString(1, user.getkfName());
+			} else {
+				pStmt.setString(1, "");
+			}
+			if (user.getklName() != null) {
+				pStmt.setString(1, user.getklName());
+			} else {
+				pStmt.setString(1, "");
+			}
 			if (user.getBirthday() != null) {
 				pStmt.setString(2, user.getBirthday());
 			} else {
