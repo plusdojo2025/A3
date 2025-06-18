@@ -82,8 +82,8 @@
       } 
     };
     
-    const formObj = document.getElementById('check');
-    sessionStorage.setItem('username', formObj.id.value);//ユーザー名を保存（セッションストレージ）
+    const username = document.getElementById('check');
+    sessionStorage.setItem('username', username);//ユーザー名を保存（セッションストレージ）
   </script>
 
   
