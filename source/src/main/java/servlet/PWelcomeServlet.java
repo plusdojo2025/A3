@@ -19,10 +19,10 @@ public class PWelcomeServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PWelcomeServlet() {
-        super();
+    //public PWelcomeServlet() {
+      //  super();
         // TODO Auto-generated constructor stub
-    }
+    //}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
