@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ import dto.AllDTO;
 public class UserDAO {
 
     // フルネームで検索（f_name + l_name）
-    public List<AllDTO> searchByFullName(String fullName) {
+    public List<AllDTO> searchByFullName(AllDTO user) {
     	Connection conn = null;
         List<AllDTO> list = new ArrayList<>();
        
@@ -21,44 +22,31 @@ public class UserDAO {
         PreparedStatement pStmt = conn.prepareStatement(sql);
 		//pStmt.setString(1,id);
 		//pStmt.setString(2,pw);
-          dto.setAddress(rs.getString("fName"));
-          dto.setAddress(rs.getString("lName"));
-          dto.setAddress(rs.getString("gender"));
-          dto.setAddress(rs.getString("address"));
-          dto.setPhone(rs.getString("phone"));
-              list.add(dto);
+          //dto.setAddress(rs.getString("fName"));
+          //dto.setAddress(rs.getString("lName"));
+          //dto.setAddress(rs.getString("gender"));
+          //dto.setAddress(rs.getString("address"));
+          //dto.setPhone(rs.getString("phone"));
+              //list.add(dto);
             
     
        
 
-        String sql = "INSERT INTO Bc VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	    PreparedStatement pStmt = conn.prepareStatement(sql);
-	    if (user.getfName() != null) {
-			pStmt.setString(1, "%" + user.getfName() + "%");
-		} else {
-			pStmt.setString(1, "%");
-		}
-		if (user.getlName() != null) {
+        //String sql = "INSERT INTO Bc VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	    //PreparedStatement pStmt = conn.prepareStatement(sql);
+	    
+			pStmt.setString(1, "%" + user.getfName() + "%");		
 			pStmt.setString(2, "%" +user.getlName() + "%");
-		} else {
-			pStmt.setString(2, "%");
-		}
-		if (user.getgender() != null) {
-			pStmt.setString(3, "%" + user.getgender() + "%");
-		} else {
-			pStmt.setString(3, "%");
-		}
-		if (user.getaddress() != null) {
-			pStmt.setString(4, "%" + user.getaddress() + "%");
-		} else {
-			pStmt.setString(4, "%");
-		} 
-		if (user.getphone() != null) {
-			pStmt.setString(5, "%" + user.getphone() + "%");
-		} else {
-			pStmt.setString(5, "%");
-		}	
-    }
+		
+			ResultSet rs = pStmt.executeQuery();
+			
+			while(rs.next()) {
+				
+			}
+		
+			
+		
+    
 	//新規登録
 	public boolean insert(AllDTO user) {
 		Connection conn = null;

@@ -29,7 +29,7 @@ public class CDataServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		// TODO Auto-generated method stub
@@ -43,7 +43,7 @@ public class CDataServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
@@ -57,7 +57,7 @@ public class CDataServlet extends HttpServlet {
 				String phone = request.getParameter("phone");
 		
 				UserDAO bDao = new UserDAO();
-				List<User> cardList = UserDAO.select(new User(fName,lName,gender,"",phone));
+				List<All> cardList = UserDAO.select(new All(fName,lName,gender,"",phone));
 				
 				request.setAttribute("cardList", cardList);
 				// 検索処理を行う
