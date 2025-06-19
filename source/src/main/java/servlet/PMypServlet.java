@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;//追加
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.PlannerDAO;//追加
+import dto.PlannerDTO;//追加
 
 /**
  * Servlet implementation class PMypServlet
@@ -29,16 +33,22 @@ public class PMypServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pmyp.jsp");
-		// プランナーマイページ（pmyp.jsp）へのディスパッチャを取得
-		dispatcher.forward(request, response);
-		// プランナーマイページへリクエストとレスポンスを転送
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PlannerDAO dao = new PlannerDAO();
+		List<PlannerDTO>plannerList = dao.select();
+		request.setAttribute("plannerList", plannerList);
+		//プランナーページにフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pmyp.jsp");
+		// プランナーマイページ（pmyp.jsp）へのディスパッチャを取得
+		dispatcher.forward(request, response);
+		// プランナーマイページへリクエストとレスポンスを転送
+		
+		
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
