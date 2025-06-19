@@ -147,5 +147,82 @@ public class UserDAO {
 		return result;
 	}
 	
+	//更新メソッド
+	public boolean update(AllDTO dto) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");  // JDBCドライバ読み込み
+            conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+                "root", "password");
+
+            String sql = "UPDATE user SET id=?, pw=?, f_Name=?, l_Name=?, k_f_Name=?, k_l_Name=?, birthday=?, gender=?, zipcode=?, address=?, email=?, phone=? WHERE user_id=?";
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, dto.getId());
+            pstmt.setString(2, dto.getPw());
+            pstmt.setString(3, dto.getfName());
+            pstmt.setString(4, dto.getlName());
+            pstmt.setString(5, dto.getkfName());
+            pstmt.setString(6, dto.getklName());
+            pstmt.setString(7, dto.getBirthday());
+            pstmt.setString(8, dto.getGender());
+            pstmt.setString(9, dto.getZipcode());
+            pstmt.setString(10, dto.getAddress());
+            pstmt.setString(11, dto.getEmail());
+            pstmt.setString(12, dto.getPhone());
+            pstmt.setInt(13, dto.getUserId());
+
+            int result = pstmt.executeUpdate();
+            return result > 0;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+
+        } finally {
+            try {
+                if(pstmt != null) pstmt.close();
+                if(conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // 削除メソッド
+    public boolean delete(int user_id) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");  // JDBCドライバ読み込み
+            conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+                "root", "password");
+
+            String sql = "DELETE FROM user WHERE user_id=?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, user_id);
+
+            int result = pstmt.executeUpdate();
+            return result > 0;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+
+        } finally {
+            try {
+                if(pstmt != null) pstmt.close();
+                if(conn != null) conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+	
 	}
       
