@@ -29,16 +29,18 @@
  	</div>
 <form method="POST" action="/A3/ApplyConfirmServlet">
  	 	<c:forEach var="e" items="${sikijoList}">
-			<li><a href="PlannerServlet?sikijo_id=${e.sikijoId}">${e.sName}</a></li>
-			<p>${e.sikijoId}</p>
-			<p>${e.sName}</p>
+			<input type="radio" name="sikijo">${e.sName}
+<%-- 			<p>${e.sikijoId}</p>
+			<p>${e.sName}</p> --%>
 			<p>${e.sAddress}</p><!-- ココ住所かも？あと、写真も入れる！！ --> 
 		</c:forEach>  
 		
+		<label>オプション</label><br>
 		<c:forEach var="e" items="${optionList}">
-			${e.optionId }
-			${e.optionName }
-			${e.optionPrice }
+			<input type="checkbox" name="option"><%-- ${e.optionId }, --%>
+			${e.optionName }:
+			${e.optionPrice }万円
+			<br>
 		</c:forEach>
         <p><input type="submit" id="search" name="submit" value="申し込む"></p>		
  		

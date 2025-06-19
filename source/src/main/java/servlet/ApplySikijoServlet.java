@@ -62,7 +62,6 @@ public class ApplySikijoServlet extends HttpServlet {
 		List<AllDTO> optionList =dao.getCourse(courseId);
 		request.setAttribute("optionList", optionList);
 
-				
 		
 		//JSPに渡す
 		request.setAttribute("sikijoList", sList);
