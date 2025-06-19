@@ -47,10 +47,6 @@ public class PMypServlet extends HttpServlet {
 		// プランナーマイページ（pmyp.jsp）へのディスパッチャを取得
 		dispatcher.forward(request, response);
 		// プランナーマイページへリクエストとレスポンスを転送
-		
-		
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
