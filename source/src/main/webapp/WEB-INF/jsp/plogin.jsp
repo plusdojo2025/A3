@@ -39,10 +39,12 @@
             </table>
             <p id="ptag"></p>
 </form>
+<c:out value="${errmsg}"/>
         <c:if test="${not empty errorMsg}">
             <p style="color:white;">${errorMsg}</p>
         </c:if>
 </div>
+
 </main>
  
 
