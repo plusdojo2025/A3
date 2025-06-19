@@ -2,7 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.naming.spi.DirStateFactory.Result;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -64,14 +64,31 @@ public class RegistServlet extends HttpServlet {
 
 			// 登録処理を行う
 			UserDAO uDao = new UserDAO();
-			if (uDao.insert(new User(id, pw, f_name, l_name, k_f_name, k_l_name, birthday, gender, zipcode, address, email, phone))) { // 登録成功
-				request.setAttribute("result", new Result("/A3/RegistServlet"));
-			} 
+			boolean success = uDao.insert(new User(id, pw, f_name, l_name, k_f_name, k_l_name, birthday, gender, zipcode, address, email, phone));
+			if(success) {
+				request.setAttribute("message", "ユーザー登録が完了しました。ログインしてください。");
+	            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+	            dispatcher.forward(request, response);
+			} else {
+	            // 登録失敗時、エラーメッセージを設定して戻る
+	            request.setAttribute("error", "ユーザー登録に失敗しました。入力内容を確認してください。");
+	            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
+	            dispatcher.forward(request, response);
+	        }
+			/*if (uDao.insert(new User(id, pw, f_name, l_name, k_f_name, k_l_name, birthday, gender, zipcode, address, email, phone))) { // 登録成功
+				request.setAttribute("result", new Result("登録成功！", "レコードを登録しました。", "/A3/RegistServlet"));
+			} else { // 登録失敗
+				request.setAttribute("registErr","ユーザー登録に失敗しました。入力内容を確認してください。", "/webapp/RegistServlet"));
+			}
+
 
 			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-			dispatcher.forward(request, response);
-		}
+			/*
+			 * RequestDispatcher dispatcher =
+			 * request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			 * dispatcher.forward(request, response); }
+			 */
+		
 	}
 
 }
