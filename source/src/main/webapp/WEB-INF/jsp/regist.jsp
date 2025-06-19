@@ -26,7 +26,7 @@
 <div class="hero">
 <h2 class="herocontact">新規登録</h2>
 </div>
-<form method="POST" id="form" action="/A3/RegistServlet">
+<form method="POST" id="form" action="<c:url value='/RegistServlet' />" >
 <table>
 <tr>
 	<td>
@@ -58,12 +58,12 @@
 <tr>
 	<td>
 	<label>
-		<input type="text" name="f_name"><br>
+		<input type="text" name="fName"><br>
 		</label>
 	</td>
 	<td>
 		<label>
-		<input type="text" name="l_name"><br>
+		<input type="text" name="lName"><br>
 		</label>
 	</td>
 </tr>
@@ -79,12 +79,12 @@
 <tr>
 	<td>
 		<label>
-		<input type="text" name="k_f_name"><br>
+		<input type="text" name="kfName"><br>
 		</label>	
 	</td>
 	<td>
 		<label>
-		<input type="text" name="k_l_name"><br>
+		<input type="text" name="klName"><br>
 		</label>
 	</td>
 </tr>
@@ -108,7 +108,7 @@
 <tr>
 	<td>
 		<label id="genderbox">
-		<input type="radio" name="gender "value="male"onclick="radioDeselection(this, 1)">男性</label><br>
+		<input type="radio" name="gender"value="male"onclick="radioDeselection(this, 1)">男性</label><br>
     </td>
     <td>
         <label>
@@ -166,12 +166,13 @@
 	</td>
 </tr>
 </table>
+
 <p id="error_message"></p>
-</form>
 <p><c:out value ="${user.lName}"/></p>
-<form method="POST" action="/A3/RegistServlet">
 <input type="submit" name="regist" value="登録" onclick="return touroku()">
+
 </form>
+
 <!-- メインここまで -->
 <!-- ふっだーここから -->
 <div id="footer">
@@ -191,20 +192,10 @@ function radioDeselection(already, numeric) {
   }
 }
 
-let formObj = document.getElementById('regist_form');
+/* let formObj = document.getElementById('regist_form'); */
 let errorMessageObj = document.getElementById('error_message');
 
-/* ボタンをクリックしたときの処理 */
-  /* IDPWを必須入力項目とします */
 
-    /* document.getElementById('form').onsubmit = function(event){
-        const user_id = document.getElementById('id').value.trim();
-        const user_pw = document.getElementById('pw').value.trim();
-        if(user_id === '' || user_pw === '') {
-          event.preventDefault();
-          document.getElementById('error_message').textContent = 'IDとPWを両方入力してください！';
-        }
-      }; */
       
   /* 確認ダイアログボックスを表示します */
 function touroku(event){
@@ -222,7 +213,7 @@ function touroku(event){
     
      if (!window.confirm('実行します。よろしいですか？')) {
 	   	 /* event.preventDefault();  */
-		return false;
+		
 	} 
 }
 

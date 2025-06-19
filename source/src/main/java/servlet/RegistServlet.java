@@ -44,6 +44,7 @@ public class RegistServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("✅ doPost() called");
 		// TODO Auto-generated method stub
 		
 	// リクエストパラメータを取得する
@@ -76,19 +77,7 @@ public class RegistServlet extends HttpServlet {
 	            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
 	            dispatcher.forward(request, response);
 	        }
-			/*if (uDao.insert(new User(id, pw, f_name, l_name, k_f_name, k_l_name, birthday, gender, zipcode, address, email, phone))) { // 登録成功
-				request.setAttribute("result", new Result("登録成功！", "レコードを登録しました。", "/A3/RegistServlet"));
-			} else { // 登録失敗
-				request.setAttribute("registErr","ユーザー登録に失敗しました。入力内容を確認してください。", "/webapp/RegistServlet"));
-			}
 
-
-			// 結果ページにフォワードする
-			/*
-			 * RequestDispatcher dispatcher =
-			 * request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-			 * dispatcher.forward(request, response); }
-			 */
 		
 	}
 
