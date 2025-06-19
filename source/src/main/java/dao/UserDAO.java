@@ -22,7 +22,7 @@ public class UserDAO {
 				+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 				"root", "password");
        
-        String sql = "SELECT * FROM users WHERE fName like=? OR lName like=?";
+        String sql = "SELECT * FROM user WHERE fName like=? OR lName like=?";
         PreparedStatement pStmt = conn.prepareStatement(sql);
 		
 			pStmt.setString(1, "%" + user.getfName() + "%");		
@@ -34,6 +34,9 @@ public class UserDAO {
 				AllDTO all = new AllDTO();
 			    all.setfName(rs.getString("fName"));
 			    all.setlName(rs.getString("lName"));
+			    all.setGender(rs.getString("gender"));
+			    all.setAddress(rs.getString("address"));
+			    all.setPhone(rs.getString("phone"));
 			    list.add(all);
 			}
         } catch (SQLException e) {
