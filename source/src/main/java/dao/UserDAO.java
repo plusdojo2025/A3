@@ -17,35 +17,31 @@ public class UserDAO {
     	Connection conn = null;
         List<AllDTO> list = new ArrayList<>();
        
-        
-        String sql = "SELECT * FROM users WHERE fName like=? || lNmae like=?";
-        PreparedStatement pStmt = conn.prepareStatement(sql);
-		//pStmt.setString(1,id);
-		//pStmt.setString(2,pw);
-          //dto.setAddress(rs.getString("fName"));
-          //dto.setAddress(rs.getString("lName"));
-          //dto.setAddress(rs.getString("gender"));
-          //dto.setAddress(rs.getString("address"));
-          //dto.setPhone(rs.getString("phone"));
-              //list.add(dto);
-            
-    
+        try {
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
+				+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+				"root", "password");
        
-
-        //String sql = "INSERT INTO Bc VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-	    //PreparedStatement pStmt = conn.prepareStatement(sql);
-	    
+        String sql = "SELECT * FROM users WHERE fName like=? OR lName like=?";
+        PreparedStatement pStmt = conn.prepareStatement(sql);
+		
 			pStmt.setString(1, "%" + user.getfName() + "%");		
 			pStmt.setString(2, "%" +user.getlName() + "%");
 		
 			ResultSet rs = pStmt.executeQuery();
 			
 			while(rs.next()) {
+				AllDTO all = new AllDTO();
+			    all.setfName(rs.getString("fName"));
+			    all.setlName(rs.getString("lName"));
+			    list.add(all);
+			}
+        } catch (SQLException e) {
+            e.printStackTrace();
 				
 			}
-		
-			
-		
+        return list;
+         }
     
 	//新規登録
 	public boolean insert(AllDTO user) {

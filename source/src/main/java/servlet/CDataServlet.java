@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.UserDAO;
-
+import dto.AllDTO;
 /**
  * Servlet implementation class CDataServlet
  */
@@ -33,6 +33,7 @@ public class CDataServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		// TODO Auto-generated method stub
+	
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");  
 		// メニューページ（menu.jsp）へのディスパッチャを取得
@@ -47,6 +48,7 @@ public class CDataServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
+		
 		// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
 				String fullName= request.getParameter("fullName");
@@ -56,8 +58,25 @@ public class CDataServlet extends HttpServlet {
 				String address = request.getParameter("adress");
 				String phone = request.getParameter("phone");
 		
-				UserDAO bDao = new UserDAO();
-				List<All> cardList = UserDAO.select(new All(fName,lName,gender,"",phone));
+				
+				if (fullName != null && !fullName.isEmpty()) {
+				    if (fullName.contains(" ")) { // 半角スペース区切り
+				        String[] parts = fullName.split(" ");
+				        fName = parts[0];
+				        lName = parts.length > 1 ? parts[1] : "";
+				    } else if (fullName.length() >= 2) { // 例：「山田太郎」→ 山田＋太郎に分ける
+				        fName = fullName.substring(0, 2);
+				        lName = fullName.substring(2);
+				    }
+				}
+				
+				
+				UserDAO dao = new UserDAO();
+				AllDTO searchUser = new AllDTO();
+				searchUser.setfName(fName);
+				searchUser.setlName(lName);
+
+				List<AllDTO> cardList = dao.searchByFullName(searchUser);
 				
 				request.setAttribute("cardList", cardList);
 				// 検索処理を行う
