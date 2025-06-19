@@ -64,7 +64,7 @@ public class RegistServlet extends HttpServlet {
 
 			// 登録処理を行う
 			UserDAO uDao = new UserDAO();
-			boolean success = uDao.insert(new User(id, pw, f_name, l_name, k_f_name, k_l_name, birthday, gender, zipcode, address, email, phone));
+			boolean success = uDao.insert(id, pw, f_name, l_name, k_f_name, k_l_name, birthday, gender, zipcode, address, email, phone);
 			if(success) {
 				request.setAttribute("message", "ユーザー登録が完了しました。ログインしてください。");
 	            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
