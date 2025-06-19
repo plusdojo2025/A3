@@ -51,15 +51,18 @@ public class CDataServlet extends HttpServlet {
 		
 				
 				if (fullName != null && !fullName.isEmpty()) {
-				    if (fullName.contains(" ")) { // 半角スペース区切り
-				        String[] parts = fullName.split(" ");
-				        fName = parts[0];
-				        lName = parts.length > 1 ? parts[1] : "";
-				    } else if (fullName.length() >= 2) { // 例：「山田太郎」→ 山田＋太郎に分ける
-				        fName = fullName.substring(0, 2);
-				        lName = fullName.substring(2);
+				 //   if (fullName.contains(" ")) { // 半角スペース区切り
+				      //  String[] parts = fullName.split(" ");
+				      //  fName = parts[0];
+				      //  lName = parts.length > 1 ? parts[1] : "";
+				 //   } else if (fullName.length() >= 2) { // 例：「山田太郎」→ 山田＋太郎に分ける
+				  //      fName = fullName.substring(0, 2);
+				   //     lName = fullName.substring(2); 
+				        fName = fullName;
+				        lName = fullName;
+				    
 				    }
-				}
+				
 				
 				
 				UserDAO dao = new UserDAO();
@@ -77,9 +80,9 @@ public class CDataServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
 				dispatcher.forward(request, response);
 	}
-	
+}
 	
 	
 	
 
-}
+
