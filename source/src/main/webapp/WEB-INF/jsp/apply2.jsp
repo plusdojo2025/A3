@@ -14,6 +14,7 @@
 <body>
 	<header>
 <!-- 		<h1>aaaaaaaaaa</h1>-->
+		
 		<ul id="nav">
 			<li><a href="/webapp/HomeServlet">ホーム</a></li>
 			<li><a href="/webapp/ApplyServlet">申し込み</a></li>
@@ -21,20 +22,21 @@
 			<li><a href="/webapp/SimuServlet">シミュレーション機能</a></li>
 			<li><a href="/webapp/〇〇Servlet">チャット(Q＆A)</a></li>
 			<li><a href="/webapp/UmypServlet">マイページ</a></li>
+			<li><a href="/webapp/LoginServlet">ログアウト</a></li>
 		</ul>
 	</header>
 	
 <main>
 	<div class="hero">
-		<h2>申し込み</h2>
+		<h2>コース選択</h2>
  	</div>
- 	<form method="POST" action="/A3/ApplyServlet">
+ 	<form method="POST" action="/A3/ApplySikijoServlet">
  	<c:forEach var="e" items="${courseList}" >
-		<input type="radio" name="course">${e.courseName}コース
+		<input type="radio" name="course" value="${e.courseId}">${e.courseName}コース
 		<p>${e.comment}</p>
 	</c:forEach>
  	    
-        <p><input type="submit" id="search" name="submit" value="申し込む"></p>	
+        <p><input type="submit" id="search" name="submit" value="次へ"></p>	
  		
  	</form>
 </main>

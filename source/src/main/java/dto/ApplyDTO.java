@@ -49,7 +49,7 @@ public class ApplyDTO implements Serializable {
 	public int getOptionId() {
 		return optionId;
 	}
-	public void setOptioneId(int optionId) {
+	public void setOptionId(int optionId) {
 		this.optionId = optionId;
 	}	
 	
