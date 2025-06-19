@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
 		if (user != null) { // ログイン成功
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
-			session.setAttribute("loginUser",user);
+			session.setAttribute("user",user);
 
 			// メニューサーブレットにリダイレクトする
 			response.sendRedirect("HomeServlet");
