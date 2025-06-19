@@ -32,21 +32,23 @@ public class PMypServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("PMypServlet起動したよ！");
+		PlannerDAO dao = new PlannerDAO();
+		List<PlannerDTO>plannerList = dao.select();
+		request.setAttribute("plannerList", plannerList);
+		System.out.println(plannerList.size());
+		//プランナーページにフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pmyp.jsp");
+		// プランナーマイページ（pmyp.jsp）へのディスパッチャを取得
+		dispatcher.forward(request, response);
+		// プランナーマイページへリクエストとレスポンスを転送
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PlannerDAO dao = new PlannerDAO();
-		List<PlannerDTO>plannerList = dao.select();
-		request.setAttribute("plannerList", plannerList);
-		//プランナーページにフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/pmyp.jsp");
-		// プランナーマイページ（pmyp.jsp）へのディスパッチャを取得
-		dispatcher.forward(request, response);
-		// プランナーマイページへリクエストとレスポンスを転送
+		
 	}
 
 }
