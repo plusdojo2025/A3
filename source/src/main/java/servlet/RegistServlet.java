@@ -50,10 +50,10 @@ public class RegistServlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			String id = request.getParameter("id");
 			String pw = request.getParameter("pw");
-			String f_name = request.getParameter("f_name");
-			String l_name = request.getParameter("l_name");
-			String k_f_name = request.getParameter("k_f_name");
-			String k_l_name = request.getParameter("k_l_name");
+			String fName = request.getParameter("fName");
+			String lName = request.getParameter("lName");
+			String kfName = request.getParameter("kfName");
+			String klName = request.getParameter("klName");
 			String birthday = request.getParameter("birthday");
 			String gender = request.getParameter("gender");
 			String zipcode = request.getParameter("zipcode");
@@ -64,7 +64,8 @@ public class RegistServlet extends HttpServlet {
 
 			// 登録処理を行う
 			UserDAO uDao = new UserDAO();
-			boolean success = uDao.insert(id, pw, f_name, l_name, k_f_name, k_l_name, birthday, gender, zipcode, address, email, phone);
+			boolean success = uDao.insert(id, pw, fName, lName, kfName, klName, birthday, 
+					gender, zipcode, address, email, phone);
 			if(success) {
 				request.setAttribute("message", "ユーザー登録が完了しました。ログインしてください。");
 	            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
