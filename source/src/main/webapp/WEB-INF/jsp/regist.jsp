@@ -11,7 +11,9 @@
 <link rel="stylesheet" href="css/regist.css"> 
 </head>
 <body>
+<c:out value ="${user.lName}"/>
 <!-- ヘッダーここkら -->
+
 <ul id="nav">
 <li><a href="/A3/HomeServlet">ホーム</a></li>
 <li><a href="/A3/ApplyServlet">申し込み</a></li>
