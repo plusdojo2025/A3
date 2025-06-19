@@ -94,8 +94,6 @@ public class PlannerDAO {
 				String sql = "SELECT * FROM planner ";
 
 				PreparedStatement pStmt = conn.prepareStatement(sql);
-				//SQL内の 1つ目の ? に sikijoId の値（int型）を設定
-				//SQL文実行（結果を返すSQLの実行用）
 				ResultSet rs = pStmt.executeQuery();
 				
 				//結果表をコレクションにコピー

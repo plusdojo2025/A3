@@ -18,22 +18,13 @@ import dto.AllDTO;
 @WebServlet("/CDataServlet")
 public class CDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    //public CDataServlet() {
-      //  super();
-        // TODO Auto-generated constructor stub
-   // }
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+ 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		// TODO Auto-generated method stub
-	
+		 doGet(request, response);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");  
 		// メニューページ（menu.jsp）へのディスパッチャを取得
@@ -41,12 +32,12 @@ public class CDataServlet extends HttpServlet {
 		
 	}
 
-	/**
+	/**a
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+	
 		
 		
 		// リクエストパラメータを取得する
@@ -60,15 +51,18 @@ public class CDataServlet extends HttpServlet {
 		
 				
 				if (fullName != null && !fullName.isEmpty()) {
-				    if (fullName.contains(" ")) { // 半角スペース区切り
-				        String[] parts = fullName.split(" ");
-				        fName = parts[0];
-				        lName = parts.length > 1 ? parts[1] : "";
-				    } else if (fullName.length() >= 2) { // 例：「山田太郎」→ 山田＋太郎に分ける
-				        fName = fullName.substring(0, 2);
-				        lName = fullName.substring(2);
+				 //   if (fullName.contains(" ")) { // 半角スペース区切り
+				      //  String[] parts = fullName.split(" ");
+				      //  fName = parts[0];
+				      //  lName = parts.length > 1 ? parts[1] : "";
+				 //   } else if (fullName.length() >= 2) { // 例：「山田太郎」→ 山田＋太郎に分ける
+				  //      fName = fullName.substring(0, 2);
+				   //     lName = fullName.substring(2); 
+				        fName = fullName;
+				        lName = fullName;
+				    
 				    }
-				}
+				
 				
 				
 				UserDAO dao = new UserDAO();
@@ -86,9 +80,9 @@ public class CDataServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
 				dispatcher.forward(request, response);
 	}
-	
+}
 	
 	
 	
 
-}
+
