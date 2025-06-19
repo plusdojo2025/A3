@@ -12,6 +12,7 @@
 </head>
 <body>
 <!-- ヘッダーここkら -->
+<c:out value ="${user.lName}"/>
 <ul id="nav">
 <li><a href="/A3/HomeServlet">ホーム</a></li>
 <li><a href="/A3/ApplyServlet">申し込み</a></li>
@@ -167,6 +168,7 @@
 </table>
 <p id="error_message"></p>
 </form>
+<p><c:out value="${result.eeror}" /></p>
 <form method="POST" action="/A3/RegistServlet">
 <input type="submit" name="regist" value="登録" onclick="return touroku()">
 </form>
