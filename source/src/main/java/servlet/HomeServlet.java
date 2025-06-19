@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-//↓LoginUserクラス（DTO）を使えるようにインポート
-import dto.UserDTO;//○○DTOを使うための宣言
+import dao.UidpwDAO;
+import dto.AllDTO;
 
 //↓このクラスを「/○○Servlet」というURLパターンで呼び出せるように登録せよ
 @WebServlet("/HomeServlet")  
@@ -30,10 +30,10 @@ public class HomeServlet extends HttpServlet {
 		throws ServletException,IOException{
 	
 	// もしもログインしていなかったらログインサーブレットにリダイレクト
-	HttpSession session = request.getSession();
+	//HttpSession session = request.getSession();
 	
 	//セッションに"id"属性を取得してUserDTO型にキャスト
-	UserDTO user = (UserDTO) session.getAttribute("id");
+	//UserDTO user = (UserDTO) session.getAttribute("id");
 	
 	//セッションから"id"が存在しない場合の条件をチェック
 	//if(session.getAttribute("id") == null) {
@@ -61,11 +61,33 @@ public class HomeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException,IOException{
 		
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		
+		UidpwDAO uDao = new UidpwDAO();
+		
+		AllDTO user = uDao.findUserByLogin(id, pw);
+		
+		if(user != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("user",user);
+			
+			request.setAttribute("user", user);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			request.setAttribute("errMsg","ID,PWが違います");
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			dispatcher.forward(request, response);
+		}
 		// もしもログインしていなかったらログインサーブレットにリダイレクト
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
 		
 		//セッションに"id"属性を取得してUserDTO型にキャスト
-		UserDTO user = (UserDTO) session.getAttribute("id");
+		//UserDTO user = (UserDTO) session.getAttribute("id");
 		
 		//セッションから"id"が存在しない場合の条件をチェック
 		//if(session.getAttribute("id") == null) {
@@ -82,10 +104,10 @@ public class HomeServlet extends HttpServlet {
 				// リクエストスコープにユーザーIDを"username"という名前で保存
 
 				// メニューページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");  
+				//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");  
 				// メニューページ（menu.jsp）へのディスパッチャを取得
 
-				dispatcher.forward(request, response);  
+				//dispatcher.forward(request, response);  
 				// メニューページへリクエストとレスポンスを転送
 
 		}
