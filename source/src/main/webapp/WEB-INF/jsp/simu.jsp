@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,7 @@
 </head>
 <body>
 <!-- ヘッダーここkら -->
+<c:out value ="${user.lName}"/>
 <ul id="nav">
 <li><a href="/A3/HomeServlet">ホーム</a></li>
 <li><a href="/A3/ApplyServlet">申し込み</a></li>
