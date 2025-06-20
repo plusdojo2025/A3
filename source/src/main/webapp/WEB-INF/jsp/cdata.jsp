@@ -30,7 +30,7 @@ pageEncoding="UTF-8"%>
 <c:forEach var="e" items="${cardList}">
   <details class="details-box">
     <summary>${e.fName} ${e.lName}</summary>
-    <div class="details-content">
+    <div class="details-conten">
       <p>性別：${e.gender}</p>
       <p>住所：${e.address}</p>
       <p>電話番号：${e.phone}</p>
