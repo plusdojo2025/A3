@@ -34,6 +34,7 @@
  	<c:forEach var="e" items="${courseList}" >
 		<input type="radio" name="course" value="${e.courseId}">${e.courseName}コース
 		<p>${e.comment}</p>
+		
 	</c:forEach>
  	    
         <p><input type="submit" id="search" name="submit" value="次へ"></p>	
