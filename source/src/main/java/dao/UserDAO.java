@@ -55,7 +55,7 @@ public class UserDAO {
 		Connection conn = null;
 		boolean result = false;
 		
-
+		System.out.println(gender);
 		try {
 			// JDBCドライバを読み込む
 			Class.forName("com.mysql.cj.jdbc.Driver");

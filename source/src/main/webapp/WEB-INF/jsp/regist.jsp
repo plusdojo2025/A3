@@ -108,7 +108,7 @@
 <tr>
 	<td>
 		<label id="genderbox">
-		<input type="radio" name="gender"value="male"onclick="radioDeselection(this, 1)">男性</label><br>
+		<input type="radio" name="gender"value="male"onclick="radioDeselection(this, 1)" checked>男性</label><br>
     </td>
     <td>
         <label>
@@ -168,8 +168,9 @@
 </table>
 
 <p id="error_message"></p>
-<p><c:out value ="${user.lName}"/></p>
+
 <input type="submit" name="regist" value="登録" onclick="return touroku()">
+<c:out value ="${error}"/>
 
 </form>
 
