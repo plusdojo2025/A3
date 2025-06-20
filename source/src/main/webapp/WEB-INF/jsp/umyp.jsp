@@ -42,7 +42,7 @@
 		<button type="submit">申し込み履歴</button>
 		</form>
 		
-		<form method="get" action="/A3/HomeServlet" >
+		<form method="get" action="/A3/PWelcomeServlet" >
 		<button type="submit">ホームへ戻る</button><br>
 		</form>
 		
