@@ -38,10 +38,8 @@ pageEncoding="UTF-8"%>
   </details>
 </c:forEach>
 
-<c:if test="${empty cardList}" >
- <div class=no-result>
+<c:if test="${empty cardList}">
     <p>一致するデータがありません</p>
-    </div>
 </c:if>
 
 <a href="/A3/PWelcomeServlet">ホームへ戻る</a>

@@ -32,37 +32,3 @@ body{
   border-radius: 4px;
 }
 
-.searcher-button {
-  display: block;
-  margin: 10px auto;
-  padding: 8px 20px;
-  font-size: 15px;
-  font-weight: bold;
-  background-color: #f3d9d9;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.searcher-button:hover {
-  background-color: #f2c0c0;
-}
-
-.no-result {
-  text-align: center;
-  margin-top: 40px;
-  color: #d66682;
-  font-size: 16px;
-}
-
-.no-result a {
-  display: inline-block;
-  margin-top: 10px;
-  text-decoration: none;
-  color: #7e2a75;
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.no-result a:hover {
-  text-decoration: underline;
-}
