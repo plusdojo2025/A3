@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UidpwDAO;
 import dao.UserDAO;
 import dto.AllDTO;
 
@@ -62,8 +63,8 @@ public class UMyChangeServlet extends HttpServlet {
 				System.out.println(loginUser.getUserId()+"ログインユーザー");
 				int user_id =loginUser.getUserId();
 //				int user_id = Integer.parseInt(request.getParameter("user_id"));
-				String id = request.getParameter("id");
-				String pw = request.getParameter("pw");
+				String id =loginUser.getId();
+				String pw =loginUser.getPw();
 				String f_name = request.getParameter("f_name");
 				String l_name = request.getParameter("l_name");
 				String k_f_name = request.getParameter("k_f_name");
@@ -79,24 +80,51 @@ public class UMyChangeServlet extends HttpServlet {
 				// 更新または削除を行う
 				UserDAO uDao = new UserDAO();
 				 //String action = request.getParameter("submit");
-				 boolean success = uDao.update(user_id, birthday,zipcode, phone, email, address);
+				 boolean success = uDao.update(user_id, birthday, phone, email, address);
 		 
 		        if (success) {
 		            request.setAttribute("message", "更新成功しました！");
+		            UidpwDAO dao = new UidpwDAO();
+		            AllDTO user = dao.findUserByLogin(id,pw);
+		            session.setAttribute("user",user);
 		        } else {
 		            request.setAttribute("message", "更新に失敗しました。");
 		        }
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/umychange.jsp");
 		        dispatcher.forward(request, response);
 		        
-		    } else if (request.getParameter("submita").equals("削除"))  {
-		    	   request.setAttribute("message", "削除成功しました！");
-	        } else {
-	            request.setAttribute("message", "削除に失敗しました。");
-	        }
-	        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/umychange.jsp");
-	        dispatcher.forward(request, response);
-			}
+		    } else if (request.getParameter("submita").equals("アカウント削除"))  {
+		    	HttpSession session = request.getSession();
+		        AllDTO loginUser = (AllDTO) session.getAttribute("user");
+		        if (loginUser == null) {
+		            response.sendRedirect("LoginServlet");
+		            return;
+		        }
+
+		        int user_id = loginUser.getUserId();
+		        UserDAO uDao = new UserDAO();
+		        boolean deleteSuccess = uDao.delete(user_id);
+
+		        if (deleteSuccess) {
+		            session.invalidate(); // セッション無効化
+		            request.setAttribute("message", "削除完了しました。ご利用ありがとうございました。");
+		            response.sendRedirect("LoginServlet");
+		            return;
+		            
+		        } else {
+		            request.setAttribute("message", "削除に失敗しました。");
+		            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/umychange.jsp");
+		            dispatcher.forward(request, response);
+		            return;
+		        }
+		    }
+	}
+}
+		        
+		        // 削除結果表示用JSPにフォワード
+		        //RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/LoginServlet.jsp");
+		        //dispatcher.forward(request, response);
+		   // }
 		/*if (request.getParameter("submit").equals("更新")) {
 			if (uDao.update(new AllDTO(user_id,id,pw,f_name,l_name,k_f_name,k_l_name,birthday,gender,zipcode,address,email,phone))) { // 更新成功
 				request.setAttribute("result");
@@ -123,5 +151,5 @@ public class UMyChangeServlet extends HttpServlet {
 		//dispatcher.forward(request, response);
 	//}
 
-	}
+	//}
 

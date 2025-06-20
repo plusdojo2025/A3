@@ -117,7 +117,7 @@ public class UserDAO {
 	}
 	
 	//更新メソッド
-	public boolean update(int userId,String birthday,String zipcode,String phone,String email ,String address) {
+	public boolean update(int userId,String birthday,String phone,String email ,String address) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         boolean ans = false;
@@ -128,15 +128,14 @@ public class UserDAO {
                 "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
                 "root", "password");
 
-            String sql = "UPDATE user SET  birthday=?, zipcode=?, address=?, email=?, phone=? WHERE user_id=?";
+            String sql = "UPDATE user SET  birthday=?, address=?, email=?, phone=? WHERE user_id=?";
             pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, birthday);
-            pstmt.setString(2, zipcode);
-            pstmt.setString(3, address);
-            pstmt.setString(4, email);
-            pstmt.setString(5, phone);
-            pstmt.setInt(6, userId);
+            pstmt.setString(2, address);
+            pstmt.setString(3, email);
+            pstmt.setString(4, phone);
+            pstmt.setInt(5, userId);
 			/*
 			 * pstmt.setString(7, dto.getBirthday()); pstmt.setString(8, dto.getGender());
 			 * pstmt.setString(9, dto.getZipcode()); pstmt.setString(10, dto.getAddress());
@@ -165,8 +164,11 @@ public class UserDAO {
         }
     }
 
-    // 削除メソッド
-	public boolean delete(int userId,String birthday,String zipcode,String phone,String email ,String address) {
+    // 削除メソッド	public boolean delete(int user_id) {
+	// TODO 自動生成されたメソッド・スタブ
+	//return false;
+//}
+	public boolean delete(int userId) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         boolean ans = false;
@@ -177,15 +179,14 @@ public class UserDAO {
                 "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
                 "root", "password");
 
-            String sql = "UPDATE user SET  birthday=?, zipcode=?, address=?, email=?, phone=? WHERE user_id=?";
+            String sql = "DELETE FROM user WHERE user_id=?";  //birthday=?, zipcode=?, address=?, email=?, phone=? WHERE user_id=?";
             pstmt = conn.prepareStatement(sql);
 
-            pstmt.setString(1, birthday);
-            pstmt.setString(2, zipcode);
-            pstmt.setString(3, address);
-            pstmt.setString(4, email);
-            pstmt.setString(5, phone);
-            pstmt.setInt(6, userId);
+            pstmt.setInt(1, userId);
+			/*
+			 * pstmt.setString(2, zipcode); pstmt.setString(3, address); pstmt.setString(4,
+			 * email); pstmt.setString(5, phone); pstmt.setInt(6, userId);
+			 */
             
             //String sql = "DELETE FROM user WHERE user_id=?";
             //pstmt = conn.prepareStatement(sql);
@@ -210,6 +211,9 @@ public class UserDAO {
             }
         }
     }
+
+
+
 	
 	}
       

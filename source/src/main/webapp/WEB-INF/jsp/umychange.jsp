@@ -15,7 +15,7 @@
 <li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
 <li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
 <li><a href="/A3/○○Servlet">チャット(Q＆A)</a></li>
-<li><a href="/A3/UmypServlet">マイページ</a></li>
+<li><a href="/A3/UMypServlet">マイページ</a></li>
 <li><a href="/A3/LoginServlet">ログアウト</a></li>
 </ul>
 
@@ -33,7 +33,7 @@
 	<input type="text" name="email" value="${sessionScope.user.email}"><br>
 	
 	<input type="submit" name="submita" value="更新">
-	<input type="submit" name="submita" value="削除">
+	<input type="submit" name="submita" value="アカウント削除">
 </form>
 </div>
 </body>
