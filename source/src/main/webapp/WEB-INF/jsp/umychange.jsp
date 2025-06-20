@@ -26,7 +26,7 @@
 	生年月日<br>
 	<input type="date" name="birthday" value="${sessionScope.user.birthday}"><br>
 	住所<br>
-	<input type="text" name="address" value="aa${sessionScope.user.address}"><br>
+	<input type="text" name="address" value="${sessionScope.user.address}"><br>
 	電話番号<br>
 	<input type="text" name="phone" value="${sessionScope.user.phone}"><br>
 	メールアドレス<br>
