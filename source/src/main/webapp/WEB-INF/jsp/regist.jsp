@@ -15,7 +15,7 @@
 <!-- ヘッダーここkら -->
 <ul id="nav">
 <li><a href="/A3/HomeServlet">ホーム</a></li>
-<li><a href="/A3/ApplyServlet">申し込み</a></li>
+<li><a href="/A3/ApplyCourseServlet">申し込み</a></li>
 <li><a href="/A3/SikijoServlet">式場/コース/プランナー 一覧</a></li>
 <li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
 <li><a href="/A3/OOServlet">チャット(Q＆A)</a></li>
@@ -170,8 +170,8 @@
 <p id="error_message"></p>
 
 <input type="submit" name="regist" value="登録" onclick="return touroku()">
-<c:if test="${hasTried and not empty error}">
-    <p style="color:red;">${error}</p>
+<c:if test="${isPost and not empty error}">
+  <p style="color: red;">${error}</p>
 </c:if>
 
 </form>

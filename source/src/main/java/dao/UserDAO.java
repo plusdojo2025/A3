@@ -18,15 +18,14 @@ public class UserDAO {
         List<AllDTO> list = new ArrayList<>();
        
         try {
-        	 Class.forName("com.mysql.cj.jdbc.Driver");
-	        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
-					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
-					"root", "password");
-	       
-	        String sql = "SELECT * FROM user WHERE f_name like ? OR l_name like ?";
-	        PreparedStatement pStmt = conn.prepareStatement(sql);
-				
-	        String fullName= user.getfName() + user.getlName();
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
+				+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+				"root", "password");
+       
+        String sql = "SELECT * FROM user WHERE f_name like=? OR l_name like=?";
+        PreparedStatement pStmt = conn.prepareStatement(sql);
+			
+        String fullName= user.getfName() + user.getlName();
 			pStmt.setString(1, "%" + user.getfName() + "%");		
 			pStmt.setString(2, "%" +user.getlName() + "%");
 		
@@ -34,19 +33,19 @@ public class UserDAO {
 			
 			while(rs.next()) {
 				AllDTO all = new AllDTO();
-			    all.setfName(rs.getString("f_name"));
-			    all.setlName(rs.getString("l_Name"));
+			    all.setfName(rs.getString("fName"));
+			    all.setlName(rs.getString("lName"));
 			    all.setGender(rs.getString("gender"));
 			    all.setAddress(rs.getString("address"));
 			    all.setPhone(rs.getString("phone"));
 			    list.add(all);
 			}
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
 				
-		}
-        	return list;
-      }
+			}
+        return list;
+         }
     
  
 	//新規登録
@@ -121,9 +120,10 @@ public class UserDAO {
 	}
 	
 	//更新メソッド
-	public boolean update(AllDTO dto) {
+	public boolean update(int userId,String birthday,String zipcode,String phone,String email ,String address) {
         Connection conn = null;
         PreparedStatement pstmt = null;
+        boolean ans = false;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");  // JDBCドライバ読み込み
@@ -131,25 +131,28 @@ public class UserDAO {
                 "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
                 "root", "password");
 
-            String sql = "UPDATE user SET id=?, pw=?, f_Name=?, l_Name=?, k_f_Name=?, k_l_Name=?, birthday=?, gender=?, zipcode=?, address=?, email=?, phone=? WHERE user_id=?";
+            String sql = "UPDATE user SET  birthday=?, zipcode=?, address=?, email=?, phone=? WHERE user_id=?";
             pstmt = conn.prepareStatement(sql);
 
-            pstmt.setString(1, dto.getId());
-            pstmt.setString(2, dto.getPw());
-            pstmt.setString(3, dto.getfName());
-            pstmt.setString(4, dto.getlName());
-            pstmt.setString(5, dto.getkfName());
-            pstmt.setString(6, dto.getklName());
-            pstmt.setString(7, dto.getBirthday());
-            pstmt.setString(8, dto.getGender());
-            pstmt.setString(9, dto.getZipcode());
-            pstmt.setString(10, dto.getAddress());
-            pstmt.setString(11, dto.getEmail());
-            pstmt.setString(12, dto.getPhone());
-            pstmt.setInt(13, dto.getUserId());
+            pstmt.setString(1, birthday);
+            pstmt.setString(2, zipcode);
+            pstmt.setString(3, address);
+            pstmt.setString(4, email);
+            pstmt.setString(5, phone);
+            pstmt.setInt(6, userId);
+			/*
+			 * pstmt.setString(7, dto.getBirthday()); pstmt.setString(8, dto.getGender());
+			 * pstmt.setString(9, dto.getZipcode()); pstmt.setString(10, dto.getAddress());
+			 * pstmt.setString(11, dto.getEmail()); pstmt.setString(12, dto.getPhone());
+			 * pstmt.setInt(13, dto.getUserId());
+			 */
 
             int result = pstmt.executeUpdate();
-            return result > 0;
+            
+            if(result == 1) {
+            	ans = true;
+            }
+            return ans;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -166,9 +169,10 @@ public class UserDAO {
     }
 
     // 削除メソッド
-    public boolean delete(int user_id) {
+	public boolean delete(int userId,String birthday,String zipcode,String phone,String email ,String address) {
         Connection conn = null;
         PreparedStatement pstmt = null;
+        boolean ans = false;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");  // JDBCドライバ読み込み
@@ -176,12 +180,25 @@ public class UserDAO {
                 "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
                 "root", "password");
 
-            String sql = "DELETE FROM user WHERE user_id=?";
+            String sql = "UPDATE user SET  birthday=?, zipcode=?, address=?, email=?, phone=? WHERE user_id=?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, user_id);
+
+            pstmt.setString(1, birthday);
+            pstmt.setString(2, zipcode);
+            pstmt.setString(3, address);
+            pstmt.setString(4, email);
+            pstmt.setString(5, phone);
+            pstmt.setInt(6, userId);
+            
+            //String sql = "DELETE FROM user WHERE user_id=?";
+            //pstmt = conn.prepareStatement(sql);
+            //pstmt.setInt(1, user_id);
 
             int result = pstmt.executeUpdate();
-            return result > 0;
+            if(result == 1) {
+            	ans = true;
+            }
+            return ans;
 
         } catch (Exception e) {
             e.printStackTrace();

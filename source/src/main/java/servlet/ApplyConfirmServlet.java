@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dto.AllDTO;
 
 /**
  * Servlet implementation class ApplyConfirm
@@ -28,28 +31,19 @@ public class ApplyConfirmServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-//		String course = request.getParameter("course");
-//		String option = request.getParameter("option");
-//		String sikijo = request.getParameter("sikijo");
-//		String planner = request.getParameter("planner");
-//		
-//		if (course.equals("Acourse") != false) {
-//	        request.setAttribute("course", "Aコース");
-//	    } else if (course.equals("Bcourse") != false) {
-//	        request.setAttribute("course", "Bコース");
-//	    } else if (course.equals("Ccourse") != false) {
-//	        request.setAttribute("course", "Cコース");
-//	    }
-//		
-////		request.setAttribute("course", course);
-//		request.setAttribute("option", option);
-//		request.setAttribute("sikijo", sikijo);
-//		request.setAttribute("planner", planner);
-//		//		common(request,response);
+		
+		HttpSession session = request.getSession();
+		AllDTO courseId =(AllDTO)session.getAttribute("courseId");
+		String si = request.getParameter("sikijo");
+		String op = request.getParameter("option");
+		
+		
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply_confirm.jsp");
 		dispatcher.forward(request,response);
-		
+
 	}
 	
+
 }

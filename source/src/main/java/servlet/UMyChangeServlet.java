@@ -46,38 +46,40 @@ public class UMyChangeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		
-		//もしログインしていなかったらユーザーログイン画面へ
-		HttpSession session = request.getSession();
-		AllDTO loginUser = (AllDTO) session.getAttribute("user");
-		if(loginUser == null) {
-			response.sendRedirect("LoginServlet");
-			return;
-		}
-		
-		//リクエストパラメーターを取得する
 		request.setCharacterEncoding("UTF-8");
-		int user_id = Integer.parseInt(request.getParameter("user_id"));
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		String f_name = request.getParameter("f_name");
-		String l_name = request.getParameter("l_name");
-		String k_f_name = request.getParameter("k_f_name");
-		String k_l_name = request.getParameter("k_l_name");
-		String birthday = request.getParameter("birthday");
-		String gender = request.getParameter("gender");
-		String zipcode = request.getParameter("zipcode");
-		String address = request.getParameter("address");
-		String email = request.getParameter("email");
-		String phone = request.getParameter("phone");
+		System.out.println(request.getParameter("submita")+"ボタンの名前だよ");
+		 if (request.getParameter("submita").equals("更新")) {
+			//もしログインしていなかったらユーザーログイン画面へ
+				HttpSession session = request.getSession();
+				AllDTO loginUser = (AllDTO) session.getAttribute("user");
+				if(loginUser == null) {
+					response.sendRedirect("LoginServlet");
+					return;
+				}
+				
+				//リクエストパラメーターを取得する
+			
+				System.out.println(loginUser.getUserId()+"ログインユーザー");
+				int user_id =loginUser.getUserId();
+//				int user_id = Integer.parseInt(request.getParameter("user_id"));
+				String id = request.getParameter("id");
+				String pw = request.getParameter("pw");
+				String f_name = request.getParameter("f_name");
+				String l_name = request.getParameter("l_name");
+				String k_f_name = request.getParameter("k_f_name");
+				String k_l_name = request.getParameter("k_l_name");
+				String birthday = request.getParameter("birthday");
+				String gender = request.getParameter("gender");
+				String zipcode = request.getParameter("zipcode");
+				String address = request.getParameter("address");
+				String email = request.getParameter("email");
+				String phone = request.getParameter("phone");
 
-		
-		// 更新または削除を行う
-		UserDAO uDao = new UserDAO();
-		 //String action = request.getParameter("submit");
-		 boolean success = uDao.update(user_id, id, pw, f_name, l_name, k_f_name, k_l_name, birthday, gender, zipcode, address, email, phone);	
-		 if (request.getParameter("submit").equals("更新")) {
-		 
+				
+				// 更新または削除を行う
+				UserDAO uDao = new UserDAO();
+				 //String action = request.getParameter("submit");
+				 boolean success = uDao.update(user_id, birthday,zipcode, phone, email, address);
 		 
 		        if (success) {
 		            request.setAttribute("message", "更新成功しました！");
@@ -86,7 +88,15 @@ public class UMyChangeServlet extends HttpServlet {
 		        }
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/umychange.jsp");
 		        dispatcher.forward(request, response);
-		    } else if (request.getParameter("submit").equals("更新"))  {
+		        
+		    } else if (request.getParameter("submita").equals("削除"))  {
+		    	   request.setAttribute("message", "削除成功しました！");
+	        } else {
+	            request.setAttribute("message", "削除に失敗しました。");
+	        }
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/umychange.jsp");
+	        dispatcher.forward(request, response);
+			}
 		/*if (request.getParameter("submit").equals("更新")) {
 			if (uDao.update(new AllDTO(user_id,id,pw,f_name,l_name,k_f_name,k_l_name,birthday,gender,zipcode,address,email,phone))) { // 更新成功
 				request.setAttribute("result");
@@ -100,18 +110,18 @@ public class UMyChangeServlet extends HttpServlet {
 				request.setAttribute("result", new Result("削除失敗！", "レコードを削除できませんでした。", "UMyChangeServlet"));
 			}
 		}*/
-		    	 boolean deleteSuccess = uDao.delete(user_id);
-		            if (deleteSuccess) {
-		                session.invalidate();
-		    	request.setAttribute("message", "削除完了！");
-		            } else {
-		                request.setAttribute("message", "削除に失敗しました。");
-		            }
+//		    	 boolean deleteSuccess = uDao.delete(user_id);
+//		            if (deleteSuccess) {
+//		                session.invalidate();
+//		    	request.setAttribute("message", "削除完了！");
+//		            } else {
+//		                request.setAttribute("message", "削除に失敗しました。");
+//		            }
 
 		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UMyServlet.jsp");
-		dispatcher.forward(request, response);
-	}
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UMyServlet.jsp");
+		//dispatcher.forward(request, response);
+	//}
 
 	}
-}
+

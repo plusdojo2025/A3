@@ -38,9 +38,15 @@ public class PidpwDAO {
 					//}
 		            if (rs.next()) {
 		                planner = new AllDTO();
+		                planner.setPlannerId(rs.getInt("planner_id"));
 		                planner.setpId(rs.getString("id"));
 		                planner.setpPassword(rs.getString("password"));
 		                planner.setpName(rs.getString("name"));
+		                planner.setpGender(rs.getString("gender"));
+		                planner.setpPhone(rs.getString("phone"));
+		                planner.setSikiAdd(rs.getString("siki_add"));
+		                planner.setStrongFild(rs.getString("strong_fild"));
+		                planner.setpImage(rs.getString("image"));
 		            }
 				} catch (Exception e) {
 					e.printStackTrace();
