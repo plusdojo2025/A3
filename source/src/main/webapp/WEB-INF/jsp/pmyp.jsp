@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +10,8 @@
 </head>
 <body>
 	<div class="myp">
-	<c:forEach var="planner" items="${plannerList}">
+	<form method="POST" action="/webapp/RegistServlet">
+	
 	
 		<h2>マイページ</h2>
 		名前：<input type="text" name="name" required="required" value="${planner.plannerName}">
@@ -21,7 +21,7 @@
 		電話番号：<input type="text" name="phone" required="required" value="${planner.plannerPhone}">
 		得意分野：<input type="text" name="strong_fild" required="required" value="${planner.plannerStrongFild}">
 		
-	</c:forEach>
+	</form>
 	</div>	
 </body>
 </html>
