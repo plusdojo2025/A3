@@ -11,15 +11,13 @@
 <body>
 	<div class="myp">
 	<form method="POST" action="/webapp/PmypServlet">
-	
-	
 		<h2>マイページ</h2>
 		名前：<input type="text" name="name" required="required" value="${planner.pName}">
 		性別：<input type="text" name="gender" required="required" value="${planner.pGender}">
 		式場住所：<input type="text" name="siki_add" required="required" value="${planner.sikiAdd}">
 		電話番号：<input type="text" name="phone" required="required" value="${planner.pPhone}">
 		得意分野：<input type="text" name="strong_fild" required="required" value="${planner.strongFild}"> 
-		写真：<input type="text" name="pImage" required="required" value="${planner.pImage}"> 
+		写真：<input type="text" name="image" required="required" value="${planner.pImage}"> 
 		
 	</form>
 	</div>	

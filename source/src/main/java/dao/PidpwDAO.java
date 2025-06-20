@@ -44,8 +44,8 @@ public class PidpwDAO {
 		                planner.setpName(rs.getString("name"));
 		                planner.setpGender(rs.getString("gender"));
 		                planner.setpPhone(rs.getString("phone"));
-		                planner.setSikiAdd(rs.getString("sikiAdd"));
-		                planner.setStrongFild(rs.getString("strongFild"));
+		                planner.setSikiAdd(rs.getString("siki_add"));
+		                planner.setStrongFild(rs.getString("strong_fild"));
 		                planner.setpImage(rs.getString("image"));
 		            }
 				} catch (Exception e) {
