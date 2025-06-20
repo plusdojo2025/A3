@@ -30,7 +30,7 @@
 <table>
 <tr>
 	<td>
-		<label>ID(必須)<span id="error_message"></span></label>
+		<label>ID(必須)<span style="color:red;" id="error_message"></span></label>
 	</td>
 	<td>
 		<label>Password(必須)</label>
@@ -170,7 +170,9 @@
 <p id="error_message"></p>
 
 <input type="submit" name="regist" value="登録" onclick="return touroku()">
-<c:out value ="${error}"/>
+<c:if test="${hasTried and not empty error}">
+    <p style="color:red;">${error}</p>
+</c:if>
 
 </form>
 
