@@ -23,15 +23,16 @@ public class UMyChangeServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UMyChangeServlet() {
-        super();
+   // public UMyChangeServlet() {
+     //   super();
         // TODO Auto-generated constructor stub
-    }
+    //}
     
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/umychange.jsp");  
 		dispatcher.forward(request, response);
@@ -73,19 +74,19 @@ public class UMyChangeServlet extends HttpServlet {
 		
 		// 更新または削除を行う
 		UserDAO uDao = new UserDAO();
-		 String action = request.getParameter("submit");
-		 if ("更新".equals(action)) {
-		 boolean isSuccess = uDao.update(new AllDTO(user_id, id, pw, f_name, l_name, k_f_name, k_l_name, birthday, gender, zipcode, address, email, phone));
+		 //String action = request.getParameter("submit");
+		 boolean success = uDao.update(user_id, id, pw, f_name, l_name, k_f_name, k_l_name, birthday, gender, zipcode, address, email, phone);	
+		 if (request.getParameter("submit").equals("更新")) {
 		 
 		 
-		        if (isSuccess) {
+		        if (success) {
 		            request.setAttribute("message", "更新成功しました！");
 		        } else {
 		            request.setAttribute("message", "更新に失敗しました。");
 		        }
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/umychange.jsp");
 		        dispatcher.forward(request, response);
-		    } else if ("削除".equals(action)) {
+		    } else if (request.getParameter("submit").equals("更新"))  {
 		/*if (request.getParameter("submit").equals("更新")) {
 			if (uDao.update(new AllDTO(user_id,id,pw,f_name,l_name,k_f_name,k_l_name,birthday,gender,zipcode,address,email,phone))) { // 更新成功
 				request.setAttribute("result");

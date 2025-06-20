@@ -20,7 +20,7 @@
 <li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
 <li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
 <li><a href="/A3/○○Servlet">チャット(Q＆A)</a></li>
-<li><a href="/A3/UmypServlet">マイページ</a></li>
+<li><a href="/A3/UMypServlet">マイページ</a></li>
 </ul>
 <!-- ヘッダー（ここまで） -->
 
