@@ -21,6 +21,7 @@
 
 <div class="change">
  <h3>登録情報の変更・削除</h3>
+
 	<form method="POST" action="/A3/UMyChangeServlet">
 	生年月日<br>
 	<input type="date" name="birthday" value="${sessionScope.user.birthday}"><br>
@@ -33,7 +34,6 @@
 	
 	<input type="submit" name="submita" value="更新">
 	<input type="submit" name="submita" value="アカウント削除">
-
 </form>
 </div>
 </body>

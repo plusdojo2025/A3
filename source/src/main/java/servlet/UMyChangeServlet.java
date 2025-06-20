@@ -93,7 +93,7 @@ public class UMyChangeServlet extends HttpServlet {
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/umychange.jsp");
 		        dispatcher.forward(request, response);
 		        
-		    } else if (request.getParameter("submita").equals("削除"))  {
+		    } else if (request.getParameter("submita").equals("アカウント削除"))  {
 		    	HttpSession session = request.getSession();
 		        AllDTO loginUser = (AllDTO) session.getAttribute("user");
 		        if (loginUser == null) {
@@ -113,7 +113,7 @@ public class UMyChangeServlet extends HttpServlet {
 		            
 		        } else {
 		            request.setAttribute("message", "削除に失敗しました。");
-		            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UMyServlet.jsp");
+		            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/umychange.jsp");
 		            dispatcher.forward(request, response);
 		            return;
 		        }
