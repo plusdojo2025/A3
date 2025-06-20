@@ -87,3 +87,6 @@ textarea {
     height: 120px;
 	text-align: center;
 }
+td {
+	width: 50%;
+}
