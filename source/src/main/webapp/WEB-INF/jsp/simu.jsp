@@ -36,7 +36,7 @@
 <div class="tab">
 <details>
 	<summary>
-	  <input type="radio" name="course" value="350000">Aコース<br>
+	  <input type="radio" name="course" value="1800000">Aコース<br>
 	</summary>
 		<table class="course">
 			<tr>
@@ -108,7 +108,7 @@
 <!-- Bコース -->
 <details>
 	<summary>
-	  <input type="radio" name="course" value="1810000">Bコース<br>
+	  <input type="radio" name="course" value="2100000">Bコース<br>
 	</summary>
 		<table class="course">
 			<tr>
@@ -194,7 +194,7 @@
 <!-- Cコース -->
 <details>
 	<summary>
-	  <input type="radio" name="course" value="2330000">Cコース<br>
+	  <input type="radio" name="course" value="2700000">Cコース<br>
 	</summary>
 		<table class="course">
 			<tr>
