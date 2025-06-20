@@ -45,8 +45,6 @@ public class ApplyDAO {
 				
 //				dto.setOptionId(rs.getInt("option_id"));
 				
-
-
 				//値が入った枝豆（上のDTO）をArrayListに追加
 				applyList.add(dto);
 			}
@@ -106,8 +104,6 @@ public class ApplyDAO {
 				
 //				dto.setOptionId(rs.getInt("option_id"));
 				
-
-
 				//値が入った枝豆（上のDTO）をArrayListに追加
 				
 			}
@@ -133,6 +129,8 @@ public class ApplyDAO {
 		//コースのデータの入ったArrayListをServletへ返却
 		return dto;
 	}
+	
+	//オプションを持ってくる
 	public List<AllDTO> getCourse(Integer cId){
 		List<AllDTO> optionList = new ArrayList<>();
 		Connection conn = null;
@@ -200,4 +198,65 @@ public class ApplyDAO {
 		//コースのデータの入ったArrayListをServletへ返却
 		return optionList;
 	}
+	
+	public List<AllDTO> getSiki(int sId){
+		List<AllDTO> sikiList = new ArrayList<>();
+		Connection conn = null;
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+			
+			// SQL文の準備（コースのデータ全て取得）（ハッピーセット）
+			String sql = "SELECT * FROM sikijo where sikijo_id=?";
+			System.out.println(sql);
+			PreparedStatement pStmt = conn.prepareStatement(sql);//全部凝縮されたのが「ｐStmt」
+			
+			pStmt.setInt(1, sId);//SQL内の 1つ目の ? に sikijoId の値（int型）を設定
+			
+			ResultSet rs = pStmt.executeQuery();//なんでも表が入るResultSet型に格納（DAOでしか使えない）
+			
+			while(rs.next()) {
+				//空の枝豆（DTO）作成
+				AllDTO dto =new AllDTO();
+
+				//上のDTOに値を入れていく（DBの値をDTOへコピー）
+				//setはDTOで決めたやつ、getはDBのカラム名
+				dto.setSikijoId(rs.getInt("sikijo_id"));
+//				dto.setJmNumber(rs.getInt("jm_number"));
+				dto.setsName(rs.getString("name"));
+				dto.setsName(rs.getString("address"));
+//				dto.setsImage(rs.getString("image"));
+//				dto.setOptionPrice(rs.getString("sikijo_price"));
+				
+				//値が入った枝豆（上のDTO）をArrayListに追加
+				sikiList.add(dto);
+			}
+			
+		}catch (SQLException e) {
+			System.out.println("SQL文おかしいよ");
+			e.printStackTrace();
+			
+		}catch (ClassNotFoundException e) {
+			System.out.println("ドライバの読み込みおかしい");
+			e.printStackTrace();
+			
+		}finally {
+			//データベース切断
+			if(conn != null) {
+				try {
+					conn.close();
+				}catch (SQLException e) {
+					e.printStackTrace();
+					
+				}
+			}
+		}
+		//コースのデータの入ったArrayListをServletへ返却
+		return sikiList;
+	}
+	
 }

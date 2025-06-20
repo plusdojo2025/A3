@@ -12,6 +12,51 @@ import dto.PlannerDTO;
 
 public class PlannerDAO {
 	
+	public PlannerDTO findPlannerByLogin(String id,String password) {
+		Connection conn = null;
+		PlannerDTO planner = null;
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/A3?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+			// SELECT文を準備する
+			String sql = "SELECT * FROM planner WHERE id=? AND password=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, id);
+			pStmt.setString(2, password);
+			// SELECT文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+			// ユーザーIDとパスワードが一致するユーザーがいれば結果をtrueにする
+			//while (rs.next()) {
+				//result = rs.getString("name");
+			//}
+            if (rs.next()) {
+                planner = new PlannerDTO();
+                planner.setId(rs.getString("id"));
+                planner.setPassword(rs.getString("password"));
+                planner.setPlannerName(rs.getString("name"));
+                planner.setGender(rs.getString("gender"));
+                planner.setPhone(rs.getString("phone"));
+                planner.setSikiAdd(rs.getString("sikiAdd"));
+                planner.setStrongFild(rs.getString("strongFild"));
+                planner.setImage(rs.getString("image"));
+            }
+            System.out.println(planner.getPlannerName()+"：ぷらんなのなまえ");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (conn != null) conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return planner;
+	}
+	
 	//インスタンス化＝（セレクトメソッド）
 	public List<PlannerDTO> select(int sikijoId){
 		//返却用ArrayList
@@ -46,11 +91,11 @@ public class PlannerDAO {
 				dto.setId(rs.getString("id"));
 				dto.setPassword(rs.getString("password"));
 				dto.setPlannerName(rs.getString("name"));
-				dto.setPlannerGender(rs.getString("gender"));//要変更
-				dto.setPlannerPhone(rs.getString("phone"));
-				dto.setPlannerSikiAdd(rs.getString("siki_add"));
-				dto.setPlannerStrongFild(rs.getString("strong_fild"));
-				dto.setPlannerImage(rs.getString("image"));
+				dto.setGender(rs.getString("gender"));//要変更
+				dto.setPhone(rs.getString("phone"));
+				dto.setSikiAdd(rs.getString("siki_add"));
+				dto.setStrongFild(rs.getString("strong_fild"));
+				dto.setImage(rs.getString("image"));
 				//枝豆をArrayListに追加
 				plannerList.add(dto);
 			}
@@ -106,11 +151,11 @@ public class PlannerDAO {
 					dto.setId(rs.getString("id"));
 					dto.setPassword(rs.getString("password"));
 					dto.setPlannerName(rs.getString("name"));
-					dto.setPlannerGender(rs.getString("gender"));//要変更
-					dto.setPlannerPhone(rs.getString("phone"));
-					dto.setPlannerSikiAdd(rs.getString("siki_add"));
-					dto.setPlannerStrongFild(rs.getString("strong_fild"));
-					dto.setPlannerImage(rs.getString("image"));
+					dto.setGender(rs.getString("gender"));//要変更
+					dto.setPhone(rs.getString("phone"));
+					dto.setSikiAdd(rs.getString("siki_add"));
+					dto.setStrongFild(rs.getString("strong_fild"));
+					dto.setImage(rs.getString("image"));
 					//枝豆をArrayListに追加
 					plannerList.add(dto);
 				}
@@ -132,7 +177,8 @@ public class PlannerDAO {
 						plannerList = null;
 					}
 				}
-			}
+				}
+			
 				//コースのデータの入ったArrayListをSarvletへ返却
 				return plannerList;
 			}

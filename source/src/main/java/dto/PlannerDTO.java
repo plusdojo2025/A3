@@ -12,9 +12,10 @@ public class PlannerDTO {
 	private String strongFild;
 	private String image;
 	
+	
 	//ゲッターセッター(ゲトリタ、セトディス)
-	public int getPlannerId() { //??????????
-	    return plannerId;
+	public int getPlannerId() {
+		return plannerId;
 	}
 	public void setPlannerId(int plannerId) {
 		this.plannerId = plannerId;
@@ -29,7 +30,7 @@ public class PlannerDTO {
 		return password;
 	}
 	public void setPassword(String password) {
-	    this.password = password;
+		this.password = password;
 	}
 	public String getPlannerName() {
 		return plannerName;
@@ -37,34 +38,36 @@ public class PlannerDTO {
 	public void setPlannerName(String plannerName) {
 		this.plannerName = plannerName;
 	}
-	public String getPlannerGender() {
-		return gender ;
+	public String getGender() {
+		return gender;
 	}
-	public void setPlannerGender(String plannerGender) {
-		this.gender = plannerGender;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
-	public String getPlannerPhone() {
-		return phone ;
+	public String getPhone() {
+		return phone;
 	}
-	public void setPlannerPhone(String plannerPhone) {
-		this.phone = plannerPhone;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-	public String getPlannerSikiAdd() {
-		return sikiAdd ;
+	public String getSikiAdd() {
+		return sikiAdd;
 	}
-	public void setPlannerSikiAdd(String plannerSikiAdd) {
-		this.sikiAdd = plannerSikiAdd;
+	public void setSikiAdd(String sikiAdd) {
+		this.sikiAdd = sikiAdd;
 	}
-	public String getPlannerStrongFild() {
-		return strongFild ;
+	public String getStrongFild() {
+		return strongFild;
 	}
-	public void setPlannerStrongFild(String plannerStrongFild) {
-		this.strongFild = plannerStrongFild;
+	public void setStrongFild(String strongFild) {
+		this.strongFild = strongFild;
 	}
-	public String getPlannerImage() {
-		return image ;
+	public String getImage() {
+		return image;
 	}
-	public void setPlannerImage(String plannerImage) {
-		this.image = plannerImage;
+	public void setImage(String image) {
+		this.image = image;
 	}
+	
+	
 }
