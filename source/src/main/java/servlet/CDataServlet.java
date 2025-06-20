@@ -37,16 +37,17 @@ public class CDataServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
 		
-		 
 		
+		 
+		//fullNameがnullでなく空
 		if (fullName != null && !fullName.isEmpty()) {
 		    if (fullName.contains(" ")) { // 半角スペース区切り
-		    String[] parts = fullName.split(" ");
-		    fName = parts[0];
-		    lName = parts.length > 1 ? parts[1] : "";
+		    String[] parts = fullName.split(" "); // スペースで分割して
+		    fName = parts[0];// 最初の部分を「名字」として扱う
+		    lName = parts.length > 1 ? parts[1] : "";// 2つ目があれば「名前」、なければ空文字
 		  } else if (fullName.length() >= 2) { // 例：「山田太郎」→ 山田＋太郎に分ける
-		   fName = fullName.substring(0, 2);
-		   lName = fullName.substring(2); 
+		   fName = fullName.substring(0, 2);// 最初の2文字を「名字」
+		   lName = fullName.substring(2); // それ以降を「名前」
 		  }else {
 //		        fName = fullName;
 //		        lName = fullName;
@@ -54,8 +55,9 @@ public class CDataServlet extends HttpServlet {
 		    }
 		}
 		
-		
+		//DAOをdaoとしてインスタンス化して持ってきてる
 		UserDAO dao = new UserDAO();
+		//DTOをsearchUserとしてインスタンス化して持ってきてfullNameの値取得
 		AllDTO searchUser = new AllDTO();
 		searchUser.setfName(fullName);
 		searchUser.setlName(lName);
