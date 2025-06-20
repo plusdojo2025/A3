@@ -178,11 +178,11 @@ public class AllDTO implements Serializable {
 		this.jmNumber = jmNumber;
 	}
 
-	public String getSName() {
+	public String getsName() {
 		return sName;
 	}
 
-	public void setSName(String sName) {
+	public void setsName(String sName) {
 		this.sName = sName;
 	}
 
@@ -241,7 +241,15 @@ public class AllDTO implements Serializable {
 	public void setOptionName(String optionName) {
 		this.optionName = optionName;
 	}
+	
+	public String getOptionPrice() {
+		return optionPrice;
+	}
 
+	public void setOptionPrice(String optionPrice) {
+		this.optionPrice = optionPrice;
+	}
+	
 	public int getPlannerId() {
 		return plannerId;
 	}
@@ -354,13 +362,7 @@ public class AllDTO implements Serializable {
 		this.klName = klName;
 	}
 
-	public String getOptionPrice() {
-		return optionPrice;
-	}
 
-	public void setOptionPrice(String optionPrice) {
-		this.optionPrice = optionPrice;
-	}
 	
 	
 		

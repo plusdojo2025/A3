@@ -16,22 +16,24 @@ public class UserDAO {
     public List<AllDTO> searchByFullName(AllDTO user) {
     	Connection conn = null;
         List<AllDTO> list = new ArrayList<>();
-       
+        System.out.println(user.getfName()+"：渡ってきた値");
         try {
+        	Class.forName("com.mysql.cj.jdbc.Driver"); 
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
 				+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 				"root", "password");
        
-        String sql = "SELECT * FROM user WHERE f_name like=? OR l_name like=?";
+        String sql = "SELECT * FROM user WHERE f_name like ? OR l_name like ?";
         PreparedStatement pStmt = conn.prepareStatement(sql);
 			
-
+        pStmt.setString(1, "%"+user.getfName()+"%");
+        pStmt.setString(2, "%"+user.getfName()+"%");
 			ResultSet rs = pStmt.executeQuery();
 			
 			while(rs.next()) {
 				AllDTO all = new AllDTO();
-			    all.setfName(rs.getString("fName"));
-			    all.setlName(rs.getString("lName"));
+			    all.setfName(rs.getString("f_name"));
+			    all.setlName(rs.getString("l_name"));
 			    all.setGender(rs.getString("gender"));
 			    all.setAddress(rs.getString("address"));
 			    all.setPhone(rs.getString("phone"));
@@ -40,7 +42,10 @@ public class UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
 				
-			}
+			} catch (ClassNotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
         return list;
          }
     

@@ -23,10 +23,23 @@
 </main>
 <h2 id="regist">申し込み確認</h2>
  	<form method="POST" action="/A3/ApplyCompServlet">
-	
-		<p>${siki.sName}</p>
+		<p>選択したコース<br>${course.courseName}コース<br>${course.commnet}</p>
 		
-		<p><input type="submit" id="search" name="submit" value="申し込む"></p>
+		<p>希望式場<br>${siki.sName}</p>
+		
+		<label>オプション</label>
+		<c:if test ="${not empty opMsg }">
+			<p>${opMsg }</p>
+		</c:if>
+		<c:forEach var="e" items="${options}">
+		    <li>${e.optionName} : ${e.optionPrice}万円</li>
+		</c:forEach>	
+		<p>【オプション合計金額】 ${opsum}万円</p>		
+		
+		<p>
+		<input type="submit" name="return" value="戻る">
+		<input type="submit" name="submit" value="申し込む">
+		</p>
 
 	</form>
 
