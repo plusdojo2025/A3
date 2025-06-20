@@ -34,6 +34,10 @@
 	
 	<input type="submit" name="submita" value="更新">
 	<input type="submit" name="submita" value="アカウント削除">
+	
+	<c:if test="${not empty message}">
+    <p style="color:white; font-weight: bold;">${message}</p>
+</c:if>
 </form>
 </div>
 </body>
