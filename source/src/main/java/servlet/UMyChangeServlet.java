@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UidpwDAO;
 import dao.UserDAO;
 import dto.AllDTO;
 
@@ -62,8 +63,8 @@ public class UMyChangeServlet extends HttpServlet {
 				System.out.println(loginUser.getUserId()+"ログインユーザー");
 				int user_id =loginUser.getUserId();
 //				int user_id = Integer.parseInt(request.getParameter("user_id"));
-				String id = request.getParameter("id");
-				String pw = request.getParameter("pw");
+				String id =loginUser.getId();
+				String pw =loginUser.getPw();
 				String f_name = request.getParameter("f_name");
 				String l_name = request.getParameter("l_name");
 				String k_f_name = request.getParameter("k_f_name");
@@ -79,10 +80,13 @@ public class UMyChangeServlet extends HttpServlet {
 				// 更新または削除を行う
 				UserDAO uDao = new UserDAO();
 				 //String action = request.getParameter("submit");
-				 boolean success = uDao.update(user_id, birthday,zipcode, phone, email, address);
+				 boolean success = uDao.update(user_id, birthday, phone, email, address);
 		 
 		        if (success) {
 		            request.setAttribute("message", "更新成功しました！");
+		            UidpwDAO dao = new UidpwDAO();
+		            AllDTO user = dao.findUserByLogin(id,pw);
+		            session.setAttribute("user",user);
 		        } else {
 		            request.setAttribute("message", "更新に失敗しました。");
 		        }

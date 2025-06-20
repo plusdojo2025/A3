@@ -15,14 +15,13 @@
 <li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
 <li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
 <li><a href="/A3/○○Servlet">チャット(Q＆A)</a></li>
-<li><a href="/A3/UmypServlet">マイページ</a></li>
+<li><a href="/A3/UMypServlet">マイページ</a></li>
 <li><a href="/A3/LoginServlet">ログアウト</a></li>
 </ul>
 
 <div class="change">
  <h3>登録情報の変更・削除</h3>
-
-	<form method="POST" action="/A3/UMyChangeServlet">
+	<form method="POST" action="/A3/UMyChangeServlet" onsubmit="return confirmDelete(event)">
 	生年月日<br>
 	<input type="date" name="birthday" value="${sessionScope.user.birthday}"><br>
 	住所<br>
@@ -34,7 +33,22 @@
 	
 	<input type="submit" name="submita" value="更新">
 	<input type="submit" name="submita" value="アカウント削除">
+	<c:if test="${not empty message}">
+      <p style="color: white;">${message}</p>
+ </c:if>
 </form>
 </div>
+<script>
+function confirmDelete(event) {
+    // どちらのボタンが押されたかを判定
+    const submitButton = event.submitter;
+    if (submitButton && submitButton.value === "アカウント削除") {
+        // 確認アラートを出す
+        const confirmed = window.confirm("本当にアカウントを削除してよろしいですか？");
+        return confirmed; // trueならそのままsubmit、falseなら中止
+    }
+    return true; // 「更新」ボタンなどはそのまま通す
+}
+</script>
 </body>
 </html>
