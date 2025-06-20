@@ -7,7 +7,7 @@ create table user (
  k_f_name varchar (15) not null,
  k_l_name varchar (15) not null,
  birthday varchar (11),
- gender varchar (2),
+ gender varchar (10),
  zipcode varchar (8),
  address varchar (100),
  email varchar (254),
