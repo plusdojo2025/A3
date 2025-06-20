@@ -25,10 +25,7 @@ public class UserDAO {
         String sql = "SELECT * FROM user WHERE f_name like=? OR l_name like=?";
         PreparedStatement pStmt = conn.prepareStatement(sql);
 			
-        String fullName= user.getfName() + user.getlName();
-			pStmt.setString(1, "%" + user.getfName() + "%");		
-			pStmt.setString(2, "%" +user.getlName() + "%");
-		
+
 			ResultSet rs = pStmt.executeQuery();
 			
 			while(rs.next()) {
