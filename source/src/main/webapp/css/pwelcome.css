@@ -11,10 +11,95 @@ body {
 .name-box {
  background-color: rgba(251,232,211,0.5);
  padding: 20px;
- border-radius: 100px;
+ border-radius: 70px;
  box-shadow: 0 0 10px rgba(0,0,0,0.1);
  width: 500px;
  margin: 300px 0 70px 200px; /*上右下左の順番*/
  font-size: 20px;
  text-align: center;
+}
+
+.header-area {
+  display: flex;
+  align-items: flex-end; /* ← 上揃えから下揃えに変更 */
+  gap: 30px; /* 間隔を開ける */
+  margin-top: 80px;
+  margin-left: 20px;
+}
+
+.calendar-container {
+  max-width: 420px;
+  margin-top:300px
+}
+
+#calendar {
+  margin-top: 200px;  /* ← これを追加して、表だけ下げる */
+  margin-left: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+#calendar th, #calendar td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  height: 40px;
+}
+
+#calendar td {
+  background-color: #f9f9f9;
+}
+
+#calendar td:hover {
+  background-color: #e0f7fa;
+  cursor: pointer;
+}
+.header-area {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.name-box {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.calendar-container {
+  max-width: 420px;
+}
+
+.calendar-controls {
+  margin-bottom: 10px;
+}
+
+.calendar-controls select {
+  padding: 4px 8px;
+  font-size: 1em;
+  margin-right: 8px;
+}
+
+#calendar {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+#calendar th, #calendar td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  height: 40px;
+}
+
+#calendar td {
+  background-color: #f9f9f9;
+}
+
+#calendar td:hover {
+  background-color: #e0f7fa;
+  cursor: pointer;
 }
