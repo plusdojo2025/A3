@@ -41,6 +41,7 @@ public class UMypServlet extends HttpServlet {
 
 		List<AllDTO> cardList = dao.searchByFullName(searchUser);
 		
+		
 		request.setAttribute("cardList", cardList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/umyp.jsp");
 		dispatcher.forward(request, response);

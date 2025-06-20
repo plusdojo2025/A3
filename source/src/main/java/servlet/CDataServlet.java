@@ -77,7 +77,7 @@ public class CDataServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("通ったよ～～");
+		//System.out.println("通ったよ～～");
 		UserDAO dao = new UserDAO();
 		AllDTO searchUser = new AllDTO();
 		searchUser.setfName("");

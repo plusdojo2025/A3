@@ -18,18 +18,23 @@ public class UserDAO {
         List<AllDTO> list = new ArrayList<>();
         System.out.println(user.getfName()+"：渡ってきた値");
         try {
+        	//ここでspl接続
         	Class.forName("com.mysql.cj.jdbc.Driver"); 
         conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
 				+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 				"root", "password");
        
+        //SQLから姓と名を取得
         String sql = "SELECT * FROM user WHERE f_name like ? OR l_name like ?";
         PreparedStatement pStmt = conn.prepareStatement(sql);
 			
+        //ワイルドカードで名前かすったところをとってくる。
         pStmt.setString(1, "%"+user.getfName()+"%");
         pStmt.setString(2, "%"+user.getfName()+"%");
+        //rsとsqlの関係的な
 			ResultSet rs = pStmt.executeQuery();
-			
+		
+			//ここでdaoから取得をnext()で順番に入れ込んでwhileで繰り返し
 			while(rs.next()) {
 				AllDTO all = new AllDTO();
 			    all.setfName(rs.getString("f_name"));
