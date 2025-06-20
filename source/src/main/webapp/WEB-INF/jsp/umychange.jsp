@@ -21,21 +21,20 @@
 
 <div class="change">
  <h3>登録情報の変更・削除</h3>
-<c:forEach var="e" items="${cardList}" >
+
 	<form method="POST" action="/A3/UMyChangeServlet">
 	生年月日<br>
-	<input type="date" name="birthday" value="${e.birthday}"><br>
+	<input type="date" name="birthday" value="${sessionScope.user.birthday}"><br>
 	住所<br>
-	<input type="text" name="address" value="${e.address}"><br>
+	<input type="text" name="address" value="${sessionScope.user.address}"><br>
 	電話番号<br>
-	<input type="text" name="phone" value="${e.phone}"><br>
+	<input type="text" name="phone" value="${sessionScope.user.phone}"><br>
 	メールアドレス<br>
-	<input type="text" name="email" value="${e.email}"><br>
+	<input type="text" name="email" value="${sessionScope.user.email}"><br>
 	
-	<input type="submit" name="submit" value="更新">
-	<input type="submit" name="submit" value="削除">
+	<input type="submit" name="submita" value="更新">
+	<input type="submit" name="submita" value="削除">
 </form>
-</c:forEach>
 </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,9 +25,6 @@ pageEncoding="UTF-8"%>
     </div>
     <input type="submit" name="search" value="検索" class="sercher-botton"><br>
 </form>
-
-
-
 
 <!-- ↓ 検索結果表示 -->
 <c:forEach var="e" items="${cardList}">

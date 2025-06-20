@@ -35,9 +35,19 @@ public class UidpwDAO {
 
 	            if (rs.next()) {
 	                user = new AllDTO();
+	                user.setUserId(rs.getInt("user_id"));
 	                user.setId(rs.getString("id"));
 	                user.setPw(rs.getString("pw"));
+	                user.setfName(rs.getString("f_name"));
 	                user.setlName(rs.getString("l_name"));
+	                user.setkfName(rs.getString("k_f_name"));
+	                user.setklName(rs.getString("k_l_name"));
+	                user.setBirthday(rs.getString("birthday"));
+	                user.setGender(rs.getString("gender"));
+	                user.setZipcode(rs.getString("zipcode"));
+	                user.setAddress(rs.getString("address"));
+	                user.setPhone(rs.getString("phone"));
+	                user.setEmail(rs.getString("email"));
 	            }
 				
 			} catch (Exception e) {
