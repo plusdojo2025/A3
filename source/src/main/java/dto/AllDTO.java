@@ -178,11 +178,11 @@ public class AllDTO implements Serializable {
 		this.jmNumber = jmNumber;
 	}
 
-	public String getsName() {
+	public String getSName() {
 		return sName;
 	}
 
-	public void setsName(String sName) {
+	public void setSName(String sName) {
 		this.sName = sName;
 	}
 
