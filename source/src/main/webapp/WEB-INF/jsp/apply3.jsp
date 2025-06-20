@@ -28,23 +28,27 @@
 		<h2>式場・オプション選択</h2>
  	</div>
 <form method="POST" action="/A3/ApplyConfirmServlet">
- 	 	<c:forEach var="e" items="${sikijoList}">
-			<input type="radio" name="sikijo">${e.sName}
-<%-- 			<p>${e.sikijoId}</p>
+	
+	<%-- <p><c:out value="${sessionScope.courseId.courseName}" />コース</p>
+ --%>	
+ 	 <c:forEach var="e" items="${sikijoList}">
+		<input type="radio" name="sikijo" value="${e.sikijoId }" required>${e.sName}
+<%-- 		<p>${e.sikijoId}</p>
 			<p>${e.sName}</p> --%>
 			<p>${e.sAddress}</p><!-- ココ住所かも？あと、写真も入れる！！ --> 
-		</c:forEach>  
+	</c:forEach>  
 		
-		<label>オプション</label><br>
-		<c:forEach var="e" items="${optionList}">
-			<input type="checkbox" name="option"><%-- ${e.optionId }, --%>
-			${e.optionName }:
-			${e.optionPrice }万円
-			<br>
-		</c:forEach>
-        <p><input type="submit" id="search" name="submit" value="申し込む"></p>		
+	<label>オプション</label><br>
+	<c:forEach var="e" items="${optionList}">
+		<input type="checkbox" name="option" value="${e.optionId }">${e.optionId },
+		${e.optionName }:
+		${e.optionPrice }万円
+		<br>
+	</c:forEach>
+    
+    <p><input type="submit" id="search" name="submit" value="申し込む"></p>		
  		
- </form>
+</form>
 
 </main>
 <footer>

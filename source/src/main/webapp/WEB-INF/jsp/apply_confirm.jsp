@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,26 +11,13 @@
 <main>
 </main>
 <h2 id="regist">申し込み確認</h2>
- 	<form method="POST" action="/A3/ApplyCompServlet"
-			id="apply_confirm_form">
+ 	<form method="POST" action="/A3/ApplyCompServlet">
 	
-	<p>
-	コース<br>
-	${param.course}
-	</p>
-	<p>
-	式場<br>
-	${param.sikijo}
-	</p>
-	<p>
-	オプション<br>
-	${param.option}
-	</p>
+		<p><c:out value="${siki.sName}"/></p>
+		
+		<p><input type="submit" id="search" name="submit" value="申し込む"></p>
 
-
-	<p><input type="submit" id="search" name="submit" value="申し込む"></p>
-
-	 </form>
+	</form>
 
 </body>
 </html>

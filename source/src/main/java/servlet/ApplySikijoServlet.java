@@ -39,10 +39,11 @@ public class ApplySikijoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String str = request.getParameter("course");	
-		int courseId = Integer.parseInt(str);
+		String co = request.getParameter("course");	
+		int courseId = Integer.parseInt(co);
 		
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();	
+
 		AllDTO user =(AllDTO)session.getAttribute("user");
 //		int userId =user.getUserId();
 		int userId =3;
@@ -61,11 +62,10 @@ public class ApplySikijoServlet extends HttpServlet {
 		//コースのオプションを取得
 		List<AllDTO> optionList =dao.getCourse(courseId);
 		request.setAttribute("optionList", optionList);
-
-		
 		//JSPに渡す
 		request.setAttribute("sikijoList", sList);
-		  
+
+		session.setAttribute("courseId", courseId);	
 		
 		// フォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply3.jsp");
