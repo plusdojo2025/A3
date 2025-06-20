@@ -22,10 +22,10 @@ public class UserDAO {
 				+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 				"root", "password");
        
-        String sql = "SELECT * FROM user WHERE fName like=? OR lName like=?";
+        String sql = "SELECT * FROM user WHERE f_name like=? OR l_name like=?";
         PreparedStatement pStmt = conn.prepareStatement(sql);
 			
-        String List= user.getfName() + user.getlName();
+        String fullName= user.getfName() + user.getlName();
 			pStmt.setString(1, "%" + user.getfName() + "%");		
 			pStmt.setString(2, "%" +user.getlName() + "%");
 		

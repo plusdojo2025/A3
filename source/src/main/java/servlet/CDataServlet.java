@@ -26,9 +26,9 @@ public class CDataServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		 doGet(request, response);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");  
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");  
 		// メニューページ（menu.jsp）へのディスパッチャを取得
-		dispatcher.forward(request, response); 
+		//dispatcher.forward(request, response); 
 		
 	}
 
@@ -46,23 +46,25 @@ public class CDataServlet extends HttpServlet {
 				String fName= request.getParameter("fName");
 				String lName= request.getParameter("lName");
 				String gender= request.getParameter("gender");
-				String address = request.getParameter("adress");
+				String address = request.getParameter("address");
 				String phone = request.getParameter("phone");
-		
+				
+				 
 				
 				if (fullName != null && !fullName.isEmpty()) {
-				 //   if (fullName.contains(" ")) { // 半角スペース区切り
-				      //  String[] parts = fullName.split(" ");
-				      //  fName = parts[0];
-				      //  lName = parts.length > 1 ? parts[1] : "";
-				 //   } else if (fullName.length() >= 2) { // 例：「山田太郎」→ 山田＋太郎に分ける
-				  //      fName = fullName.substring(0, 2);
-				   //     lName = fullName.substring(2); 
-				        fName = fullName;
-				        lName = fullName;
+				    if (fullName.contains(" ")) { // 半角スペース区切り
+				    String[] parts = fullName.split(" ");
+				    fName = parts[0];
+				    lName = parts.length > 1 ? parts[1] : "";
+				  } else if (fullName.length() >= 2) { // 例：「山田太郎」→ 山田＋太郎に分ける
+				   fName = fullName.substring(0, 2);
+				   lName = fullName.substring(2); 
+				  }else {
+//				        fName = fullName;
+//				        lName = fullName;
 				    
 				    }
-				
+				}
 				
 				
 				UserDAO dao = new UserDAO();
