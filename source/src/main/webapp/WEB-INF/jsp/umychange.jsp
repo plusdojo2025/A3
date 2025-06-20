@@ -33,7 +33,7 @@
 	<input type="text" name="email" value="${sessionScope.user.email}"><br>
 	
 	<input type="submit" name="submita" value="更新">
-	<input type="submit" name="submita" value="削除">
+	<input type="submit" name="submita" value="アカウント削除">
 </form>
 </div>
 </body>

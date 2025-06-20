@@ -79,7 +79,7 @@ public class UMyChangeServlet extends HttpServlet {
 				// 更新または削除を行う
 				UserDAO uDao = new UserDAO();
 				 //String action = request.getParameter("submit");
-				 boolean success = uDao.update(user_id, birthday, phone, email, address);
+				 boolean success = uDao.update(user_id, birthday,zipcode, phone, email, address);
 		 
 		        if (success) {
 		            request.setAttribute("message", "更新成功しました！");
@@ -90,6 +90,37 @@ public class UMyChangeServlet extends HttpServlet {
 		        dispatcher.forward(request, response);
 		        
 		    } else if (request.getParameter("submita").equals("削除"))  {
+		    	HttpSession session = request.getSession();
+		        AllDTO loginUser = (AllDTO) session.getAttribute("user");
+		        if (loginUser == null) {
+		            response.sendRedirect("LoginServlet");
+		            return;
+		        }
+
+		        int user_id = loginUser.getUserId();
+		        UserDAO uDao = new UserDAO();
+		        boolean deleteSuccess = uDao.delete(user_id);
+
+		        if (deleteSuccess) {
+		            session.invalidate(); // セッション無効化
+		            request.setAttribute("message", "削除完了しました。ご利用ありがとうございました。");
+		            response.sendRedirect("LoginServlet");
+		            return;
+		            
+		        } else {
+		            request.setAttribute("message", "削除に失敗しました。");
+		            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UMyServlet.jsp");
+		            dispatcher.forward(request, response);
+		            return;
+		        }
+		    }
+	}
+}
+		        
+		        // 削除結果表示用JSPにフォワード
+		        //RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/LoginServlet.jsp");
+		        //dispatcher.forward(request, response);
+		   // }
 		/*if (request.getParameter("submit").equals("更新")) {
 			if (uDao.update(new AllDTO(user_id,id,pw,f_name,l_name,k_f_name,k_l_name,birthday,gender,zipcode,address,email,phone))) { // 更新成功
 				request.setAttribute("result");
@@ -112,9 +143,9 @@ public class UMyChangeServlet extends HttpServlet {
 //		            }
 
 		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UMyServlet.jsp");
-		dispatcher.forward(request, response);
-	}
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/UMyServlet.jsp");
+		//dispatcher.forward(request, response);
+	//}
 
-	}
-}
+	//}
+
