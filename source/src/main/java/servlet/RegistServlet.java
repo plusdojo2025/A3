@@ -33,11 +33,14 @@ public class RegistServlet extends HttpServlet {
 		
 		
 		// メニューページにフォワードする
+		request.setAttribute("isPost", false);
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");  
 					// メニューページ（menu.jsp）へのディスパッチャを取得
 
 					dispatcher.forward(request, response);  
 					// メニューページへリクエストとレスポンスを転送
+					
+					
 	}
 
 	/**
@@ -75,13 +78,12 @@ public class RegistServlet extends HttpServlet {
 			 gender, zipcode, address, email, phone); 
 			 if(success) {
 				 request.setAttribute("message", "ユーザー登録が完了しました。ログインしてください。");
-				 request.setAttribute("hasTried", true);
 				 RequestDispatcher dispatcher =
 				 request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 				 dispatcher.forward(request, response); } 
 			 else { // 登録失敗時、エラーメッセージを設定して戻る
+				 request.setAttribute("isPost", true); 
 				 request.setAttribute("error", "ユーザー登録に失敗しました。入力内容を確認してください。");
-				 request.setAttribute("hasTried", true);
 				 RequestDispatcher dispatcher =
 				 request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
 				 dispatcher.forward(request, response);
