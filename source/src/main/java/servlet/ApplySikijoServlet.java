@@ -43,12 +43,14 @@ public class ApplySikijoServlet extends HttpServlet {
 		int courseId = Integer.parseInt(co);
 		
 		HttpSession session = request.getSession();	
-
+		session.setAttribute("courseId",courseId);
 		AllDTO user =(AllDTO)session.getAttribute("user");
 //		int userId =user.getUserId();
 		int userId =3;
+		
 		//DAOインスタンス化
 		ApplyDAO dao = new ApplyDAO();
+		
 		List<ApplyDTO> sikijoList = dao.course(courseId,userId);
 		ArrayList<Integer> idList = new ArrayList<>();
 		for(ApplyDTO sid : sikijoList) {
@@ -59,13 +61,14 @@ public class ApplySikijoServlet extends HttpServlet {
 		for(int id :idList) {
 			sList.add(dao.getSikijo(id));
 		}
+		
 		//コースのオプションを取得
 		List<AllDTO> optionList =dao.getCourse(courseId);
 		request.setAttribute("optionList", optionList);
 		//JSPに渡す
 		request.setAttribute("sikijoList", sList);
 
-		session.setAttribute("courseId", courseId);	
+		
 		
 		// フォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply3.jsp");

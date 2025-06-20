@@ -8,8 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import dao.ApplyDAO;
 import dto.AllDTO;
 
 /**
@@ -32,13 +32,19 @@ public class ApplyConfirmServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		HttpSession session = request.getSession();
-		AllDTO courseId =(AllDTO)session.getAttribute("courseId");
+//		HttpSession session = request.getSession();
+//		AllDTO courseId =(AllDTO)session.getAttribute("courseId");
 		String si = request.getParameter("sikijo");
-		String op = request.getParameter("option");
+//		String op = request.getParameter("option");
 		
+		int sId = Integer.parseInt(si);
 		
+		ApplyDAO dao = new ApplyDAO();
+		AllDTO siki = dao.getSiki(sId);
 		
+		System.out.println("siki = " + siki);
+		
+		request.setAttribute("siki", siki);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply_confirm.jsp");
 		dispatcher.forward(request,response);

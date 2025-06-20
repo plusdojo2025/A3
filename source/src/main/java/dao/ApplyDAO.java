@@ -13,6 +13,7 @@ import dto.ApplyDTO;
 
 public class ApplyDAO {
 	
+	//選択したコースに対応してる式場idを探す
 	public List<ApplyDTO> course(int courseId,int userId) {
 		List<ApplyDTO> applyList = new ArrayList<>();
 		Connection conn = null;
@@ -71,6 +72,7 @@ public class ApplyDAO {
 		return applyList;
 	}
 	
+	//式場idから式場のデータを探す
 	public AllDTO getSikijo(Integer sId){
 		AllDTO dto =null;
 		Connection conn = null;
@@ -199,8 +201,8 @@ public class ApplyDAO {
 		return optionList;
 	}
 	
-	public List<AllDTO> getSiki(int sId){
-		List<AllDTO> sikiList = new ArrayList<>();
+	public AllDTO getSiki(int sId){
+		AllDTO alldto = null;
 		Connection conn = null;
 		
 		try {
@@ -228,12 +230,12 @@ public class ApplyDAO {
 				dto.setSikijoId(rs.getInt("sikijo_id"));
 //				dto.setJmNumber(rs.getInt("jm_number"));
 				dto.setsName(rs.getString("name"));
-				dto.setsName(rs.getString("address"));
+				dto.setSikiAdd(rs.getString("address"));
 //				dto.setsImage(rs.getString("image"));
 //				dto.setOptionPrice(rs.getString("sikijo_price"));
 				
 				//値が入った枝豆（上のDTO）をArrayListに追加
-				sikiList.add(dto);
+//				dto.add(dto);
 			}
 			
 		}catch (SQLException e) {
@@ -256,7 +258,7 @@ public class ApplyDAO {
 			}
 		}
 		//コースのデータの入ったArrayListをServletへ返却
-		return sikiList;
+		return alldto;
 	}
 	
 }
