@@ -45,7 +45,7 @@
 			<tr>
 				<td>
 					<label>
-					<input type="checkbox" name="option" value="1300000">魚入刀<br>
+					<input type="checkbox" name="option" value="1300000">マグロ入刀<br>
 					</label>
 				</td>
 			</tr>
@@ -217,7 +217,7 @@
 			  <tr>
 				  <td>
 					  <label>
-					  <input type="checkbox" name="option" value="60000">寿司ケーキあーん<br>
+					  <input type="checkbox" name="option" value="60000">寿司ケーキ<br>
 					  </label>
 				  </td>
 			  </tr>
