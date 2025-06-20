@@ -26,13 +26,10 @@ pageEncoding="UTF-8"%>
     <input type="submit" name="search" value="検索" class="sercher-botton"><br>
 </form>
 
-
-
-
 <!-- ↓ 検索結果表示 -->
 <c:forEach var="e" items="${cardList}">
   <details class="details-box">
-    <summary>${e.fullName} </summary>
+    <summary>${e.fName} ${e.lName}</summary>
     <div class="details-content">
       <p>性別：${e.gender}</p>
       <p>住所：${e.address}</p>
