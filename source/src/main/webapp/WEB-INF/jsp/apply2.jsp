@@ -31,10 +31,12 @@
 		<h2>コース選択</h2>
  	</div>
  	<form method="POST" action="/A3/ApplySikijoServlet">
+<%--  	<c:if test="${not empty errorMsg }">
+ 		<p>${errorMsg }
+ 	</c:if> --%>
  	<c:forEach var="e" items="${courseList}" >
-		<input type="radio" name="course" value="${e.courseId}">${e.courseName}コース
+		<input type="radio" name="course" value="${e.courseId}" required>${e.courseName}コース
 		<p>${e.comment}</p>
-		
 	</c:forEach>
  	    
         <p><input type="submit" id="search" name="submit" value="次へ"></p>	

@@ -34,13 +34,21 @@ public class ApplyConfirmServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		
 		//セッションからapply2で選択されたコースidを取得
 		HttpSession session = request.getSession();
 		int courseId = (Integer) session.getAttribute("courseId");
 		
 		//apply3で選択された式場idとオプションidの取得
 		String si = request.getParameter("sikijo");
-			System.out.println("受け取ったsikijo = " + si);  // 例: "1"
+			//System.out.println("受け取ったsikijo = " + si);  // 例: "1"
+			/*
+			 * //もし式場が選択されてなかったら if(si == null || si.isEmpty()) {
+			 * request.setAttribute("eroorMsg", "※コースを選択してください"); // 元の画面（例: apply2.jsp）に戻す
+			 * RequestDispatcher dispatcher =
+			 * request.getRequestDispatcher("/WEB-INF/jsp/apply3.jsp");
+			 * dispatcher.forward(request, response); return; }
+			 */
 		String op = request.getParameter("option");
 		
 		int sId = Integer.parseInt(si);
@@ -48,9 +56,9 @@ public class ApplyConfirmServlet extends HttpServlet {
 //		int opId = Integer.parseInt(op);
 		
 		//DAOをインスタンス化
-		ApplyDAO dao = new ApplyDAO();		
-		AllDTO siki = dao.getSiki(sId);
-		AllDTO course = dao.getCourseInfo(courseId);
+		ApplyDAO appdao = new ApplyDAO();		
+		AllDTO siki = appdao.getSiki(sId);
+		AllDTO course = appdao.getCourseInfo(courseId);
 //		AllDTO option = dao.getOption(sId);
 		
 		//選択されたオプション(のname属性)を取得
@@ -62,7 +70,7 @@ public class ApplyConfirmServlet extends HttpServlet {
 			for (String oid : optionIds) {
 				int optionId = Integer.parseInt(oid);
 				// DAOで取得して確認画面に渡すなど
-				AllDTO opt = dao.getOption(optionId);  // ←個別取得メソッドを用意してもOK
+				AllDTO opt = appdao.getOption(optionId); 
 				opList.add(opt);
 				opsum += Integer.parseInt(opt.getOptionPrice());
 			}
@@ -72,15 +80,14 @@ public class ApplyConfirmServlet extends HttpServlet {
 			//確認用
 			System.out.println("siki = " + siki);
 		
-		request.setAttribute("course", course);
-		request.setAttribute("siki", siki);
-		request.setAttribute("options", opList);
-		request.setAttribute("opsum", opsum);
+		session.setAttribute("course", course);
+		session.setAttribute("siki", siki);
+		session.setAttribute("options", opList);
+		session.setAttribute("opsum", opsum);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply_confirm.jsp");
 		dispatcher.forward(request,response);
-
+		
+		
 	}
-	
-
 }

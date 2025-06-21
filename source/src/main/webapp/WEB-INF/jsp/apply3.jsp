@@ -30,9 +30,12 @@
 <form method="POST" action="/A3/ApplyConfirmServlet">
 	
 	<%-- <p><c:out value="${sessionScope.courseId.courseName}" />コース</p>
- --%>	
- 	 <c:forEach var="e" items="${sikijoList}">
-		<input type="radio" name="sikijo" value="${e.sikijoId }" required>${e.sName}
+ --%>
+ 	<c:if test="${not empty errorMsg }">
+ 		<p>${errorMsg }
+ 	</c:if>	
+ 	<c:forEach var="e" items="${sikijoList}">
+		<input type="radio" name="sikijo" value="${e.sikijoId }">${e.sName}
 <%-- 		<p>${e.sikijoId}</p>
 			<p>${e.sName}</p> --%>
 			<p>${e.sAddress}</p><!-- ココ住所かも？あと、写真も入れる！！ --> 
@@ -40,16 +43,18 @@
 		
 	<label>オプション</label><br>
 	<c:forEach var="e" items="${optionList}">
-		<input type="checkbox" name="option" value="${e.optionId }">${e.optionId },
+		<input type="checkbox" name="option" value="${e.optionId }"><%-- ${e.optionId }, --%>
 		${e.optionName }:
 		${e.optionPrice }万円
 		<br>
 	</c:forEach>
-    
-    <p><input type="submit" id="search" name="submit" value="申し込む"></p>		
- 		
+    <label>備考<br>
+		<textarea name="remarks" rows=4 cols=40></textarea><br>
+    </label>
+    <p><input type="submit" name="submit" value="申し込み確認へ"></p> 		
 </form>
-
+	<button type="submit" name="return" value="戻る" onclick="history.back();">コース選択へ戻る</button>
+	
 </main>
 <footer>
 

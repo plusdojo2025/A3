@@ -24,15 +24,13 @@ public class ApplyCourseServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CourseDAO coudao = new CourseDAO();
-		
+		CourseDAO coudao = new CourseDAO();		
 		List<CourseDTO>courseList = coudao.select();
 		//JSPに渡す
 		request.setAttribute("courseList", courseList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply2.jsp");
-		dispatcher.forward(request, response);
-		
+		dispatcher.forward(request, response);		
 	}
 	
 	/**
@@ -46,9 +44,9 @@ public class ApplyCourseServlet extends HttpServlet {
 //		
 //		//aply3.jspへ
 //		request.setAttribute("course", course);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply3.jsp");
-		dispatcher.forward(request, response);		
+//		
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply3.jsp");
+//		dispatcher.forward(request, response);		
 		
 	}
 

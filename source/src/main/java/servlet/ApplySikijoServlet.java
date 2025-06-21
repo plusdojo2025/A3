@@ -22,25 +22,23 @@ import dto.ApplyDTO;
 @WebServlet("/ApplySikijoServlet")
 public class ApplySikijoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		request.setCharacterEncoding("UTF-8");
+		//選択されたコースを取得
 		String co = request.getParameter("course");	
+			//もしコースが選択されてなかったら
+//			if(co == null || co.isEmpty()) {
+//				request.setAttribute("eroorMsg", "※コースを選択してください");
+//				// 元の画面（例: apply2.jsp）に戻す
+//		        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply2.jsp");
+//		        dispatcher.forward(request, response);
+//		        return;
+//			}
 		int courseId = Integer.parseInt(co);
 		
 		HttpSession session = request.getSession();	

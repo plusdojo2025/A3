@@ -36,12 +36,11 @@
 		</c:forEach>	
 		<p>【オプション合計金額】 ${opsum}万円</p>		
 		
-		<p>
-		<input type="submit" name="return" value="戻る">
+		<p>		
 		<input type="submit" name="submit" value="申し込む">
 		</p>
-
 	</form>
+	<button type="submit" name="return" value="戻る" onclick="history.back();">選択へ戻る</button>
 
 </body>
 </html>
