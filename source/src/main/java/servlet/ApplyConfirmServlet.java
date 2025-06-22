@@ -51,13 +51,13 @@ public class ApplyConfirmServlet extends HttpServlet {
 			 */
 		String op = request.getParameter("option");
 		
-		int sId = Integer.parseInt(si);
-			System.out.println("変換後のsId = " + sId);
+		int sikijoId = Integer.parseInt(si);
+			System.out.println("変換後のsId = " + sikijoId);
 //		int opId = Integer.parseInt(op);
 		
 		//DAOをインスタンス化
 		ApplyDAO appdao = new ApplyDAO();		
-		AllDTO siki = appdao.getSiki(sId);
+		AllDTO sikijo = appdao.getSiki(sikijoId);
 		AllDTO course = appdao.getCourseInfo(courseId);
 //		AllDTO option = dao.getOption(sId);
 		
@@ -78,10 +78,11 @@ public class ApplyConfirmServlet extends HttpServlet {
 			request.setAttribute("opMsg", "未選択");
 		}
 			//確認用
-			System.out.println("siki = " + siki);
+			System.out.println("siki = " + sikijo);
 		
-		session.setAttribute("course", course);
-		session.setAttribute("siki", siki);
+		//apply3で選択された式場とコースをセッションへ
+//		session.setAttribute("course", course);
+		session.setAttribute("sikijo", sikijo);
 		session.setAttribute("options", opList);
 		session.setAttribute("opsum", opsum);
 		
