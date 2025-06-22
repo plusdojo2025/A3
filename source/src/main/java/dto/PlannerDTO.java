@@ -10,7 +10,7 @@ public class PlannerDTO {
 	private String phone;
 	private String sikiAdd;
 	private String strongFild;
-	private String image;
+	private String img;
 	
 	
 	//ゲッターセッター(ゲトリタ、セトディス)
@@ -63,10 +63,10 @@ public class PlannerDTO {
 		this.strongFild = strongFild;
 	}
 	public String getImage() {
-		return image;
+		return img;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setImage(String img) {
+		this.img = img;
 	}
 	
 	
