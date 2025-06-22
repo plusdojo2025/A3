@@ -21,13 +21,22 @@
 		</ul>
 	</header>
 <main>
-<c:forEach var="e" items="${applyList}">
+<%-- <c:forEach var="e" items="${applyList}">
 	<h2>申し込み完了</h2>
-	<p>コース<br>${e.courseId}</p>
+	<p>コース<br>${course.courseId}</p>
 	<p>希望式場<br>${e.sikijoId}</p>
 	<p>オプション<br>${e.optionId}</p>
 	<p>プランナー<br>${e.plannerId}</p>
-</c:forEach>
+</c:forEach> --%>
+<h2>申し込み完了</h2>
+	<p>コース<br>${course.courseName}</p>
+	<p>希望式場<br>${sikijo.sName}</p>
+	<label>オプション</label>
+	<c:forEach var="e" items="${options}">
+	    <p>${e.optionName} : ${e.optionPrice}万円</p>
+	</c:forEach>
+	<p>${opsum }万円</p>
+
 </main>
 
 

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -385,11 +386,12 @@ public class ApplyDAO {
 	}
 	
 	//登録（applyテーブルへデータを入れる）------------------------------
-	public void insert(int userId, int courseId, int sikijoId,  List<Integer> optionIds) {
+	public void insert(int userId, int courseId, int sikijoId,  List<Integer> opIds) {
 	    Connection conn=null;
-	    PreparedStatement pstmt = null;
+//	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
 	    int applyId = -1;
+	    
 	    
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -397,23 +399,26 @@ public class ApplyDAO {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 					"root", "password");
+			conn.setAutoCommit(false); 
 			
 			// SQL文の準備
-			String sql = "INSERT INTO apply VALUES (0, ?, ?, ?)";
+			String sql = "INSERT INTO apply (user_id, course_id, sikijo_id) VALUES (?, ?, ?)";
 			System.out.println(sql);
-			PreparedStatement pStmt = conn.prepareStatement(sql);//全部凝縮されたのが「ｐStmt」
+			PreparedStatement pStmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			
 			pStmt.setInt(1, userId);
 			pStmt.setInt(2, courseId);
 			pStmt.setInt(3, sikijoId);
+//			pStmt.setString(4, remarks);
+			pStmt.executeUpdate();
 //			pStmt.setString(4, optionIds); //SQL内の4つ目の ? に optionId の値（int型）を設定
 			
-			int affectedRows = pstmt.executeUpdate();
+			int affectedRows = pStmt.executeUpdate();
 	        if (affectedRows == 0) {
 	            throw new SQLException("applyテーブルへの挿入に失敗しました。");
 	        }
 
-	        rs = pstmt.getGeneratedKeys();
+	        rs = pStmt.getGeneratedKeys();
 	        if (rs.next()) {
 	            applyId = rs.getInt(1);
 	        } else {
@@ -421,13 +426,13 @@ public class ApplyDAO {
 	        }
 	        // ② apply_option テーブルに複数INSERT
 	        String sqlOption = "INSERT INTO apply_option (apply_id, option_id) VALUES (?, ?)";
-	        pstmt = conn.prepareStatement(sqlOption);
-	        for (Integer optId : optionIds) {
-	            pstmt.setInt(1, applyId);
-	            pstmt.setInt(2, optId);
-	            pstmt.addBatch();
+	        pStmt = conn.prepareStatement(sqlOption);
+	        for (Integer optId : opIds) {
+	            pStmt.setInt(1, applyId);
+	            pStmt.setInt(2, optId);
+	            pStmt.addBatch();
 	        }
-	        pstmt.executeBatch();
+	        pStmt.executeBatch();
 
 	        // コミット
 	        conn.commit();

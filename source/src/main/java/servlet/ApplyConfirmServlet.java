@@ -83,7 +83,8 @@ public class ApplyConfirmServlet extends HttpServlet {
 		//apply3で選択された式場とコースをセッションへ
 //		session.setAttribute("course", course);
 		session.setAttribute("sikijo", sikijo);
-		session.setAttribute("options", opList);
+		session.setAttribute("options", opList);//AllDTO(jsp表示用)
+		session.setAttribute("optionIds", optionIds); // ←String[] IDだけ（登録処理用）
 		session.setAttribute("opsum", opsum);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply_confirm.jsp");

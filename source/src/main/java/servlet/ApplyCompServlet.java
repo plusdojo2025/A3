@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.ApplyDAO;
 import dto.AllDTO;
 
 /**
@@ -39,19 +41,26 @@ public class ApplyCompServlet extends HttpServlet {
 //		int userId =user.getUserId();
 		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
 		int courseId = (Integer) session.getAttribute("courseId");
-		int sikijoId = (Integer) session.getAttribute("sikijo");
-		String[] optionIds = (String[]) session.getAttribute("options");
+		AllDTO sikijo = (AllDTO) session.getAttribute("sikijo");
+		int sikijoId = sikijo.getSikijoId();
+				
+		//セッションからoptionIds(String[]型)を取得
+		String[] optionIds = (String[]) session.getAttribute("optionIds");
+		//List<Integer>に変換
 		List<Integer> opIds = new ArrayList<>();
 		if (optionIds != null) {
-		    for (String idStr : optionIds) {
-		        opIds.add(Integer.parseInt(idStr));
+		    for (String oid : optionIds) {		    	
+		    	opIds.add(Integer.parseInt(oid));
 		    }
 		}
+		
+		ApplyDAO appdao = new ApplyDAO();
+		appdao.insert(userId, courseId, sikijoId, opIds);
 //		int opsum = (Integer) session.setAttribute("opsum", opsum);
 		
-	
-		
-		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/applyhistory.jsp");
+		dispatcher.forward(request,response);
+
 	}
 
 }
