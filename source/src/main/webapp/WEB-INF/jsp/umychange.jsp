@@ -23,7 +23,7 @@
 <div class="change">
  <h3>登録情報の変更・削除</h3>
 
-	<form method="POST" action="/A3/UMyChangeServlet">
+	<form id="changeForm" method="POST" action="/A3/UMyChangeServlet">
 	生年月日<br>
 	<input type="date" name="birthday" value="${sessionScope.user.birthday}"><br>
 	住所<br>
@@ -37,9 +37,35 @@
 	<input type="submit" name="submita" value="アカウント削除">
 	
 	<c:if test="${not empty message}">
-    <p style="color:white; font-weight: bold;">${message}</p>
-</c:if>
+    <p id="msg" style="color:white; font-weight: bold;">${message}</p>
+	</c:if>
 </form>
 </div>
+
+<script>
+window.onload = function () {
+    // メッセージ非表示（5秒後）
+    const msg = document.getElementById("msg");
+    if (msg) {
+      setTimeout(() => {
+        msg.style.display = "none";
+      }, 5000);
+    }
+
+    // アカウント削除確認
+    const form = document.getElementById("changeForm");
+    const deleteBtn = form.querySelector("input[name='submita'][value='アカウント削除']");
+
+    form.addEventListener("submit", function (e) {
+      const clicked = document.activeElement;
+      if (clicked === deleteBtn) {
+        const confirmDelete = confirm("本当にアカウントを削除してもよろしいですか？");
+        if (!confirmDelete) {
+          e.preventDefault();
+        }
+      }
+    });
+  };
+</script>
 </body>
 </html>

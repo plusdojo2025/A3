@@ -30,7 +30,7 @@
 <table>
 <tr>
 	<td>
-		<label>ID(必須)<span style="color:red;" id="error_message"></span></label>
+		<label>ID(必須)</label>
 	</td>
 	<td>
 		<label>Password(必須)</label>
@@ -143,7 +143,7 @@
 <tr>
 	<td>
 	<span id="error_message2"></span>
-		<label>メールアドレス(@マークも入力してください)</label>
+		<label>メール(@以降も入力)</label>
 	</td>
 </tr>
 <tr>
@@ -168,7 +168,7 @@
 </table>
 
 <p id="error_message"></p>
-
+<span style="color:red;" id="error_message"></span>
 <input type="submit" name="regist" value="登録" onclick="return touroku()">
 <c:if test="${isPost and not empty error}">
   <p style="color: red;">${error}</p>
@@ -179,7 +179,11 @@
 <!-- メインここまで -->
 <!-- ふっだーここから -->
 
-<div id="footer">
+<div class="footer">
+<li><a href="/A3/HomeServlet">トップに戻る</a></li>
+<li><a href="/A3/ApplyServlet">申し込み</a></li>
+<li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
+<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
    <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
 </div>
 <!-- ふっだーここまで -->

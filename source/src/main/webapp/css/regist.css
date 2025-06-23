@@ -74,7 +74,7 @@ input[name=phone]{
 
 form {
     margin: 0 auto;
-    max-width: 500px;
+    max-width: 350px; 
     
 }
 input[type="text"], textarea {
