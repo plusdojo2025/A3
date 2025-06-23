@@ -178,6 +178,7 @@
 
 <!-- メインここまで -->
 <!-- ふっだーここから -->
+
 <div id="footer">
    <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
 </div>
