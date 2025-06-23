@@ -170,6 +170,9 @@
 <p id="error_message"></p>
 <span style="color:red;" id="error_message"></span>
 <input type="submit" name="regist" value="登録" onclick="return touroku()">
+<%-- <c:if test="${not empty error}">
+    <p style="text-align:center;">${error}</p>
+</c:if> --%>
 <c:set var="isPost" value="${isPost != null ? isPost : false}" />
 </form>
 

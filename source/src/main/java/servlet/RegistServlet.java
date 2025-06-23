@@ -89,7 +89,7 @@ public class RegistServlet extends HttpServlet {
 				 request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 				 dispatcher.forward(request, response); } 
 			 else { // 登録失敗時、エラーメッセージを設定して戻る
-				 request.setAttribute("isPost", true); 
+					request.setAttribute("isPost", true);
 				 request.setAttribute("error", "ユーザー登録に失敗しました。IDとPWを変更してください。");
 				 RequestDispatcher dispatcher =
 				 request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
