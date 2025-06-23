@@ -15,7 +15,7 @@
 
 </head>
 <body>
-<ul id="nav">
+<ul id="nov">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
 <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
 <li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
