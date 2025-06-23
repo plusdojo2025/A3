@@ -17,11 +17,11 @@
 <body>
 <ul id="nav">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
-<li><a href="<c:url value='/ApplyServlet' />">申し込み</a></li>
+<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
 <li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
 <li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
 <li><a href="<c:url value='/◯◯Servlet' />">チャット(Q＆A)</a></li>
-<li><a href=action="<c:url value='/UmypServlet' />">マイページ</a></li>
+<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 </ul>
 <!-- ヘッダー（ここまで） -->
 
