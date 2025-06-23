@@ -50,7 +50,7 @@
 		</form>
 		
 		
-		<form method="get" action="/A3/PLoginServlet" >
+		<form method="get" action="/A3/CLogoutServlet" >
 		<button type="submit">ログアウト</button><br>
 		</form>
 	</div>
