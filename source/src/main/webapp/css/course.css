@@ -1,1 +1,46 @@
 @charset "UTF-8";
+body {
+    text-align: center;
+    font-family: sans-serif;
+}
+.hero {
+	
+    background-image: url(../img/whiteflowerremake.png);
+    padding: 5px 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #FFFFFF;
+    text-align:center;
+   
+}
+.herosimu{
+ margin: 10px auto;
+ background-color: rgba(251,232,211,0.5);
+ padding: 180px;
+ border-radius: 100px;
+ box-shadow: 0 0 10px rgba(0,0,0,0.1);
+ height:50px;
+ width: 370px;
+ font-size: 20px;
+ text-align: center;
+}
+.course-list {
+    list-style: none;
+    padding: 10px;
+}
+.course-list li {
+    font-size: 20px;
+    margin: 20px 0 10px 0;
+    padding: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.course-comment {
+    width: 60%;
+    margin: 0 auto 30px auto;
+    border: 2px solid #aaa;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
