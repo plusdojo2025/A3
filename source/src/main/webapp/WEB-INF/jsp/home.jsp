@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
      <!--  ページのコンテンツタイプと文字エンコーディングをUTF-8のHTMLに設定-->
 <!DOCTYPE html>
 <!--HTML文書の開始を宣言-->
@@ -15,12 +16,12 @@
 </head>
 <body>
 <ul id="nav">
-<li><a href="/webapp/HomeServlet">ホーム</a></li>
-<li><a href="/webapp/ApplyServlet">申し込み</a></li>
-<li><a href="/webapp/CourseServlet">式場/コース/プランナー 一覧</a></li>
-<li><a href="/webapp/SimuServlet">シミュレーション機能</a></li>
-<li><a href="/webapp/○○Servlet">チャット(Q＆A)</a></li>
-<li><a href="/webapp/UMypServlet">マイページ</a></li>
+<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
+<li><a href="<c:url value='/ApplyServlet' />">申し込み</a></li>
+<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+<li><a href="<c:url value='/◯◯Servlet' />">チャット(Q＆A)</a></li>
+<li><a href=action="<c:url value='/UmypServlet' />">マイページ</a></li>
 </ul>
 <!-- ヘッダー（ここまで） -->
 
