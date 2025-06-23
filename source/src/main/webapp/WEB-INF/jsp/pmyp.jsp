@@ -17,7 +17,9 @@
 		式場住所：<input type="text" name="siki_add" required="required" value="${planner.sikiAdd}">
 		電話番号：<input type="text" name="phone" required="required" value="${planner.pPhone}">
 		得意分野：<input type="text" name="strong_fild" required="required" value="${planner.strongFild}"> 
-		写真：<input type="text" name="image" required="required" value="${planner.pImage}"> 
+		写真：<c:if test="${not empty e.pimage}">
+		<img src="${e.psimage}" alt="プランナー画像" width="150">
+		</c:if>
 		
 	</form>
 	</div>	

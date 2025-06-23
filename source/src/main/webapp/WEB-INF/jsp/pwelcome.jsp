@@ -11,13 +11,11 @@
 </head>
 <body>
 <ul id="nav">
-	<li><a href="/A3/HomeServlet">ホーム</a></li>
-	<li><a href="/A3/ApplyServlet">申し込み</a></li>
-	<li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
-	<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
-	<li><a href="/A3/〇〇Servlet">チャット(Q＆A)</a></li>
-	<li><a href="/A3/PMypServlet">マイページ</a></li>
-	<li><a href="/A3/PLoginServlet">ログアウト</a></li>
+<li><a href="<c:url value='/PWelcomeServlet' />">ホーム</a></li>
+<li><a href="<c:url value='/CDataServlet' />">顧客情報</a></li>
+<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/PMypServlet' />">マイページ</a></li>
+<li><a href="<c:url value='/PLoginServlet' />">ログアウト</a></li>
 </ul>
 
 <div class="header-area">
@@ -32,7 +30,7 @@
       		<select id="year-select"></select>
       		<select id="month-select"></select>
     	</div>
-    </div>
+    
    
 	<table id="calendar">
     	<thead>
@@ -49,7 +47,8 @@
    			 <tbody id="calendar-body">
       			<!-- JSでここに日付を描画 -->
    			 </tbody>
-  </table>
+ 		 </table>
+  </div>
 </div>
 <script>
   const now = new Date();
