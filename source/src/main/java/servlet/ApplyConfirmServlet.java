@@ -50,6 +50,7 @@ public class ApplyConfirmServlet extends HttpServlet {
 			 * dispatcher.forward(request, response); return; }
 			 */
 		String op = request.getParameter("option");
+		String re = request.getParameter("remarks");
 		
 		int sikijoId = Integer.parseInt(si);
 			System.out.println("変換後のsId = " + sikijoId);
@@ -86,6 +87,7 @@ public class ApplyConfirmServlet extends HttpServlet {
 		session.setAttribute("options", opList);//AllDTO(jsp表示用)
 		session.setAttribute("optionIds", optionIds); // ←String[] IDだけ（登録処理用）
 		session.setAttribute("opsum", opsum);
+		session.setAttribute("remarks", re);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply_confirm.jsp");
 		dispatcher.forward(request,response);

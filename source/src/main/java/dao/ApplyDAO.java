@@ -386,7 +386,7 @@ public class ApplyDAO {
 	}
 	
 	//登録（applyテーブルへデータを入れる）------------------------------
-	public void insert(int userId, int courseId, int sikijoId,  List<Integer> opIds) {
+	public void insert(int userId, int courseId, int sikijoId, List<Integer> opIds, String remarks) {
 	    Connection conn=null;
 //	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
@@ -402,14 +402,14 @@ public class ApplyDAO {
 			conn.setAutoCommit(false); 
 			
 			// SQL文の準備
-			String sql = "INSERT INTO apply (user_id, course_id, sikijo_id) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO apply (user_id, course_id, sikijo_id, remarks) VALUES (?, ?, ?, ?)";
 			System.out.println(sql);
 			PreparedStatement pStmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			
 			pStmt.setInt(1, userId);
 			pStmt.setInt(2, courseId);
 			pStmt.setInt(3, sikijoId);
-//			pStmt.setString(4, remarks);
+			pStmt.setString(4, remarks);
 			pStmt.executeUpdate();
 //			pStmt.setString(4, optionIds); //SQL内の4つ目の ? に optionId の値（int型）を設定
 			
