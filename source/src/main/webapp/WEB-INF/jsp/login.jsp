@@ -83,9 +83,15 @@
     document.getElementById('check').onsubmit = function(event){
       const user_id = document.getElementById('id').value.trim();
       const user_pw = document.getElementById('pw').value.trim();
+      document.getElementById('ptag');
       if(user_id === '' || user_pw === '') {
         event.preventDefault();
-        document.getElementById('ptag').textContent = 'IDとPWを両方入力してください！';
+        ptag.textContent = 'IDとPWを両方入力してください！';
+        ptag.style.display = 'block';
+        
+        setTimeout(function() {
+            ptag.textContent = '';
+          }, 5000);
       } 
     };
     
