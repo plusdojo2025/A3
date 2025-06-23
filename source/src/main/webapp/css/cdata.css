@@ -10,15 +10,15 @@ body{
   max-width: 500px;
   margin: 40px auto; /* 中央寄せ */
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.7); /* 半透明白背景で読みやすく */
-  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5); /* 半透明白背景で読みやすく */
+  border-radius: 50px;
 }
 
 /*名前検索細かく*/
 .form-row {
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 /*名前検索のラベル*/
@@ -42,10 +42,10 @@ body{
   max-width: 500px;
   margin: 20px auto;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* 影で浮かせて視認性UP */
-  
+  font-size:20px;
 }
 
 /* */
@@ -85,15 +85,15 @@ details summary {
 /* 三角カスタムアイコン */
 details summary::before {
   content: "▶";
-  color: #d86b8f; /* ← ここで色を変える！ */
+  color: #ff8080; /* ← ここで色を変える！ */
   font-size: 14px;
   position: absolute;
   left: -20px;
   top: 4px;
-  transition: transform 0.3s ease;
+  transition: transform 0.8s ease;
 }
 
-/* 開いてるときは下向きに */
+/* 開いてるときは下向きに回転角度設定 */
 details[open] summary::before {
   transform: rotate(90deg);
 }

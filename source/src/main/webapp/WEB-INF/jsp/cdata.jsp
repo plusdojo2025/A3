@@ -44,7 +44,9 @@ pageEncoding="UTF-8"%>
 <c:if test="${empty cardList}">
     <p>一致するデータがありません</p>
 </c:if>
+<div class=gohome>
 <a href="/A3/PWelcomeServlet">ホームへ戻る</a>
+</div>
 </body>
 
 <%--時間表示スクリプト --%>
