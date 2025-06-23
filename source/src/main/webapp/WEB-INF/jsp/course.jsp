@@ -4,7 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>コース一覧</title>
+<link rel="stylesheet" href="css/course.css"> 
+<link rel="stylesheet" href="css/all.css">
+ 
 <c:out value ="${user.lName}"></c:out>
+</head>
+<body>
 <ul id="nav">
 <li><a href="/A3/HomeServlet">ホーム</a></li>
 <li><a href="/A3/ApplyCourseServlet">申し込み</a></li>
@@ -14,17 +21,18 @@
 <li><a href="/A3/UmypServlet">マイページ</a></li>
 <li><a href="/A3/LoginServlet">ログアウト</a></li>
 </ul>
-<meta charset="UTF-8">
-<title>コース一覧</title>
-<link rel="stylesheet" href="css/all.css">
-<link rel="stylesheet" href="css/course.css">  
-</head>
-<body>
-<h1>〇３つのコース</h1>
+<div class="hero">
+<h2 class="herosimu">コース一覧</h2>
+</div>
+<ul class="course-list">
+<h1>●３つのコース</h1>
 <c:forEach var="e" items="${courseList}" >
 	<li><a href="SikijoServlet?course_id=${e.courseId}">${e.courseName}コース</a></li>
+	<div class="course-comment">
 	<p>${e.comment}</p>
+	</div>
 </c:forEach>
+</ul>
 <%-- <li><a href="SikijoServlet?courseId=2">${e.name}</a>
 <p>白を基調とした厳かな挙式、バージンロードの入場、会場など<br>
 ロマンチックな雰囲気を活かした洋婚式スタイル</p>
