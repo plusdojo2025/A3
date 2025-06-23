@@ -30,7 +30,7 @@
 <table>
 <tr>
 	<td>
-		<label>ID(必須)<span style="color:red;" id="error_message"></span></label>
+		<label>ID(必須)</label>
 	</td>
 	<td>
 		<label>Password(必須)</label>
@@ -143,7 +143,7 @@
 <tr>
 	<td>
 	<span id="error_message2"></span>
-		<label>メールアドレス(@マークも入力してください)</label>
+		<label>メール(@以降も入力)</label>
 	</td>
 </tr>
 <tr>
@@ -168,7 +168,7 @@
 </table>
 
 <p id="error_message"></p>
-
+<span style="color:red;" id="error_message"></span>
 <input type="submit" name="regist" value="登録" onclick="return touroku()">
 <c:if test="${isPost and not empty error}">
   <p style="color: red;">${error}</p>

@@ -11,6 +11,8 @@
 </head>
 	
 <body>
+<div id="theTime" class="clock"></div>
+
 	<div class="myp">
 		<h2>登録情報確認</h2>
 		
@@ -55,4 +57,20 @@
 		</form>
 	</div>
 </body>
+
+<%--時間表示スクリプト --%>
+<script>
+  'use strict';
+  function updateTime() {
+	  const now=new Date ();
+	  const hours=now.getHours();
+	  const minutes=now.getMinutes();
+	  const seconds=now.getSeconds();
+	  const theTime = document.getElementById("theTime");
+	  theTime.innerText=hours + "時" + minutes + "分" + seconds + "秒";
+    }
+    updateTime();
+    setInterval(updateTime,1000);
+    
+</script>
 </html>
