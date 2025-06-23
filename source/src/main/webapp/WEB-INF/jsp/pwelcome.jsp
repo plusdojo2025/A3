@@ -21,33 +21,34 @@
 </ul>
 
 <div class="header-area">
-<div class="name-box">
-<P>ようこそ</P>
-<c:out value="${planner.pName}"/>
-<P>さん</P>
-</div>
+	<div class="name-box">
+		<P>ようこそ</P>
+		<c:out value="${planner.pName}"/>
+		<P>さん</P>
+	</div>
 
-  <div class="calendar-container">
-    <div class="calendar-controls">
-      <select id="year-select"></select>
-      <select id="month-select"></select>
+  	<div class="calendar-container">
+    	<div class="calendar-controls">
+      		<select id="year-select"></select>
+      		<select id="month-select"></select>
+    	</div>
     </div>
    
-<table id="calendar">
-    <thead>
-      <tr>
-        <th>日</th>
-        <th>月</th>
-        <th>火</th>
-        <th>水</th>
-        <th>木</th>
-        <th>金</th>
-        <th>土</th>
-      </tr>
-    </thead>
-    <tbody id="calendar-body">
-      <!-- JSでここに日付を描画 -->
-    </tbody>
+	<table id="calendar">
+    	<thead>
+      		<tr>
+        		<th>日</th>
+        		<th>月</th>
+        		<th>火</th>
+        		<th>水</th>
+        		<th>木</th>
+        		<th>金</th>
+        		<th>土</th>
+      		</tr>
+    	</thead>
+   			 <tbody id="calendar-body">
+      			<!-- JSでここに日付を描画 -->
+   			 </tbody>
   </table>
 </div>
 <script>

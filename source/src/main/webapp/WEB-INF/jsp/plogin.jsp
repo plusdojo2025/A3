@@ -14,7 +14,7 @@
 <main>
 <div class="login_box">
 <h2>ログイン</h2>
-<form  id="check" method="POST" action="/A3/PLoginServlet">
+<form  id="check" method="POST" action="<c:url value='/PLoginServlet'/>">
             <table>
               <tr>
                 <td>
@@ -26,7 +26,7 @@
               <tr>
                 <td>
                   <label>パスワード<br>
-                  <input type="password" name="pw" id="pw">
+                  <input type="password" name="password" id="pw">
                   </label>
                 </td>
               </tr>
@@ -54,7 +54,7 @@
     document.getElementById('check').onsubmit = function(event){
       const user_id = document.getElementById('id').value.trim();
       const user_pw = document.getElementById('pw').value.trim();
-      const ptag = document.getElementById('ptag');
+      document.getElementById('ptag');
       if(user_id === '' || user_pw === '') {
         event.preventDefault();
         ptag.textContent = 'IDとPWを両方入力してください！';
@@ -62,15 +62,11 @@
         
         // 5秒後に非表示
         setTimeout(function () {
-          ptag.style.display = 'none';
           ptag.textContent = '';
         }, 5000);
         
       } 
     };
-    
-    const plannername = document.getElementById('check');
-    sessionStorage.setItem('plannername',plannername);//ユーザー名を保存（セッションストレージ）
     
     // 5秒後にエラーメッセージを非表示にする
     setTimeout(function () {
