@@ -17,7 +17,7 @@
 <li><a href="<c:url value='/SimuServlet'/>">シミュレーション機能</a></li>
 <li><a href="<c:url value='/LoadHistoryServlet'/>">チャット(Q＆A)</a></li>
 <li><a href="<c:url value='/UMypServlet'/>">マイページ</a></li>
-<li><a href="<c:url value='/LoginServlet'/>">ログアウト</a></li>
+<li><a href="<c:url value='/CLogoutServlet'/>">ログアウト</a></li>
 </ul>
 
 <div class="change">
