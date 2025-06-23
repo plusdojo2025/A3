@@ -83,7 +83,7 @@ public class UMyChangeServlet extends HttpServlet {
 				 boolean success = uDao.update(user_id, birthday, phone, email, address);
 		 
 		        if (success) {
-		            request.setAttribute("message", "更新成功しました！");
+		            request.setAttribute("message", "更新に成功しました！");
 		            UidpwDAO dao = new UidpwDAO();
 		            AllDTO user = dao.findUserByLogin(id,pw);
 		            session.setAttribute("user",user);

@@ -17,7 +17,7 @@
 <li><a href="<c:url value='/SimuServlet'/>">シミュレーション機能</a></li>
 <li><a href="<c:url value='/LoadHistoryServlet'/>">チャット(Q＆A)</a></li>
 <li><a href="<c:url value='/UMypServlet'/>">マイページ</a></li>
-<li><a href="<c:url value='/LoginServlet'/>">ログアウト</a></li>
+<li><a href="<c:url value='/CLogoutServlet'/>">ログアウト</a></li>
 </ul>
 
 <div class="change">
@@ -39,6 +39,9 @@
 	<c:if test="${not empty message}">
     <p id="msg" style="color:white; font-weight: bold;">${message}</p>
 	</c:if>
+	
+	<p style="font-size: small; color: white;">※上記以外の変更・削除についてはこちらのメールアドレスまでお問い合わせください</p>
+	<p style="font-size: small; color: white;">kekkonsinasite.2025@keroro.com</p>
 </form>
 </div>
 

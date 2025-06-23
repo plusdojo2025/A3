@@ -38,5 +38,16 @@
     </div>
   </form>
 </div>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const inputs = document.querySelectorAll('input[type="text"]');
+
+    inputs.forEach(input => {
+      input.addEventListener('click', () => {
+        alert('変更が必要な場合は制作会社までお問い合わせください。kekkonsinasite.2025@keroro.com');
+      });
+    });
+  });
+</script>
 </body>
 </html>

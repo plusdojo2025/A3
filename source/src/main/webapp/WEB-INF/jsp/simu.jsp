@@ -32,16 +32,17 @@
   
 <!-- Aコース -->
 
-<label for="course" id=sentaku>コースを選択</label>
+<label for="course" id=sentaku>コース・式場・オプションを選択</label>
 <div class="tab">
 <details>
 	<summary>
-	  <input type="radio" name="course" value="1800000">Aコース<br>
+	  <input type="radio" name="course"  value="1800000">Aコース<br>
 	</summary>
 		<table class="course">
 			<tr>
 				<td>
-				  <p>オプション選択</p>
+				<br>
+				  <label>オプション選択</label>
 				</td>
 			</tr>
 			<tr>
@@ -70,7 +71,8 @@
 		  <table class="course">
 			<tr>
 				<td>
-				  <p>式場選択</p>
+				<br>
+				  <label>式場選択</label>
 				</td>
 			</tr>
 			<tr>
@@ -113,7 +115,8 @@
 		<table class="course">
 			<tr>
 				<td>
-				  <p>オプション選択</p>
+				  <br>
+				  <label>オプション選択</label>
 				</td>
 			</tr>
 			<tr>
@@ -142,7 +145,8 @@
 		  <table class="course">
 			<tr>
 				<td>
-				  <p>式場選択</p>
+				  <br>
+				  <label>式場選択</label>
 				</td>
 			</tr>
 			<tr>
@@ -199,7 +203,8 @@
 		<table class="course">
 			<tr>
 				<td>
-				  <p>オプション選択</p>
+				  <br>
+				  <label>オプション選択</label>
 				</td>
 			</tr>
 			<tr>
@@ -228,7 +233,8 @@
 		  <table class="course">
 			<tr>
 				<td>
-				  <p>式場選択</p>
+				  <br>
+				  <label>式場選択</label>
 				</td>
 			</tr>
 			<tr>
@@ -255,10 +261,10 @@
 		  </table>
 </details>
 <!-- Cコース -->
-
+<br>
 <input type="button" onclick="return calc()" value="計算する">
 	<br>
-合計<output name="price" id="pr"></output> 円
+合計<output name="price" id="pr"></output>円
 </div>
 <!-- <button onclick="calculate()">計算</button>
 <div id="result"></div> -->
