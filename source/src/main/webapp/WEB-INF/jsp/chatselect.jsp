@@ -11,23 +11,23 @@
 <body>
     <ul id="talkList">
         <li class="talkItem">
-            <img src="../img/angelina.png" alt="profile 1">
+            <img src="${ pageContext.request.contextPath}/img/human1.png" alt="profile 1">
             <div class="talkInfo">
-                <span class="talkName">User 1</span>
+                <span class="talkName">小尾利 爪溜</span>
                 <span class="lastMessage">メッセージ1</span>
             </div>
         </li>
         <li class="talkItem">
-            <img src="../img/crimson.png" alt="profile 2">
+            <img src="${ pageContext.request.contextPath}/img/human2.png" alt="profile 2">
             <div class="talkInfo">
-                <span class="talkName">User 2</span>
+                <span class="talkName">綿名 画目</span>
                 <span class="lastMessage">メッセージ2</span>
             </div>
         </li>
         <li class="talkItem">
-            <img src="../img/ema.png" alt="profile 3">
+            <img src="${ pageContext.request.contextPath}/img/human3.png" alt="profile 3">
             <div class="talkInfo">
-                <span class="talkName">User 3</span>
+                <span class="talkName">亜夢 彪夢</span>
                 <span class="lastMessage">メッセージ3</span>
             </div>
         </li>
