@@ -14,7 +14,7 @@
 <main>
 <div class="login_box">
 <h2>ログイン</h2>
-<form  id="check" method="POST" action="/A3/PWelcomeServlet">
+<form  id="check" method="POST" action="/A3/PLoginServlet">
             <table>
               <tr>
                 <td>
@@ -39,9 +39,8 @@
             </table>
             <p id="ptag"></p>
 </form>
-<c:out value="${errmsg}"/>
         <c:if test="${not empty errorMsg}">
-            <p style="color:white;">${errorMsg}</p>
+            <p id="errorMsg" style="color:white;">${errorMsg}</p>
         </c:if>
 </div>
 
@@ -63,6 +62,15 @@
     
     const plannername = document.getElementById('check');
     sessionStorage.setItem('plannername',plannername);//ユーザー名を保存（セッションストレージ）
+    
+    // 5秒後にエラーメッセージを非表示にする
+    setTimeout(function () {
+      const msg = document.getElementById("errorMsg");
+      if (msg) {
+        msg.style.display = "none";
+      }
+    }, 5000); // 5000ミリ秒 = 5秒
+    
   </script>
   
 </body>

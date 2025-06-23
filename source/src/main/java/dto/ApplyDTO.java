@@ -9,6 +9,7 @@ public class ApplyDTO implements Serializable {
 	private int sikijoId;
 	private int courseId;
 	private int optionId;
+	private String remarks;
 	
 	
 	public int getApplyId() {
@@ -51,6 +52,12 @@ public class ApplyDTO implements Serializable {
 	}
 	public void setOptionId(int optionId) {
 		this.optionId = optionId;
+	}
+	public String getRemarks() {
+		return remarks;
+	}
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
 	}	
 	
 }
