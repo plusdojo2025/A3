@@ -1,1 +1,43 @@
-@charset "UTF-8";
+body {
+  display: flex;
+  justify-content: center; /* 全体を横方向に中央寄せ */
+  padding: 40px;
+  font-family: sans-serif;
+}
+
+.myp {
+  display: flex;
+  gap: 40px; /* 写真とフォームの間隔 */
+  align-items: flex-start; /* 上に揃える */
+  max-width: 900px;
+  width: 100%;
+}
+
+/* フォーム全体を2列のグリッドに */
+.form-left {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2列 */
+  gap: 20px 30px; /* 行間と列間 */
+  flex: 1;
+}
+
+/* 各入力欄（ラベル＋input）を縦並びに */
+.form-item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 式場住所のみ幅を広げて2列分使う */
+.wide {
+  grid-column: span 2;
+}
+
+/* 画像部分 */
+.img-right {
+  width: 150px;
+  flex-shrink: 0;
+  margin-left: 60px;
+  position: sticky; /* スクロール固定 */
+  top: 0;
+  align-self: start;
+}
