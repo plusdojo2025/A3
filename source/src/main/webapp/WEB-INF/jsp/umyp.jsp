@@ -16,7 +16,9 @@
 		
 		 <!-- 仮の画像枠 -->
 		 
-    <div class="user-image"><img src="${ pageContext.request.contextPath}/img/human2.png" alt="profile 2"></div>
+    <div class="user-image">
+    <img src="${ pageContext.request.contextPath}/img/human2.png">
+    </div>
 	
     <!-- 名前表示（仮） -->
     <%-- <div class="user-name">ボス（ディアボロ）</div> --%>
