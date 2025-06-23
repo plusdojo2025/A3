@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.ApplyDAO;
 import dto.AllDTO;
-import dto.ApplyDTO;
 
 /**
  * Servlet implementation class ApplySikijoServlet
@@ -50,9 +49,9 @@ public class ApplySikijoServlet extends HttpServlet {
 		//DAOインスタンス化
 		ApplyDAO dao = new ApplyDAO();
 		//選択されたコースに対応する式場を持ってくる（先生が書いてくれた）
-		List<ApplyDTO> sikijoList = dao.course(courseId,userId);
+		List<AllDTO> sikijoList = dao.course(courseId,userId);
 		ArrayList<Integer> idList = new ArrayList<>();
-		for(ApplyDTO sid : sikijoList) {
+		for(AllDTO sid : sikijoList) {
 			idList.add(sid.getSikijoId());
 		}
 		ArrayList<AllDTO> sList = new ArrayList<>(); 

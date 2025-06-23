@@ -35,7 +35,7 @@ public class ApplyCompServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		//セッションからapply2,3で選択されたコース、式場、オプションidを取得
+		//セッションからapply2,3で選択されたコース、式場、オプションidと備考欄を取得
 		HttpSession session = request.getSession();
 		AllDTO user =(AllDTO)session.getAttribute("user");
 //		int userId =user.getUserId();
@@ -43,7 +43,9 @@ public class ApplyCompServlet extends HttpServlet {
 		int courseId = (Integer) session.getAttribute("courseId");
 		AllDTO sikijo = (AllDTO) session.getAttribute("sikijo");
 		int sikijoId = sikijo.getSikijoId();
-				
+		String remarks = (String) session.getAttribute("remarks");	
+		
+		
 		//セッションからoptionIds(String[]型)を取得
 		String[] optionIds = (String[]) session.getAttribute("optionIds");
 		//List<Integer>に変換
@@ -55,7 +57,7 @@ public class ApplyCompServlet extends HttpServlet {
 		}
 		
 		ApplyDAO appdao = new ApplyDAO();
-		appdao.insert(userId, courseId, sikijoId, opIds);
+		appdao.insert(userId, courseId, sikijoId, opIds, remarks);
 //		int opsum = (Integer) session.setAttribute("opsum", opsum);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/applyhistory.jsp");

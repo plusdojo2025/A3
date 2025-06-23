@@ -16,9 +16,9 @@ h2 {
 }
 
 /* 仮の丸い画像スペース */
-.user-image {
-    width: 100px;
-    height: 100px;
+img {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background-color: #fff;
     margin: 0 auto 10px auto;
