@@ -1,9 +1,11 @@
 @charset "UTF-8";
 
+/*背景画像設置 */
 body{
 	background-image: url(/A3/img/whiteflowerremake.png);
 }
 
+/*名前検索全体のところ*/
 .searcher-box {
   max-width: 500px;
   margin: 40px auto; /* 中央寄せ */
@@ -12,18 +14,21 @@ body{
   border-radius: 8px;
 }
 
+/*名前検索細かく*/
 .form-row {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
 }
 
+/*名前検索のラベル*/
 .form-row label {
   width: 120px;
   font-weight: bold;
   font-size: 16px;
 }
 
+/*入力の検索*/
 .form-row input[type="text"] {
   flex: 1;
   padding: 6px 10px;
@@ -32,3 +37,30 @@ body{
   border-radius: 4px;
 }
 
+/*検索結果と最初の一覧表示*/
+.details-box {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+}
+
+/* */
+.details-content {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+/* */
+.search-resultname {
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+/* 時計の位置とか*/
+.clock {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 10px;
+}

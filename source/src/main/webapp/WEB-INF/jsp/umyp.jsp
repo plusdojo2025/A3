@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,9 @@
     <div class="user-image"></div>
 
     <!-- 名前表示（仮） -->
-    <div class="user-name">ボス（ディアボロ）</div>
+    <%-- <div class="user-name">ボス（ディアボロ）</div> --%>
+	<p>${sessionScope.user.lName}さん</p>
+   
     
     <%--  <c:forEach var="e" items="${cardList}">
     <div class="user-name">
@@ -43,7 +46,7 @@
 		</form>
 		
 		
-		<form method="get" action="/A3/UMypServlet" >
+		<form method="get" action="/A3/PLoginServlet" >
 		<button type="submit">ログアウト</button><br>
 		</form>
 	</div>
