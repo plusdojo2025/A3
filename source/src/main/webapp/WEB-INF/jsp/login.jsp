@@ -54,13 +54,15 @@
             <p id="ptag"></p>
 </form>  
 
+
 <c:if test="${not empty message}">
     <p style="text-align:center;">${message}</p>
-</c:if>          
-        
-        <c:if test="${not empty errorMsg}">
-            <p style="color:white;">${errorMsg}</p>
-        </c:if>
+</c:if>       
+  
+<c:out value="${errorMsg}"/>      
+<c:if test="${not empty errorMsg}">
+    <p style="color:white;">${errorMsg}</p>
+</c:if>
         
 	<form method="POST" action="/A3/RegistServlet">
 	<input type="submit" name="submit" value="新規の方はこちら">	
