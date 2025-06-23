@@ -1,22 +1,23 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>顧客情報検索</title>
-<link rel="stylesheet" type="text/css" href="css/umypchange.css">
-<link rel="stylesheet" type="text/css" href="css/all.css">
+<link rel="stylesheet" href="<c:url value='/css/umypchange.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/all.css'/>">
 </head>
 <body>
 <ul id="nav">
-<li><a href="/A3/HomeServlet">ホーム</a></li>
-<li><a href="/A3/ApplyServlet">申し込み</a></li>
-<li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
-<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
-<li><a href="/A3/○○Servlet">チャット(Q＆A)</a></li>
-<li><a href="/A3/UMypServlet">マイページ</a></li>
-<li><a href="/A3/LoginServlet">ログアウト</a></li>
+<li><a href="<c:url value='/HomeServlet'/>">ホーム</a></li>
+<li><a href="<c:url value='/ApplyCourseServlet'/>">申し込み</a></li>
+<li><a href="<c:url value='/CourseServlet'/>">式場/コース/プランナー 一覧</a></li>
+<li><a href="<c:url value='/SimuServlet'/>">シミュレーション機能</a></li>
+<li><a href="<c:url value='/LoadHistoryServlet'/>">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/UMypServlet'/>">マイページ</a></li>
+<li><a href="<c:url value='/LoginServlet'/>">ログアウト</a></li>
 </ul>
 
 <div class="change">

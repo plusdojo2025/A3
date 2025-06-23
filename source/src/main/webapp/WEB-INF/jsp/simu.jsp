@@ -8,27 +8,27 @@
 <title>結婚しなサイト｜シミュレーション</title>
 <link rel="stylesheet" href="<c:url value='/css/all.css' />">
 <link rel="stylesheet" href="<c:url value='/css/simu.css' />">
-<link rel="stylesheet" href="css/all.css"> 
-<link rel="stylesheet" href="css/simu.css"> 
+<!-- <link rel="stylesheet" href="css/all.css"> 
+<link rel="stylesheet" href="css/simu.css">  -->
 </head>
 <body>
 <!-- ヘッダーここkら -->
 <c:out value ="${user.lName}"/>
 <ul id="nav">
-<li><a href="/A3/HomeServlet">ホーム</a></li>
-<li><a href="/A3/ApplyCourseServlet">申し込み</a></li>
-<li><a href="/A3/SikijoServlet">式場/コース/プランナー 一覧</a></li>
-<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
-<li><a href="/A3/OOServlet">チャット(Q＆A)</a></li>
-<li><a href="/A3/UMypServlet">マイページ</a></li>
-<li><a href="/A3/LoginServlet">ログアウト</a></li>
+<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
+<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
+<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+<li><a href="<c:url value='/LoginServlet' />">ログアウト</a></li>
 </ul>
 <!-- ヘッダーここまで -->
 <!-- メインここから -->
 <div class="hero">
 <h2 class="herosimu">シミュレーション</h2>
 </div>
-<form method="POST" id="simu" action="/A3/SimuServlet">
+<form method="POST" id="simu" action=<c:url value='/SimuServlet' />>
   
 <!-- Aコース -->
 
