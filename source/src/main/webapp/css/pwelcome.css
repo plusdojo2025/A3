@@ -24,23 +24,32 @@ body {
 /* ヘッダーエリア */
 .header-area {
   display: flex;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 30px;
-  margin-top: 20px;
-  margin-left: 20px;
+  padding: 50px 150px 50px 50px;  /* 上 右 下 左 → 右側を広くする */
 }
 
 /* カレンダー全体の枠 */
 .calendar-container {
   max-width: 700px;       /* ← 幅を縮めた */
-  margin-left: 80px;     /* 必要に応じて調整 */
-  margin-top: 140px;
+  /*margin-left: 80px;  */   /* 必要に応じて調整 */
+  /*margin-top: 140px;*/
+  margin: 150px auto; /* 中央寄せ */
+  padding: 10px;
+  background-color: #fff8f0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow-x: auto;
 }
 
 /* 年・月のプルダウン */
 .calendar-controls {
-  width: 100%;
-  text-align: left;
+  display: flex;
+  /*width: 100%;*/
+  /*text-align: left;*/
+    justify-content: center;
+  gap: 10px;
   margin-bottom: 5px;
 }
 
@@ -74,3 +83,4 @@ body {
   background-color: #e0f7fa;
   cursor: pointer;
 }
+
