@@ -110,6 +110,19 @@ public class UserDAO {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
 					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 					"root", "password");
+			
+			//IDとPWが既に登録されていないか確認する
+			String checkSql = "SELECT COUNT(*) FROM User WHERE id = ? OR pw = ?";
+			try (PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
+			    checkStmt.setString(1, id);
+			    checkStmt.setString(2, pw);
+			    try (ResultSet rs = checkStmt.executeQuery()) {
+			        if (rs.next() && rs.getInt(1) > 0) {
+			            // IDまたはPWがすでに使われている → 登録失敗
+			            return false;
+			        }
+			    }
+			}
 
 			// SQL文を準備する
 			String sql = "INSERT INTO User VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";

@@ -66,14 +66,21 @@ public class RegistServlet extends HttpServlet {
 			String email = request.getParameter("email");
 			String phone = request.getParameter("phone");
 
+			
 
-			// 登録処理を行う
+			
 			UserDAO uDao = new UserDAO();
 			
-//			List<AllDTO>plannerList = dao.select();
-//			AllDTO user = uDao.insert(id, pw, fName, lName, kfName, klName, birthday,
-//					 gender, zipcode, address, email, phone);
-					 
+			//重複チェック
+			/*
+			 * if (uDao.resultUser(id, pw)) { request.setAttribute("isPost", true);
+			 * request.setAttribute("error", "このIDとパスワードの組み合わせはすでに登録されています。別の情報で登録してください。");
+			 * RequestDispatcher dispatcher =
+			 * request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
+			 * dispatcher.forward(request, response); return; }
+			 */
+			
+//			// 登録処理を行う		 
 			 boolean success = uDao.insert(id, pw, fName, lName, kfName, klName, birthday,
 			 gender, zipcode, address, email, phone); 
 			 if(success) {
@@ -83,18 +90,14 @@ public class RegistServlet extends HttpServlet {
 				 dispatcher.forward(request, response); } 
 			 else { // 登録失敗時、エラーメッセージを設定して戻る
 				 request.setAttribute("isPost", true); 
-				 request.setAttribute("error", "ユーザー登録に失敗しました。入力内容を確認してください。");
+				 request.setAttribute("error", "ユーザー登録に失敗しました。IDとPWを変更してください。");
 				 RequestDispatcher dispatcher =
 				 request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
 				 dispatcher.forward(request, response);
 			}
 			 
 
-			/*
-			 RequestDispatcher dispatcher =
-			 request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-			 dispatcher.forward(request, response);
-			 */
+			
 	}
 
 }
