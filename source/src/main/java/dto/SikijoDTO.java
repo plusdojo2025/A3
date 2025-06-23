@@ -8,6 +8,7 @@ public class SikijoDTO {
 	private String name;
 	private String address;
 	private String image;
+	private String sikijoPrice;
 	
 	//ゲッターセッター
 	public int getSikijoId() {
@@ -34,10 +35,16 @@ public class SikijoDTO {
 	public void setSikijoAddress(String sikijoAddress) {
 		this.address = sikijoAddress;
 	}
-	public String getSikijoImage() {
+	public String getImage() {
 		return image;
 	}
-	public void setSikijoImage(String sikijoImage) {
-		this.image = sikijoImage;
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getSikijoPrice() {
+		return sikijoPrice;
+	}
+	public void setSikijoPrice(String sikijoPrice) {
+		this.sikijoPrice = sikijoPrice;
 	}
 }

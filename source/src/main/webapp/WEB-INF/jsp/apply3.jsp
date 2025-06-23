@@ -6,20 +6,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>申し込み</title>
-	<link rel="stylesheet" href="css/all.css">
-	<link rel="stylesheet" href="css/Apply.css">
+	<link rel="stylesheet" href="<c:url value='/css/all.css' />">
+	<link rel="stylesheet" href="<c:url value='/css/Apply.css' />">
 </head>
 
 <body>
 	<header>
+<!-- 		<h1>aaaaaaaaaa</h1>-->
 		<ul id="nav">
-			<li><a href="/A3/HomeServlet">ホーム</a></li>
-			<li><a href="/A3/ApplyServlet">申し込み</a></li>
-			<li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
-			<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
-			<li><a href="/A3/〇〇Servlet">チャット(Q＆A)</a></li>
-			<li><a href="/A3/UmypServlet">マイページ</a></li>
-			<li><a href="/A3/LoginServlet">ログアウト</a></li>
+			<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
+			<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
+			<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+			<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+			<li><a href="<c:url value='/◯◯Servlet' />">チャット(Q＆A)</a></li>
+			<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 		</ul>
 	</header>
 	
@@ -27,7 +27,7 @@
 	<div class="hero">
 		<h2>式場・オプション選択</h2>
  	</div>
-<form method="POST" action="/A3/ApplyConfirmServlet">
+<form method="POST" action="<c:url value='/ApplyConfirmServlet' />">
 	
 	<%-- <p><c:out value="${sessionScope.courseId.courseName}" />コース</p>
  --%>
