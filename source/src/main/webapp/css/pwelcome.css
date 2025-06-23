@@ -8,53 +8,20 @@ body {
   background-attachment: fixed;
 }
 
+/* 名前表示ボックス */
 .name-box {
- background-color: rgba(251,232,211,0.5);
- padding: 20px;
- border-radius: 70px;
- box-shadow: 0 0 10px rgba(0,0,0,0.1);
- width: 500px;
- margin: 300px 0 70px 200px; /*上右下左の順番*/
- font-size: 20px;
- text-align: center;
-}
-
-.header-area {
-  display: flex;
-  align-items: flex-end; /* ← 上揃えから下揃えに変更 */
-  gap: 30px; /* 間隔を開ける */
-  margin-top: 80px;
-  margin-left: 20px;
-}
-
-.calendar-container {
-  max-width: 420px;
-  margin-top:300px
-}
-
-#calendar {
-  margin-top: 200px;  /* ← これを追加して、表だけ下げる */
-  margin-left: 10px;
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 0.9em;
+  background-color: rgba(251,232,211,0.5);
+  padding: 20px;
+  border-radius: 70px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 500px;
+  margin: 300px 0 70px 200px;
+  font-size: 1.2em;
+  font-weight: bold;
   text-align: center;
 }
 
-#calendar th, #calendar td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  height: 40px;
-}
-
-#calendar td {
-  background-color: #f9f9f9;
-}
-
-#calendar td:hover {
-  background-color: #e0f7fa;
-  cursor: pointer;
-}
+/* ヘッダーエリア */
 .header-area {
   display: flex;
   align-items: flex-start;
@@ -63,36 +30,40 @@ body {
   margin-left: 20px;
 }
 
-.name-box {
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
+/* カレンダー全体の枠 */
 .calendar-container {
-  max-width: 420px;
+  max-width: 700px;       /* ← 幅を縮めた */
+  margin-left: 80px;     /* 必要に応じて調整 */
+  margin-top: 140px;
 }
 
+/* 年・月のプルダウン */
 .calendar-controls {
-  margin-bottom: 10px;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 5px;
 }
 
 .calendar-controls select {
-  padding: 4px 8px;
-  font-size: 1em;
+  padding: 4px 6px;
+  font-size: 0.9em;
+  width: 100px;            /* ← 幅を明示してコンパクトに */
   margin-right: 8px;
 }
 
+/* カレンダー表 */
 #calendar {
   border-collapse: collapse;
-  width: 100%;
-  font-size: 0.9em;
+  width: 700px;            /* ← containerに合わせる */
+  font-size: 0.85em;
   text-align: center;
+  margin-top: 10px;
 }
 
 #calendar th, #calendar td {
   border: 1px solid #ccc;
-  padding: 8px;
-  height: 40px;
+  padding: 6px;
+  height: 32px;
 }
 
 #calendar td {
