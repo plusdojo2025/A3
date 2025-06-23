@@ -1,16 +1,18 @@
 body {
-  display: flex;
   justify-content: center; /* 全体を横方向に中央寄せ */
   padding: 40px;
   font-family: sans-serif;
+  text-align: center;
+  background-image: url(/A3/img/whiteflowerremake.png);
 }
+
 
 .myp {
   display: flex;
-  gap: 40px; /* 写真とフォームの間隔 */
-  align-items: flex-start; /* 上に揃える */
-  max-width: 900px;
-  width: 100%;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 /* フォーム全体を2列のグリッドに */
@@ -25,6 +27,9 @@ body {
 .form-item {
   display: flex;
   flex-direction: column;
+      display: flex;
+    gap: 30px;
+    padding: 20px;
 }
 
 /* 式場住所のみ幅を広げて2列分使う */
@@ -34,10 +39,5 @@ body {
 
 /* 画像部分 */
 .img-right {
-  width: 150px;
-  flex-shrink: 0;
-  margin-left: 60px;
-  position: sticky; /* スクロール固定 */
-  top: 0;
-  align-self: start;
+
 }
