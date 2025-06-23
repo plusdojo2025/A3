@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="css/all.css">
 </head>
 <body>
-<<<<<<< HEAD
 <c:out value ="${user.lName}"></c:out>
 <ul id="nov">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
@@ -20,16 +19,6 @@
 <li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
 <li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 <li><a href="<c:url value='/LoginServlet' />">ログアウト</a></li>
-=======
-<ul id="nav">
-<li><a href="/A3/HomeServlet">ホーム</a></li>
-<li><a href="/A3/ApplyCourseServlet">申し込み</a></li>
-<li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
-<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
-<li><a href="/A3/○○Servlet">チャット(Q＆A)</a></li>
-<li><a href="/A3/UmypServlet">マイページ</a></li>
-<li><a href="/A3/LoginServlet">ログアウト</a></li>
->>>>>>> 0a421fcf32ea4f37620981baed859f1bead23b2f
 </ul>
 <div class="hero">
 <h2 class="herosimu">コース一覧</h2>
