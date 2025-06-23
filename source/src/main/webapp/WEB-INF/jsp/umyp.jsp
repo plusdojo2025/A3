@@ -19,7 +19,7 @@
 <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
 <li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
 <li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
-<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
 <li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 </ul>
 
@@ -55,9 +55,9 @@
 			<button type="submit">登録情報の確認、変更</button>
 		</form>
 		
-		<form method="get" action="/A3/UMypServlet" >
+		<%--<form method="get" action="/A3/UMypServlet" >
 		<button type="submit">申し込み履歴</button>
-		</form>
+		</form>--%>
 		
 		<form method="get" action="/A3/HomeServlet" >
 		<button type="submit">ホームへ戻る</button><br>
