@@ -46,7 +46,7 @@ public class SikijoDAO {
 				dto.setSikijoJmNumber(rs.getString("jm_number"));//要変更
 				dto.setSikijoName(rs.getString("name"));//要変更
 				dto.setSikijoAddress(rs.getString("address"));//要変更
-				dto.setSikijoImage(rs.getString("image"));//要変更
+				dto.setImage(rs.getString("image"));//要変更
 				//値が入った枝豆（上のDTO）をArrayListに追加
 				sikijoList.add(dto);
 			}
