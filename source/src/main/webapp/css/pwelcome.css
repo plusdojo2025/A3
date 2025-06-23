@@ -40,7 +40,7 @@ body {
   background-color: #fff8f0;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 /* 年・月のプルダウン */
@@ -63,10 +63,11 @@ body {
 /* カレンダー表 */
 #calendar {
   border-collapse: collapse;
-  width: 700px;            /* ← containerに合わせる */
+  width: 100%;            /* ← containerに合わせる */
   font-size: 0.85em;
   text-align: center;
   margin-top: 10px;
+  table-layout: fixed; 
 }
 
 #calendar th, #calendar td {
