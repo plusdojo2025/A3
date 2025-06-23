@@ -10,6 +10,7 @@ public class CourseDTO {
 	private String option1; 
 	private String option2;
 	private String option3;
+	private String coursePrice;
 	
 	
 	//以下ゲッターセッター
@@ -55,6 +56,11 @@ public class CourseDTO {
 	public void setOption3(String option3) {
 		this.option3 = option3;
 	}
-	
+	public String getCoursePrice() {
+		return coursePrice;
+	}
+	public void setCoursePrice(String coursePrice) {
+		this.coursePrice = coursePrice;
+	}
 	
 }

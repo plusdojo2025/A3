@@ -47,7 +47,8 @@ public class CourseDAO {
 				dto.setComment(rs.getString("comment"));
 				dto.setOption1(rs.getString("option1"));
 				dto.setOption2(rs.getString("option2"));
-				dto.setOption2(rs.getString("option2"));
+				dto.setOption2(rs.getString("option3"));
+				dto.setCoursePrice(rs.getString("course_price"));
 				
 			    //値が入った枝豆（上のDTO)をArrayListに追加する
 				courseList.add(dto);
