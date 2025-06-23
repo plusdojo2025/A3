@@ -6,8 +6,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ユーザーマイページ</title>
-	<link rel="stylesheet" href="/A3/css/all.css">
-	<link rel="stylesheet" href="/A3/css/umyp.css">
+	<link rel="stylesheet" href="<c:url value='/css/all.css' />">
+	<link rel="stylesheet" href="<c:url value='/css/umyp.css' />">
 </head>
 	
 <body>
@@ -19,8 +19,9 @@
 
     <!-- 名前表示（仮） -->
     <%-- <div class="user-name">ボス（ディアボロ）</div> --%>
-	<p>${sessionScope.user.lName}さん</p>
-   
+    <div class="namer-area">
+	<c:out value="${user.lName}さん"/>
+   </div>
     
     <%--  <c:forEach var="e" items="${cardList}">
     <div class="user-name">

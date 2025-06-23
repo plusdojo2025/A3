@@ -40,16 +40,24 @@ body{
 /*検索結果と最初の一覧表示*/
 .details-box {
   max-width: 500px;
-  margin: 40px auto;
+  margin: 20px auto;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* 影で浮かせて視認性UP */
+  
 }
 
 /* */
 .details-content {
   margin-top: 10px;
   padding-left: 10px;
+}
+
+.details-content p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #444;
 }
 
 /* */
@@ -63,4 +71,29 @@ body{
   text-align: center;
   font-size: 20px;
   margin-top: 10px;
+}
+
+details summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px;
+  position: relative;
+}
+
+/* 三角カスタムアイコン */
+details summary::before {
+  content: "▶";
+  color: #d86b8f; /* ← ここで色を変える！ */
+  font-size: 14px;
+  position: absolute;
+  left: -20px;
+  top: 4px;
+  transition: transform 0.3s ease;
+}
+
+/* 開いてるときは下向きに */
+details[open] summary::before {
+  transform: rotate(90deg);
 }
