@@ -27,16 +27,21 @@ public class ApplyCourseServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		//セッション取得
 		HttpSession session = request.getSession();
-//		if (session.getAttribute("id") == null) {
-//			response.sendRedirect(request.getContextPath() + "/LoginServlet");
-//			return;
-//		}
 		
-		AllDTO user =(AllDTO)session.getAttribute("user");
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		AllDTO user = (AllDTO) session.getAttribute("user");
+
+		if (user == null) {
+		    response.sendRedirect(request.getContextPath() + "/LoginServlet");
+		    return;
+		}
+
+		int userId = user.getUserId();
+		
 //		int userId =user.getUserId();
-		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
+//		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
 
 		ApplyDAO appdao = new ApplyDAO();
 		
