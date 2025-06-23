@@ -260,6 +260,56 @@ public class UserDAO {
             }
         }
     }
+	//plannnerIdを元に担当しているユーザーを取得
+	 public List<AllDTO> getUserList(int plannerId) {
+	    	Connection conn = null;
+	        List<AllDTO> userList = new ArrayList<>();
+	        System.out.println(plannerId+"：渡ってきた値");
+	        try {
+	        	//ここでspl接続
+	        	Class.forName("com.mysql.cj.jdbc.Driver"); 
+	        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+	       
+	        //SQLから姓と名を取得
+	        String sql = "SEELCT user.user_id,user.f_name,user.l_name"
+	        		+ "　FROM sc"
+	        		+ " JOIN planner"
+	        		+ " ON planner.planner_id = sc.planner_id"
+	        		+ " JOIN sikijo"
+	        		+ " ON sikijo.shikijo_id = sc.sikijo_id"
+	        		+ " JOIN apply"
+	        		+ " ON sikijo.shikijo_id = apply.sikijo_id"
+	        		+ " JOIN user"
+	        		+ " ON user.user_id = apply.user_id"
+	        		+ " WHERE planner.planner_id = ?";
+	        PreparedStatement pStmt = conn.prepareStatement(sql);
+				
+	        //ワイルドカードで名前かすったところをとってくる。
+	        pStmt.setInt(1, plannerId);
+	        
+	        //rsとsqlの関係的な
+				ResultSet rs = pStmt.executeQuery();
+			
+				//ここでdaoから取得をnext()で順番に入れ込んでwhileで繰り返し
+				while(rs.next()) {
+					AllDTO all = new AllDTO();
+					all.setUserId(rs.getInt("user_id"));
+				    all.setfName(rs.getString("f_name"));
+				    all.setlName(rs.getString("l_name"));
+				    
+				    userList.add(all);
+				}
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+					
+				} catch (ClassNotFoundException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+	        return userList;
+	         }
 
 
 

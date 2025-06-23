@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,8 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.SampleDAO;
+import dao.UserDAO;
+import dto.AllDTO;
 
 @WebServlet("/ChatSelectServlet")
 public class ChatSelectServlet extends HttpServlet {
@@ -17,7 +21,17 @@ public class ChatSelectServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // JSPにフォワードするで
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chatselect.jsp");
+        
+    	HttpSession session = request.getSession();
+    	AllDTO planner = (AllDTO)session.getAttribute("planner");
+    	int plannerId = planner.getPlannerId();
+    	//plannerIdを元に、担当しているお客さんの情報を取得する
+    	UserDAO dao = new UserDAO();
+    	List<AllDTO> userList =dao.getUserList(plannerId);
+    	//取得したユーザーのリストをリクエストにセット（jspで取得する用）
+    	request.setAttribute("userList", userList);       	
+    	
+    	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chatselect.jsp");
         dispatcher.forward(request, response);
     }
 

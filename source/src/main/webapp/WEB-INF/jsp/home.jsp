@@ -30,7 +30,7 @@
 	<h2>ホーム</h2>
 	<p>結婚式を希望される方や考えている方に最適なサイトです。</p>
 </div>
-
+ようこそ！${user.lName}さん
 <div class="main-list">
 	<ul>
 	<h3>本サイト機能</h3>	
@@ -43,10 +43,10 @@
 <div class="slider-container">
 
   <div class="image-container">
-    <img src="${ pageContext.request.contextPath}/img/angelina.png" alt="アンジェリーナ・ジョリーン">
-    <img src="${ pageContext.request.contextPath}/img/crimson.png" alt="クリムゾン・ドッピオ">
-    <img src="${ pageContext.request.contextPath}/img/dwayne.png" alt="ドウェイン・ブラザー">
-    <img src="${ pageContext.request.contextPath}/img/tom.png" alt="トム・クルージョン">
+    <img src="${ pageContext.request.contextPath}/images/siki_angelina.png" alt="アンジェリーナ・ジョリーン">
+    <img src="${ pageContext.request.contextPath}/images/siki_crimson.png" alt="クリムゾン・ドッピオ">
+    <img src="${ pageContext.request.contextPath}/images/siki_dwein.png" alt="ドウェイン・ブラザー">
+    <img src="${ pageContext.request.contextPath}/images/siki_tom.png" alt="トム・クルージョン">
   </div>
 
   <!-- ナビゲーションコンテナ -->
@@ -67,10 +67,11 @@
 <!-- フッター（ここまで） -->
 
 <script>
-	let username=sessionStorage.getItem('username')
+	/* let user=sessionStorage.getItem('user')
+	alert(username);
 	if(username){
   	document.getElementById('welcome_message').textContent=`ようこそ、${username}さん！`;
-	}
+	} */
 
 	//すべての画像
 	const images = document.querySelectorAll('img');

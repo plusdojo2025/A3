@@ -10,13 +10,27 @@
 </head>
 <body>
     <ul id="talkList">
-        <li class="talkItem">
-            <img src="${ pageContext.request.contextPath}/img/human1.png" alt="profile 1">
-            <div class="talkInfo">
-                <span class="talkName">小尾利 爪溜</span>
-                <span class="lastMessage">メッセージ1</span>
-            </div>
-        </li>
+	    <c:forEach var="e" items="${userList}">
+	        <li class="talkItem">
+	            <img src="${ pageContext.request.contextPath}/img/human1.png" alt="profile 1">
+	            <div class="talkInfo">
+	           
+	                <span class="talkName">${e.userName}</span>
+	            
+	                <span class="lastMessage">メッセージ1</span>
+	            </div>
+	            <form action ="<c:url value='/SoServlet'/>"> method="POST">
+	            	<input type="hidden" name="user_name" value="${e.userName }">
+	            	<input type="hidden" name="two" value="${e.userId }">
+	            	<input type="hidden" name="one" value="${planner.plannerId }">
+	            	<input type="hidden" name="planner_name" value="${planner.plannerName }">
+	           		<input type="submit" name="sub" value="チャットを開始する">
+	            </form>
+	            <%-- chat.jspにこんな感じで書くよ
+	             var user_id_speaker = ${param.one}; 
+	    		 var user_id_listener = ${param.two};  --%>
+	        </li>
+	     </c:forEach>
         <li class="talkItem">
             <img src="${ pageContext.request.contextPath}/img/human2.png" alt="profile 2">
             <div class="talkInfo">
