@@ -43,8 +43,8 @@ public class ApplySikijoServlet extends HttpServlet {
 		HttpSession session = request.getSession();	
 		session.setAttribute("courseId",courseId); //選択されたcourseidをセッションへ
 		AllDTO user =(AllDTO)session.getAttribute("user"); //セッションにあるユーザー情報を取得
-//		int userId =user.getUserId();
-		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
+		int userId =user.getUserId();
+		//int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
 		
 		//DAOインスタンス化
 		ApplyDAO dao = new ApplyDAO();

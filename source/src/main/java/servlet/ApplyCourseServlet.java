@@ -27,9 +27,6 @@ public class ApplyCourseServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//セッション取得
-		HttpSession session = request.getSession();
-		
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		AllDTO user = (AllDTO) session.getAttribute("user");
 

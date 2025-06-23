@@ -41,7 +41,7 @@ public class ApplyDAO {
 				AllDTO dto = new AllDTO();
 
 				//上のDTOに値を入れていく（DBの値をDTOへコピー）
-				dto.setUserId(userId);		//要変更-----------------------@
+//				dto.setUserId(userId);		//要変更-----------------------@
 //				dto.setUserId(rs.getInt("user_id"));
 //				dto.setPlannerId(rs.getInt("planner_id"));
 				dto.setSikijoId(rs.getInt("sikijo_id"));

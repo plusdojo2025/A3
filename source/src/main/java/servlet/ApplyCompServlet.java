@@ -31,8 +31,8 @@ public class ApplyCompServlet extends HttpServlet {
 		ApplyDAO appdao = new ApplyDAO();
 		HttpSession session = request.getSession();
 		AllDTO user =(AllDTO)session.getAttribute("user");
-//		int userId =user.getUserId();
-		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
+		int userId =user.getUserId();
+//		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
 
 		List<AllDTO> applyList  = appdao.applyComp(userId);
 		request.setAttribute("appList", applyList);
