@@ -54,6 +54,45 @@ public class UserDAO {
         return list;
          }
     
+    
+ //みょうじとなまえとってくる
+    public AllDTO findExactUser(String fName, String lName) {
+        AllDTO all = null;
+        Connection conn = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
+                "root", "password");
+
+            String sql = "SELECT * FROM user WHERE f_name = ? AND l_name = ?";
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1, fName);
+            pStmt.setString(2, lName);
+
+            ResultSet rs = pStmt.executeQuery();
+
+            if (rs.next()) {
+                all = new AllDTO();
+                all.setfName(rs.getString("f_name"));
+                all.setlName(rs.getString("l_name"));
+                
+            }
+
+            rs.close();
+            pStmt.close();
+            conn.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return all;
+    }
+    
+    
+    
  
 	//新規登録
 	public boolean insert(String id,String pw,String fName,String lName,
