@@ -10,13 +10,15 @@
 <link rel="stylesheet" href="css/course.css"> 
 </head>
 <body>
-<c:forEach var="e" items="${plannerList}" >
-<h1>〇${e.plannerSikiAdd}</h1><!-- 式場の名前と写真も入れたい -->
-名前<input type="text" name="name" value="${e.plannerName}"><br>
-性別<input type="text" name="Gender" value="${e.plannerGender}"><br>
-電話番号<input type="text" name="phone" value="${e.plannerPhone}"><br>
-得意分野<input type="text" name="strong_fild" value="${e.plannerStrongFild}"><br>
-写真<input type="text" name="image" value="${e.plannerImage}"><br>
+<c:forEach var="e" items="${plannerList}">
+<h1>〇${e.sikiAdd}</h1> <!-- 式場の住所 -->
+名前：<input type="text" value="${e.plannerName}"><br>
+性別：<input type="text" value="${e.gender}"><br>
+電話番号：<input type="text" value="${e.phone}"><br>
+得意分野：<input type="text" value="${e.strongFild}"><br>
+<c:if test="${not empty e.image}">
+<img src="${e.image}" alt="プランナー画像" width="150">
+</c:if>
 </c:forEach>
 </body>
 </html>
