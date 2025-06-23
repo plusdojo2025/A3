@@ -458,4 +458,67 @@ public class ApplyDAO {
 		
 	}
 	
+	public AllDTO applyComp(int applyId) {
+		AllDTO alldto = null;
+		Connection conn = null;
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+			
+			// SQL文の準備（コースのデータ全て取得）（ハッピーセット）
+			String sql = "SELECT sikijo_id, name, address FROM sikijo WHERE sikijo_id = ?";
+			System.out.println(sql);
+			PreparedStatement pStmt = conn.prepareStatement(sql);//全部凝縮されたのが「ｐStmt」
+			
+			pStmt.setInt(1, applyId);//SQL内の 1つ目の ? に sikijoId の値（int型）を設定
+			
+			ResultSet rs = pStmt.executeQuery();//なんでも表が入るResultSet型に格納（DAOでしか使えない）
+			
+			if(rs.next()) {
+				 System.out.println("ヒットした！DBにデータある！");
+				//空の枝豆（DTO）作成
+				alldto =new AllDTO();
+
+				//上のDTOに値を入れていく（DBの値をDTOへコピー）
+				//setはDTOで決めたやつ、getはDBのカラム名
+				alldto.setSikijoId(rs.getInt("sikijo_id"));
+//				dto.setJmNumber(rs.getInt("jm_number"));
+				alldto.setsName(rs.getString("name"));
+				alldto.setSikiAdd(rs.getString("address"));
+//				dto.setsImage(rs.getString("image"));
+//				dto.setOptionPrice(rs.getString("sikijo_price"));
+				
+				//値が入った枝豆（上のDTO）をArrayListに追加
+//				dto.add(dto);
+			}else {
+			    System.out.println("DBに該当IDなし！");
+			}
+
+			
+		}catch (SQLException e) {
+			System.out.println("SQL文おかしいよ");
+			e.printStackTrace();
+			
+		}catch (ClassNotFoundException e) {
+			System.out.println("ドライバの読み込みおかしい");
+			e.printStackTrace();
+			
+		}finally {
+			//データベース切断
+			if(conn != null) {
+				try {
+					conn.close();
+				}catch (SQLException e) {
+					e.printStackTrace();
+					
+				}
+			}
+		}
+		//コースのデータの入ったArrayListをServletへ返却
+		return alldto;
+	}
 }

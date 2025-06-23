@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>申し込み確認</title>
-<link rel="stylesheet" href="css/all.css">
+<link rel="stylesheet" href="<c:url value='/css/all.css' />">
+<link rel="stylesheet" href="<c:url value='/css/Apply.css' />">
 </head>
 <body>
 	<header>
@@ -22,7 +23,7 @@
 <main>
 </main>
 <h2 id="regist">申し込み確認</h2>
- 	<form method="POST" action="/A3/ApplyCompServlet">
+ 	<form method="POST" action="<c:url value='/ApplyCompServlet' />">
 		<p>選択したコース<br>${course.courseName}コース<br>${course.commnet}</p>
 		
 		<p>希望式場<br>${siki.sName}</p>
