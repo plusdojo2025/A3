@@ -291,7 +291,7 @@ function calc() {
 	  /* 足し算 */
 	  const total = ans + courseValue + sikijoValue;
 	  const price = document.getElementById("pr");
-	  price.value = total;
+	  price.value = total.toLocaleString() + " 円";
 	}
 
 </script>
