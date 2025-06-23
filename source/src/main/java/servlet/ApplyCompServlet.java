@@ -33,7 +33,10 @@ public class ApplyCompServlet extends HttpServlet {
 		AllDTO user =(AllDTO)session.getAttribute("user");
 		int userId =user.getUserId();
 //		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
-
+//		if (user == null) {
+//		    response.sendRedirect(request.getContextPath() + "/LoginServlet");
+//		    return;
+//		}
 		List<AllDTO> applyList  = appdao.applyComp(userId);
 		request.setAttribute("appList", applyList);
 		
@@ -51,8 +54,8 @@ public class ApplyCompServlet extends HttpServlet {
 		//セッションからapply2,3で選択されたコース、式場、オプションidと備考欄を取得
 		HttpSession session = request.getSession();
 		AllDTO user =(AllDTO)session.getAttribute("user");
-//		int userId =user.getUserId();
-		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
+		int userId =user.getUserId();
+		//int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
 		int courseId = (Integer) session.getAttribute("courseId");
 		AllDTO sikijo = (AllDTO) session.getAttribute("sikijo");
 		int sikijoId = sikijo.getSikijoId();
@@ -79,16 +82,10 @@ public class ApplyCompServlet extends HttpServlet {
 		appdao.insert(userId, courseId, sikijoId, opIds, remarks);
 //		int opsum = (Integer) session.setAttribute("opsum", opsum);
 //		
-//		if (userId == 3)// とりあえず固定 {
-//			
-//			
-//	    }
+
 		List<AllDTO> applyList  = appdao.applyComp(userId);
 		request.setAttribute("appList", applyList);
 		System.out.println(applyList.size());
-		
-		
-		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/applyhistory.jsp");
 		dispatcher.forward(request,response);

@@ -22,34 +22,48 @@
 		</ul>
 	</header>
 <main>
-<h2>申し込み完了</h2>
-	<p>申し込み内容</p>
-<c:forEach var="a" items="${appList}">
-<table>
-	<td>
-		<tr>${a.courseName}コース<br>
-			${a.intro}</tr>
-		<tr>希望式場<br>
-			${a.sName}</tr>
-		<tr>オプション<br>
-			${a.optionName}</tr>
-		<tr>備考<br>
-			${a.remarks}</tr>
-		<tr></tr>
-	</td>
-</table>
-  
-  
-  <p>${a.sName}</p>
-  <p>${a.optionName}</p>
-  <p>${a.remarks}</p>
-  <p><c:forEach var="opt" items="${a.optionNames}" varStatus="status">
-      ${opt}<c:if test="${!status.last}">, </c:if>
-    </c:forEach>
-  </p>
-  
-</c:forEach>
+<div class="hero">
+	<h2>申し込み完了</h2>
+</div>
+<div class="comp">
+	<p>〇 申し込み内容 〇</p>
+	<c:forEach var="a" items="${appList}">
+<%-- 		<table>
+			<td>
+				<tr>${a.courseName}コース<br>
+						${a.intro}</tr>
+				<tr>希望式場<br>
+						${a.sName}</tr>
+				<tr>オプション<br>
+						${a.optionName}</tr>
+				<tr>備考<br>
+						${a.remarks}</tr>
+				<tr></tr>
+			</td>
+		</table>
+ --%>			  
+<%-- 			  
+		<p>${a.sName}</p>
+		<p>${a.optionName}</p>
+		<p>${a.remarks}</p>
+		<p><c:forEach var="opt" items="${a.optionNames}" varStatus="status">
+			      ${opt}<c:if test="${!status.last}">, </c:if></c:forEach>
+		</p> --%>
+		<div class="apply-card">
+			<div class="row"><span class="label">コース:</span> ${a.courseName}</div>
+		    <div class="row"><span class="label">コース紹介:</span> ${a.intro}</div>
+		    <div class="row"><span class="label">式場:</span> ${a.sName}</div>
+		    <div class="row"><span class="label">オプション:</span>
+	        <c:forEach var="opt" items="${a.optionNames}" varStatus="status">
+	          ${opt}<c:if test="${!status.last}">, </c:if>
+	        </c:forEach>
+	    </div>
+	    	<div class="row"><span class="label">備考:</span> ${a.remarks}</div>
+	    	</div>
+	 </c:forEach>
+
 	
+</div>		
 </main>
 
 
