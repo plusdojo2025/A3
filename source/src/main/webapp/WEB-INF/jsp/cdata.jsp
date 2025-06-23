@@ -11,6 +11,8 @@ pageEncoding="UTF-8"%>
 </head>
 
 <body>
+<%--時間表示 --%>
+<div id="theTime" class="clock"></div>
 <h1>検索</h1><br>
 <hr>
 
@@ -27,6 +29,7 @@ pageEncoding="UTF-8"%>
 </form>
 
 <!-- ↓ 検索結果表示 -->
+
 <c:forEach var="e" items="${cardList}">
   <details class="details-box">
     <summary>${e.fName} ${e.lName}</summary>
@@ -41,7 +44,22 @@ pageEncoding="UTF-8"%>
 <c:if test="${empty cardList}">
     <p>一致するデータがありません</p>
 </c:if>
-
 <a href="/A3/PWelcomeServlet">ホームへ戻る</a>
 </body>
+
+<%--時間表示スクリプト --%>
+<script>
+  'use strict';
+  function updateTime() {
+	  const now=new Date ();
+	  const hours=now.getHours();
+	  const minutes=now.getMinutes();
+	  const seconds=now.getSeconds();
+	  const theTime = document.getElementById("theTime");
+	  theTime.innerText=hours + "時" + minutes + "分" + seconds + "秒";
+    }
+    updateTime();
+    setInterval(updateTime,1000);
+    
+</script>
 </html>
