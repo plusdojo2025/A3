@@ -11,9 +11,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="<c:url value='/css/all.css' />">
 <link rel="stylesheet" href="<c:url value='/css/login.css' />">
-<c:if test="${hasTried and not empty message}">
-  <p style="color:green;">${message}</p>
-</c:if>
+
 
 </head>
 <body>
@@ -54,7 +52,11 @@
               </tr>
             </table>
             <p id="ptag"></p>
-</form>            
+</form>  
+
+<c:if test="${not empty message}">
+    <p style="text-align:center;">${message}</p>
+</c:if>          
         
         <c:if test="${not empty errorMsg}">
             <p style="color:white;">${errorMsg}</p>
