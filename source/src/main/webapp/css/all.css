@@ -2,11 +2,48 @@
 
 /*headerすべてに適用*/
 #nav {
-	justify-content: space-between;/*左右に分ける*/
-	list-style:none;/*点を消す*/
-	display: flex;/*横並びにする*/
-	padding-right:60px;/*区切りを開ける*/	
-	}
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.5); /* ベール感 */
+  backdrop-filter: blur(8px); /* 背景ぼかしで高級感 */
+  list-style: none;
+  padding: 16px 0;
+  margin: 0;
+  border-bottom: 1px solid #e4cfcf;
+  font-family: 'Noto Serif JP', serif;
+}
+
+/* 各メニュー */
+#nav li {
+  margin: 0 20px;
+}
+
+/* メニューのリンク部分 */
+#nav li a {
+  color: #b76e79; /* ロゼゴールド系ピンク */
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  position: relative;
+  text-shadow: 0 0 5px rgba(255, 240, 240, 0.8);
+  transition: all 0.3s ease;
+}
+
+/* ホバー時の演出 */
+#nav li a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #b76e79;
+  width: 0%;
+  transition: width 0.3s ease;
+  margin: 4px auto 0;
+}
+
+#nav li a:hover::after {
+  width: 100%;
+}
+
 
 /* bodyタグ */
 body {
