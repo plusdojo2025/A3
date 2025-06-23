@@ -13,6 +13,16 @@ pageEncoding="UTF-8"%>
 <body>
 <%--時間表示 --%>
 <div id="theTime" class="clock"></div>
+
+<ul id="nav">
+<li><a href="<c:url value='/PWelcomeServlet' />">ホーム</a></li>
+<li><a href="<c:url value='/CDataServlet' />">顧客情報</a></li>
+<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/PMypServlet' />">マイページ</a></li>
+<li><a href="<c:url value='/PLogoutServlet' />">ログアウト</a></li>
+</ul>
+
+
 <h1>検索</h1><br>
 <hr>
 
