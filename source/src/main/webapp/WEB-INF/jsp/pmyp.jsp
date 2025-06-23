@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,16 @@
 <link rel="stylesheet" href="/A3/css/pmyp.css">
 </head>
 <body>
+<ul id="nav">
+<li><a href="<c:url value='/PWelcomeServlet' />">ホーム</a></li>
+<li><a href="<c:url value='/CDataServlet' />">顧客情報</a></li>
+<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/PMypServlet' />">マイページ</a></li>
+<li><a href="<c:url value='/PLogoutServlet' />">ログアウト</a></li>
+</ul>
+    <div class="img-right">
+      <img src="${planner.pImage}" alt="プランナー画像" width="150">
+    </div>
 	<div class="myp">
   <form method="POST" action="/webapp/PmypServlet" style="width:100%; display:flex;">
     <div class="form-left">
@@ -33,9 +44,7 @@
         <input type="text" name="strong_fild" required="required" value="${planner.strongFild}" readonly> 
       </div>
     </div>
-    <div class="img-right">
-      <img src="${planner.pImage}" alt="プランナー画像" width="150">
-    </div>
+
   </form>
 </div>
 <script>
