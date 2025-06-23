@@ -10,13 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.AllDTO;
-import dto.ApplyDTO;
 
 public class ApplyDAO {
 	
 	//選択したコースに対応してる式場idを探す
-	public List<ApplyDTO> course(int courseId,int userId) {
-		List<ApplyDTO> applyList = new ArrayList<>();
+	public List<AllDTO> course(int courseId,int userId) {
+		List<AllDTO> applyList = new ArrayList<>();
 		Connection conn = null;
 		
 		try {
@@ -37,13 +36,14 @@ public class ApplyDAO {
 			
 			while(rs.next()) {
 				//空の枝豆（DTO）作成
-				ApplyDTO dto = new ApplyDTO();
+				AllDTO dto = new AllDTO();
 
 				//上のDTOに値を入れていく（DBの値をDTOへコピー）
 				dto.setUserId(userId);		//要変更-----------------------@
 //				dto.setPlannerId(rs.getInt("planner_id"));
 				dto.setSikijoId(rs.getInt("sikijo_id"));
-				dto.setCourseId(rs.getInt("course_id"));				
+				dto.setCourseId(rs.getInt("course_id"));
+				dto.setsImage(rs.getString("image"));
 //				dto.setOptionId(rs.getInt("option_id"));
 				
 				//値が入った枝豆（上のDTO）をArrayListに追加
@@ -103,7 +103,8 @@ public class ApplyDAO {
 				dto.setSikijoId(rs.getInt("sikijo_id"));
 				dto.setsName(rs.getString("name"));
 				dto.setsAddress(rs.getString("address"));
-				
+				dto.setsImage(rs.getString("image"));
+				dto.setsPrice(rs.getString("sikijo_price"));
 //				dto.setOptionId(rs.getInt("option_id"));
 				
 				//値が入った枝豆（上のDTO）をArrayListに追加
