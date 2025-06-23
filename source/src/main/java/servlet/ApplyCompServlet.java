@@ -26,7 +26,20 @@ public class ApplyCompServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		
+		ApplyDAO appdao = new ApplyDAO();
+		HttpSession session = request.getSession();
+		AllDTO user =(AllDTO)session.getAttribute("user");
+//		int userId =user.getUserId();
+		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
+
+		List<AllDTO> applyList  = appdao.applyComp(userId);
+		request.setAttribute("appList", applyList);
+		
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/applyhistory.jsp");
+		dispatcher.forward(request,response);
 	}
 
 	/**

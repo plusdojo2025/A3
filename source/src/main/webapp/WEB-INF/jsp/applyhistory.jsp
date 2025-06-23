@@ -24,29 +24,22 @@
 <main>
 <h2>申し込み完了</h2>
 	<p>申し込み内容</p>
-<%-- 	<p>〇コース<br>${course.courseName}</p>
-	<p>〇希望式場<br>${sikijo.sName}<br>${sikijo.sImage }</p>
-	<label>〇オプション</label>
-	<c:forEach var="e" items="${options}">
-	    <p>${e.optionName} : ${e.optionPrice}万円</p>
-	</c:forEach> --%>
-<%-- 	<p>${opsum }万円</p> --%>
- 
-<%-- 	<c:forEach var="a" items="${appList}">
-		<p>〇コース<br>${a.courseName}コース<br>${a.comment }</p>
-		<p>〇希望式場<br>${a.sName}<br>${a.sImage }</p>
-		
-		
-		<label>〇オプション</label>
-		 ${a.optionName}
-	     ${a.optionPrice}
-	</c:forEach>
-	<c:forEach var="e" items="${options}">
-	    <p>${e.optionName} : ${e.optionPrice}万円</p>
-	</c:forEach> --%>
 <c:forEach var="a" items="${appList}">
-  <p>${a.courseName}</p>
-  <p>${a.intro}</p>
+<table>
+	<td>
+		<tr>${a.courseName}コース<br>
+			${a.intro}</tr>
+		<tr>希望式場<br>
+			${a.sName}</tr>
+		<tr>オプション<br>
+			${a.optionName}</tr>
+		<tr>備考<br>
+			${a.remarks}</tr>
+		<tr></tr>
+	</td>
+</table>
+  
+  
   <p>${a.sName}</p>
   <p>${a.optionName}</p>
   <p>${a.remarks}</p>

@@ -9,8 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import dao.ApplyDAO;
 import dao.CourseDAO;
+import dto.AllDTO;
 import dto.CourseDTO;
 
 /**
@@ -25,19 +28,42 @@ public class ApplyCourseServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-//				HttpSession session = request.getSession();
-//				if (session.getAttribute("id") == null) {
-//					response.sendRedirect("/LoginServlet");
-//					return;
-//				}
+		HttpSession session = request.getSession();
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect(request.getContextPath() + "/LoginServlet");
+//			return;
+//		}
 		
-		CourseDAO coudao = new CourseDAO();		
-		List<CourseDTO>courseList = coudao.select();
-		//JSPに渡す
-		request.setAttribute("courseList", courseList);
+		AllDTO user =(AllDTO)session.getAttribute("user");
+//		int userId =user.getUserId();
+		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
+
+		ApplyDAO appdao = new ApplyDAO();
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply2.jsp");
-		dispatcher.forward(request, response);		
+		// 申し込み済みかチェック（例：すでに1件以上 apply に存在する）
+	    boolean isApplied = appdao.Applied(userId);
+
+		List<AllDTO> applyList  = appdao.applyComp(userId);
+		request.setAttribute("appList", applyList);
+		
+		if (isApplied) {
+	        // すでに申し込み済み → 確認画面へ
+	        response.sendRedirect(request.getContextPath() + "/ApplyCompServlet");
+	    } 
+		else {
+	        // 未申し込み → 申し込み画面へ
+	        //コース表示
+			CourseDAO coudao = new CourseDAO();		
+			List<CourseDTO>courseList = coudao.select();
+			//JSPに渡す
+			request.setAttribute("courseList", courseList);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply2.jsp");
+			dispatcher.forward(request, response);	
+	    }
+		
+		
+			
 	}
 	
 	/**

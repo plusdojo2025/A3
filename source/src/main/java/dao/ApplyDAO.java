@@ -564,4 +564,51 @@ public class ApplyDAO {
 		//コースのデータの入ったArrayListをServletへ返却
 		return applyList;
 	}
+	
+	//申し込み済かどうか
+	public boolean Applied(int userId) {
+		Connection conn=null;
+	    
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/a3?"
+					+ "characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+					"root", "password");
+			
+			// SQL文の準備（コースのデータ全て取得）（ハッピーセット）
+			String sql = "SELECT COUNT(*) FROM apply WHERE user_id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);//全部凝縮されたのが「ｐStmt」
+			
+			pStmt.setInt(1, userId);//SQL内の 1つ目の ? に sikijoId の値（int型）を設定
+			
+			try (ResultSet rs = pStmt.executeQuery()) {
+	            if (rs.next()) {
+	                return rs.getInt(1) > 0;
+	            }
+	        }catch (SQLException e) {
+	        e.printStackTrace();
+	        }	
+		}catch (SQLException e) {
+			System.out.println("SQL文おかしいよ");
+			e.printStackTrace();
+			
+		}catch (ClassNotFoundException e) {
+			System.out.println("ドライバの読み込みおかしい");
+			e.printStackTrace();
+			
+		}finally {
+			//データベース切断
+			if(conn != null) {
+				try {
+					conn.close();
+				}catch (SQLException e) {
+					e.printStackTrace();
+					
+				}
+			}
+		}
+		//コースのデータの入ったArrayListをServletへ返却
+		return false;
+	}
 }
