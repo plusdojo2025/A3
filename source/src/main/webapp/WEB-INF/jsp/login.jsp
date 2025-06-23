@@ -28,7 +28,7 @@
 -->    
 <div class="login_box">
 <h2>ログイン</h2>
-<form  id="check" method="POST" action="/A3/HomeServlet">
+<form  id="check" method="POST" action="/A3/LoginServlet">
             <table>
               <tr>
                 <td>
@@ -54,13 +54,15 @@
             <p id="ptag"></p>
 </form>  
 
+
 <c:if test="${not empty message}">
     <p style="text-align:center;">${message}</p>
-</c:if>          
-        
-        <c:if test="${not empty errorMsg}">
-            <p style="color:white;">${errorMsg}</p>
-        </c:if>
+</c:if>       
+     
+<c:if test="${not empty errorMsg}">
+    <p id="errorMsg" style="color:white;">${errorMsg}</p>
+    
+</c:if>
         
 	<form method="POST" action="/A3/RegistServlet">
 	<input type="submit" name="submit" value="新規の方はこちら">	
@@ -89,6 +91,14 @@
     
     const username = document.getElementById('check');
     sessionStorage.setItem('username', username);//ユーザー名を保存（セッションストレージ）
+    
+    // 5秒後にエラーメッセージを非表示にする
+    setTimeout(function () {
+      const msg = document.getElementById("errorMsg");
+      if (msg) {
+        msg.style.display = "none";
+      }
+    }, 5000); // 5000ミリ秒 = 5秒
   </script>
 
   

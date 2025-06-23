@@ -32,7 +32,7 @@
       <select id="year-select"></select>
       <select id="month-select"></select>
     </div>
-    </div>
+   
 <table id="calendar">
     <thead>
       <tr>
@@ -49,7 +49,7 @@
       <!-- JSでここに日付を描画 -->
     </tbody>
   </table>
-
+</div>
 <script>
   const now = new Date();
 
