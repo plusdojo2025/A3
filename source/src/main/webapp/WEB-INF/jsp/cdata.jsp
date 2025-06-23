@@ -6,8 +6,8 @@ pageEncoding="UTF-8"%>
 <head>
 <meta charset="UTF-8">
 <title>顧客情報</title>
-<link rel="stylesheet" href="css/all.css">
-<link rel="stylesheet" href="css/cdata.css">
+<link rel="stylesheet" href="<c:url value='/css/all.css' />">
+<link rel="stylesheet" href="<c:url value='/css/cdata.css' />">
 </head>
 
 <body>

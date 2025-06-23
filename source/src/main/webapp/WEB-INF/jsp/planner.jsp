@@ -10,8 +10,9 @@
 <link rel="stylesheet" href="css/course.css"> 
 </head>
 <body>
+<h1>〇${plannerList[0].sikiAdd}</h1> <!-- 式場の住所 -->
+<img src="${pageContext.request.contextPath}/images/${param.image}" alt="式場画像" width="150"><br>
 <c:forEach var="e" items="${plannerList}">
-<h1>〇${e.sikiAdd}</h1> <!-- 式場の住所 -->
 名前：<input type="text" value="${e.plannerName}"><br>
 性別：<input type="text" value="${e.gender}"><br>
 電話番号：<input type="text" value="${e.phone}"><br>
