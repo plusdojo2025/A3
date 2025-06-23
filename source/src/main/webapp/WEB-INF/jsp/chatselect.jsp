@@ -6,7 +6,7 @@
 <head>
     <title>顧客選択リスト</title>
     <link rel="stylesheet" href="<c:url value='/css/all.css' />">
-    <link rel="stylesheet" href="<c:url value='/css/ChatSelect.css' />">
+    <link rel="stylesheet" href="<c:url value='/css/chatselect.css' />">
 </head>
 <body>
     <ul id="talkList">
