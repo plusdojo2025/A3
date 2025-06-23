@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import dto.AllDTO;
 
@@ -40,10 +42,11 @@ public class ApplyDAO {
 
 				//上のDTOに値を入れていく（DBの値をDTOへコピー）
 				dto.setUserId(userId);		//要変更-----------------------@
+//				dto.setUserId(rs.getInt("user_id"));
 //				dto.setPlannerId(rs.getInt("planner_id"));
 				dto.setSikijoId(rs.getInt("sikijo_id"));
 				dto.setCourseId(rs.getInt("course_id"));
-				dto.setsImage(rs.getString("image"));
+//				dto.setsImage(rs.getString("image"));
 //				dto.setOptionId(rs.getInt("option_id"));
 				
 				//値が入った枝豆（上のDTO）をArrayListに追加
@@ -214,7 +217,9 @@ public class ApplyDAO {
 					"root", "password");
 			
 			// SQL文の準備（コースのデータ全て取得）（ハッピーセット）
-			String sql = "SELECT sikijo_id, name, address FROM sikijo WHERE sikijo_id = ?";
+			String sql = "SELECT * FROM sikijo WHERE sikijo_id = ?";
+//			String sql = "SELECT sikijo_id, name, address, sikijo_price FROM sikijo WHERE sikijo_id = ?";
+
 			System.out.println(sql);
 			PreparedStatement pStmt = conn.prepareStatement(sql);//全部凝縮されたのが「ｐStmt」
 			
@@ -233,11 +238,12 @@ public class ApplyDAO {
 //				dto.setJmNumber(rs.getInt("jm_number"));
 				alldto.setsName(rs.getString("name"));
 				alldto.setSikiAdd(rs.getString("address"));
-//				dto.setsImage(rs.getString("image"));
-//				dto.setOptionPrice(rs.getString("sikijo_price"));
+				alldto.setsImage(rs.getString("image"));
+				alldto.setsPrice(rs.getString("sikijo_price"));
 				
 				//値が入った枝豆（上のDTO）をArrayListに追加
 //				dto.add(dto);
+				
 			}else {
 			    System.out.println("DBに該当IDなし！");
 			}
@@ -296,7 +302,7 @@ public class ApplyDAO {
 				//setはDTOで決めたやつ、getはDBのカラム名
 				dto.setCourseId(rs.getInt("course_id"));
 	            dto.setCourseName(rs.getString("course_name"));
-	            dto.setCommnet(rs.getString("comment"));
+	            dto.setIntro(rs.getString("comment"));
 				
 				//値が入った枝豆（上のDTO）をArrayListに追加
 //				dto.add(dto);
@@ -392,7 +398,7 @@ public class ApplyDAO {
 //	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
 	    int applyId = -1;
-	    
+	    System.out.println("call insert() with opIds: " + opIds);
 	    
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -411,7 +417,7 @@ public class ApplyDAO {
 			pStmt.setInt(2, courseId);
 			pStmt.setInt(3, sikijoId);
 			pStmt.setString(4, remarks);
-			pStmt.executeUpdate();
+//			pStmt.executeUpdate();
 //			pStmt.setString(4, optionIds); //SQL内の4つ目の ? に optionId の値（int型）を設定
 			
 			int affectedRows = pStmt.executeUpdate();
@@ -426,7 +432,7 @@ public class ApplyDAO {
 	            throw new SQLException("apply_id の取得に失敗しました。");
 	        }
 	        // ② apply_option テーブルに複数INSERT
-	        String sqlOption = "INSERT INTO apply_option (apply_id, option_id) VALUES (?, ?)";
+	        String sqlOption = "INSERT INTO AO (apply_id, option_id) VALUES (?, ?)";
 	        pStmt = conn.prepareStatement(sqlOption);
 	        for (Integer optId : opIds) {
 	            pStmt.setInt(1, applyId);
@@ -434,11 +440,10 @@ public class ApplyDAO {
 	            pStmt.addBatch();
 	        }
 	        pStmt.executeBatch();
-
+	       
 	        // コミット
 	        conn.commit();
-	        return;
-	        
+	        return;	        
 		}catch (SQLException e) {
 			System.out.println("SQL文おかしいよ");
 			e.printStackTrace();
@@ -459,7 +464,9 @@ public class ApplyDAO {
 		
 	}
 	
-	public AllDTO applyComp(int applyId) {
+	public List<AllDTO> applyComp(int userId) {
+		List<AllDTO> applyList = new ArrayList<>();
+		Map<Integer, AllDTO> applyMap = new HashMap<>();
 		AllDTO alldto = null;
 		Connection conn = null;
 		
@@ -471,35 +478,70 @@ public class ApplyDAO {
 					"root", "password");
 			
 			// SQL文の準備（コースのデータ全て取得）（ハッピーセット）
-			String sql = "SELECT sikijo_id, name, address FROM sikijo WHERE sikijo_id = ?";
+			String sql = "SELECT * FROM apply "
+							+ "JOIN user ON apply.user_id = user.user_id "
+							+ "JOIN course ON apply.course_id = course.course_id "
+							+ "JOIN sikijo ON apply.sikijo_id = sikijo.sikijo_id "
+							+ "LEFT JOIN AO ON apply.apply_id = AO.apply_id "
+							+ "LEFT JOIN options ON AO.option_id = options.option_id "
+							+ "WHERE apply.user_id = ?";
 			System.out.println(sql);
 			PreparedStatement pStmt = conn.prepareStatement(sql);//全部凝縮されたのが「ｐStmt」
 			
-			pStmt.setInt(1, applyId);//SQL内の 1つ目の ? に sikijoId の値（int型）を設定
-			
+			pStmt.setInt(1, userId);//SQL内の 1つ目の ? に sikijoId の値（int型）を設定
 			ResultSet rs = pStmt.executeQuery();//なんでも表が入るResultSet型に格納（DAOでしか使えない）
 			
-			if(rs.next()) {
-				 System.out.println("ヒットした！DBにデータある！");
-				//空の枝豆（DTO）作成
-				alldto =new AllDTO();
-
-				//上のDTOに値を入れていく（DBの値をDTOへコピー）
-				//setはDTOで決めたやつ、getはDBのカラム名
-				alldto.setSikijoId(rs.getInt("sikijo_id"));
-//				dto.setJmNumber(rs.getInt("jm_number"));
-				alldto.setsName(rs.getString("name"));
-				alldto.setSikiAdd(rs.getString("address"));
-//				dto.setsImage(rs.getString("image"));
-//				dto.setOptionPrice(rs.getString("sikijo_price"));
+			while(rs.next()) {
+				System.out.println("ヒットした！DBにデータある！");
 				
-				//値が入った枝豆（上のDTO）をArrayListに追加
-//				dto.add(dto);
-			}else {
-			    System.out.println("DBに該当IDなし！");
-			}
-
-			
+				int applyId = rs.getInt("apply_id");
+				//空の枝豆（DTO）作成
+				alldto = new AllDTO();
+				
+				if(applyMap.containsKey(applyId)) {
+					alldto = applyMap.get(applyId);
+				}else {
+					//上のDTOに値を入れていく（setはDTOのセッター、getはDBのカラム名）
+						/*コース*/
+					alldto.setCourseId(rs.getInt("course_id"));
+					alldto.setCourseName(rs.getString("course_name"));
+					alldto.setIntro(rs.getString("comment"));
+					alldto.setcPrice(rs.getString("course_price"));
+						/*式場*/	
+					alldto.setSikijoId(rs.getInt("sikijo_id"));				
+					alldto.setJmNumber(rs.getString("jm_number"));
+					alldto.setsName(rs.getString("name"));
+					alldto.setSikiAdd(rs.getString("address"));
+					alldto.setsImage(rs.getString("image"));
+					alldto.setsPrice(rs.getString("sikijo_price"));
+						/*オプション*/
+					alldto.setOptionId(rs.getInt("option_id")); 
+					alldto.setOptionName(rs.getString("option_name"));
+					alldto.setOptionPrice(rs.getString("option_price"));
+					alldto.setOptionNames(new ArrayList<>());
+						/*備考*/
+					alldto.setRemarks(rs.getString("remarks"));
+					
+					applyMap.put(applyId, alldto);
+					//値が入った枝豆（上のDTO）をArrayListに追加
+					applyList.add(alldto);
+				}
+				// オプション名をリストに追加（nullチェック）
+	            String optionName = rs.getString("option_name");
+	            if(optionName != null && !optionName.isEmpty()) {
+	                alldto.getOptionNames().add(optionName);
+	            }
+				// オプションが null の場合にも対応
+	            int optionId = rs.getInt("option_id");
+	            if (!rs.wasNull()) {
+	                alldto.setOptionId(optionId);
+	                alldto.setOptionName(rs.getString("option_name"));
+	                alldto.setOptionPrice(rs.getString("option_price"));
+	            }
+				
+//			}else {
+//			    System.out.println("DBに該当IDなし！");
+			}			
 		}catch (SQLException e) {
 			System.out.println("SQL文おかしいよ");
 			e.printStackTrace();
@@ -520,6 +562,6 @@ public class ApplyDAO {
 			}
 		}
 		//コースのデータの入ったArrayListをServletへ返却
-		return alldto;
+		return applyList;
 	}
 }

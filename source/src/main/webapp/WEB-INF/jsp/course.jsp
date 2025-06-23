@@ -7,7 +7,7 @@
 <c:out value ="${user.lName}"></c:out>
 <ul id="nav">
 <li><a href="/A3/HomeServlet">ホーム</a></li>
-<li><a href="/A3/ApplyServlet">申し込み</a></li>
+<li><a href="/A3/ApplyCourseServlet">申し込み</a></li>
 <li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
 <li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
 <li><a href="/A3/○○Servlet">チャット(Q＆A)</a></li>

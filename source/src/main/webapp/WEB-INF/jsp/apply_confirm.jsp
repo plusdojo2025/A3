@@ -15,7 +15,7 @@
 			<li><a href="/A3/ApplyServlet">申し込み</a></li>
 			<li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
 			<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
-			<li><a href="/A3/〇〇Servlet">チャット(Q＆A)</a></li>
+			<li><a href="/A3/ChatSelectServlet">チャット(Q＆A)</a></li>
 			<li><a href="/A3/UmypServlet">マイページ</a></li>
 			<li><a href="/A3/LoginServlet">ログアウト</a></li>
 		</ul>
@@ -24,11 +24,14 @@
 </main>
 <h2 id="regist">申し込み確認</h2>
  	<form method="POST" action="<c:url value='/ApplyCompServlet' />">
-		<p>選択したコース<br>${course.courseName}コース<br>${course.commnet}</p>
+		<p>〇選択したコース<br>${course.courseName}コース<br>${course.intro}</p>
 		
-		<p>希望式場<br>${siki.sName}</p>
+		<p>〇希望式場<br>
+		${sikijo.sName}<br>
+		${sikijo.sImage }
+		</p>
 		
-		<label>オプション</label>
+		<label>〇オプション</label>
 		<c:if test ="${not empty opMsg }">
 			<p>${opMsg }</p>
 		</c:if>
@@ -37,8 +40,8 @@
 		</c:forEach>	
 		<p>【オプション合計金額】 ${opsum}万円</p>		
 		
-		<label>備考<br>
-		<textarea name="remarks" rows=4 cols=40>${remarks }</textarea><br>
+		<label>〇備考<br>
+		${remarks }<br>
     	</label>
 		
 		<p>		

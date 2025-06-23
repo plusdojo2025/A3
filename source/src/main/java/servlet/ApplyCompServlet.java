@@ -50,15 +50,32 @@ public class ApplyCompServlet extends HttpServlet {
 		String[] optionIds = (String[]) session.getAttribute("optionIds");
 		//List<Integer>に変換
 		List<Integer> opIds = new ArrayList<>();
+		System.out.println("opIds size: " + (opIds == null ? "null" : opIds.size()));
+		if (opIds != null) {
+		    for (int i = 0; i < opIds.size(); i++) {
+		        System.out.println("Index " + i + ": " + opIds.get(i));
+		    }
+		}
 		if (optionIds != null) {
 		    for (String oid : optionIds) {		    	
 		    	opIds.add(Integer.parseInt(oid));
 		    }
 		}
-		
+		//登録処理
 		ApplyDAO appdao = new ApplyDAO();
 		appdao.insert(userId, courseId, sikijoId, opIds, remarks);
 //		int opsum = (Integer) session.setAttribute("opsum", opsum);
+//		
+//		if (userId == 3)// とりあえず固定 {
+//			
+//			
+//	    }
+		List<AllDTO> applyList  = appdao.applyComp(userId);
+		request.setAttribute("appList", applyList);
+		System.out.println(applyList.size());
+		
+		
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/applyhistory.jsp");
 		dispatcher.forward(request,response);

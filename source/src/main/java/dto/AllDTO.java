@@ -1,6 +1,7 @@
 package dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class AllDTO implements Serializable {
 	
@@ -21,7 +22,7 @@ public class AllDTO implements Serializable {
 	
 	//sikijoテーブルのデータ-----------------------
 	private int sikijoId;
-	private int jmNumber;
+	private String jmNumber;
 	private String sName;
 	private String sAddress;
 	private String sImage;
@@ -31,13 +32,14 @@ public class AllDTO implements Serializable {
 	//courseテーブルのデータ-----------------------
 	private int courseId;
 	private String courseName;
-	private String commnet;
+	private String intro;
 	private String cPrice;
 	
 	//optionテーブルのデータ-----------------------		 
 	private int optionId;
 	private String optionName;
 	private String optionPrice;
+	 private List<String> optionNames;
 	
 	//plannerテーブルのデータ-----------------------
 	private int plannerId;
@@ -173,11 +175,11 @@ public class AllDTO implements Serializable {
 		this.sikijoId = sikijoId;
 	}
 
-	public int getJmNumber() {
+	public String getJmNumber() {
 		return jmNumber;
 	}
 
-	public void setJmNumber(int jmNumber) {
+	public void setJmNumber(String jmNumber) {
 		this.jmNumber = jmNumber;
 	}
 
@@ -221,12 +223,13 @@ public class AllDTO implements Serializable {
 		this.courseName = courseName;
 	}
 
-	public String getCommnet() {
-		return commnet;
+
+	public String getIntro() {
+		return intro;
 	}
 
-	public void setCommnet(String commnet) {
-		this.commnet = commnet;
+	public void setIntro(String intro) {
+		this.intro = intro;
 	}
 
 	public String getcPrice() {
@@ -260,6 +263,14 @@ public class AllDTO implements Serializable {
 	public void setOptionPrice(String optionPrice) {
 		this.optionPrice = optionPrice;
 	}
+	
+	public List<String> getOptionNames() {
+        return optionNames;
+    }
+
+    public void setOptionNames(List<String> optionNames) {
+        this.optionNames = optionNames;
+    }
 	
 	public int getPlannerId() {
 		return plannerId;
