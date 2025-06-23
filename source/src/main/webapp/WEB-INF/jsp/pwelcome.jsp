@@ -15,7 +15,7 @@
 <li><a href="<c:url value='/CDataServlet' />">顧客情報</a></li>
 <li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
 <li><a href="<c:url value='/PMypServlet' />">マイページ</a></li>
-<li><a href="<c:url value='/PLoginServlet' />">ログアウト</a></li>
+<li><a href="<c:url value='/PLogoutServlet' />">ログアウト</a></li>
 </ul>
 
 <div class="header-area">
