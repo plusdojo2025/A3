@@ -82,7 +82,7 @@ public class ApplyConfirmServlet extends HttpServlet {
 			System.out.println("siki = " + sikijo);
 		
 		//apply3で選択された式場とコースをセッションへ
-//		session.setAttribute("course", course);
+		session.setAttribute("course", course);
 		session.setAttribute("sikijo", sikijo);
 		session.setAttribute("options", opList);//AllDTO(jsp表示用)
 		session.setAttribute("optionIds", optionIds); // ←String[] IDだけ（登録処理用）

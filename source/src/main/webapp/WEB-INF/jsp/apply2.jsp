@@ -19,7 +19,7 @@
 			<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
 			<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
 			<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
-			<li><a href="<c:url value='/◯◯Servlet' />">チャット(Q＆A)</a></li>
+			<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
 			<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 		</ul>
 	</header>
@@ -33,7 +33,8 @@
  		<p>${errorMsg }
  	</c:if> --%>
  	<c:forEach var="e" items="${courseList}" >
-		<input type="radio" name="course" value="${e.courseId}" required>${e.courseName}コース
+		<input type="radio" name="course" value="${e.courseId}" required>
+		${e.courseName}コース:${e.coursePrice }万円
 		<p>${e.comment}</p>
 	</c:forEach>
  	    
