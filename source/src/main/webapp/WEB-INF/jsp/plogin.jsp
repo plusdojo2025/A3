@@ -14,7 +14,7 @@
 <main>
 <div class="login_box">
 <h2>ログイン</h2>
-<form  id="check" method="POST" action="/A3/PWelcomeServlet">
+<form  id="check" method="POST" action="/A3/PLoginServlet">
             <table>
               <tr>
                 <td>
@@ -37,11 +37,10 @@
                 </td>
               </tr>
             </table>
-            <p id="ptag"></p>
+            <p id="ptag" style="color: white; display: none;"></p>
 </form>
-<c:out value="${errmsg}"/>
         <c:if test="${not empty errorMsg}">
-            <p style="color:white;">${errorMsg}</p>
+            <p id="errorMsg" style="color:white;">${errorMsg}</p>
         </c:if>
 </div>
 
@@ -55,14 +54,32 @@
     document.getElementById('check').onsubmit = function(event){
       const user_id = document.getElementById('id').value.trim();
       const user_pw = document.getElementById('pw').value.trim();
+      const ptag = document.getElementById('ptag');
       if(user_id === '' || user_pw === '') {
         event.preventDefault();
-        document.getElementById('ptag').textContent = 'IDとPWを両方入力してください！';
+        ptag.textContent = 'IDとPWを両方入力してください！';
+        ptag.style.display = 'block';
+        
+        // 5秒後に非表示
+        setTimeout(function () {
+          ptag.style.display = 'none';
+          ptag.textContent = '';
+        }, 5000);
+        
       } 
     };
     
     const plannername = document.getElementById('check');
     sessionStorage.setItem('plannername',plannername);//ユーザー名を保存（セッションストレージ）
+    
+    // 5秒後にエラーメッセージを非表示にする
+    setTimeout(function () {
+      const msg = document.getElementById("errorMsg");
+      if (msg) {
+        msg.style.display = "none";
+      }
+    }, 5000); // 5000ミリ秒 = 5秒
+    
   </script>
   
 </body>

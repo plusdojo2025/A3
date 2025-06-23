@@ -37,6 +37,10 @@
 		</c:forEach>	
 		<p>【オプション合計金額】 ${opsum}万円</p>		
 		
+		<label>備考<br>
+		<textarea name="remarks" rows=4 cols=40>${remarks }</textarea><br>
+    	</label>
+		
 		<p>		
 		<input type="submit" name="submit" value="申し込む">
 		</p>

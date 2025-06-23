@@ -35,10 +35,15 @@
  		<p>${errorMsg }
  	</c:if>	
  	<c:forEach var="e" items="${sikijoList}">
-		<input type="radio" name="sikijo" value="${e.sikijoId }">${e.sName}
+		<input type="radio" name="sikijo" value="${e.sikijoId }">${e.sName}:${e.sPrice }万円
 <%-- 		<p>${e.sikijoId}</p>
 			<p>${e.sName}</p> --%>
 			<p>${e.sAddress}</p><!-- ココ住所かも？あと、写真も入れる！！ --> 
+		<%-- 	<p>${e.sImage }</p> --%>
+		<c:if test="${not empty e.sImage}">
+		<img src="${pageContext.request.contextPath}/images/${e.sImage}" alt="式場画像" width="150">
+		</c:if><br>
+		<br>
 	</c:forEach>  
 		
 	<label>オプション</label><br>
@@ -48,6 +53,7 @@
 		${e.optionPrice }万円
 		<br>
 	</c:forEach>
+	<br>
     <label>備考<br>
 		<textarea name="remarks" rows=4 cols=40></textarea><br>
     </label>

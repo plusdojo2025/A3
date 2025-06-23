@@ -15,12 +15,15 @@
 		<h2>登録情報確認</h2>
 		
 		 <!-- 仮の画像枠 -->
-    <div class="user-image"></div>
-
+		 
+    <div class="user-image">
+    <img src="${ pageContext.request.contextPath}/img/human2.png">
+    </div>
+	
     <!-- 名前表示（仮） -->
     <%-- <div class="user-name">ボス（ディアボロ）</div> --%>
     <div class="namer-area">
-	<c:out value="${user.lName}さん"/>
+	<c:out value="${user.fName} ${user.lName}さん"/>
    </div>
     
     <%--  <c:forEach var="e" items="${cardList}">

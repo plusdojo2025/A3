@@ -25,12 +25,14 @@ public class AllDTO implements Serializable {
 	private String sName;
 	private String sAddress;
 	private String sImage;
+	private String sPrice;
 	//上記の３つの名前、他とかぶるからsを頭に付けたよ
 	
 	//courseテーブルのデータ-----------------------
 	private int courseId;
 	private String courseName;
 	private String commnet;
+	private String cPrice;
 	
 	//optionテーブルのデータ-----------------------		 
 	private int optionId;
@@ -227,6 +229,14 @@ public class AllDTO implements Serializable {
 		this.commnet = commnet;
 	}
 
+	public String getcPrice() {
+		return cPrice;
+	}
+
+	public void setcPrice(String cPrice) {
+		this.cPrice = cPrice;
+	}
+
 	public int getOptionId() {
 		return optionId;
 	}
@@ -305,6 +315,14 @@ public class AllDTO implements Serializable {
 
 	public void setSikiAdd(String sikiAdd) {
 		this.sikiAdd = sikiAdd;
+	}
+
+	public String getsPrice() {
+		return sPrice;
+	}
+
+	public void setsPrice(String sPrice) {
+		this.sPrice = sPrice;
 	}
 
 	public String getStrongFild() {
