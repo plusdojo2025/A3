@@ -51,6 +51,7 @@ public class AllDTO implements Serializable {
 	
 	//applyテーブルのデータ-----------------------
 	private int applyId	;
+	private String remarks;
 	
 	//scテーブルのデータ------------------------
 	private int scId;
@@ -328,6 +329,14 @@ public class AllDTO implements Serializable {
 
 	public void setApplyId(int applyId) {
 		this.applyId = applyId;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
 	}
 
 	public int getScId() {
