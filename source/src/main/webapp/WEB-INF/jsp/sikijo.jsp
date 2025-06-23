@@ -10,14 +10,39 @@
 <link rel="stylesheet" href="css/course.css"> 
 </head>
 <body>
-<h1></h1>
+<c:out value ="${user.lName}"></c:out>
+<ul id="nov">
+<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
+<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
+<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+<li><a href="<c:url value='/LoginServlet' />">ログアウト</a></li>
+</ul>
+<div class="hero">
+<h2 class="herosimu">式場一覧</h2>
+</div>
+<div class="sikijo-container">
 <c:forEach var="e" items="${sikijoList}">
+	<div class="sikijo-card">
+	<c:if test="${not empty e.image}">
+	<img src="${pageContext.request.contextPath}/images/${e.image}" alt="式場画像" width="150">
+	</c:if>
 	<li><a href="PlannerServlet?sikijo_id=${e.sikijoId}&image=${e.image}">${e.sikijoName}</a></li>
 	<p>${e.sikijoJmNumber}</p>
 	<p>${e.sikijoAddress}</p><!-- ココ住所かも？あと、写真も入れる！！ -->
-<c:if test="${not empty e.image}">
-<img src="${pageContext.request.contextPath}/images/${e.image}" alt="式場画像" width="150">
-</c:if>
+	</div>
 </c:forEach>
+</div>
+<!-- ふっだーここから -->
+<div class="footer">
+<li><a href="/A3/HomeServlet">トップに戻る</a></li>
+<li><a href="/A3/ApplyServlet">申し込み</a></li>
+<li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
+<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
+   <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
+</div>
+<!-- ふっだーここまで -->
 </body>
 </html>

@@ -8,18 +8,17 @@
 <title>コース一覧</title>
 <link rel="stylesheet" href="css/course.css"> 
 <link rel="stylesheet" href="css/all.css">
- 
-<c:out value ="${user.lName}"></c:out>
 </head>
 <body>
-<ul id="nav">
-<li><a href="/A3/HomeServlet">ホーム</a></li>
-<li><a href="/A3/ApplyServlet">申し込み</a></li>
-<li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
-<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
-<li><a href="/A3/○○Servlet">チャット(Q＆A)</a></li>
-<li><a href="/A3/UmypServlet">マイページ</a></li>
-<li><a href="/A3/LoginServlet">ログアウト</a></li>
+<c:out value ="${user.lName}"></c:out>
+<ul id="nov">
+<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
+<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
+<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+<li><a href="<c:url value='/LoginServlet' />">ログアウト</a></li>
 </ul>
 <div class="hero">
 <h2 class="herosimu">コース一覧</h2>
@@ -33,11 +32,22 @@
 	</div>
 </c:forEach>
 </ul>
+
 <%-- <li><a href="SikijoServlet?courseId=2">${e.name}</a>
 <p>白を基調とした厳かな挙式、バージンロードの入場、会場など<br>
 ロマンチックな雰囲気を活かした洋婚式スタイル</p>
 <li><a href="SikijoServlet?courseId=3">${e.name}</a>
 <p>和の伝統美と洋の華やかさが調和し、<br>
 どちらも楽しめる和洋折衷ウェディング</p> --%>
+
+<!-- ふっだーここから -->
+<div class="footer">
+<li><a href="/A3/HomeServlet">トップに戻る</a></li>
+<li><a href="/A3/ApplyServlet">申し込み</a></li>
+<li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
+<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
+   <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
+</div>
+<!-- ふっだーここまで -->
 </body>
 </html>

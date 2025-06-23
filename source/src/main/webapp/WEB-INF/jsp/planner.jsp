@@ -10,16 +10,42 @@
 <link rel="stylesheet" href="css/course.css"> 
 </head>
 <body>
+<c:out value ="${user.lName}"></c:out>
+<ul id="nov">
+<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
+<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
+<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+<li><a href="<c:url value='/LoginServlet' />">ログアウト</a></li>
+</ul>
+<div class="hero">
+<h2 class="herosimu">プランナー一覧</h2>
+</div>
 <h1>〇${plannerList[0].sikiAdd}</h1> <!-- 式場の住所 -->
 <img src="${pageContext.request.contextPath}/images/${param.image}" alt="式場画像" width="150"><br>
+<div class="sikijo-container">
 <c:forEach var="e" items="${plannerList}">
-名前：<input type="text" value="${e.plannerName}"><br>
-性別：<input type="text" value="${e.gender}"><br>
-電話番号：<input type="text" value="${e.phone}"><br>
-得意分野：<input type="text" value="${e.strongFild}"><br>
+<div class="sikijo-card">
+名前：<input type="text" value="${e.plannerName}"readonly><br>
+性別：<input type="text" value="${e.gender}"readonly><br>
+電話番号：<input type="text" value="${e.phone}"readonly><br>
+得意分野：<input type="text" value="${e.strongFild}"readonly><br>
 <c:if test="${not empty e.image}">
 <img src="${e.image}" alt="プランナー画像" width="150">
 </c:if>
+</div>
 </c:forEach>
+</div>
+<!-- ふっだーここから -->
+<div class="footer">
+<li><a href="/A3/HomeServlet">トップに戻る</a></li>
+<li><a href="/A3/ApplyServlet">申し込み</a></li>
+<li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
+<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
+   <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
+</div>
+<!-- ふっだーここまで -->
 </body>
 </html>
