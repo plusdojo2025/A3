@@ -27,16 +27,27 @@ public class ApplyCourseServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		//セッション取得
 		HttpSession session = request.getSession();
-//		if (session.getAttribute("id") == null) {
-//			response.sendRedirect(request.getContextPath() + "/LoginServlet");
-//			return;
-//		}
 		
-		AllDTO user =(AllDTO)session.getAttribute("user");
+<<<<<<< HEAD
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		AllDTO user = (AllDTO) session.getAttribute("user");
+
+		if (user == null) {
+		    response.sendRedirect(request.getContextPath() + "/LoginServlet");
+		    return;
+		}
+
+		int userId = user.getUserId();
+		
 //		int userId =user.getUserId();
-		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
+//		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
+=======
+		AllDTO user =(AllDTO)session.getAttribute("user");
+		int userId =user.getUserId();
+		//int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
+>>>>>>> a70af932f0e6fc7915df7aa0b16781f6e29ee6b0
 
 		ApplyDAO appdao = new ApplyDAO();
 		
