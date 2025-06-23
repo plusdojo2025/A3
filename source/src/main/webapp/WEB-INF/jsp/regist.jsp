@@ -13,14 +13,14 @@
 </head>
 <body>
 <!-- ヘッダーここkら -->
-<ul id="nav">
+<%-- <ul id="nav">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
 <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
 <li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
 <li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
 <li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
 <li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
-</ul>
+</ul> --%>
 <!-- ヘッダーここまで -->
 <!-- メインここから -->
 <div class="hero">
@@ -170,10 +170,10 @@
 <p id="error_message"></p>
 <span style="color:red;" id="error_message"></span>
 <input type="submit" name="regist" value="登録" onclick="return touroku()">
-<c:if test="${isPost and not empty error}">
-  <p style="color: red;">${error}</p>
+<%-- <c:if test="${not empty error}">
+    <p style="text-align:center;">${error}</p>
 </c:if>
-
+ --%>
 </form>
 
 <!-- メインここまで -->
