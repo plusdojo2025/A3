@@ -39,6 +39,9 @@
 	<c:if test="${not empty message}">
     <p id="msg" style="color:white; font-weight: bold;">${message}</p>
 	</c:if>
+	
+	<p style="font-size: small; color: white;">※上記以外の変更・削除についてはこちらのメールアドレスまでお問い合わせください</p>
+	<p style="font-size: small; color: white;">kekkonsinasite.2025@keroro.com</p>
 </form>
 </div>
 
