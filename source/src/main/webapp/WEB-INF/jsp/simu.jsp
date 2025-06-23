@@ -14,14 +14,13 @@
 <body>
 <!-- ヘッダーここkら -->
 <c:out value ="${user.lName}"/>
-<ul id="nav">
+<ul id="nov">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
 <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
 <li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
 <li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
-<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
-<li><a href="<c:url value='/SoServlet' />">マイページ</a></li>
-<li><a href="<c:url value='/LoginServlet' />">ログアウト</a></li>
+<li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 </ul>
 <!-- ヘッダーここまで -->
 <!-- メインここから -->

@@ -17,7 +17,6 @@
 <li><a href="<c:url value='/PMypServlet' />">マイページ</a></li>
 <li><a href="<c:url value='/PLogoutServlet' />">ログアウト</a></li>
 </ul>
-
 <div class="header-area">
 	<div class="name-box">
 		<P>ようこそ</P>
