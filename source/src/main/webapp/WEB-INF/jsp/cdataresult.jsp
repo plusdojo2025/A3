@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/cdata.css">
 </head>
 <body>
+<img src = "img/gouka.png" class="logomain">
 <h1>検索結果</h1>
 <hr>
 

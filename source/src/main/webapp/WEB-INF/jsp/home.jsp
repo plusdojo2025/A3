@@ -15,6 +15,7 @@
 
 </head>
 <body>
+<img src = "img/gouka.png" class="logomain">
 <ul id="nov">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
 <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>

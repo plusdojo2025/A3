@@ -3,7 +3,12 @@
 /*背景画像設置 */
 body{
 	background-image: url(/A3/img/whiteflowerremake.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
+
 
 /*名前検索全体のところ*/
 .searcher-box {

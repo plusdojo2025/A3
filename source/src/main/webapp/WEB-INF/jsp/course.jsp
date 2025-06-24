@@ -10,8 +10,11 @@
 <link rel="stylesheet" href="css/all.css">
 </head>
 <body>
-<c:out value ="${user.lName}"></c:out>
-<ul id="nov">
+<img src = "img/gouka.png" class="logomain">
+<p class="username">
+ようこそ<c:out value ="${user.fName}"></c:out><c:out value ="${user.lName}"></c:out>さん
+</p>
+<ul id="niv">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
 <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
 <li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
