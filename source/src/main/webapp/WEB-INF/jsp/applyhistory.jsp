@@ -39,9 +39,6 @@
 	    </div>
 	    	<div class="row"><span class="label">備考</span><br> ${a.remarks}</div>
 	    	</div>
-	    	<%-- <c:forEach var="t" items="${totalPrice}" varStatus="status">
-	          ${e}<c:if test="${!t.last}">, </c:if>
-	        </c:forEach> --%>
 	 </c:forEach>
  	<div class="row"><span class="label">合計金額：</span>${totalPrice} 円</div>
 	

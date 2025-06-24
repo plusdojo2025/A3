@@ -38,11 +38,33 @@ public class ApplyCompServlet extends HttpServlet {
 //		    return;
 //		}
 		List<AllDTO> applyList  = appdao.applyComp(userId);
+		int total = 0;	
+
+		if (!applyList.isEmpty()) {
+			AllDTO dto = applyList.get(0);
+			// コース金額
+		    if (dto.getcPrice() != null && !dto.getcPrice().isEmpty()) {
+		        total += Integer.parseInt(dto.getcPrice());
+		    }
+		    // 式場金額
+		    if (dto.getsPrice() != null && !dto.getsPrice().isEmpty()) {
+		        total += Integer.parseInt(dto.getsPrice());
+		    }
+		}
+		for (AllDTO dto : applyList) {
+//			System.out.println("OptionPrices: " + dto.getOptionPrices());
+		for (String priceStr : dto.getOptionPrices()) {
+		    if (priceStr != null && !priceStr.isEmpty()) {
+		        total += Integer.parseInt(priceStr);
+		        System.out.println("Option price added: " + priceStr + ", total: " + total);
+		    }
+		}
 		request.setAttribute("appList", applyList);
-		
+		request.setAttribute("totalPrice", total);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/applyhistory.jsp");
 		dispatcher.forward(request,response);
+		}
 	}
 
 	/**
@@ -84,23 +106,43 @@ public class ApplyCompServlet extends HttpServlet {
 //		
 
 		List<AllDTO> applyList  = appdao.applyComp(userId);
-		int total = 0;		
+		int total = 0;	
+
 		if (!applyList.isEmpty()) {
 			AllDTO dto = applyList.get(0);
-			for (String priceStr : dto.getOptionPrices()) {
-		        if (priceStr != null && !priceStr.isEmpty()) {
-		            total += Integer.parseInt(priceStr);
-		            System.out.println("Option price added: " + priceStr + ", total: " + total);
-		        }
+			// コース金額
+		    if (dto.getcPrice() != null && !dto.getcPrice().isEmpty()) {
+		        total += Integer.parseInt(dto.getcPrice());
 		    }
-//		   
-//		    int cprices = Integer.parseInt(dto.getcPrice()); // コース価格
-//		    int sprices = Integer.parseInt(dto.getsPrice()); // 式場価格
-////		    for (String price : dto.getOptionPrices()) {
-//		        total += Integer.parseInt(price);
-//		    }
-	
+
+		    // 式場金額
+		    if (dto.getsPrice() != null && !dto.getsPrice().isEmpty()) {
+		        total += Integer.parseInt(dto.getsPrice());
+		    }
 		}
+		for (AllDTO dto : applyList) {
+		System.out.println("OptionPrices: " + dto.getOptionPrices());
+		for (String priceStr : dto.getOptionPrices()) {
+		    if (priceStr != null && !priceStr.isEmpty()) {
+		        total += Integer.parseInt(priceStr);
+		        System.out.println("Option price added: " + priceStr + ", total: " + total);
+		    }
+		}
+//	}
+//			for (String priceStr : dto.getOptionPrices()) {
+//		        if (priceStr != null && !priceStr.isEmpty()) {
+//		            total += Integer.parseInt(priceStr);
+//		            System.out.println("Option price added: " + priceStr + ", total: " + total);
+//		        }
+//		    }
+////		   
+////		    int cprices = Integer.parseInt(dto.getcPrice()); // コース価格
+////		    int sprices = Integer.parseInt(dto.getsPrice()); // 式場価格
+//////		    for (String price : dto.getOptionPrices()) {
+////		        total += Integer.parseInt(price);
+////		    }
+//	
+//		}
 //		    String optPrice = dto.getOptionPrice();
 //		    if (optPrice != null && !optPrice.isEmpty()) {
 //		        total += Integer.parseInt(optPrice);
@@ -115,5 +157,5 @@ public class ApplyCompServlet extends HttpServlet {
 		dispatcher.forward(request,response);
 
 	}
-
+	}
 }

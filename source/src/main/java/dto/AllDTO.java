@@ -1,6 +1,7 @@
 package dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AllDTO implements Serializable {
@@ -40,7 +41,7 @@ public class AllDTO implements Serializable {
 	private String optionName;
 	private String optionPrice;
 	private List<String> optionNames;
-	private List<String> optionPrices;
+	private List<String> optionPrices = new ArrayList<>();
 	
 	//plannerテーブルのデータ-----------------------
 	private int plannerId;
@@ -449,7 +450,10 @@ public class AllDTO implements Serializable {
 	}
 	
 	
-		
+	public AllDTO() {
+	    this.optionPrices = new ArrayList<>();
+	    this.optionNames = new ArrayList<>(); // これも同様に初期化
+	}	
 		
 		
 		
