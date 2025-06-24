@@ -23,15 +23,17 @@
 	            <img src="${ pageContext.request.contextPath}/img/human1.png" alt="profile 1">
 	            <div class="talkInfo">
 	           
-	                <span class="talkName">${e.userName}</span>
+	                <span class="talkName">${e.fName}</span>
 	            
-	                <span class="lastMessage">メッセージ1</span>
+	                
 	            </div>
-	            <form action ="<c:url value='/SoServlet'/>"> method="POST">
-	            	<input type="hidden" name="user_name" value="${e.userName }">
+	            <form action ="<c:url value='/SoServlet'/>" method="GET">
+	            	<input type="hidden" name="user_name" value="${e.fName}${e.lName}">
 	            	<input type="hidden" name="two" value="${e.userId }">
 	            	<input type="hidden" name="one" value="${planner.plannerId }">
-	            	<input type="hidden" name="planner_name" value="${planner.plannerName }">
+	            	<input type="hidden" name="planner_name" value="${planner.pName }">
+	            	<input type="hidden" name="one" value="${planner.plannerId  }">
+	            	<input type="hidden" name="two" value="${e.userId }">
 	           		<input type="submit" name="sub" value="チャットを開始する">
 	            </form>
 	            <%-- chat.jspにこんな感じで書くよ
@@ -39,22 +41,7 @@
 	    		 var user_id_listener = ${param.two};  --%>
 	        </li>
 	     </c:forEach>
-        <li class="talkItem">
-            <img src="${ pageContext.request.contextPath}/img/human2.png" alt="profile 2">
-            <div class="talkInfo">
-            <a href = "SoServlet?id=${username }">
-                <span class="talkName">綿名 画目</span>
-                <span class="lastMessage">メッセージ2</span>
-            </a>
-            </div>
-        </li>
-        <li class="talkItem">
-            <img src="${ pageContext.request.contextPath}/img/human3.png" alt="profile 3">
-            <div class="talkInfo">
-                <span class="talkName">亜夢 彪夢</span>
-                <span class="lastMessage">メッセージ3</span>
-            </div>
-        </li>
+        
     </ul>
 <script src="script.js"></script>
  

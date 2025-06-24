@@ -288,17 +288,17 @@ public class UserDAO {
 					"root", "password");
 	       
 	        //SQLから姓と名を取得
-	        String sql = "SEELCT user.user_id,user.f_name,user.l_name"
-	        	+ "FROM sc "
+	        String sql = "SELECT DISTINCT user.user_id,user.f_name,user.l_name "
+	        	+ "FROM sp "
 	        	+ "JOIN planner "
-	        	+ "ON planner.planner_id = sc.planner_id "
+	        	+ "ON planner.planner_id = sp.planner_id "
 	        	+ "JOIN sikijo "
-	        	+ "ON sikijo.shikijo_id = sc.sikijo_id "
+	        	+ "ON sikijo.sikijo_id = sp.sikijo_id "
 	        	+ "JOIN apply "
-	        	+ "ON sikijo.shikijo_id = apply.sikijo_id "
+	        	+ "ON sikijo.sikijo_id = apply.sikijo_id "
 	        	+ "JOIN user "
 	        	+ "ON user.user_id = apply.user_id "
-	        	+ "WHERE planner.planner_id = ?" ;
+	        	+ "WHERE planner.planner_id = ? " ;
 	        		
 	        		
 	        System.out.println(sql);
