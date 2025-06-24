@@ -21,3 +21,14 @@ body {
  font-size: 30px;
  text-align: center;
 }
+
+.name-row {
+  display: flex;
+  gap: 50px; /* 名前と苗字の間の余白 */
+  margin-bottom: 15px;
+}
+
+.input-block {
+  display: flex;
+  flex-direction: column;
+}
