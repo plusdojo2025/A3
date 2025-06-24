@@ -55,7 +55,7 @@ pageEncoding="UTF-8"%>
     <p>一致するデータがありません</p>
 </c:if>
 <div class=gohome>
-<a href="/A3/PWelcomeServlet">ホームへ戻る</a>
+<a href="<c:url value='/PWelcomeServlet' />">ホームへ戻る</a>
 </div>
 </body>
 
