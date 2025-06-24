@@ -28,7 +28,7 @@
 -->    
 <div class="login_box">
 <h2>ログイン</h2>
-<form  id="check" method="POST" action="/A3/LoginServlet">
+<form  id="check" method="POST" action="<c:url value='/LoginServlet'/>">
             <table>
               <tr>
                 <td>
@@ -64,7 +64,7 @@
     
 </c:if>
         
-	<form method="POST" action="/A3/RegistServlet">
+	<form method="GET" action="<c:url value='/RegistServlet'/>">
 	<input type="submit" name="submit" value="新規の方はこちら">	
 	</form>
         </div>

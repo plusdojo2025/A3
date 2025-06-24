@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>マイページ</title>
-<link rel="stylesheet" href="/A3/css/all.css">
-<link rel="stylesheet" href="/A3/css/pmyp.css">
+<link rel="stylesheet" href="<c:url value='/css/all.css' />">
+<link rel="stylesheet" href="<c:url value='/css/login.css' />">
 </head>
 <body>
 <ul id="nav">

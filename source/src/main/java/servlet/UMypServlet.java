@@ -35,6 +35,18 @@ public class UMypServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	
+    	
+    	// もしもログインしていなかったらログインサーブレットにリダイレクトする
+    			HttpSession session = request.getSession();
+    			//ユーザー情報をとってきてないってことはログインしてない状態
+    			if (session.getAttribute("user") == null) {
+    				response.sendRedirect("/A3/LoginServlet");
+    				return;
+    			}
+    	
+    	
+    	
+    	
 		UserDAO dao = new UserDAO();
 		AllDTO searchUser = new AllDTO();
 		searchUser.setfName("");

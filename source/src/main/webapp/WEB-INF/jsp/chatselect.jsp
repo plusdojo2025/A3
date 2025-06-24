@@ -10,12 +10,11 @@
 </head>
 <body>
 	<ul id="nav">
-	<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
-	<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
-	<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
-	<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+	<li><a href="<c:url value='/PWelcomeServlet' />">ホーム</a></li>
+	<li><a href="<c:url value='/CDataServlet' />">顧客情報</a></li>
 	<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
-	<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+	<li><a href="<c:url value='/PMypServlet' />">マイページ</a></li>
+	<li><a href="<c:url value='/PLogoutServlet' />">ログアウト</a></li>
 	</ul>
     <ul id="talkList">
 	    <c:forEach var="e" items="${userList}">
@@ -62,6 +61,7 @@
 
 	talkItems.forEach(item => {
     item.addEventListener('click', () => {
+    	
         // 全ての選択状態を解除
         talkItems.forEach(item => item.classList.remove('selected'));
         // クリックされた要素に選択状態を追加

@@ -15,11 +15,10 @@ pageEncoding="UTF-8"%>
 <div id="theTime" class="clock"></div>
 
 <ul id="nav">
-<li><a href="<c:url value='/PWelcomeServlet' />">ホーム</a></li>
-<li><a href="<c:url value='/CDataServlet' />">顧客情報</a></li>
-<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
-<li><a href="<c:url value='/PMypServlet' />">マイページ</a></li>
-<li><a href="<c:url value='/PLogoutServlet' />">ログアウト</a></li>
+<li><a href="<c:url value='/HomeServlet' />">トップに戻る</a></li>
+<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
+<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
 </ul>
 
 
@@ -27,7 +26,7 @@ pageEncoding="UTF-8"%>
 <hr>
 
 <!-- 検索フォーム -->
-<form method="POST" action="/A3/CDataServlet" class="searcher-box">
+<form method="POST" action="<c:url value='/CDataServlet'/>" class="searcher-box">
 
  
 <div class="form-row">
@@ -55,7 +54,7 @@ pageEncoding="UTF-8"%>
     <p>一致するデータがありません</p>
 </c:if>
 <div class=gohome>
-<a href="/A3/PWelcomeServlet">ホームへ戻る</a>
+<a href="<c:url value='/PWelcomeServlet' />">ホームへ戻る</a>
 </div>
 </body>
 
