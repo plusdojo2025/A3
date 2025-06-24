@@ -179,7 +179,7 @@ public class UserDAO {
 	}
 	
 	//更新メソッド
-	public boolean update(int userId,String birthday,String phone,String email ,String address) {
+	public boolean update(int userId,String fName,String lName,String birthday,String phone,String email ,String address) {
         Connection conn = null;
         PreparedStatement pstmt = null;
         boolean ans = false;
@@ -190,13 +190,15 @@ public class UserDAO {
                 "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
                 "root", "password");
 
-            String sql = "UPDATE user SET  birthday=?, address=?, email=?, phone=? WHERE user_id=?";
+            String sql = "UPDATE user SET  fName=?, lName=?,birthday=?, address=?, email=?, phone=? WHERE user_id=?";
             pstmt = conn.prepareStatement(sql);
 
-            pstmt.setString(1, birthday);
-            pstmt.setString(2, address);
-            pstmt.setString(3, email);
-            pstmt.setString(4, phone);
+            pstmt.setString(1, fName);
+            pstmt.setString(2, lName);
+            pstmt.setString(3, birthday);
+            pstmt.setString(4, address);
+            pstmt.setString(5, email);
+            pstmt.setString(6, phone);
             pstmt.setInt(5, userId);
 			/*
 			 * pstmt.setString(7, dto.getBirthday()); pstmt.setString(8, dto.getGender());
@@ -297,6 +299,7 @@ public class UserDAO {
 	        		+ " JOIN user"
 	        		+ " ON user.user_id = apply.user_id"
 	        		+ " WHERE planner.planner_id = ?";
+	        System.out.println(sql);
 	        PreparedStatement pStmt = conn.prepareStatement(sql);
 				
 	        //ワイルドカードで名前かすったところをとってくる。

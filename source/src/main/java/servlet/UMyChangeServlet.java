@@ -80,7 +80,7 @@ public class UMyChangeServlet extends HttpServlet {
 				// 更新または削除を行う
 				UserDAO uDao = new UserDAO();
 				 //String action = request.getParameter("submit");
-				 boolean success = uDao.update(user_id, birthday, phone, email, address);
+				 boolean success = uDao.update(user_id, f_name, l_name, birthday, phone, email, address);
 		 
 		        if (success) {
 		            request.setAttribute("message", "更新に成功しました！");
