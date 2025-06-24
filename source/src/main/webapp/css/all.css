@@ -133,3 +133,54 @@ body {
 	list-style:none;
 	
 }
+
+
+
+
+
+#niv {
+  display: flex; /* 横並びにする*/
+  justify-content: center; 
+  background: rgba(255, 255, 255, 0.5); /* ０．５が透け感50パーセント */
+  backdrop-filter: blur(8px); /* 背景ぼかし */
+  list-style: none; /*・けしけし*/
+  padding: 16px 0; /*上下だけ１６pxぱっでぃんぐ*/
+  margin: 0;
+  border-bottom: 1px solid #e4cfcf;/*　下に薄いピンクグレーの1px線*/
+  font-family: 'Noto Serif JP', serif;/*日本語明朝体らしい*/
+  max-width:100%;
+  height:auto;
+}
+
+/* 各メニュー */
+#niv li {
+  margin: 0 50px;/*項目同士90pxあけてる*/
+}
+
+/* メニューのリンク部分 */
+#niv li a {
+  color: #b76e79; /* きれいだったピンクよさそう */
+  font-weight: bold;/*太字*/
+  font-size: 16px;
+  text-decoration: none;/*リンクの下の線消した*/
+  position: relative;/* ::afterのアニメーションを出すところ */
+  text-shadow: 0 0 5px rgba(255, 240, 240, 0.8);
+  transition: all 0.3s ease;
+}
+/*  *//*  */
+/* リンクの下線アニメーションここで作ってる */
+#niv li a::after {
+  content: '';/*ここで線自体を作った*/
+  display: block;/*ここでブロックの形で横と縦ができる。これが当たり判定的な感じだと思う*/
+  height: 2px;/* 線の太さ*/
+  background: #b76e79;/*線の色*/
+  width: 0%;/*最初は線見えないようにしてカーソル近づけると下のアニメーション出るようにしてる*/
+  transition: width 0.6s ease;/* 線が伸びるようにしてるアニメーションの1秒で伸び切るようにした */
+  margin: 4px auto 0;/* ここは普通にマージン */
+}
+
+/* リンクの下線アニメーションの詳しく設定する部分 */
+#niv li a:hover::after {
+  width: 100%;/* ここで１００ぱーせんと伸びきるようにしてる */
+}
+
