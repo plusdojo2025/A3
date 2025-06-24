@@ -64,7 +64,7 @@
     
 </c:if>
         
-	<form method="GET" action="/A3/RegistServlet">
+	<form method="GET" action="<c:url value='/RegistServlet'/>">
 	<input type="submit" name="submit" value="新規の方はこちら">	
 	</form>
         </div>
