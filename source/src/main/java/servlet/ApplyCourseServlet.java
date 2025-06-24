@@ -30,7 +30,7 @@ public class ApplyCourseServlet extends HttpServlet {
 		//セッション取得
 		HttpSession session = request.getSession();
 		
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		AllDTO user = (AllDTO) session.getAttribute("user");
 
@@ -43,23 +43,25 @@ public class ApplyCourseServlet extends HttpServlet {
 		
 //		int userId =user.getUserId();
 //		int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
-=======
-		AllDTO user =(AllDTO)session.getAttribute("user");
-		int userId =user.getUserId();
+//=======
+//		AllDTO user =(AllDTO)session.getAttribute("user");
+//		int userId =user.getUserId();
 		//int userId =3; //仮のid、本来ver.に戻したらDAOのuserId使ってる部分の変更あり
->>>>>>> a70af932f0e6fc7915df7aa0b16781f6e29ee6b0
+//>>>>>>> a70af932f0e6fc7915df7aa0b16781f6e29ee6b0
 
 		ApplyDAO appdao = new ApplyDAO();
 		
 		// 申し込み済みかチェック（例：すでに1件以上 apply に存在する）
 	    boolean isApplied = appdao.Applied(userId);
 
-		List<AllDTO> applyList  = appdao.applyComp(userId);
-		request.setAttribute("appList", applyList);
+//		List<AllDTO> applyList  = appdao.applyComp(userId);
+//		request.setAttribute("appList", applyList);
 		
 		if (isApplied) {
 	        // すでに申し込み済み → 確認画面へ
+			 System.out.println("申し込み済みのため、ApplyCompServletへリダイレクトします");
 	        response.sendRedirect(request.getContextPath() + "/ApplyCompServlet");
+	        return;
 	    } 
 		else {
 	        // 未申し込み → 申し込み画面へ

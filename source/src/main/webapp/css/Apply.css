@@ -20,6 +20,30 @@ h2 {
  box-shadow: 0 0 10px rgba(0,0,0,0.1);
  height:50px;
  width: 370px;
- font-size: 20px;
+ font-size: 25px;
  text-align: center;
+}
+
+/*applyhistory*/
+.comp{
+	text-align: center;
+	 margin: 0 auto 0 auto;
+}
+.apply-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+
+.row {
+  margin: 10px 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.label {
+  font-weight: bold;
+  color: #333;
+  margin-right: 8px;
 }
