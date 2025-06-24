@@ -199,7 +199,7 @@ public class UserDAO {
             pstmt.setString(4, address);
             pstmt.setString(5, email);
             pstmt.setString(6, phone);
-            pstmt.setInt(5, userId);
+            pstmt.setInt(7, userId);
 			/*
 			 * pstmt.setString(7, dto.getBirthday()); pstmt.setString(8, dto.getGender());
 			 * pstmt.setString(9, dto.getZipcode()); pstmt.setString(10, dto.getAddress());
@@ -326,7 +326,6 @@ public class UserDAO {
 			}
 	        return userList;
 	         }
-
 
 
 	
