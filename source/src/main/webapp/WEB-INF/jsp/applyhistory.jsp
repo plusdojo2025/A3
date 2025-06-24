@@ -11,7 +11,6 @@
 </head>
 <body>
 	<header>
-<!-- 		<h1>aaaaaaaaaa</h1>-->
 		<ul id="nav">
 			<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
 			<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
@@ -26,46 +25,36 @@
 	<h2>申し込み完了</h2>
 </div>
 <div class="comp">
-	<p>〇 申し込み内容 〇</p>
+	<p class="finish">〇 申し込み内容 〇</p>
 	<c:forEach var="a" items="${appList}">
-<%-- 		<table>
-			<td>
-				<tr>${a.courseName}コース<br>
-						${a.intro}</tr>
-				<tr>希望式場<br>
-						${a.sName}</tr>
-				<tr>オプション<br>
-						${a.optionName}</tr>
-				<tr>備考<br>
-						${a.remarks}</tr>
-				<tr></tr>
-			</td>
-		</table>
- --%>			  
-<%-- 			  
-		<p>${a.sName}</p>
-		<p>${a.optionName}</p>
-		<p>${a.remarks}</p>
-		<p><c:forEach var="opt" items="${a.optionNames}" varStatus="status">
-			      ${opt}<c:if test="${!status.last}">, </c:if></c:forEach>
-		</p> --%>
 		<div class="apply-card">
-			<div class="row"><span class="label">コース:</span> ${a.courseName}</div>
-		    <div class="row"><span class="label">コース紹介:</span> ${a.intro}</div>
-		    <div class="row"><span class="label">式場:</span> ${a.sName}</div>
-		    <div class="row"><span class="label">オプション:</span>
+			<div class="row"><span class="label"> ${a.courseName}コース</span><br>${a.intro}</div>
+		    <div class="row"><span class="label">希望式場</span><br>${a.sName}</div>
+		    <div class="row"><span class="label">オプション</span><br>
 	        <c:forEach var="opt" items="${a.optionNames}" varStatus="status">
 	          ${opt}<c:if test="${!status.last}">, </c:if>
 	        </c:forEach>
 	    </div>
-	    	<div class="row"><span class="label">備考:</span> ${a.remarks}</div>
+	    	<div class="row"><span class="label">備考</span><br> ${a.remarks}</div>
 	    	</div>
 	 </c:forEach>
-
+ 	<div class="row"><span class="label">合計金額：</span>${totalPrice} 円</div>
 	
 </div>		
 </main>
-
+<footer>
+<div class="footer">
+	<ul>
+		<li><a href="<c:url value='/HomeServlet' />">トップに戻る</a></li>
+		<%-- <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li> --%>
+		<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+		<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+		<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+		<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+	</ul>
+   <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
+</div>
+</footer>
 
 </body>
 </html>

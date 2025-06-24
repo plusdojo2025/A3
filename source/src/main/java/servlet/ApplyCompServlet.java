@@ -84,6 +84,21 @@ public class ApplyCompServlet extends HttpServlet {
 //		
 
 		List<AllDTO> applyList  = appdao.applyComp(userId);
+		int total = 0;
+		
+		if (!applyList.isEmpty()) {
+		    AllDTO dto = applyList.get(0);
+		    total += Integer.parseInt(dto.getcPrice()); // コース価格
+		    total += Integer.parseInt(dto.getsPrice()); // 式場価格
+		}
+		for (AllDTO dto : applyList) {
+		    String optPrice = dto.getOptionPrice();
+		    if (optPrice != null && !optPrice.isEmpty()) {
+		        total += Integer.parseInt(optPrice);
+		    }
+		}
+		System.out.println(applyList.size());
+		request.setAttribute("totalPrice", total);
 		request.setAttribute("appList", applyList);
 		System.out.println(applyList.size());
 		
