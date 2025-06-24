@@ -84,19 +84,28 @@ public class ApplyCompServlet extends HttpServlet {
 //		
 
 		List<AllDTO> applyList  = appdao.applyComp(userId);
-		int total = 0;
-		
+		int total = 0;		
 		if (!applyList.isEmpty()) {
-		    AllDTO dto = applyList.get(0);
-		    total += Integer.parseInt(dto.getcPrice()); // コース価格
-		    total += Integer.parseInt(dto.getsPrice()); // 式場価格
-		}
-		for (AllDTO dto : applyList) {
-		    String optPrice = dto.getOptionPrice();
-		    if (optPrice != null && !optPrice.isEmpty()) {
-		        total += Integer.parseInt(optPrice);
+			AllDTO dto = applyList.get(0);
+			for (String priceStr : dto.getOptionPrices()) {
+		        if (priceStr != null && !priceStr.isEmpty()) {
+		            total += Integer.parseInt(priceStr);
+		            System.out.println("Option price added: " + priceStr + ", total: " + total);
+		        }
 		    }
+//		   
+//		    int cprices = Integer.parseInt(dto.getcPrice()); // コース価格
+//		    int sprices = Integer.parseInt(dto.getsPrice()); // 式場価格
+////		    for (String price : dto.getOptionPrices()) {
+//		        total += Integer.parseInt(price);
+//		    }
+	
 		}
+//		    String optPrice = dto.getOptionPrice();
+//		    if (optPrice != null && !optPrice.isEmpty()) {
+//		        total += Integer.parseInt(optPrice);
+//		    }
+		
 		System.out.println(applyList.size());
 		request.setAttribute("totalPrice", total);
 		request.setAttribute("appList", applyList);

@@ -11,15 +11,17 @@
 </head>
 
 <body>
+<img src = "img/gouka.png" class="logomain">
+<c:out value ="${user.lName}"></c:out>
 	<header>
 		<ul id="nov">
-<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
-<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
-<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
-<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
-<li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
-<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
-</ul>
+			<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
+			<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
+			<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+			<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+			<li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
+			<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+		</ul>
 	</header>
 	
 <main>

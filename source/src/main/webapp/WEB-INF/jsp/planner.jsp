@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/course.css"> 
 </head>
 <body>
+<img src = "img/gouka.png" class="logomain">
 <c:out value ="${user.lName}"></c:out>
 <ul id="nov">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
