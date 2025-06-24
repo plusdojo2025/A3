@@ -378,6 +378,8 @@ public class UserDAO {
 			// 結果を返す
 			return ans;
 	  }
+	 
+	 //登録した最新のMemoをもう一度取得する
 	 public String getMemo(int userId, int plannerId) {
 		    Connection conn = null;
 		    PreparedStatement pStmt = null;
