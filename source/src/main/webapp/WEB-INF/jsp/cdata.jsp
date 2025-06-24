@@ -49,7 +49,7 @@ pageEncoding="UTF-8"%>
       <p>住所：${e.address}</p>
       <p>電話番号：${e.phone}</p>
      <form method="POST" action="<c:url value='/CDataServlet'/>" class="searcher-box">
-		記録：<input type="text" value="${memo.memo}"><br>
+		記録：<input type="text" value="${memo.memo}" name="memo"><br>
 		<input type="hidden" name="uId" value="${e.userId}">
 		<input type="submit" name="regist" value="登録" onclick="return touroku()">
     </form>

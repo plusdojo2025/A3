@@ -23,6 +23,7 @@ public class CDataServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println(request.getParameter("memo")+"aaaaaaaaa");
 		if(request.getParameter("memo")== null) {
 			
 		//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");  
@@ -86,17 +87,28 @@ public class CDataServlet extends HttpServlet {
 		 boolean success = dao.memoUpdate(0, memo, uId, p); 
 		 
 		 if(success) {
-			 request.setAttribute("message", "メモを登録しました。");
-			 RequestDispatcher dispatcher =
-			 request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
-			 dispatcher.forward(request, response); } 
-		 else { // 登録失敗時、エラーメッセージを設定して戻る
+			 request.setAttribute("message", "メモを登録しました。");		 
+			 
+		 }else { // 登録失敗時、エラーメッセージを設定して戻る
 			 request.setAttribute("isPost", true);
 			 request.setAttribute("error", "メモの登録に失敗しました。");
-			 RequestDispatcher dispatcher =
-			 request.getRequestDispatcher("/WEB-INF/jsp/pwelcome.jsp");
-			 dispatcher.forward(request, response);
+			 
 		}
+		 
+		 String fullName=planner.getfName();
+		 String lName=planner.getlName();
+		 
+		//DTOをsearchUserとしてインスタンス化して持ってきてfullNameの値取得
+		AllDTO searchUser = new AllDTO();
+		searchUser.setfName(fullName);
+		searchUser.setlName(lName);
+
+		List<AllDTO> cardList = dao.searchByFullName(searchUser);
+		
+		request.setAttribute("cardList", cardList);
+			
+		RequestDispatcher dispatcher =
+		request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
 		
 		
 	}
