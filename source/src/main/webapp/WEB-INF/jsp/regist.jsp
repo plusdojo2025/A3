@@ -174,6 +174,7 @@
     <p style="text-align:center;">${error}</p>
 </c:if> --%>
 <c:set var="isPost" value="${isPost != null ? isPost : false}" />
+${error}
 </form>
 
 <!-- メインここまで -->
