@@ -88,7 +88,9 @@ public class CDataServlet extends HttpServlet {
 		 boolean success = dao.memoUpdate(0, memo, uId, p); 
 		 
 		 if(success) {
-			 request.setAttribute("message", "メモを登録しました。");		 
+			 request.setAttribute("message", "メモを登録しました。");		
+			 //memoを登録後、セッションIDへ保存
+			 session.setAttribute("message", memo);
 			 
 		 }else { // 登録失敗時、エラーメッセージを設定して戻る
 			 request.setAttribute("isPost", true);
@@ -125,10 +127,11 @@ public class CDataServlet extends HttpServlet {
 		AllDTO searchUser = new AllDTO();
 		searchUser.setfName("");
 		searchUser.setlName("");
+		String memo = (request.getParameter("memo"));
 
 		List<AllDTO> cardList = dao.searchByFullName(searchUser);
-		
 		request.setAttribute("cardList", cardList);
+//		request.getAttribute("message", memo);
 //		request.getParameterValues("memo");
 //		request.setAttribute("memo",memo);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
