@@ -37,7 +37,6 @@ public class UserDAO {
 			//ここでdaoから取得をnext()で順番に入れ込んでwhileで繰り返し
 			while(rs.next()) {
 				AllDTO all = new AllDTO();
-				all.setUserId(rs.getInt("user_id"));
 			    all.setfName(rs.getString("f_name"));
 			    all.setlName(rs.getString("l_name"));
 			    all.setGender(rs.getString("gender"));
@@ -290,8 +289,18 @@ public class UserDAO {
 	       
 	        //SQLから姓と名を取得
 	        String sql = "SEELCT user.user_id,user.f_name,user.l_name"
-	        		+ "　FROM up"
-	        		+ " WHERE planner.planner_id = ?";
+	        	+ "FROM sc "
+	        	+ "JOIN planner "
+	        	+ "ON planner.planner_id = sc.planner_id "
+	        	+ "JOIN sikijo "
+	        	+ "ON sikijo.shikijo_id = sc.sikijo_id "
+	        	+ "JOIN apply "
+	        	+ "ON sikijo.shikijo_id = apply.sikijo_id "
+	        	+ "JOIN user "
+	        	+ "ON user.user_id = apply.user_id "
+	        	+ "WHERE planner.planner_id = ?" ;
+	        		
+	        		
 	        System.out.println(sql);
 	        PreparedStatement pStmt = conn.prepareStatement(sql);
 				
@@ -329,30 +338,29 @@ public class UserDAO {
 	            conn = DriverManager.getConnection(
 	                "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 	                "root", "password");
-	            String sql = "UPDATE memo SET memo = ? WHERE user_id = ? and planner_id = ?";
+	            String sql = "UPDATE memo SET memo = ? WHERE user_id = ?";
 	           
 	           
 	            pStmt = conn.prepareStatement(sql);
 
-	            pStmt.setString(1, memo);
-	            pStmt.setInt(2,mUserId);
-	            pStmt.setInt(3, mPlannerId);
-	            
+	            pStmt.setInt(1, memoId);
+	            pStmt.setString(2, memo);
+	            pStmt.setInt(3, mUserId);
+	            pStmt.setInt(4, mPlannerId);
 	            
 	            if(pStmt.executeUpdate()==1) {
 	            	ans = true;
 	            }else{
 	            	//insert
-		            String sql2 = "INSERT INTO memo VALUES(null,?,?,?)"; 
+		            String sql2 = "INSERT memo SET memo = ? WHERE user_id = ?";
 	
 		            pStmt = conn.prepareStatement(sql2);
 
-		            pStmt.setString(1, memo);
-		            pStmt.setInt(2,mUserId);
-		            pStmt.setInt(3, mPlannerId);
-	            	if(pStmt.executeUpdate()==1) {
-	            		ans=true;
-	            	}
+		            pStmt.setInt(1, memoId);
+		            pStmt.setString(2, memo);
+		            pStmt.setInt(3, mUserId);
+		            pStmt.setInt(4, mPlannerId);
+	            	pStmt.executeUpdate();
 	            }
 	            
 	        } catch (SQLException e) {
