@@ -297,6 +297,7 @@ public class UserDAO {
 	        		+ " JOIN user"
 	        		+ " ON user.user_id = apply.user_id"
 	        		+ " WHERE planner.planner_id = ?";
+	        System.out.println(sql);
 	        PreparedStatement pStmt = conn.prepareStatement(sql);
 				
 	        //ワイルドカードで名前かすったところをとってくる。
