@@ -495,12 +495,13 @@ public class ApplyDAO {
 				System.out.println("ヒットした！DBにデータある！");
 				
 				int applyId = rs.getInt("apply_id");
-				//空の枝豆（DTO）作成
-				alldto = new AllDTO();
+				
 				
 				if(applyMap.containsKey(applyId)) {
 					alldto = applyMap.get(applyId);
-				}else {
+				}else {	
+					//空の枝豆（DTO）作成
+					alldto = new AllDTO();
 					//上のDTOに値を入れていく（setはDTOのセッター、getはDBのカラム名）
 						/*コース*/
 					alldto.setCourseId(rs.getInt("course_id"));
@@ -519,6 +520,7 @@ public class ApplyDAO {
 					alldto.setOptionName(rs.getString("option_name"));
 					alldto.setOptionPrice(rs.getString("option_price"));
 					alldto.setOptionNames(new ArrayList<>());
+					alldto.setOptionPrices(new ArrayList<>());
 						/*備考*/
 					alldto.setRemarks(rs.getString("remarks"));
 					
@@ -537,6 +539,11 @@ public class ApplyDAO {
 	                alldto.setOptionId(optionId);
 	                alldto.setOptionName(rs.getString("option_name"));
 	                alldto.setOptionPrice(rs.getString("option_price"));
+	            }
+	         
+	            String opPrice = rs.getString("option_price");
+	            if (opPrice != null && !opPrice.isEmpty()) {
+	                alldto.getOptionPrices().add(opPrice); // 金額をリストに追加	                
 	            }
 				
 //			}else {
