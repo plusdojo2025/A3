@@ -1,7 +1,5 @@
 @charset "UTF-8";
-body{
-	background:
-}
+
 /*headerすべてに適用*/
 
 /* ここからヘッダーの部分 */
@@ -45,7 +43,7 @@ body{
 }
 
 /* リンクの下線アニメーションの詳しく設定する部分 */
-#nov li a:hover::after {
+#nav li a:hover::after {
   width: 100%;/* ここで１００ぱーせんと伸びきるようにしてる */
 }
 
