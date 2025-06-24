@@ -38,6 +38,11 @@ body {
 }
 
 /* 画像部分 */
-.img-right {
-
+.img-right{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 0 auto 10px auto;
 }
+
