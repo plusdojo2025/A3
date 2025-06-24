@@ -27,7 +27,7 @@ pageEncoding="UTF-8"%>
 <hr>
 
 <!-- 検索フォーム -->
-<form method="POST" action="/A3/CDataServlet" class="searcher-box">
+<form method="POST" action="<c:url value='/CDataServlet'/>" class="searcher-box">
 
  
 <div class="form-row">
