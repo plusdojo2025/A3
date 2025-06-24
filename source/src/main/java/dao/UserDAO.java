@@ -190,7 +190,7 @@ public class UserDAO {
                 "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
                 "root", "password");
 
-            String sql = "UPDATE user SET  fName=?, lName=?,birthday=?, address=?, email=?, phone=? WHERE user_id=?";
+            String sql = "UPDATE user SET  f_name=?, l_name=?,birthday=?, address=?, email=?, phone=? WHERE user_id=?";
             pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, fName);
