@@ -338,20 +338,13 @@ public class UserDAO {
 	            pStmt.setInt(3, mUserId);
 	            pStmt.setInt(4, mPlannerId);
 	            
-	            //ifでtrue ,false
-	            if(a == 1) {
-	            	//ここがtrue
-	            }else {
-	            	//ここがfalse
-	            }
-	            
 	            if(pStmt.executeUpdate()==1) {
 	            	ans = true;
 	            }else{
 	            	//insert
-		            String sql = "UPDATE memo SET memo = ? WHERE user_id = ?";
+		            String sql2 = "INSERT memo SET memo = ? WHERE user_id = ?";
 	
-		            pStmt = conn.prepareStatement(sql);
+		            pStmt = conn.prepareStatement(sql2);
 
 		            pStmt.setInt(1, memoId);
 		            pStmt.setString(2, memo);
