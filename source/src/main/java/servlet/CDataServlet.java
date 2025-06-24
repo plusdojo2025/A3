@@ -66,6 +66,7 @@ public class CDataServlet extends HttpServlet {
 		AllDTO searchUser = new AllDTO();
 		searchUser.setfName(fullName);
 		searchUser.setlName(lName);
+		request.setAttribute("fullName",fullName);
 
 		List<AllDTO> cardList = dao.searchByFullName(searchUser);
 		
@@ -95,7 +96,7 @@ public class CDataServlet extends HttpServlet {
 			 
 		}
 		 
-		 String fullName=planner.getfName();
+		 String fullName=request.getParameter("full_name");
 		 String lName=planner.getlName();
 		 
 		//DTOをsearchUserとしてインスタンス化して持ってきてfullNameの値取得
@@ -109,6 +110,7 @@ public class CDataServlet extends HttpServlet {
 			
 		RequestDispatcher dispatcher =
 		request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
+		dispatcher.forward(request, response);
 		
 		
 	}
