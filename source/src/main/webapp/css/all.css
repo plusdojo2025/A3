@@ -185,6 +185,10 @@ body {
 }
 
 .username {
-	font-size:30px
+	font-size:30px;
 }
 
+.logomain{
+	width: 400px;      /* 幅だけ指定（高さは自動） */
+	height: auto;
+}
