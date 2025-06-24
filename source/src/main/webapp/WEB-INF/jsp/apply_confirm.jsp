@@ -10,18 +10,16 @@
 </head>
 <body>
 	<header>
-		<ul id="nav">
-			<li><a href="/A3/HomeServlet">ホーム</a></li>
-			<li><a href="/A3/ApplyCourseServlet">申し込み</a></li>
-			<li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
-			<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
-			<li><a href="/A3/ChatSelectServlet">チャット(Q＆A)</a></li>
-			<li><a href="/A3/UmypServlet">マイページ</a></li>
-			<li><a href="/A3/LoginServlet">ログアウト</a></li>
-		</ul>
+		<ul id="nov">
+<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
+<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
+<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+<li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+</ul>
 	</header>
 <main>
-</main>
 <h2 id="regist">申し込み確認</h2>
  	<form method="POST" action="<c:url value='/ApplyCompServlet' />">
 		<p>〇選択したコース<br>${course.courseName}コース<br>${course.intro}</p>
@@ -49,6 +47,19 @@
 		</p>
 	</form>
 	<button type="submit" name="return" value="戻る" onclick="history.back();">選択へ戻る</button>
-
+</main>
+<footer>
+<div class="footer">
+	<ul>
+		<li><a href="<c:url value='/HomeServlet' />">トップに戻る</a></li>
+		<%-- <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li> --%>
+		<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+		<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+		<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+		<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+	</ul>
+   <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
+</div>
+</footer>
 </body>
 </html>

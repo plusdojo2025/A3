@@ -24,6 +24,22 @@ h2 {
  text-align: center;
 }
 
+/*apply2*/
+.course{
+ margin: 10px auto;/*上右下左の順番*/
+ text-align: center;
+/*  background-color: rgba(251,232,211,0.5);
+ padding: 180px;
+ border-radius: 100px;
+ box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+ width: 430px;
+ font-size: 20px;
+ text-align: center;
+
+}
+
+
+
 /*applyhistory*/
 .comp{
 	text-align: center;
@@ -38,7 +54,7 @@ h2 {
 
 .row {
   margin: 10px 0;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.5;
 }
 
@@ -47,3 +63,8 @@ h2 {
   color: #333;
   margin-right: 8px;
 }
+
+.finish{
+	font-size: 25px;
+}
+

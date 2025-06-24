@@ -12,15 +12,14 @@
 
 <body>
 	<header>
-<!-- 		<h1>aaaaaaaaaa</h1>-->
-		<ul id="nav">
-			<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
-			<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
-			<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
-			<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
-			<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
-			<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
-		</ul>
+		<ul id="nov">
+<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
+<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
+<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+<li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+</ul>
 	</header>
 	
 <main>
@@ -63,7 +62,17 @@
 	
 </main>
 <footer>
-
+<div class="footer">
+	<ul>
+		<li><a href="<c:url value='/HomeServlet' />">トップに戻る</a></li>
+		<%-- <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li> --%>
+		<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+		<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+		<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+		<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+	</ul>
+   <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
+</div>
 </footer>
 
 <script>

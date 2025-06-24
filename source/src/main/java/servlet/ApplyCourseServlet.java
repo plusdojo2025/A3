@@ -59,7 +59,6 @@ public class ApplyCourseServlet extends HttpServlet {
 		
 		if (isApplied) {
 	        // すでに申し込み済み → 確認画面へ
-			 System.out.println("申し込み済みのため、ApplyCompServletへリダイレクトします");
 	        response.sendRedirect(request.getContextPath() + "/ApplyCompServlet");
 	        return;
 	    } 
