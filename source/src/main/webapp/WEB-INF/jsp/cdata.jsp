@@ -15,10 +15,11 @@ pageEncoding="UTF-8"%>
 <div id="theTime" class="clock"></div>
 
 <ul id="nav">
-<li><a href="<c:url value='/HomeServlet' />">トップに戻る</a></li>
-<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
-<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
-<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+<li><a href="<c:url value='/PWelcomeServlet' />">ホーム</a></li>
+<li><a href="<c:url value='/CDataServlet' />">顧客情報</a></li>
+<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+<li><a href="<c:url value='/PMypServlet' />">マイページ</a></li>
+<li><a href="<c:url value='/PLogoutServlet' />">ログアウト</a></li>
 </ul>
 
 
