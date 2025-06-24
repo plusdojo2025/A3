@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/all.css">
 </head>
 <body>
-<c:out value ="${user.lName}"></c:out>
+ようこそ：<c:out value ="${user.lName}"></c:out>さん
 <ul id="nov">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
 <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
