@@ -61,6 +61,7 @@
 
 	talkItems.forEach(item => {
     item.addEventListener('click', () => {
+    	
         // 全ての選択状態を解除
         talkItems.forEach(item => item.classList.remove('selected'));
         // クリックされた要素に選択状態を追加
