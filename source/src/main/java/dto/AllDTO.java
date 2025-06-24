@@ -53,6 +53,7 @@ public class AllDTO implements Serializable {
 	private String pImage;
 	//ほかと被るので、プランナーのやつにはpを頭に付けてみた
 	
+	
 	//applyテーブルのデータ-----------------------
 	private int applyId	;
 	private String remarks;
@@ -62,6 +63,12 @@ public class AllDTO implements Serializable {
 	
 	//spテーブルのデータ------------------------
 	private int spId;
+	
+	//memoテーブルのデータ-----------------------
+		private int memoId;
+		private String memo;
+		private int mUserId;
+		private int mPlannerId;
 
 	
 	//☆以下、全てのセッターゲッター
@@ -399,8 +406,38 @@ public class AllDTO implements Serializable {
 	public void setKlName(String klName) {
 		this.klName = klName;
 	}
+	
+	public int getMemoId() {
+		return memoId;
+	}
 
+	public void setMemoId(int memoId) {
+		this.memoId = memoId;
+	}
 
+	public String getMemo() {
+		return memo;
+	}
+
+	public void setMemoId(String memo) {
+		this.memo = memo;
+	}
+	
+	public int getMUserId() {
+		return mUserId;
+	}
+
+	public void setMUserId(int mUserId) {
+		this.mUserId = mUserId;
+	}
+	
+	public int getMPlannerId() {
+		return mPlannerId;
+	}
+
+	public void setMPlannerId(int mPlannerId) {
+		this.mPlannerId = mPlannerId;
+	}
 	
 	
 		
