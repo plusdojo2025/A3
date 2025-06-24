@@ -326,7 +326,8 @@ public class UserDAO {
 			}
 	        return userList;
 	         }
-
+	 
+	 public boolean memoUpdate()
 
 	
 	}
