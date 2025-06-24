@@ -37,6 +37,7 @@ public class UserDAO {
 			//ここでdaoから取得をnext()で順番に入れ込んでwhileで繰り返し
 			while(rs.next()) {
 				AllDTO all = new AllDTO();
+				all.setUserId(rs.getInt("user_id"));
 			    all.setfName(rs.getString("f_name"));
 			    all.setlName(rs.getString("l_name"));
 			    all.setGender(rs.getString("gender"));
@@ -328,29 +329,30 @@ public class UserDAO {
 	            conn = DriverManager.getConnection(
 	                "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 	                "root", "password");
-	            String sql = "UPDATE memo SET memo = ? WHERE user_id = ?";
+	            String sql = "UPDATE memo SET memo = ? WHERE user_id = ? and planner_id = ?";
 	           
 	           
 	            pStmt = conn.prepareStatement(sql);
 
-	            pStmt.setInt(1, memoId);
-	            pStmt.setString(2, memo);
-	            pStmt.setInt(3, mUserId);
-	            pStmt.setInt(4, mPlannerId);
+	            pStmt.setString(1, memo);
+	            pStmt.setInt(2,mUserId);
+	            pStmt.setInt(3, mPlannerId);
+	            
 	            
 	            if(pStmt.executeUpdate()==1) {
 	            	ans = true;
 	            }else{
 	            	//insert
-		            String sql2 = "INSERT memo SET memo = ? WHERE user_id = ?";
+		            String sql2 = "INSERT INTO memo VALUES(null,?,?,?)"; 
 	
 		            pStmt = conn.prepareStatement(sql2);
 
-		            pStmt.setInt(1, memoId);
-		            pStmt.setString(2, memo);
-		            pStmt.setInt(3, mUserId);
-		            pStmt.setInt(4, mPlannerId);
-	            	pStmt.executeUpdate();
+		            pStmt.setString(1, memo);
+		            pStmt.setInt(2,mUserId);
+		            pStmt.setInt(3, mPlannerId);
+	            	if(pStmt.executeUpdate()==1) {
+	            		ans=true;
+	            	}
 	            }
 	            
 	        } catch (SQLException e) {

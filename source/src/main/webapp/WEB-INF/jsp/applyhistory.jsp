@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="<c:url value='/css/Apply.css' />">
 </head>
 <body>
+<img src = "img/gouka.png" class="logomain">
+<c:out value ="${user.lName}"></c:out>
 	<header>
 		<ul id="nav">
 			<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
@@ -37,6 +39,9 @@
 	    </div>
 	    	<div class="row"><span class="label">備考</span><br> ${a.remarks}</div>
 	    	</div>
+	    	<%-- <c:forEach var="t" items="${totalPrice}" varStatus="status">
+	          ${e}<c:if test="${!t.last}">, </c:if>
+	        </c:forEach> --%>
 	 </c:forEach>
  	<div class="row"><span class="label">合計金額：</span>${totalPrice} 円</div>
 	

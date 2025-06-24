@@ -39,7 +39,8 @@ public class AllDTO implements Serializable {
 	private int optionId;
 	private String optionName;
 	private String optionPrice;
-	 private List<String> optionNames;
+	private List<String> optionNames;
+	private List<String> optionPrices;
 	
 	//plannerテーブルのデータ-----------------------
 	private int plannerId;
@@ -279,6 +280,14 @@ public class AllDTO implements Serializable {
         this.optionNames = optionNames;
     }
 	
+	public List<String> getOptionPrices() {
+		return optionPrices;
+	}
+
+	public void setOptionPrices(List<String> optionPrices) {
+		this.optionPrices = optionPrices;
+	}
+
 	public int getPlannerId() {
 		return plannerId;
 	}
