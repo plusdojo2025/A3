@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDAO;
 import dto.AllDTO;
@@ -22,9 +23,8 @@ public class CDataServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
-		
+		if(request.getParameter("memo")== null) {
+			
 		//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");  
 		// メニューページ（menu.jsp）へのディスパッチャを取得
 		//dispatcher.forward(request, response); 
@@ -36,6 +36,10 @@ public class CDataServlet extends HttpServlet {
 		String gender= request.getParameter("gender");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
+//		int memoId = request.getParameter("memoId");
+		String memo = request.getParameter("memo");
+//		int memoId = request.getParameter("memoId");
+//		int memoId = request.getParameter("memoId");
 		
 		
 		 
@@ -69,9 +73,33 @@ public class CDataServlet extends HttpServlet {
 		//BcDAO bDao = new BcDAO();
 		//List<Bc> cardList = bDao.select(new Bc(k_f_name,k_l_name,address,phone));
 		//jspに処理を飛ばして
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
-		dispatcher.forward(request, response);
+	}else {
+//		// 登録処理を行う	
+		request.setCharacterEncoding("UTF-8");
+		String memo = request.getParameter("memo");
+		int uId = Integer.parseInt(request.getParameter("uId"));
+		UserDAO dao = new UserDAO();
+		HttpSession session = request.getSession();
+		AllDTO planner = (AllDTO)session.getAttribute("planner");
+		int p = planner.getPlannerId();
 		
+		 boolean success = dao.memoUpdate(0, memo, uId, p); 
+		 
+		 if(success) {
+			 request.setAttribute("message", "メモを登録しました。");
+			 RequestDispatcher dispatcher =
+			 request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
+			 dispatcher.forward(request, response); } 
+		 else { // 登録失敗時、エラーメッセージを設定して戻る
+			 request.setAttribute("isPost", true);
+			 request.setAttribute("error", "メモの登録に失敗しました。");
+			 RequestDispatcher dispatcher =
+			 request.getRequestDispatcher("/WEB-INF/jsp/pwelcome.jsp");
+			 dispatcher.forward(request, response);
+		}
+		
+		
+	}
 	}
 
 	/**a
@@ -90,7 +118,6 @@ public class CDataServlet extends HttpServlet {
 		request.setAttribute("cardList", cardList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
 		dispatcher.forward(request, response);
-		
 		
 	}
 }
