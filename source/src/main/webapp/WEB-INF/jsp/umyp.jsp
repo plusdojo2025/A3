@@ -11,6 +11,7 @@
 </head>
 	
 <body>
+<img src = "img/gouka.png" class="logomain">
 <div id="theTime" class="clock"></div>
 
 

@@ -198,5 +198,7 @@ body {
 .logomain{
 	width: 400px;      /* 幅だけ指定（高さは自動） */
 	height: auto;
+	margin:0 auto 0 auto;
+
 	
 }
