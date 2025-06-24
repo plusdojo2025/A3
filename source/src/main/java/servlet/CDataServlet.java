@@ -121,6 +121,7 @@ public class CDataServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		// TODO Auto-generated method stub
 		//System.out.println("通ったよ～～");
 		UserDAO dao = new UserDAO();
@@ -131,14 +132,33 @@ public class CDataServlet extends HttpServlet {
 
 		List<AllDTO> cardList = dao.searchByFullName(searchUser);
 		request.setAttribute("cardList", cardList);
+		
+//		memoを登録後、再度取得してJSPに渡す
 //		request.getAttribute("message", memo);
 //		request.getParameterValues("memo");
 //		request.setAttribute("memo",memo);
+		// セッションからplanner情報を取得
+	    HttpSession session = request.getSession();
+	    AllDTO planner = (AllDTO) session.getAttribute("planner");
+
+	    String uIdStr = request.getParameter("uId");
+		if (planner != null && uIdStr != null) {
+			try {
+				int uId = Integer.parseInt(uIdStr);
+				int p = planner.getPlannerId();
+				String memoText = dao.getMemo(uId, p);
+				request.setAttribute("memoText", memoText);
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+				request.setAttribute("error", "ユーザーIDの取得に失敗しました。");
+			}
+		}
+		// 検索条件なしの初期リスト表示
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 }
+
 	
 	
 	
