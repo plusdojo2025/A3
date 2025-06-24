@@ -14,8 +14,9 @@
 <link rel="stylesheet" href="css/home.css"> 
 
 </head>
+
 <body>
-<img src = "img/gouka.png" class="logomain">
+<img src="${pageContext.request.contextPath}/img/gouka.png" class="logomain">
 <ul id="nov">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
 <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
@@ -31,7 +32,9 @@
 	<h2>ホーム</h2>
 	<p>結婚式を希望される方や考えている方に最適なサイトです。</p>
 </div>
-ようこそ！${user.lName}さん
+<p class="username">
+ようこそ<c:out value ="${user.fName}"></c:out><c:out value ="${user.lName}"></c:out>さん
+</p>
 <div class="main-list">
 	<ul>
 	<h3>本サイト機能</h3>	
@@ -75,7 +78,7 @@
 	} */
 
 	//すべての画像
-	const images = document.querySelectorAll('img');
+	const images = document.querySelectorAll('.slider-container .image-container img');
 	// ナビゲーションコンテナ
 	const navContainer = document.querySelector('.nav-container');
 	//画像の総数
