@@ -24,6 +24,10 @@
  <h3>登録情報の変更・削除</h3>
 
 	<form id="changeForm" method="POST" action="<c:url value='/UMyChangeServlet'/>">
+	名字<br>
+	<input type="text" name="fname" value="${sessionScope.user.fName}"><br>
+	名前<br>
+	<input type="text" name="lname" value="${sessionScope.user.lName}"><br>
 	生年月日<br>
 	<input type="date" name="birthday" value="${sessionScope.user.birthday}"><br>
 	住所<br>
