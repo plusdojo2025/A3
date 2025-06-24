@@ -502,6 +502,8 @@ public class ApplyDAO {
 				}else {	
 					//空の枝豆（DTO）作成
 					alldto = new AllDTO();
+					alldto.setOptionNames(new ArrayList<>());
+					alldto.setOptionPrices(new ArrayList<>());
 					//上のDTOに値を入れていく（setはDTOのセッター、getはDBのカラム名）
 						/*コース*/
 					alldto.setCourseId(rs.getInt("course_id"));
@@ -519,8 +521,7 @@ public class ApplyDAO {
 					alldto.setOptionId(rs.getInt("option_id")); 
 					alldto.setOptionName(rs.getString("option_name"));
 					alldto.setOptionPrice(rs.getString("option_price"));
-					alldto.setOptionNames(new ArrayList<>());
-					alldto.setOptionPrices(new ArrayList<>());
+					
 						/*備考*/
 					alldto.setRemarks(rs.getString("remarks"));
 					
@@ -540,10 +541,11 @@ public class ApplyDAO {
 	                alldto.setOptionName(rs.getString("option_name"));
 	                alldto.setOptionPrice(rs.getString("option_price"));
 	            }
-	         
-	            String opPrice = rs.getString("option_price");
-	            if (opPrice != null && !opPrice.isEmpty()) {
-	                alldto.getOptionPrices().add(opPrice); // 金額をリストに追加	                
+	            
+//	            String coPrice =
+	            String op = rs.getString("option_price");
+	            if (op != null && !op.isEmpty()) {
+	                alldto.getOptionPrices().add(op); // 金額をリストに追加	                
 	            }
 				
 //			}else {
