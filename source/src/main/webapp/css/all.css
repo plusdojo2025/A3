@@ -3,6 +3,11 @@
 /*headerすべてに適用*/
 
 /* ここからヘッダーの部分 */
+.header-list {
+	color:#FFFFFF;
+	font-size: 24px;
+}
+
 #nav {
   display: flex; /* 横並びにする*/
   justify-content: center; 
