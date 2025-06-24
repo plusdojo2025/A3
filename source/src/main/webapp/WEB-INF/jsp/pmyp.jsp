@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="<c:url value='/css/login.css' />">
 </head>
 <body>
+<img src = "img/gouka.png" class="logomain">
 <ul id="nav">
 <li><a href="<c:url value='/PWelcomeServlet' />">ホーム</a></li>
 <li><a href="<c:url value='/CDataServlet' />">顧客情報</a></li>

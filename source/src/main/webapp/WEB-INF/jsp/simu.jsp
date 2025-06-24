@@ -13,6 +13,7 @@
 </head>
 <body>
 <!-- ヘッダーここkら -->
+<img src = "img/gouka.png" class="logomain">
 <c:out value ="${user.lName}"/>
 <ul id="nov">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>

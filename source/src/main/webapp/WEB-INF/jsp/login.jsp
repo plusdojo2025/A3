@@ -15,7 +15,7 @@
 
 </head>
 <body>
-
+<img src = "img/gouka.png" class="logomain">
 <main>
 
 <!--<c:choose>
