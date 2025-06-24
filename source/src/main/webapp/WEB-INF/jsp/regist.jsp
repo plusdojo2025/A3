@@ -49,21 +49,21 @@
 </tr>
 <tr>
 	<td>
-		<label>姓</label>
+		<label>姓(必須)</label>
 	</td>
 	<td>
-		<label>名</label>
+		<label>名(必須)</label>
 	</td>
 </tr>
 <tr>
 	<td>
 	<label>
-		<input type="text" name="fName"><br>
+		<input type="text" name="fName" id="fname"><br>
 		</label>
 	</td>
 	<td>
 		<label>
-		<input type="text" name="lName"><br>
+		<input type="text" name="lName" id="lname"><br>
 		</label>
 	</td>
 </tr>
@@ -210,10 +210,12 @@ function touroku(event){
     	 
      const user_id = document.getElementById('id').value.trim();
     const user_pw = document.getElementById('pw').value.trim();
+    const user_fname = document.getElementById('fname').value.trim();
+    const user_lname = document.getElementById('lname').value.trim();
     
-    if(user_id === '' || user_pw === '') {
+    if(user_id === '' || user_pw === '' || user_fname === '' || user_lname === '') {
       /* event.preventDefault(); */
-      document.getElementById('error_message').textContent = 'IDとPWを両方入力してください！';
+      document.getElementById('error_message').textContent = '必須項目を入力してください！';
    
       return false;
       

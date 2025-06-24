@@ -24,14 +24,44 @@
  <h3>登録情報の変更・削除</h3>
 
 	<form id="changeForm" method="POST" action="<c:url value='/UMyChangeServlet'/>">
-	生年月日<br>
-	<input type="date" name="birthday" value="${sessionScope.user.birthday}"><br>
-	住所<br>
+	<div class="name-row">
+  　　<div class="input-block">
+	<label>名字<br>
+	<input type="text" name="f_name" value="${sessionScope.user.fName}"><br>
+	</label>
+	</div>
+	<div class="input-block">
+	<label>名前<br>
+	<input type="text" name="l_name" value="${sessionScope.user.lName}"><br>
+	</label>
+	</div>
+	</div>
+	
+	<div class="name-row">
+  　　<div class="input-block">
+	<label>住所<br>
 	<input type="text" name="address" value="${sessionScope.user.address}"><br>
-	電話番号<br>
+	</label>
+	</div>
+	<div class="input-block">
+	<label>生年月日<br>
+	<input type="date" name="birthday" value="${sessionScope.user.birthday}"><br>
+	</label>
+	</div>
+	</div>
+	
+	<div class="name-row">
+  　　<div class="input-block">
+	<label>電話番号<br>
 	<input type="text" name="phone" value="${sessionScope.user.phone}"><br>
-	メールアドレス<br>
+	</label>
+	</div>
+	<div class="input-block">
+	<label>メールアドレス<br>
 	<input type="text" name="email" value="${sessionScope.user.email}"><br>
+	</label>
+	</div>
+	</div>
 	
 	<input type="submit" name="submita" value="更新">
 	<input type="submit" name="submita" value="アカウント削除">

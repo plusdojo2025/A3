@@ -74,13 +74,18 @@ input[name=phone]{
 
 form {
     margin: 0 auto;
-    max-width: 350px; 
+    max-width: 800px; 
     
+}
+table{
+	margin:0 auto 0 auto;
+	width:70%;
+	color:#FFFFFF;
 }
 input[type="text"], textarea {
     padding: 6px;
     width: 90%;
-    height:4px;
+    height:10px;
     font-size: 0.6rem;
 }
 textarea {
@@ -89,4 +94,5 @@ textarea {
 }
 td {
 	width: 50%;
+	
 }
