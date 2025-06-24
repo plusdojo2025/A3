@@ -184,3 +184,7 @@ body {
   width: 100%;/* ここで１００ぱーせんと伸びきるようにしてる */
 }
 
+.username {
+	font-size:30px
+}
+
