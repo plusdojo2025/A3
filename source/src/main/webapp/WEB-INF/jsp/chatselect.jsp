@@ -41,8 +41,10 @@
         <li class="talkItem">
             <img src="${ pageContext.request.contextPath}/img/human2.png" alt="profile 2">
             <div class="talkInfo">
+            <a href = "SoServlet?id=${username }">
                 <span class="talkName">綿名 画目</span>
                 <span class="lastMessage">メッセージ2</span>
+            </a>
             </div>
         </li>
         <li class="talkItem">
@@ -61,7 +63,6 @@
 
 	talkItems.forEach(item => {
     item.addEventListener('click', () => {
-    	
         // 全ての選択状態を解除
         talkItems.forEach(item => item.classList.remove('selected'));
         // クリックされた要素に選択状態を追加

@@ -190,7 +190,7 @@ public class UserDAO {
                 "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
                 "root", "password");
 
-            String sql = "UPDATE user SET  fName=?, lName=?,birthday=?, address=?, email=?, phone=? WHERE user_id=?";
+            String sql = "UPDATE user SET  f_name=?, l_name=?,birthday=?, address=?, email=?, phone=? WHERE user_id=?";
             pstmt = conn.prepareStatement(sql);
 
             pstmt.setString(1, fName);
@@ -199,7 +199,7 @@ public class UserDAO {
             pstmt.setString(4, address);
             pstmt.setString(5, email);
             pstmt.setString(6, phone);
-            pstmt.setInt(5, userId);
+            pstmt.setInt(7, userId);
 			/*
 			 * pstmt.setString(7, dto.getBirthday()); pstmt.setString(8, dto.getGender());
 			 * pstmt.setString(9, dto.getZipcode()); pstmt.setString(10, dto.getAddress());
@@ -326,7 +326,6 @@ public class UserDAO {
 			}
 	        return userList;
 	         }
-
 
 
 	

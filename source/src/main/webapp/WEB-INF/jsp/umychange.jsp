@@ -27,12 +27,12 @@
 	<div class="name-row">
   　　<div class="input-block">
 	<label>名字<br>
-	<input type="text" name="fname" value="${sessionScope.user.fName}"><br>
+	<input type="text" name="f_name" value="${sessionScope.user.fName}"><br>
 	</label>
 	</div>
 	<div class="input-block">
 	<label>名前<br>
-	<input type="text" name="lname" value="${sessionScope.user.lName}"><br>
+	<input type="text" name="l_name" value="${sessionScope.user.lName}"><br>
 	</label>
 	</div>
 	</div>
