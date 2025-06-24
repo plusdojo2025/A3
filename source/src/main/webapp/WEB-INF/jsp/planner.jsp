@@ -40,10 +40,10 @@
 </div>
 <!-- ふっだーここから -->
 <div class="footer">
-<li><a href="/A3/HomeServlet">トップに戻る</a></li>
-<li><a href="/A3/ApplyServlet">申し込み</a></li>
-<li><a href="/A3/CourseServlet">式場/コース/プランナー 一覧</a></li>
-<li><a href="/A3/SimuServlet">シミュレーション機能</a></li>
+<li><a href="<c:url value='/HomeServlet' />">トップに戻る</a></li>
+<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
+<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
    <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
 </div>
 <!-- ふっだーここまで -->
