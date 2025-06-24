@@ -186,6 +186,13 @@ body {
 
 .username {
 	font-size:30px;
+	  font-size: 30px;
+  text-align: center;
+  margin-top: -20px;    /* ← ここで上に移動（必要に応じて数値調整） */
+  margin-bottom: 10px;  /* 下との余白も調整 */
+  color: #b76e79;
+  text-shadow: 0 0 5px rgba(255, 240, 240, 0.8);
+  font-family: 'Noto Serif JP', serif;
 }
 
 .logomain{
