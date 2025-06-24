@@ -318,29 +318,69 @@ public class UserDAO {
 			}
 	        return userList;
 	         }
-//	 public boolean memoUpdate(String memo,int user_id, int planner_id) {
-//		 String sql = "UPDATE user SET memo = ? WHERE user_id = ?";
-//		 Connection conn = null;
-//	        PreparedStatement pstmt = null;
-//	        boolean ans = false;
-//
-//	        try {
-//	            Class.forName("com.mysql.cj.jdbc.Driver");  // JDBCドライバ読み込み
-//	            conn = DriverManager.getConnection(
-//	                "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
-//	                "root", "password");
-//
-//	            pstmt = conn.prepareStatement(sql);
-//
-//	            pstmt.setString(1, fName);
-//	            pstmt.setString(2, lName);
-//	            pstmt.setString(3, birthday);
-//	            pstmt.setString(4, address);
-//	            pstmt.setString(5, email);
-//	            pstmt.setString(6, phone);
-//	            pstmt.setInt(7, userId);
-//	 }
+	 public boolean memoUpdate(int memoId,String memo,int mUserId, int mPlannerId) {
+		 Connection conn = null;
+	        PreparedStatement pStmt = null;
+	        boolean ans = false;
 
+	        try {
+	            Class.forName("com.mysql.cj.jdbc.Driver");  // JDBCドライバ読み込み
+	            conn = DriverManager.getConnection(
+	                "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
+	                "root", "password");
+	            String sql = "UPDATE memo SET memo = ? WHERE user_id = ?";
+	           
+	           
+	            pStmt = conn.prepareStatement(sql);
+
+	            pStmt.setInt(1, memoId);
+	            pStmt.setString(2, memo);
+	            pStmt.setInt(3, mUserId);
+	            pStmt.setInt(4, mPlannerId);
+	            
+	            //ifでtrue ,false
+	            if(a == 1) {
+	            	//ここがtrue
+	            }else {
+	            	//ここがfalse
+	            }
+	            
+	            if(pStmt.executeUpdate()==1) {
+	            	ans = true;
+	            }else{
+	            	//insert
+		            String sql = "UPDATE memo SET memo = ? WHERE user_id = ?";
 	
-	}
+		            pStmt = conn.prepareStatement(sql);
+
+		            pStmt.setInt(1, memoId);
+		            pStmt.setString(2, memo);
+		            pStmt.setInt(3, mUserId);
+		            pStmt.setInt(4, mPlannerId);
+	            	pStmt.executeUpdate();
+	            }
+	            
+	        } catch (SQLException e) {
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			// 結果を返す
+			return ans;
+	  }
+	
+	 }
+	        
+	 
+	
+
       
