@@ -105,7 +105,6 @@ public class CDataServlet extends HttpServlet {
 		searchUser.setlName(lName);
 
 		List<AllDTO> cardList = dao.searchByFullName(searchUser);
-		
 		request.setAttribute("cardList", cardList);
 			
 		RequestDispatcher dispatcher =
@@ -130,6 +129,8 @@ public class CDataServlet extends HttpServlet {
 		List<AllDTO> cardList = dao.searchByFullName(searchUser);
 		
 		request.setAttribute("cardList", cardList);
+//		request.getParameterValues("memo");
+//		request.setAttribute("memo",memo);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
 		dispatcher.forward(request, response);
 		
