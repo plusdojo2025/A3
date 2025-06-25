@@ -47,38 +47,87 @@ h2 {
 }
 
 /*apply3*/
-.sikijo_card{
-  	display: flex; 
-  	text-align:center;
+.sikijo{
+    /* display: flex; */
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
     padding: 20px;
+    font-size:20px;
 }
-.card_text{
-	/*  width: 45%; 一列に2個並べる 
-    background-color: #fdfdfd;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center; */
-    flex: 1;
-  padding-right: 20px;
+.sikijo_card{
+    display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+  	width: 70%; /* カードの横幅調整 */
+	margin: 0 auto;
+  	border: 1px solid #ccc;
+  	border-radius: 10px;
+  	padding: 15px;
+  	background-color: rgba(251,232,211,0.5);
+  	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  	text-align: center;  
 }
-.card_img{
-	 width: 200px;
-  height: auto;
-  border-radius: 4px;
+.left{
+	flex:1;
 }
-.pname{
+.card_img {
+	margin-left: 20px;
+}
 
-	text-align:left;
-	 margin: 0 auto 0 200px;
+.card_img img {
+	display: block;
+    height: 100px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
 }
-.plist{
+
+.plist{ /*式場選んだらプランナー出てくる*/
 	display: none;
 }
+.pname{
+	text-align:left;
+	margin: 0 auto 0 180px;
+}
+
+.option_card{
+	
+ 	justify-content: space-between;
+  	align-items: flex-start;
+	width: 70%;
+  	margin: 10px auto; /* 中央寄せ */
+  	padding: 10px 15px;
+  	border: 1px solid #ccc;
+  	border-radius: 10px;
+	background-color: rgba(251,232,211,0.5);
+  	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  	font-size: 20px;
+}
+.option{
+	display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+.op{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+/*   flex-direction: column;
+  align-items: center; */
+  gap: 10px;	
+}
+.option_list{
+  padding: 10px 20px;
+  border-radius: 6px;
+  min-width: 150px;
+  text-align: left;
+
+}
+
 
 
 /*applyhistory*/

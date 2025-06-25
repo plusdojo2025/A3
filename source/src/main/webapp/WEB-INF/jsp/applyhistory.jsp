@@ -36,8 +36,8 @@
 				<span class="label"> ${a.courseName}コース</span><br>${a.intro}
 			</div>
 		    <div class="row">
-		    	<span class="label">希望式場</span><br>${a.sName}<br>		    
-				<img src="${pageContext.request.contextPath}/images/${a.sImage}" alt="式場画像" width="150">
+		    <span class="label">希望式場</span><br>${a.sName}<br>		    
+			<img src="${pageContext.request.contextPath}/images/${a.sImage}" alt="式場画像" width="150">
 			</div>
 			<div class="row">
 				<span class="label">プランナー</span><br>

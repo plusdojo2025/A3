@@ -34,41 +34,46 @@
  	<c:if test="${not empty errorMsg }">
  		<p>${errorMsg }
  	</c:if>	
- 	<div class="sikijo_card">
+ 	<div class="sikijo">
 	 	<c:forEach var="e" items="${sikijoList}">
-	 		<div class="card_text">
-				<input type="radio" name="sikijo" value="${e.sikijoId }" onchange="showPlanner(${e.sikijoId})">
-				${e.sName}:${e.sPrice }円
-		<%-- 		<p>${e.sikijoId}</p>
-					<p>${e.sName}</p> --%>
-					<p>${e.sAddress}</p><!-- ココ住所かも？あと、写真も入れる！！ --> 
-				<%-- 	<p>${e.sImage }</p> --%>
-				<div class="card_img">
-					<c:if test="${not empty e.sImage}">
-					<img src="${pageContext.request.contextPath}/images/${e.sImage}" alt="式場画像" width="150">
-					</c:if><br>
-				</div>
-				<br>				
-				<div id="plist${e.sikijoId}" class="plist">
-					<p>プランナー</p>
-					<c:forEach var="p" items="${e.plannerList}">
-					<div class="pname">
-						<input type="radio" name="planner" value="${p.plannerId}" disabled>
-						 ${p.plannerName}（${p.gender}）<br>
+	 		<div class="sikijo_card">
+		 		<div class="left">		
+					<input type="radio" name="sikijo" value="${e.sikijoId }" onchange="showPlanner(${e.sikijoId})">
+					${e.sName}:${e.sPrice }円
+					<p>${e.sAddress}</p>
+					
+									
+					<div id="plist${e.sikijoId}" class="plist">
+						<p>プランナー</p>
+						<c:forEach var="p" items="${e.plannerList}">
+						<div class="pname">
+							<input type="radio" name="planner" value="${p.plannerId}" disabled>
+							 ${p.plannerName}（${p.gender}）<br>
+						</div>
+						</c:forEach>
 					</div>
-					</c:forEach>
+				</div> <!-- left -->
+				<div class="card_img">			
+					<c:if test="${not empty e.sImage}">
+					<img src="${pageContext.request.contextPath}/images/${e.sImage}" alt="式場画像" width="350">
+					</c:if><br>			
+				</div>			
+			</div><!-- sikjo_card -->			
+		</c:forEach>	
+	</div> <!-- sikijo_card --> 
+	<div class="option_card">
+		<label class="option">オプション</label><br>
+		<div class="op">
+			<c:forEach var="e" items="${optionList}">
+				<div class="option_list">
+					<input type="checkbox" name="option" value="${e.optionId }"><%-- ${e.optionId }, --%>
+					${e.optionName }:
+					${e.optionPrice }円
+					
 				</div>
-			</div>
-		</c:forEach>
-	</div>  
-		
-	<label>オプション</label><br>
-	<c:forEach var="e" items="${optionList}">
-		<input type="checkbox" name="option" value="${e.optionId }"><%-- ${e.optionId }, --%>
-		${e.optionName }:
-		${e.optionPrice }円
-		<br>
-	</c:forEach>
+			</c:forEach>
+		</div>
+	</div><!-- option_card -->
 	<br>
     <label>備考<br>
 		<textarea name="remarks" rows=4 cols=40></textarea><br>
