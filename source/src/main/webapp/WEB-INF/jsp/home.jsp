@@ -30,6 +30,7 @@
 <c:url var="chatUrl" value="/SoServlet">
   <c:param name="one" value="${sessionScope.user.userId}" />
   <c:param name="two" value="${sessionScope.applyPlanner.plannerId}" />
+ <%--  <c:param name="p_name" value="${sessionScope.applyPlanner.pName}" /> --%>
 </c:url>
 
 <li>
