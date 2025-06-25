@@ -48,6 +48,11 @@
 		<img src="${pageContext.request.contextPath}/images/${e.sImage}" alt="式場画像" width="150">
 		</c:if><br>
 		<br>
+		<c:forEach var="p" items="${e.plannerList}">
+			<p>プランナー</p>
+			<input type="radio" name="planner" value="${p.plannerId}">
+			 ${p.plannerName}（${p.gender}）<br>
+		</c:forEach>
 	</c:forEach>  
 		
 	<label>オプション</label><br>

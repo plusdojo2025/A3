@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import dto.AllDTO;
+import dto.PlannerDTO;
 
 public class ApplyDAO {
 	
@@ -110,8 +111,36 @@ public class ApplyDAO {
 				dto.setsPrice(rs.getString("sikijo_price"));
 //				dto.setOptionId(rs.getInt("option_id"));
 				
-				//値が入った枝豆（上のDTO）をArrayListに追加
+				List<PlannerDTO> plannerList = new ArrayList<>();
+				String sql2 = "SELECT * FROM planner "
+						+ "JOIN sp ON planner.planner_id = sp.planner_id "
+						+ "WHERE sp.sikijo_id = ?";
+				System.out.println(sql2);
+				PreparedStatement pStmt2 = conn.prepareStatement(sql2);//全部凝縮されたのが「ｐStmt」
+				pStmt2.setInt(1, sId);//SQL内の 1つ目の ? に sikijoId の値（int型）を設定
 				
+				ResultSet rs2 = pStmt2.executeQuery();//なんでも表が入るResultSet型に格納（DAOでしか使えない）
+				
+				while(rs2.next()) {
+					 System.out.println("ヒットした！DBにデータある！");
+					//空の枝豆（DTO）作成
+					PlannerDTO pdto = new PlannerDTO();
+
+					//上のDTOに値を入れていく（DBの値をDTOへコピー）
+					//setはDTOで決めたやつ、getはDBのカラム名
+					pdto.setPlannerId(rs2.getInt("planner_id"));
+//					dto.setJmNumber(rs.getInt("jm_number"));
+					pdto.setPlannerName(rs2.getString("name"));
+					pdto.setGender(rs2.getString("gender"));
+//					pdto.setsImage(rs.getString("image"));
+//					pdto.setsPrice(rs.getString("sikijo_price"));
+					
+					//値が入った枝豆（上のDTO）をArrayListに追加
+					plannerList.add(pdto);				
+				}
+				
+				 // AllDTO にセット
+			    dto.setPlannerList(plannerList);
 			}
 		}catch (SQLException e) {
 			System.out.println("SQL文おかしいよ");
@@ -205,7 +234,8 @@ public class ApplyDAO {
 		return optionList;
 	}
 	
-	public AllDTO getSiki(int sikijoId){
+	public AllDTO getSP(int sikijoId){
+		List<PlannerDTO> plannerList = new ArrayList<>();
 		AllDTO alldto = null;
 		Connection conn = null;
 		
@@ -217,8 +247,9 @@ public class ApplyDAO {
 					"root", "password");
 			
 			// SQL文の準備（コースのデータ全て取得）（ハッピーセット）
-			String sql = "SELECT * FROM sikijo WHERE sikijo_id = ?";
-//			String sql = "SELECT sikijo_id, name, address, sikijo_price FROM sikijo WHERE sikijo_id = ?";
+			String sql = "SELECT * FROM planner "
+							+ "JOIN sp ON planner.planner_id = sp.planner_id "
+							+ "WHERE sp.sikijo_id = ?";
 
 			System.out.println(sql);
 			PreparedStatement pStmt = conn.prepareStatement(sql);//全部凝縮されたのが「ｐStmt」
@@ -227,28 +258,27 @@ public class ApplyDAO {
 			
 			ResultSet rs = pStmt.executeQuery();//なんでも表が入るResultSet型に格納（DAOでしか使えない）
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				 System.out.println("ヒットした！DBにデータある！");
 				//空の枝豆（DTO）作成
-				alldto =new AllDTO();
+				PlannerDTO pdto = new PlannerDTO();
 
 				//上のDTOに値を入れていく（DBの値をDTOへコピー）
 				//setはDTOで決めたやつ、getはDBのカラム名
-				alldto.setSikijoId(rs.getInt("sikijo_id"));
+				pdto.setPlannerId(rs.getInt("planner_id"));
 //				dto.setJmNumber(rs.getInt("jm_number"));
-				alldto.setsName(rs.getString("name"));
-				alldto.setSikiAdd(rs.getString("address"));
-				alldto.setsImage(rs.getString("image"));
-				alldto.setsPrice(rs.getString("sikijo_price"));
+				pdto.setPlannerName(rs.getString("name"));
+				pdto.setGender(rs.getString("gender"));
+//				pdto.setsImage(rs.getString("image"));
+//				pdto.setsPrice(rs.getString("sikijo_price"));
 				
 				//値が入った枝豆（上のDTO）をArrayListに追加
-//				dto.add(dto);
-				
-			}else {
-			    System.out.println("DBに該当IDなし！");
+				plannerList.add(pdto);				
 			}
-
 			
+//			else {
+//			    System.out.println("DBに該当IDなし！");
+//			}	
 		}catch (SQLException e) {
 			System.out.println("SQL文おかしいよ");
 			e.printStackTrace();
@@ -271,6 +301,8 @@ public class ApplyDAO {
 		//コースのデータの入ったArrayListをServletへ返却
 		return alldto;
 	}
+	
+	
 	
 	//選ばれたコースを取得----------------------------------------
 	public AllDTO getCourseInfo(int courseId) {
@@ -394,7 +426,7 @@ public class ApplyDAO {
 	}
 	
 	//登録（applyテーブルへデータを入れる）------------------------------
-	public void insert(int userId, int courseId, int sikijoId, List<Integer> opIds, String remarks) {
+	public void insert(int userId, int courseId, int sikijoId, int plannerId, List<Integer> opIds, String remarks) {
 	    Connection conn=null;
 //	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
@@ -410,14 +442,15 @@ public class ApplyDAO {
 			conn.setAutoCommit(false); 
 			
 			// SQL文の準備
-			String sql = "INSERT INTO apply (user_id, course_id, sikijo_id, remarks) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO apply (user_id, course_id, sikijo_id, planner_id, remarks) VALUES (?, ?, ?, ?, ?)";
 			System.out.println(sql);
 			PreparedStatement pStmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			
 			pStmt.setInt(1, userId);
 			pStmt.setInt(2, courseId);
 			pStmt.setInt(3, sikijoId);
-			pStmt.setString(4, remarks);
+			pStmt.setInt(4, plannerId);
+			pStmt.setString(5, remarks);
 //			pStmt.executeUpdate();
 //			pStmt.setString(4, optionIds); //SQL内の4つ目の ? に optionId の値（int型）を設定
 			

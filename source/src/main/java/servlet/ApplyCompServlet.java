@@ -82,6 +82,8 @@ public class ApplyCompServlet extends HttpServlet {
 		int courseId = (Integer) session.getAttribute("courseId");
 		AllDTO sikijo = (AllDTO) session.getAttribute("sikijo");
 		int sikijoId = sikijo.getSikijoId();
+		int plannerId = (Integer) session.getAttribute("plannerId");
+//		int plannerId = planner.getPlannerId();
 		String remarks = (String) session.getAttribute("remarks");	
 		
 		
@@ -102,7 +104,7 @@ public class ApplyCompServlet extends HttpServlet {
 		}
 		//登録処理
 		ApplyDAO appdao = new ApplyDAO();
-		appdao.insert(userId, courseId, sikijoId, opIds, remarks);
+		appdao.insert(userId, courseId, sikijoId, plannerId, opIds, remarks);
 //		int opsum = (Integer) session.setAttribute("opsum", opsum);
 //		
 

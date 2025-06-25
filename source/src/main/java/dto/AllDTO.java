@@ -54,6 +54,7 @@ public class AllDTO implements Serializable {
 	private String strongFild;
 	private String pImage;
 	//ほかと被るので、プランナーのやつにはpを頭に付けてみた
+	private List<PlannerDTO> plannerList;
 	
 	
 	//applyテーブルのデータ-----------------------
@@ -369,6 +370,15 @@ public class AllDTO implements Serializable {
 		this.pImage = pImage;
 	}
 
+	public List<PlannerDTO> getPlannerList() {
+	    return plannerList;
+	}
+
+	public void setPlannerList(List<PlannerDTO> plannerList) {
+	    this.plannerList = plannerList;
+	}
+	
+	
 	public int getApplyId() {
 		return applyId;
 	}

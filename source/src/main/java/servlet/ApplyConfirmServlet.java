@@ -43,13 +43,18 @@ public class ApplyConfirmServlet extends HttpServlet {
 		String si = request.getParameter("sikijo");
 		int sikijoId = Integer.parseInt(si);
 			System.out.println("変換後のsId = " + sikijoId);
+		String pla = request.getParameter("planner");
+		int plannerId = Integer.parseInt(pla);	
+			// 確認用
+			System.out.println("選択された式場ID: " + sikijoId);
+			System.out.println("選択されたプランナーID: " + plannerId);
 		String op = request.getParameter("option");
 		String re = request.getParameter("remarks");
 //		int opId = Integer.parseInt(op);
 		
 		//DAOをインスタンス化
 		ApplyDAO appdao = new ApplyDAO();		
-		AllDTO sikijo = appdao.getSiki(sikijoId);
+		AllDTO sikijo = appdao.getSikijo(sikijoId);
 		AllDTO course = appdao.getCourseInfo(courseId);
 //		AllDTO option = dao.getOption(sId);
 		
@@ -88,6 +93,7 @@ public class ApplyConfirmServlet extends HttpServlet {
 		//apply3で選択された式場とコースをセッションへ
 		session.setAttribute("course", course);
 		session.setAttribute("sikijo", sikijo);
+		session.setAttribute("plannerId", plannerId);
 		session.setAttribute("options", opList);//AllDTO(jsp表示用)
 		session.setAttribute("optionIds", optionIds); // ←String[] IDだけ（登録処理用）
 //		session.setAttribute("opsum", opsum);
@@ -96,5 +102,6 @@ public class ApplyConfirmServlet extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply_confirm.jsp");
 		dispatcher.forward(request,response);
+		
 	}
 }

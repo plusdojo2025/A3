@@ -56,7 +56,8 @@ public class ApplySikijoServlet extends HttpServlet {
 		}
 		ArrayList<AllDTO> sList = new ArrayList<>(); 
 		for(int id :idList) {
-			sList.add(dao.getSikijo(id));
+			 AllDTO siki = dao.getSikijo(id); // getSikijoメソッドの中でPlannerも取れるようにしておく
+			sList.add(siki);
 		}
 		//コースのオプションを取得
 		List<AllDTO> optionList =dao.getCourse(courseId);
