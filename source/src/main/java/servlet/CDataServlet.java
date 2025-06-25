@@ -23,6 +23,7 @@ public class CDataServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		System.out.println(request.getParameter("memo")+"aaaaaaaaa");
 		if(request.getParameter("memo")== null) {
 			
@@ -30,7 +31,7 @@ public class CDataServlet extends HttpServlet {
 		// メニューページ（menu.jsp）へのディスパッチャを取得
 		//dispatcher.forward(request, response); 
 		// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
+		
 		String fullName= request.getParameter("fullName");
 		String fName= request.getParameter("fName");
 		String lName= request.getParameter("lName");
@@ -70,11 +71,24 @@ public class CDataServlet extends HttpServlet {
 
 		List<AllDTO> cardList = dao.searchByFullName(searchUser);
 		
+		HttpSession session = request.getSession();
+		AllDTO planner = (AllDTO)session.getAttribute("planner");
+		int p = planner.getPlannerId();
+		
+		for(int i=0;i<cardList.size();i++) {
+			int uId = cardList.get(i).getUserId();
+			String me =dao.getMemo(uId, p);
+			cardList.get(i).setMemo(me);
+		}
+		
 		request.setAttribute("cardList", cardList);
 		// 検索処理を行う
 		//BcDAO bDao = new BcDAO();
 		//List<Bc> cardList = bDao.select(new Bc(k_f_name,k_l_name,address,phone));
 		//jspに処理を飛ばして
+		RequestDispatcher dispatcher =
+			request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
+			dispatcher.forward(request, response);
 	}else {
 //		// 登録処理を行う	
 		request.setCharacterEncoding("UTF-8");
@@ -107,6 +121,15 @@ public class CDataServlet extends HttpServlet {
 		searchUser.setlName(lName);
 
 		List<AllDTO> cardList = dao.searchByFullName(searchUser);
+		
+		
+		
+		for(int i=0;i<cardList.size();i++) {
+			int uI = cardList.get(i).getUserId();
+			String me =dao.getMemo(uI, p);
+			cardList.get(i).setMemo(me);
+		}
+		
 		request.setAttribute("cardList", cardList);
 			
 		RequestDispatcher dispatcher =
@@ -132,6 +155,16 @@ public class CDataServlet extends HttpServlet {
 
 		List<AllDTO> cardList = dao.searchByFullName(searchUser);
 		request.setAttribute("cardList", cardList);
+		
+		HttpSession session = request.getSession();
+		AllDTO planner = (AllDTO)session.getAttribute("planner");
+		int p = planner.getPlannerId();
+		
+		for(int i=0;i<cardList.size();i++) {
+			int uId = cardList.get(i).getUserId();
+			String me =dao.getMemo(uId, p);
+			cardList.get(i).setMemo(me);
+		}
 		
 //		memoを登録後、再度取得してJSPに渡す
 //		request.getAttribute("message", memo);

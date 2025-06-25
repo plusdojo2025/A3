@@ -42,6 +42,7 @@ public class UserDAO {
 			    all.setGender(rs.getString("gender"));
 			    all.setAddress(rs.getString("address"));
 			    all.setPhone(rs.getString("phone"));
+			    all.setUserId(rs.getInt("user_id"));
 			    list.add(all);
 			}
         } catch (SQLException e) {
