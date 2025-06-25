@@ -23,6 +23,7 @@ public class CDataServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		System.out.println(request.getParameter("memo")+"aaaaaaaaa");
 		if(request.getParameter("memo")== null) {
 			
@@ -30,7 +31,7 @@ public class CDataServlet extends HttpServlet {
 		// メニューページ（menu.jsp）へのディスパッチャを取得
 		//dispatcher.forward(request, response); 
 		// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
+		
 		String fullName= request.getParameter("fullName");
 		String fName= request.getParameter("fName");
 		String lName= request.getParameter("lName");
@@ -66,14 +67,28 @@ public class CDataServlet extends HttpServlet {
 		AllDTO searchUser = new AllDTO();
 		searchUser.setfName(fullName);
 		searchUser.setlName(lName);
+		request.setAttribute("fullName",fullName);
 
 		List<AllDTO> cardList = dao.searchByFullName(searchUser);
+		
+		HttpSession session = request.getSession();
+		AllDTO planner = (AllDTO)session.getAttribute("planner");
+		int p = planner.getPlannerId();
+		
+		for(int i=0;i<cardList.size();i++) {
+			int uId = cardList.get(i).getUserId();
+			String me =dao.getMemo(uId, p);
+			cardList.get(i).setMemo(me);
+		}
 		
 		request.setAttribute("cardList", cardList);
 		// 検索処理を行う
 		//BcDAO bDao = new BcDAO();
 		//List<Bc> cardList = bDao.select(new Bc(k_f_name,k_l_name,address,phone));
 		//jspに処理を飛ばして
+		RequestDispatcher dispatcher =
+			request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
+			dispatcher.forward(request, response);
 	}else {
 //		// 登録処理を行う	
 		request.setCharacterEncoding("UTF-8");
@@ -87,7 +102,9 @@ public class CDataServlet extends HttpServlet {
 		 boolean success = dao.memoUpdate(0, memo, uId, p); 
 		 
 		 if(success) {
-			 request.setAttribute("message", "メモを登録しました。");		 
+			 request.setAttribute("message", "メモを登録しました。");		
+			 //memoを登録後、セッションIDへ保存
+			 session.setAttribute("message", memo);
 			 
 		 }else { // 登録失敗時、エラーメッセージを設定して戻る
 			 request.setAttribute("isPost", true);
@@ -95,7 +112,7 @@ public class CDataServlet extends HttpServlet {
 			 
 		}
 		 
-		 String fullName=planner.getfName();
+		 String fullName=request.getParameter("full_name");
 		 String lName=planner.getlName();
 		 
 		//DTOをsearchUserとしてインスタンス化して持ってきてfullNameの値取得
@@ -105,10 +122,19 @@ public class CDataServlet extends HttpServlet {
 
 		List<AllDTO> cardList = dao.searchByFullName(searchUser);
 		
+		
+		
+		for(int i=0;i<cardList.size();i++) {
+			int uI = cardList.get(i).getUserId();
+			String me =dao.getMemo(uI, p);
+			cardList.get(i).setMemo(me);
+		}
+		
 		request.setAttribute("cardList", cardList);
 			
 		RequestDispatcher dispatcher =
 		request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
+		dispatcher.forward(request, response);
 		
 		
 	}
@@ -118,21 +144,40 @@ public class CDataServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		// TODO Auto-generated method stub
 		//System.out.println("通ったよ～～");
 		UserDAO dao = new UserDAO();
 		AllDTO searchUser = new AllDTO();
 		searchUser.setfName("");
 		searchUser.setlName("");
+		String memo = (request.getParameter("memo"));
 
 		List<AllDTO> cardList = dao.searchByFullName(searchUser);
-		
 		request.setAttribute("cardList", cardList);
+		
+		HttpSession session = request.getSession();
+		AllDTO planner = (AllDTO)session.getAttribute("planner");
+		int p = planner.getPlannerId();
+		
+		for(int i=0;i<cardList.size();i++) {
+			int uId = cardList.get(i).getUserId();
+			String me =dao.getMemo(uId, p);
+			cardList.get(i).setMemo(me);
+		}
+		
+//		memoを登録後、再度取得してJSPに渡す
+//		request.getAttribute("message", memo);
+//		request.getParameterValues("memo");
+//		request.setAttribute("memo",memo);
+		// セッションからplanner情報を取得
+
+		// 検索条件なしの初期リスト表示
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cdata.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 }
+
 	
 	
 	

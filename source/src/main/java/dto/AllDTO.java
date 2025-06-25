@@ -429,7 +429,7 @@ public class AllDTO implements Serializable {
 		return memo;
 	}
 
-	public void setMemoId(String memo) {
+	public void setMemo(String memo) {
 		this.memo = memo;
 	}
 	

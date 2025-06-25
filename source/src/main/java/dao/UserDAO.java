@@ -42,6 +42,7 @@ public class UserDAO {
 			    all.setGender(rs.getString("gender"));
 			    all.setAddress(rs.getString("address"));
 			    all.setPhone(rs.getString("phone"));
+			    all.setUserId(rs.getInt("user_id"));
 			    list.add(all);
 			}
         } catch (SQLException e) {
@@ -288,17 +289,17 @@ public class UserDAO {
 					"root", "password");
 	       
 	        //SQLから姓と名を取得
-	        String sql = "SEELCT user.user_id,user.f_name,user.l_name"
-	        	+ "FROM sc "
+	        String sql = "SELECT DISTINCT user.user_id,user.f_name,user.l_name "
+	        	+ "FROM sp "
 	        	+ "JOIN planner "
-	        	+ "ON planner.planner_id = sc.planner_id "
+	        	+ "ON planner.planner_id = sp.planner_id "
 	        	+ "JOIN sikijo "
-	        	+ "ON sikijo.shikijo_id = sc.sikijo_id "
+	        	+ "ON sikijo.sikijo_id = sp.sikijo_id "
 	        	+ "JOIN apply "
-	        	+ "ON sikijo.shikijo_id = apply.sikijo_id "
+	        	+ "ON sikijo.sikijo_id = apply.sikijo_id "
 	        	+ "JOIN user "
 	        	+ "ON user.user_id = apply.user_id "
-	        	+ "WHERE planner.planner_id = ?" ;
+	        	+ "WHERE planner.planner_id = ? " ;
 	        		
 	        		
 	        System.out.println(sql);
@@ -338,29 +339,27 @@ public class UserDAO {
 	            conn = DriverManager.getConnection(
 	                "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9&rewriteBatchedStatements=true",
 	                "root", "password");
-	            String sql = "UPDATE memo SET memo = ? WHERE user_id = ?";
+	            String sql = "UPDATE memo SET memo = ? WHERE user_id = ? AND planner_id = ? ";
 	           
 	           
 	            pStmt = conn.prepareStatement(sql);
 
-	            pStmt.setInt(1, memoId);
-	            pStmt.setString(2, memo);
-	            pStmt.setInt(3, mUserId);
-	            pStmt.setInt(4, mPlannerId);
+	            pStmt.setString(1, memo);
+	            pStmt.setInt(2, mUserId);
+	            pStmt.setInt(3, mPlannerId);
 	            
 	            if(pStmt.executeUpdate()==1) {
 	            	ans = true;
 	            }else{
 	            	//insert
-		            String sql2 = "INSERT memo SET memo = ? WHERE user_id = ?";
+		            String sql2 = "INSERT INTO memo (memo_id,memo, user_id, planner_id) VALUES (null,?, ?, ?)";
 	
 		            pStmt = conn.prepareStatement(sql2);
-
-		            pStmt.setInt(1, memoId);
-		            pStmt.setString(2, memo);
-		            pStmt.setInt(3, mUserId);
-		            pStmt.setInt(4, mPlannerId);
+		            pStmt.setString(1, memo);
+		            pStmt.setInt(2, mUserId);
+		            pStmt.setInt(3, mPlannerId);
 	            	pStmt.executeUpdate();
+	            	ans = true;
 	            }
 	            
 	        } catch (SQLException e) {
@@ -380,6 +379,45 @@ public class UserDAO {
 			// 結果を返す
 			return ans;
 	  }
+	 
+	 //登録した最新のMemoをもう一度取得する
+	 public String getMemo(int userId, int plannerId) {
+		    Connection conn = null;
+		    PreparedStatement pStmt = null;
+		    ResultSet rs = null;
+		    String memo = "";
+
+		    try {
+		        Class.forName("com.mysql.cj.jdbc.Driver");
+		        conn = DriverManager.getConnection(
+		            "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
+		            "root", "password");
+
+		        String sql = "SELECT memo FROM memo WHERE user_id = ? AND planner_id = ?";
+		        pStmt = conn.prepareStatement(sql);
+		        pStmt.setInt(1, userId);
+		        pStmt.setInt(2, plannerId);
+		        rs = pStmt.executeQuery();
+
+		        if (rs.next()) {
+		            memo = rs.getString("memo");
+		        }
+
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    } finally {
+		        try {
+		            if (rs != null) rs.close();
+		            if (pStmt != null) pStmt.close();
+		            if (conn != null) conn.close();
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		        }
+		    }
+
+		    return memo;
+		}
+
 	
 	 }
 	        

@@ -48,9 +48,13 @@ pageEncoding="UTF-8"%>
       <p>性別：${e.gender}</p>
       <p>住所：${e.address}</p>
       <p>電話番号：${e.phone}</p>
+    <c:if test="${not empty memoText && e.userId == param.uId}">
+      <p style="color: blue;">登録済みのメモ：${memoText}</p>
+	</c:if>
      <form method="POST" action="<c:url value='/CDataServlet'/>" class="searcher-box">
-		記録：<input type="text" value="${memo.memo}" name="memo"><br>
+		記録：<input type="text" value="${e.memo}" name="memo"><br>
 		<input type="hidden" name="uId" value="${e.userId}">
+		<input type="hidden" name="full_name" value="${fullName}">
 		<input type="submit" name="regist" value="登録" onclick="return touroku()">
     </form>
     </div>
@@ -64,7 +68,15 @@ pageEncoding="UTF-8"%>
 <a href="<c:url value='/PWelcomeServlet' />">ホームへ戻る</a>
 </div>
 </body>
-
+<!-- ふっだーここから -->
+<div class="footer">
+<li><a href="<c:url value='/HomeServlet' />">トップに戻る</a></li>
+<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
+<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
+<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
+   <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
+</div>
+<!-- ふっだーここまで -->
 <%--時間表示スクリプト --%>
 <script>
   'use strict';

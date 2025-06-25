@@ -20,6 +20,11 @@ public class SoServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chat.jsp");
         dispatcher.forward(request, response);
     }
+    
+	/*
+	 * if (session.getAttribute("user") == null) {
+	 * response.sendRedirect("/A3/LoginServlet"); return; }
+	 */
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // リクエストのエンコーディングを設定するで
