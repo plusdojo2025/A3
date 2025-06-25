@@ -24,7 +24,9 @@
 	    var socket;
 	    var user_id_speaker = ${param.one};// 送信者のユーザーIDを文字列にする
 	    var user_id_listener = ${param.two}; // 受信者のユーザーIDを文字列にする
-	
+	    
+	    var user_id_speaker = ${param.two};// 受信者のユーザーIDを文字列にする
+	    var user_id_listener = ${param.one}; // 送信者のユーザーIDを文字列にする
 	    
 	    function connect() {
 	        // WebSocketを初期化するで
