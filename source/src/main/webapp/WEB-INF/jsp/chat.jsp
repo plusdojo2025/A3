@@ -11,7 +11,7 @@
 
 </head>
 <body onload="connect()">
-    <div id="chat-container">
+    <div id="chat-container">${param.user_name}
         <div id="messages" class="messages"></div>
         <div class="input-area">
             <input type="text" id="message" placeholder="メッセージを入力してください" onkeydown="if(event.key === 'Enter') sendMessage()">

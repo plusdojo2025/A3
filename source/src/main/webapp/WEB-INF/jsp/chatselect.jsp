@@ -23,12 +23,12 @@
 	            <img src="${ pageContext.request.contextPath}/img/human1.png" alt="profile 1">
 	            <div class="talkInfo">
 	           
-	                <span class="talkName">${e.fName}</span>
+	                <span class="talkName">${e.fName}様</span>
 	            
 	                
 	            </div>
 	            <form action ="<c:url value='/SoServlet'/>" method="GET">
-	            	<input type="hidden" name="user_name" value="${e.fName}${e.lName}">
+	            	<input type="hidden" name="user_name" value="${e.fName}${e.lName} 様">
 	            	<input type="hidden" name="two" value="${e.userId }">
 	            	<input type="hidden" name="one" value="${planner.plannerId }">
 	            	<input type="hidden" name="planner_name" value="${planner.pName }">
@@ -37,7 +37,7 @@
 	           		<input type="submit" name="sub" value="チャットを開始する">
 	            </form>
 	            
-	             <form action ="<c:url value='/SoServlet'/>" method="POST">
+	         <%--     <form action ="<c:url value='/SoServlet'/>" method="POST">
 	            	<input type="hidden" name="planner_name" value="${planner.pName }">
 	            	<input type="hidden" name="two" value="${planner.plannerId }">
 	            	<input type="hidden" name="one" value="${e.userId }">
@@ -45,7 +45,7 @@
 	            	<input type="hidden" name="one" value="${e.userId }">
 	            	<input type="hidden" name="two" value="${planner.plannerId  }">
 	           		<input type="submit" name="sub" value="チャットを開始する">
-	            </form>
+	            </form> --%>
 	            
 	            <%-- chat.jspにこんな感じで書くよ
 	             var user_id_speaker = ${param.one}; 

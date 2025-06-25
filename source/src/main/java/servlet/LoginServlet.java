@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UidpwDAO;
+import dao.UserDAO;
 import dto.AllDTO;
 
 /**
@@ -53,8 +54,15 @@ public class LoginServlet extends HttpServlet {
 		UidpwDAO uDao = new UidpwDAO();
 		AllDTO user = uDao.findUserByLogin(id, pw);
 		if (user != null) { // ログイン成功
+			//申し込みをしていれば、申込み情報でどのプランナーとつながっているか確認する
+			UserDAO dao = new UserDAO();
+			AllDTO applyPlanner = dao.searchPlanner(user.getUserId());
 			// セッションスコープにIDを格納する
 			HttpSession session = request.getSession();
+			
+			//担当のプランナー情報をセット
+			session.setAttribute("applyPlanner", applyPlanner);
+			//ログインのユーザー情報をセット
 			session.setAttribute("user",user);
 
 			// メニューサーブレットにリダイレクトする

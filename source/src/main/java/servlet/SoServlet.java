@@ -16,7 +16,9 @@ public class SoServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // JSPにフォワードするで
+    	
+    	
+    	// JSPにフォワードするで
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/chat.jsp");
         dispatcher.forward(request, response);
     }
