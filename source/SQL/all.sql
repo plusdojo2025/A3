@@ -17,8 +17,8 @@ create table user (
 
 INSERT INTO user VALUES (
   null,
-  'user22',
-  'pass22',
+  'dojouser12',
+  '#SEplus2025SEplus',
   '小尾利',
   '爪溜',
   'コオリ',
@@ -33,8 +33,8 @@ INSERT INTO user VALUES (
 
 INSERT INTO user VALUES (
   null,
-  'user23',
-  'pass23',
+  'dojouser13',
+  '#SEplus2025SEplus',
   '綿名',
   '画目',
   'メンナ',
@@ -49,8 +49,8 @@ INSERT INTO user VALUES (
 
 INSERT INTO user VALUES (
   null,
-  'user24',
-  'pass24',
+  'dojouser13',
+  '#SEplus2025SEplus',
   '亜夢',
   '彪夢',
   'アム',
@@ -98,6 +98,33 @@ INSERT INTO planner VALUES
  (NULL, 'user20', 'pass20', 'ステイSUM（すていさむ）','女','0334500110','東京都立川市曙町3丁目15番5号','サプライズ演出','images/planner_20.png'),
  (NULL, 'user21', 'pass21', 'ステイチャム','女','0334500110','東京都立川市曙町3丁目15番5号','マタニティ婚サポート','images/planner_21.png');
 
+ -- 意図があって一度消してます。そして下のID、PWで入れています。
+ delete from planner;
+ 
+ INSERT INTO planner VALUES
+ (NULL, 'dojouser1', '#SEplus2025SEplus', '式場 涙子（しきば　るいこ）','女','0334980110','東京都渋谷区渋谷1丁目4番1号','海外風ガーデンウェディング','images/planner_1.png'),
+ (NULL, 'dojouser2', '#SEplus2025SEplus', '誓　愛（ちかい　あい）','女','0334980110','東京都渋谷区渋谷1丁目4番1号','お色直し演出アイデア','images/planner_2.png'),
+ (NULL, 'dojouser3', '#SEplus2025SEplus', '土橋 連（どばし　れん）','男','0334980110','東京都渋谷区渋谷1丁目4番1号','バリアフリー対応挙式提案','images/planner_3.png'),
+ (NULL, 'dojouser4', '#SEplus2025SEplus', '姫野 麗（ひめの　れい）','女','0338470110','東京都新宿区新宿6丁目8番','少人数婚プランニング','images/planner_4.png'),
+ (NULL, 'dojouser5', '#SEplus2025SEplus', '平野 玲央（ひらの　れお）','男','0338470110','東京都新宿区新宿6丁目8番','ペット参加ウェディング','images/planner_5.png'),
+ (NULL, 'dojouser6', '#SEplus2025SEplus', '幸沢 幸子（さちざわ　さちこ）','女','0338470110','東京都新宿区新宿6丁目8番','ナイトウェディング演出','images/planner_6.png'),
+ (NULL, 'dojouser7', '#SEplus2025SEplus', '布里山　権太（ふりやま　ごんた）','男','0339860110','東京都豊島区南池袋2丁目26番3号','エンタメ系披露宴演出','images/planner_7.png'),
+ (NULL, 'dojouser8', '#SEplus2025SEplus', '倉間　ひかり（くらま　ひかり）','女','0339860110','東京都豊島区南池袋2丁目26番3号','家族婚のトータルサポート','images/planner_8.png'),
+ (NULL, 'dojouser9', '#SEplus2025SEplus', '麺乃　片佐（めんの　かたさ）','女','0339860110','東京都豊島区南池袋2丁目26番3号','音楽演出プロデュース','images/planner_9.png'),
+ (NULL, 'dojouser10', '#SEplus2025SEplus', '阿武　羅多芽（あぶ　らおおめ）','女','0338470110','東京都品川区北品川3丁目4番7号','和風婚の演出','images/planner_10.png'),
+ (NULL, 'dojouser11', '#SEplus2025SEplus', '安治　鯉女（あじ　こいめ）','女','0338470110','東京都品川区北品川3丁目4番7号','和装コーディネート','images/planner_11.png'),
+ (NULL, 'dojouser12', '#SEplus2025SEplus', 'スプリング・サクラ','女','0338470110','東京都品川区北品川3丁目4番7号','神社挙式の手配','images/planner_12.png'),
+ (NULL, 'dojouser13', '#SEplus2025SEplus', '渦巻　螺旋（うずまき　らせん）','男','0422200110','東京都台東区上野3丁目5番12号','手作りアイテムの提案','images/planner_13.png'),
+ (NULL, 'dojouser14', '#SEplus2025SEplus', '磯野　ひじき（いその　ひじき）','女','0422200110','東京都台東区上野3丁目5番12号','二部制パーティーの構成','images/planner_14.png'),
+ (NULL, 'dojouser15', '#SEplus2025SEplus', '味之 幹雄　（あじの もとお）','男','0422200110','東京都台東区上野3丁目5番12号','フォトジェニック演出','images/planner_15.png'),
+ (NULL, 'dojouser16', '#SEplus2025SEplus', '江戸川 元太（えどがわ　げんた）','男','0425270110','東京都武蔵野市吉祥寺本町2丁目20番6号','ドレス選びのアドバイス','images/planner_16.png'),
+ (NULL, 'dojouser17', '#SEplus2025SEplus', 'エルマーレ・ポリフェノール','男','0425270110','東京都武蔵野市吉祥寺本町2丁目20番6号','おもてなし重視の進行','images/planner_17.png'),
+ (NULL, 'dojouser18', '#SEplus2025SEplus', '御祝儀 呉子（ごしゅうぎ　くれこ）','女','0425270110','東京都武蔵野市吉祥寺本町2丁目20番6号','オリジナル誓いの言葉作成','images/planner_18.png'),
+ (NULL, 'dojouser19', '#SEplus2025SEplus', '佐藤四五六（さとう　しごろ）','女','0334500110','東京都立川市曙町3丁目15番5号','食事重視プランニング','images/planner_19.png'),
+ (NULL, 'dojouser20', '#SEplus2025SEplus', 'ステイSUM（すていさむ）','女','0334500110','東京都立川市曙町3丁目15番5号','サプライズ演出','images/planner_20.png'),
+ (NULL, 'dojouser21', '#SEplus2025SEplus', 'ステイチャム','女','0334500110','東京都立川市曙町3丁目15番5号','マタニティ婚サポート','images/planner_21.png');
+
+ 
  create table sikijo (
  sikijo_id int (30) primary key auto_increment,
  jm_number varchar (30) not null,
