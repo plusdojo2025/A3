@@ -38,8 +38,9 @@ public class ApplyCompServlet extends HttpServlet {
 //		    return;
 //		}
 		List<AllDTO> applyList  = appdao.applyComp(userId);
+		request.setAttribute("appList", applyList);
+		//合計金額
 		int total = 0;	
-
 		if (!applyList.isEmpty()) {
 			AllDTO dto = applyList.get(0);
 			// コース金額
@@ -52,19 +53,19 @@ public class ApplyCompServlet extends HttpServlet {
 		    }
 		}
 		for (AllDTO dto : applyList) {
-//			System.out.println("OptionPrices: " + dto.getOptionPrices());
-		for (String priceStr : dto.getOptionPrices()) {
-		    if (priceStr != null && !priceStr.isEmpty()) {
-		        total += Integer.parseInt(priceStr);
-		        System.out.println("Option price added: " + priceStr + ", total: " + total);
-		    }
+		System.out.println("OptionPrices: " + dto.getOptionPrices());
+			for (String priceStr : dto.getOptionPrices()) {
+			    if (priceStr != null && !priceStr.isEmpty()) {
+			        total += Integer.parseInt(priceStr);
+			        System.out.println("Option price added: " + priceStr + ", total: " + total);
+			    }
+			}
 		}
-		request.setAttribute("appList", applyList);
 		request.setAttribute("totalPrice", total);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/applyhistory.jsp");
 		dispatcher.forward(request,response);
-		}
+
 	}
 
 	/**
@@ -107,7 +108,6 @@ public class ApplyCompServlet extends HttpServlet {
 
 		List<AllDTO> applyList  = appdao.applyComp(userId);
 		int total = 0;	
-
 		if (!applyList.isEmpty()) {
 			AllDTO dto = applyList.get(0);
 			// コース金額
@@ -128,26 +128,7 @@ public class ApplyCompServlet extends HttpServlet {
 		        System.out.println("Option price added: " + priceStr + ", total: " + total);
 		    }
 		}
-//	}
-//			for (String priceStr : dto.getOptionPrices()) {
-//		        if (priceStr != null && !priceStr.isEmpty()) {
-//		            total += Integer.parseInt(priceStr);
-//		            System.out.println("Option price added: " + priceStr + ", total: " + total);
-//		        }
-//		    }
-////		   
-////		    int cprices = Integer.parseInt(dto.getcPrice()); // コース価格
-////		    int sprices = Integer.parseInt(dto.getsPrice()); // 式場価格
-//////		    for (String price : dto.getOptionPrices()) {
-////		        total += Integer.parseInt(price);
-////		    }
-//	
-//		}
-//		    String optPrice = dto.getOptionPrice();
-//		    if (optPrice != null && !optPrice.isEmpty()) {
-//		        total += Integer.parseInt(optPrice);
-//		    }
-		
+
 		System.out.println(applyList.size());
 		request.setAttribute("totalPrice", total);
 		request.setAttribute("appList", applyList);

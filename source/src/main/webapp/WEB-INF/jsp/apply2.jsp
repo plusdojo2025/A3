@@ -13,7 +13,10 @@
 
 <body>
 <img src = "img/gouka.png" class="logomain">
-<c:out value ="${user.lName}"></c:out>
+<img src = "img/gouka.png" class="logomain">
+<p class="username">
+ようこそ<c:out value ="${user.fName}"></c:out><c:out value ="${user.lName}"></c:out>さん
+</p>
 	<header>
 		<ul id="nov">
 			<li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
@@ -53,7 +56,7 @@
 		<%-- <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li> --%>
 		<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
 		<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
-		<li><a href="<c:url value='/ChatSelectServlet' />">チャット(Q＆A)</a></li>
+		<li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
 		<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 	</ul>
    <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>

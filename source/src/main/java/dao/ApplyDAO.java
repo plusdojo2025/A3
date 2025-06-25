@@ -302,6 +302,7 @@ public class ApplyDAO {
 				//setはDTOで決めたやつ、getはDBのカラム名
 				dto.setCourseId(rs.getInt("course_id"));
 	            dto.setCourseName(rs.getString("course_name"));
+	            dto.setcPrice(rs.getString("course_price"));
 	            dto.setIntro(rs.getString("comment"));
 				
 				//値が入った枝豆（上のDTO）をArrayListに追加
