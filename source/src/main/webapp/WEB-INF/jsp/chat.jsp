@@ -29,7 +29,8 @@
 	    function connect() {
 	        // WebSocketを初期化するで
 	        loadChatHistory(); // ← 先に履歴を取って表示
-	        socket = new WebSocket("ws://" + window.location.host + "/A3/chat");
+	        socket = new WebSocket("ws://" + window.location.host + "${pageContext.request.contextPath}/chat");
+
 	
 	        // 接続が開いたときの処理やで
 	        socket.onopen = function() {
