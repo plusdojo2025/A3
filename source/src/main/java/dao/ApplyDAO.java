@@ -516,6 +516,7 @@ public class ApplyDAO {
 							+ "JOIN user ON apply.user_id = user.user_id "
 							+ "JOIN course ON apply.course_id = course.course_id "
 							+ "JOIN sikijo ON apply.sikijo_id = sikijo.sikijo_id "
+							+ "JOIN planner ON apply.planner_id = planner.planner_id "
 							+ "LEFT JOIN AO ON apply.apply_id = AO.apply_id "
 							+ "LEFT JOIN options ON AO.option_id = options.option_id "
 							+ "WHERE apply.user_id = ?";
@@ -551,6 +552,13 @@ public class ApplyDAO {
 					alldto.setSikiAdd(rs.getString("address"));
 					alldto.setsImage(rs.getString("image"));
 					alldto.setsPrice(rs.getString("sikijo_price"));
+						/*プランナー*/
+					alldto.setPlannerId(rs.getInt("planner_id"));
+					alldto.setpName(rs.getString("name"));
+					alldto.setpGender(rs.getString("gender"));
+					alldto.setpPhone(rs.getString("phone"));
+					alldto.setStrongFild(rs.getString("strong_fild"));
+					alldto.setpImage(rs.getString("image"));
 						/*オプション*/
 					alldto.setOptionId(rs.getInt("option_id")); 
 					alldto.setOptionName(rs.getString("option_name"));
@@ -574,9 +582,7 @@ public class ApplyDAO {
 	                alldto.setOptionId(optionId);
 	                alldto.setOptionName(rs.getString("option_name"));
 	                alldto.setOptionPrice(rs.getString("option_price"));
-	            }
-	            
-//	            String coPrice =
+	            }	          
 	            String op = rs.getString("option_price");
 	            if (op != null && !op.isEmpty()) {
 	                alldto.getOptionPrices().add(op); // 金額をリストに追加	                

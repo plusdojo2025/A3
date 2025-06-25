@@ -13,7 +13,6 @@
 
 <body>
 <img src = "img/gouka.png" class="logomain">
-<img src = "img/gouka.png" class="logomain">
 <p class="username">
 ようこそ<c:out value ="${user.fName}"></c:out><c:out value ="${user.lName}"></c:out>さん
 </p>
@@ -32,21 +31,19 @@
 	<div class="hero">
 		<h2>コース選択</h2>
  	</div>
- 	<div class="course">
-	 	<form method="POST" action="<c:url value='/ApplySikijoServlet' />">
-	<%--  	<c:if test="${not empty errorMsg }">
-	 		<p>${errorMsg }
-	 	</c:if> --%>
-	 	<c:forEach var="e" items="${courseList}" >
-	 	<div class="courselist">
-			<input type="radio" name="course" value="${e.courseId}" required>
-			${e.courseName}コース:${e.coursePrice }万円
-			<p>${e.comment}</p>
-		</div>
-		</c:forEach>	 	    
+	<form method="POST" action="<c:url value='/ApplySikijoServlet' />">
+	 	<div class="course">
+		 	<c:forEach var="e" items="${courseList}" >
+			 	<!-- <div class="courselist"> -->
+					<input type="radio" name="course" value="${e.courseId}" required>
+					${e.courseName}コース:${e.coursePrice }円
+					<p>${e.comment}</p>
+				<!-- </div> -->
+			</c:forEach>	
+		</div><!-- class="course" --> 	    
 	        <p><input type="submit" id="search" name="submit" value="次へ"></p>		
-	 	</form>
- 	</div><!-- class="course" -->
+	</form>
+ 
 </main>
 
 <footer>

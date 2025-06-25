@@ -32,17 +32,28 @@
 	<p class="finish">〇 申し込み内容 〇</p>
 	<c:forEach var="a" items="${appList}">
 		<div class="apply-card">
-			<div class="row"><span class="label"> ${a.courseName}コース</span><br>${a.intro}</div>
-		    <div class="row"><span class="label">希望式場</span><br>${a.sName}<br>
-		    
-			<img src="${pageContext.request.contextPath}/images/${a.sImage}" alt="式場画像" width="150">
-		    <div class="row"><span class="label">オプション</span><br>
-	        <c:forEach var="opt" items="${a.optionNames}" varStatus="status">
-	          ${opt}<c:if test="${!status.last}">, </c:if>
-	        </c:forEach>
-	    </div>
-	    	<div class="row"><span class="label">備考</span><br> ${a.remarks}</div>
+			<div class="row">
+				<span class="label"> ${a.courseName}コース</span><br>${a.intro}
+			</div>
+		    <div class="row">
+		    	<span class="label">希望式場</span><br>${a.sName}<br>		    
+				<img src="${pageContext.request.contextPath}/images/${a.sImage}" alt="式場画像" width="150">
+			</div>
+			<div class="row">
+				<span class="label">プランナー</span><br>
+				${a.pName }(${a.pGender })<br>
+				得意分野：${a.strongFild}
+			</div>			
+		    <div class="row">
+		    	<span class="label">オプション</span><br>
+		        <c:forEach var="opt" items="${a.optionNames}" varStatus="status">
+		          ${opt}<c:if test="${!status.last}">, </c:if>
+		        </c:forEach>
 	    	</div>
+	    	<div class="row">
+	    		<span class="label">備考</span><br> ${a.remarks}
+	    	</div>
+	    </div>	
 	 </c:forEach>
  	<div class="row"><span class="label">合計金額：</span>${totalPrice} 円</div>
 	

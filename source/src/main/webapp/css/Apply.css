@@ -26,18 +26,59 @@ h2 {
 
 /*apply2*/
 .course{
- margin: 10px auto;/*上右下左の順番*/
- text-align: center;
-/*  background-color: rgba(251,232,211,0.5);
- padding: 180px;
- border-radius: 100px;
- box-shadow: 0 0 10px rgba(0,0,0,0.1); */
- width: 430px;
- font-size: 20px;
- text-align: center;
-
+	margin: 10px auto;/*上右下左の順番*/
+	text-align: center;
+	/*  background-color: rgba(251,232,211,0.5);
+	padding: 180px;
+	border-radius: 100px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+	width: 430px;
+	font-size: 20px;
+	list-style: none;
+	padding: 10px;
+}
+.corselist p{
+	width: 60%;
+    margin: 0 auto 30px auto;
+    border: 2px solid #aaa;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
 }
 
+/*apply3*/
+.sikijo_card{
+  	display: flex; 
+  	text-align:center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+.card_text{
+	/*  width: 45%; 一列に2個並べる 
+    background-color: #fdfdfd;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center; */
+    flex: 1;
+  padding-right: 20px;
+}
+.card_img{
+	 width: 200px;
+  height: auto;
+  border-radius: 4px;
+}
+.pname{
+
+	text-align:left;
+	 margin: 0 auto 0 200px;
+}
+.plist{
+	display: none;
+}
 
 
 /*applyhistory*/

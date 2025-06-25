@@ -219,7 +219,7 @@
 			  <tr>
 				  <td>
 					  <label>
-					  <input type="checkbox" name="option" value="70000">かぼちゃ割り<br>
+					  <input type="checkbox" name="option" value="65000">かぼちゃ割り<br>
 					  </label>
 				  </td>
 			  </tr>

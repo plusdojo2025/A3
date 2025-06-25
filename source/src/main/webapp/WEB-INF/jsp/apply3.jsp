@@ -12,7 +12,6 @@
 
 <body>
 <img src = "img/gouka.png" class="logomain">
-<img src = "img/gouka.png" class="logomain">
 <p class="username">
 ようこそ<c:out value ="${user.fName}"></c:out><c:out value ="${user.lName}"></c:out>さん
 </p>
@@ -32,34 +31,42 @@
 		<h2>式場・オプション選択</h2>
  	</div>
 <form method="POST" action="<c:url value='/ApplyConfirmServlet' />">
-	
-	<%-- <p><c:out value="${sessionScope.courseId.courseName}" />コース</p>
- --%>
  	<c:if test="${not empty errorMsg }">
  		<p>${errorMsg }
  	</c:if>	
- 	<c:forEach var="e" items="${sikijoList}">
-		<input type="radio" name="sikijo" value="${e.sikijoId }">${e.sName}:${e.sPrice }万円
-<%-- 		<p>${e.sikijoId}</p>
-			<p>${e.sName}</p> --%>
-			<p>${e.sAddress}</p><!-- ココ住所かも？あと、写真も入れる！！ --> 
-		<%-- 	<p>${e.sImage }</p> --%>
-		<c:if test="${not empty e.sImage}">
-		<img src="${pageContext.request.contextPath}/images/${e.sImage}" alt="式場画像" width="150">
-		</c:if><br>
-		<br>
-		<c:forEach var="p" items="${e.plannerList}">
-			<p>プランナー</p>
-			<input type="radio" name="planner" value="${p.plannerId}">
-			 ${p.plannerName}（${p.gender}）<br>
+ 	<div class="sikijo_card">
+	 	<c:forEach var="e" items="${sikijoList}">
+	 		<div class="card_text">
+				<input type="radio" name="sikijo" value="${e.sikijoId }" onchange="showPlanner(${e.sikijoId})">
+				${e.sName}:${e.sPrice }円
+		<%-- 		<p>${e.sikijoId}</p>
+					<p>${e.sName}</p> --%>
+					<p>${e.sAddress}</p><!-- ココ住所かも？あと、写真も入れる！！ --> 
+				<%-- 	<p>${e.sImage }</p> --%>
+				<div class="card_img">
+					<c:if test="${not empty e.sImage}">
+					<img src="${pageContext.request.contextPath}/images/${e.sImage}" alt="式場画像" width="150">
+					</c:if><br>
+				</div>
+				<br>				
+				<div id="plist${e.sikijoId}" class="plist">
+					<p>プランナー</p>
+					<c:forEach var="p" items="${e.plannerList}">
+					<div class="pname">
+						<input type="radio" name="planner" value="${p.plannerId}" disabled>
+						 ${p.plannerName}（${p.gender}）<br>
+					</div>
+					</c:forEach>
+				</div>
+			</div>
 		</c:forEach>
-	</c:forEach>  
+	</div>  
 		
 	<label>オプション</label><br>
 	<c:forEach var="e" items="${optionList}">
 		<input type="checkbox" name="option" value="${e.optionId }"><%-- ${e.optionId }, --%>
 		${e.optionName }:
-		${e.optionPrice }万円
+		${e.optionPrice }円
 		<br>
 	</c:forEach>
 	<br>
@@ -86,7 +93,23 @@
 </footer>
 
 <script>
-//コース選択で表示
+function showPlanner(sikijoId) {
+    // まず全部のブロックを非表示
+    let blocks = document.querySelectorAll('.plist');
+    blocks.forEach(function(block) {
+        block.style.display = 'none';
+        let radios = block.querySelectorAll('input[type="radio"]');
+        radios.forEach(r => r.disabled = true); // ラジオボタン無効化
+    });
+
+    // 選ばれた式場のプランナーだけ表示
+    let selected = document.getElementById('plist' + sikijoId);
+    if (selected) {
+        selected.style.display = 'block';
+        let radios = selected.querySelectorAll('input[type="radio"]');
+        radios.forEach(r => r.disabled = false); // 選ばれた式場のラジオボタンを有効化
+    }
+}
 
 </script>
 </body>

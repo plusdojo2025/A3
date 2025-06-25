@@ -10,7 +10,6 @@
 </head>
 <body>
 <img src = "img/gouka.png" class="logomain">
-<img src = "img/gouka.png" class="logomain">
 <p class="username">
 ようこそ<c:out value ="${user.fName}"></c:out><c:out value ="${user.lName}"></c:out>さん
 </p>
@@ -31,7 +30,7 @@
 		
 		<p>〇希望式場<br>
 		${sikijo.sName}<br>
-		${sikijo.sImage }
+		<img src="${pageContext.request.contextPath}/images/${sikijo.sImage}" alt="式場画像" width="150">
 		</p>
 		
 		<label>〇オプション</label>
