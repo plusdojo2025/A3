@@ -39,21 +39,12 @@ public class ApplyConfirmServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		int courseId = (Integer) session.getAttribute("courseId");
 		
-		//apply3で選択された式場idとオプションidの取得
+		//apply3で選択された式場idとオプションid、備考の取得
 		String si = request.getParameter("sikijo");
-			//System.out.println("受け取ったsikijo = " + si);  // 例: "1"
-			/*
-			 * //もし式場が選択されてなかったら if(si == null || si.isEmpty()) {
-			 * request.setAttribute("eroorMsg", "※コースを選択してください"); // 元の画面（例: apply2.jsp）に戻す
-			 * RequestDispatcher dispatcher =
-			 * request.getRequestDispatcher("/WEB-INF/jsp/apply3.jsp");
-			 * dispatcher.forward(request, response); return; }
-			 */
-		String op = request.getParameter("option");
-		String re = request.getParameter("remarks");
-		
 		int sikijoId = Integer.parseInt(si);
 			System.out.println("変換後のsId = " + sikijoId);
+		String op = request.getParameter("option");
+		String re = request.getParameter("remarks");
 //		int opId = Integer.parseInt(op);
 		
 		//DAOをインスタンス化
@@ -65,33 +56,45 @@ public class ApplyConfirmServlet extends HttpServlet {
 		//選択されたオプション(のname属性)を取得
 		String[] optionIds = request.getParameterValues("option");
 		List<AllDTO> opList = new ArrayList<>();
-		
+		//オプション合計
 		int opsum = 0;
 		if (optionIds != null) {
 			for (String oid : optionIds) {
-				int optionId = Integer.parseInt(oid);
-				// DAOで取得して確認画面に渡すなど
-				AllDTO opt = appdao.getOption(optionId); 
-				opList.add(opt);
-				opsum += Integer.parseInt(opt.getOptionPrice());
-			}
+				if (oid != null && !oid.isEmpty()) {
+					int optionId = Integer.parseInt(oid);
+					// DAOで取得して確認画面に渡すなど
+					AllDTO opt = appdao.getOption(optionId); 
+					opList.add(opt);
+					opsum += Integer.parseInt(opt.getOptionPrice());
+				}
+			}	
 		}else {
 			request.setAttribute("opMsg", "未選択");
 		}
 			//確認用
 			System.out.println("siki = " + sikijo);
 		
+		//全体合計
+		int sum = 0;
+		sum += Integer.parseInt(course.getcPrice());
+		sum += Integer.parseInt(sikijo.getsPrice());
+		sum += opsum;  // すでに求めたオプション合計
+			// 確認用
+			System.out.println("コース金額: " + course.getcPrice());
+			System.out.println("式場金額: " + sikijo.getsPrice());
+			System.out.println("オプション合計: " + opsum);
+			System.out.println("合計金額: " + sum);
+			
 		//apply3で選択された式場とコースをセッションへ
 		session.setAttribute("course", course);
 		session.setAttribute("sikijo", sikijo);
 		session.setAttribute("options", opList);//AllDTO(jsp表示用)
 		session.setAttribute("optionIds", optionIds); // ←String[] IDだけ（登録処理用）
-		session.setAttribute("opsum", opsum);
+//		session.setAttribute("opsum", opsum);
 		session.setAttribute("remarks", re);
+		request.setAttribute("sum", sum);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply_confirm.jsp");
 		dispatcher.forward(request,response);
-		
-		
 	}
 }
