@@ -6,6 +6,8 @@ import java.util.List;
 
 public class AllDTO implements Serializable {
 	
+	private ArrayList<PlannerDTO> plannerDTO;
+	
 	//userテーブルのデータ-----------------------
 	private int userId;
 	private String id;
@@ -463,6 +465,30 @@ public class AllDTO implements Serializable {
 	public AllDTO() {
 	    this.optionPrices = new ArrayList<>();
 	    this.optionNames = new ArrayList<>(); // これも同様に初期化
+	}
+
+	public ArrayList<PlannerDTO> getPlannerDTO() {
+		return plannerDTO;
+	}
+
+	public void setPlannerDTO(ArrayList<PlannerDTO> plannerDTO) {
+		this.plannerDTO = plannerDTO;
+	}
+
+	public int getmUserId() {
+		return mUserId;
+	}
+
+	public void setmUserId(int mUserId) {
+		this.mUserId = mUserId;
+	}
+
+	public int getmPlannerId() {
+		return mPlannerId;
+	}
+
+	public void setmPlannerId(int mPlannerId) {
+		this.mPlannerId = mPlannerId;
 	}	
 		
 		
