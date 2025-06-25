@@ -16,7 +16,12 @@
 </head>
 
 <body>
-<img src="http://localhost:8080/A3/img/gouka.png" class="logomain">
+<div class="logo-wrapper">
+<img src="<c:url value='/img/gouka.png'/>" class="logomain">
+<p class="username">
+ようこそ<c:out value ="${user.fName}"></c:out><c:out value ="${user.lName}"></c:out>さん
+</p>
+</div>
 <ul id="nov">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
 <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
@@ -32,9 +37,6 @@
 	<h2>ホーム</h2>
 	<p>結婚式を希望される方や考えている方に最適なサイトです。</p>
 </div>
-<p class="username">
-ようこそ<c:out value ="${user.fName}"></c:out><c:out value ="${user.lName}"></c:out>さん
-</p>
 <div class="main-list">
 	<ul>
 	<h3>本サイト機能</h3>	

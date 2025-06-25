@@ -10,10 +10,12 @@
 <link rel="stylesheet" href="css/all.css">
 </head>
 <body>
-<img src = "img/gouka.png" class="logomain">
+<div class="logo-wrapper">
+<img src ="${pageContext.request.contextPath}/img/gouka.png" class="logomain">
 <p class="username">
 ようこそ<c:out value ="${user.fName}"></c:out><c:out value ="${user.lName}"></c:out>さん
 </p>
+</div>
 <ul id="niv">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
 <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>

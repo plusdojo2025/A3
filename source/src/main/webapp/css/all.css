@@ -1,6 +1,21 @@
 @charset "UTF-8";
+.logo-wrapper {
+  text-align: center;
+  padding: 20px 0;
+  position:relative;
+  z-index:1000;  
+}
+
+img.logomain {
+  width: 400px;
+  height: auto;
+  display: block;
+  position:relative;
+  z-index:1100;
+}
 body{
 	background-image: url(../img/new_background.gif);
+	z-index:700;
 }
 /*headerすべてに適用*/
 
