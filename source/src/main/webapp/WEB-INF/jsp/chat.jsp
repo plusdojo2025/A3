@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Chat Application</title>
-<link rel="stylesheet" href="<c:url value='/css/chat.css' />">
+<link rel="stylesheet" href="<c:url value='/css/chat.css'/>">
 
 </head>
 <body onload="connect()">
@@ -24,11 +24,15 @@
 	    var socket;
 	    var user_id_speaker = ${param.one};// 送信者のユーザーIDを文字列にする
 	    var user_id_listener = ${param.two}; // 受信者のユーザーIDを文字列にする
-	
+	    
+	    var user_id_speaker = ${param.two};// 受信者のユーザーIDを文字列にする
+	    var user_id_listener = ${param.one}; // 送信者のユーザーIDを文字列にする
+	    
 	    function connect() {
 	        // WebSocketを初期化するで
 	        loadChatHistory(); // ← 先に履歴を取って表示
-	        socket = new WebSocket("ws://" + window.location.host + "/etcProject/chat");
+	        socket = new WebSocket("ws://" + window.location.host + "${pageContext.request.contextPath}/chat");
+
 	
 	        // 接続が開いたときの処理やで
 	        socket.onopen = function() {
@@ -47,7 +51,8 @@
 	            var speaker = data[2];
 	            var listener = data[3];
 	            var message = data.slice(4).join(" ");
-	            var messageClass = (speaker === user_id_speaker) ? "sent-message" : "received-message";
+	            var messageClass = (String(speaker) === String(user_id_speaker)) ? "sent-message" : "received-message";
+
 	            var messageElement = "<div class='" + messageClass + "'><div class='message-time'>" + createdAt + "</div><div class='message-content'>" + message + "</div></div>";
 	            document.getElementById("messages").innerHTML += messageElement;
 	            document.getElementById("messages").scrollTop = document.getElementById("messages").scrollHeight;
