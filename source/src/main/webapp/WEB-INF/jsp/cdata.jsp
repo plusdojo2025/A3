@@ -25,7 +25,7 @@ pageEncoding="UTF-8"%>
 
 <h1>検索</h1><br>
 <h3>＊入力しないと全件表示されます。</h3>
-<hr>
+
 
 <!-- 検索フォーム -->
 <form method="POST" action="<c:url value='/CDataServlet'/>" class="searcher-box">
@@ -74,7 +74,7 @@ pageEncoding="UTF-8"%>
 <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
 <li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
 <li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
-   <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
+  
 </div>
 <!-- ふっだーここまで -->
 <%--時間表示スクリプト --%>
