@@ -417,6 +417,51 @@ public class UserDAO {
 
 		    return memo;
 		}
+	 
+	 public AllDTO searchPlanner(int u) {
+		AllDTO applyPlanner=null;
+		Connection conn = null;
+	    PreparedStatement pStmt = null;
+
+
+	    try {
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        conn = DriverManager.getConnection(
+	            "jdbc:mysql://localhost:3306/a3?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B9",
+	            "root", "password");
+
+	        String sql = "SELECT * FROM user "
+	        		+ "JOIN apply "
+	        		+ "ON user.user_id = apply.user_id "
+	        		+ "JOIN planner "
+	        		+ "ON planner.planner_id = apply.Planner_id "
+	        		+ "WHERE user.user_id = ?";
+	        pStmt = conn.prepareStatement(sql);
+	        pStmt.setInt(1, u);
+	        
+	        ResultSet rs = pStmt.executeQuery();
+
+	        if (rs.next()) {
+	        	applyPlanner= new AllDTO();
+	        	applyPlanner.setPlannerId(rs.getInt("planner_id"));
+	        	applyPlanner.setpName(rs.getString("name"));
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            
+	            if (pStmt != null) pStmt.close();
+	            if (conn != null) conn.close();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+		 
+		 return applyPlanner;
+	 }
 
 	
 	 }
