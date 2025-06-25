@@ -52,7 +52,7 @@ pageEncoding="UTF-8"%>
       <p style="color: blue;">登録済みのメモ：${memoText}</p>
 	</c:if>
      <form method="POST" action="<c:url value='/CDataServlet'/>" class="searcher-box">
-		記録：<input type="text" value="${e.memo}" name="memo"><br>
+		記録：<textarea name="memo" style="width:450px;height:200px;">${e.memo}</textarea><br>
 		<input type="hidden" name="uId" value="${e.userId}">
 		<input type="hidden" name="full_name" value="${fullName}">
 		<input type="submit" name="regist" value="登録" onclick="return touroku()">
@@ -88,6 +88,11 @@ pageEncoding="UTF-8"%>
 	  const theTime = document.getElementById("theTime");
 	  theTime.innerText=hours + "時" + minutes + "分" + seconds + "秒";
     }
+  
+  function insertNewLine() {
+      document.getElementById("memo").value += "\n";
+  }
+  
     updateTime();
     setInterval(updateTime,1000);
     
