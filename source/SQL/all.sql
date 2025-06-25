@@ -108,13 +108,13 @@ INSERT INTO planner VALUES
 );
 
 INSERT INTO sikijo VALUES
-  (NULL, '洋', 'アンジェリーナ・ジョリーン', '東京都渋谷区渋谷1丁目4番1号','siki_angelina.png','48'),
-  (NULL, '和洋', 'トム・クルージョン', '東京都新宿区新宿6丁目8番','siki_tom.png','55'),
-  (NULL, '洋', 'クリムゾン・ドッピオ', '東京都豊島区南池袋2丁目26番3号','siki_crimson.png','38'),
-  (NULL, '和', 'D４C館', '東京都品川区北品川3丁目4番7号','siki_D4c.png','12'),
-  (NULL, '和洋', 'ドウェイン・ブラザー', '東京都台東区上野3丁目5番12号','siki_dwein.png','52'),
-  (NULL, '洋', 'テイラー２２', '東京都武蔵野市吉祥寺本町2丁目20番6号','siki_taylor.jpeg','41'),
-  (NULL, '和洋', 'エマ・ワトシン', '東京都立川市曙町3丁目15番5号','siki_ema.png','29');
+  (NULL, '洋', 'アンジェリーナ・ジョリーン', '東京都渋谷区渋谷1丁目4番1号','siki_angelina.png','480000'),
+  (NULL, '和洋', 'トム・クルージョン', '東京都新宿区新宿6丁目8番','siki_tom.png','550000'),
+  (NULL, '洋', 'クリムゾン・ドッピオ', '東京都豊島区南池袋2丁目26番3号','siki_crimson.png','380000'),
+  (NULL, '和', 'D４C館', '東京都品川区北品川3丁目4番7号','siki_D4c.png','120000'),
+  (NULL, '和洋', 'ドウェイン・ブラザー', '東京都台東区上野3丁目5番12号','siki_dwein.png','520000'),
+  (NULL, '洋', 'テイラー２２', '東京都武蔵野市吉祥寺本町2丁目20番6号','siki_taylor.jpeg','410000'),
+  (NULL, '和洋', 'エマ・ワトシン', '東京都立川市曙町3丁目15番5号','siki_ema.png','290000');
  
 create table course (
  course_id int  primary key auto_increment,
