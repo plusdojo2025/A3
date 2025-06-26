@@ -19,11 +19,17 @@
 			<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
 			<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
 			<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
-			<li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
+			<%-- <li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li> --%>
+			<li><c:url var="chatUrl" value="/SoServlet">チャット(Q＆A)
+				  <c:param name="one" value="${sessionScope.user.userId}" />
+				  <c:param name="two" value="${sessionScope.applyPlanner.plannerId}" />
+				 <%--  <c:param name="p_name" value="${sessionScope.applyPlanner.pName}" /> --%>
+				</c:url></li>
 			<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 		</ul>
 	</header>
 <main>
+<div class="confirm">
 <h2 id="regist">申し込み確認</h2>
  	<form method="POST" action="<c:url value='/ApplyCompServlet' />">
 		<p>〇選択したコース<br>${course.courseName}コース<br>${course.intro}</p>
@@ -53,6 +59,7 @@
 		</p>
 	</form>
 	<button type="submit" name="return" value="戻る" onclick="history.back();">選択へ戻る</button>
+</div>
 </main>
 <footer>
 <div class="footer">
