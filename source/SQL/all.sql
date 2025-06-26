@@ -182,7 +182,7 @@ CREATE TABLE sp (
   planner_id INT NOT NULL
 );
 INSERT INTO sp (sp_id, sikijo_id, planner_id) VALUES
-(NULL, 1, 22),
+(NULL, 1, 42),
 (NULL, 1, 22),
 (NULL, 1, 33),
 (NULL, 2, 24),
