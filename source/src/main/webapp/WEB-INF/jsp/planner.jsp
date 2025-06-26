@@ -22,6 +22,11 @@
 <li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
 <li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
 <li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+<c:url var="chatUrl" value="/SoServlet">
+  <c:param name="one" value="${sessionScope.user.userId}" />
+  <c:param name="two" value="${sessionScope.applyPlanner.plannerId}" />
+ <%--  <c:param name="p_name" value="${sessionScope.applyPlanner.pName}" /> --%>
+</c:url>
 </ul>
 <div class="hero">
 <h2 class="herosimu">プランナー一覧</h2>
