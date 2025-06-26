@@ -49,7 +49,7 @@ INSERT INTO user VALUES (
 
 INSERT INTO user VALUES (
   null,
-  'dojouser13',
+  'dojouser14',
   '#SEplus2025SEplus',
   '亜夢',
   '彪夢',
