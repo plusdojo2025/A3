@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,6 +85,9 @@ public class ApplyConfirmServlet extends HttpServlet {
 		sum += Integer.parseInt(course.getcPrice());
 		sum += Integer.parseInt(sikijo.getsPrice());
 		sum += opsum;  // すでに求めたオプション合計
+		
+		NumberFormat formatter = NumberFormat.getNumberInstance();
+		String appsum = formatter.format(sum);
 			// 確認用
 			System.out.println("コース金額: " + course.getcPrice());
 			System.out.println("式場金額: " + sikijo.getsPrice());
@@ -98,7 +102,7 @@ public class ApplyConfirmServlet extends HttpServlet {
 		session.setAttribute("optionIds", optionIds); // ←String[] IDだけ（登録処理用）
 //		session.setAttribute("opsum", opsum);
 		session.setAttribute("remarks", re);
-		request.setAttribute("sum", sum);
+		request.setAttribute("sum", appsum);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/apply_confirm.jsp");
 		dispatcher.forward(request,response);

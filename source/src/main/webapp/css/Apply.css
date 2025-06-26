@@ -32,18 +32,32 @@ h2 {
 	padding: 180px;
 	border-radius: 100px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.1); */
-	width: 430px;
+	width: 80%;
 	font-size: 20px;
 	list-style: none;
 	padding: 10px;
+	flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+
 }
-.corselist p{
-	width: 60%;
-    margin: 0 auto 30px auto;
-    border: 2px solid #aaa;
-    padding: 15px;
-    border-radius: 10px;
-    background-color: #f9f9f9;
+.course_card{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  	/* width: 100%;  *//* カードの横幅調整 */
+	/* margin: 0 auto; */
+  	border: 1px solid #ccc;
+  	border-radius: 10px;
+  	padding: 15px;
+  	background-color: rgba(251,232,211,0.5);
+  	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  	text-align: center; 
+}
+.next{
+	text-align:center;
 }
 
 /*apply3*/
@@ -127,13 +141,29 @@ h2 {
   text-align: left;
 
 }
+.remarks{
+	text-align:center;
+}
+.return{
+	text-align:center;
+}
 
-
+/*applyconfirm*/
+.confirm{
+	text-align:center;
+	
+}
 
 /*applyhistory*/
 .comp{
 	text-align: center;
 	 margin: 0 auto 0 auto;
+	 border: 1px solid #ccc;
+  	border-radius: 10px;
+  	padding: 15px;
+  	background-color: rgba(251,232,211,0.5);
+  	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  	text-align: center; 
 }
 .apply-card {
   border: 1px solid #ccc;

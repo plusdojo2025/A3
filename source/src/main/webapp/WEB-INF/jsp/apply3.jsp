@@ -21,7 +21,12 @@
 			<li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
 			<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
 			<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
-			<li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
+			<%-- <li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li> --%>
+			<li><c:url var="chatUrl" value="/SoServlet">チャット(Q＆A)
+				  <c:param name="one" value="${sessionScope.user.userId}" />
+				  <c:param name="two" value="${sessionScope.applyPlanner.plannerId}" />
+				 <%--  <c:param name="p_name" value="${sessionScope.applyPlanner.pName}" /> --%>
+				</c:url></li>
 			<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 		</ul>
 	</header>
@@ -38,7 +43,7 @@
 	 	<c:forEach var="e" items="${sikijoList}">
 	 		<div class="sikijo_card">
 		 		<div class="left">		
-					<input type="radio" name="sikijo" value="${e.sikijoId }" onchange="showPlanner(${e.sikijoId})">
+					<input type="radio" name="sikijo" value="${e.sikijoId }" onchange="showPlanner(${e.sikijoId})" required>
 					${e.sName}:${e.sPrice }円
 					<p>${e.sAddress}</p>
 					
@@ -47,7 +52,7 @@
 						<p>プランナー</p>
 						<c:forEach var="p" items="${e.plannerList}">
 						<div class="pname">
-							<input type="radio" name="planner" value="${p.plannerId}" disabled>
+							<input type="radio" name="planner" value="${p.plannerId}" disabled required>
 							 ${p.plannerName}（${p.gender}）<br>
 						</div>
 						</c:forEach>
@@ -75,13 +80,15 @@
 		</div>
 	</div><!-- option_card -->
 	<br>
-    <label>備考<br>
-		<textarea name="remarks" rows=4 cols=40></textarea><br>
-    </label>
-    <p><input type="submit" name="submit" value="申し込み確認へ"></p> 		
+	<div class="remarks">
+	    <label>備考<br>
+		<textarea name="remarks" rows=4 cols=40></textarea><br></label>
+	    <p><input type="submit" name="submit" value="申し込み確認へ"></p> 		
+	</div>
 </form>
+	<div class="return">
 	<button type="submit" name="return" value="戻る" onclick="history.back();">コース選択へ戻る</button>
-	
+	</div>
 </main>
 <footer>
 <div class="footer">

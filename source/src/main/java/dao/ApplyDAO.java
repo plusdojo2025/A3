@@ -512,7 +512,12 @@ public class ApplyDAO {
 					"root", "password");
 			
 			// SQL文の準備（コースのデータ全て取得）（ハッピーセット）
-			String sql = "SELECT * FROM apply "
+			String sql = "SELECT apply.apply_id, apply.user_id, apply.course_id, apply.sikijo_id, apply.planner_id, apply.remarks, "
+							+ "course.course_name, course.comment, course.course_price, "
+							+ "sikijo.name AS sikijo_name, sikijo.sikijo_price, sikijo.image AS sikijo_image, sikijo.address, sikijo.sikijo_price, "
+							+ " planner.name, planner.gender, planner.strong_fild, "
+							+ "options.option_id, options.option_name, options.option_price "
+							+ "FROM apply "
 							+ "JOIN user ON apply.user_id = user.user_id "
 							+ "JOIN course ON apply.course_id = course.course_id "
 							+ "JOIN sikijo ON apply.sikijo_id = sikijo.sikijo_id "
@@ -527,11 +532,8 @@ public class ApplyDAO {
 			ResultSet rs = pStmt.executeQuery();//なんでも表が入るResultSet型に格納（DAOでしか使えない）
 			
 			while(rs.next()) {
-				System.out.println("ヒットした！DBにデータある！");
-				
+				System.out.println("ヒットした！DBにデータある！");				
 				int applyId = rs.getInt("apply_id");
-				
-				
 				if(applyMap.containsKey(applyId)) {
 					alldto = applyMap.get(applyId);
 				}else {	
@@ -547,18 +549,18 @@ public class ApplyDAO {
 					alldto.setcPrice(rs.getString("course_price"));
 						/*式場*/	
 					alldto.setSikijoId(rs.getInt("sikijo_id"));				
-					alldto.setJmNumber(rs.getString("jm_number"));
-					alldto.setsName(rs.getString("name"));
+//					alldto.setJmNumber(rs.getString("jm_number"));
+					alldto.setsName(rs.getString("sikijo_name"));
 					alldto.setSikiAdd(rs.getString("address"));
-					alldto.setsImage(rs.getString("image"));
+					alldto.setsImage(rs.getString("sikijo_image"));
 					alldto.setsPrice(rs.getString("sikijo_price"));
 						/*プランナー*/
 					alldto.setPlannerId(rs.getInt("planner_id"));
 					alldto.setpName(rs.getString("name"));
 					alldto.setpGender(rs.getString("gender"));
-					alldto.setpPhone(rs.getString("phone"));
+//					alldto.setpPhone(rs.getString("phone"));
 					alldto.setStrongFild(rs.getString("strong_fild"));
-					alldto.setpImage(rs.getString("image"));
+//					alldto.setpImage(rs.getString("image"));
 						/*オプション*/
 					alldto.setOptionId(rs.getInt("option_id")); 
 					alldto.setOptionName(rs.getString("option_name"));
