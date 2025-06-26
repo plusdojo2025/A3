@@ -16,7 +16,7 @@ h2 {
 }
 
 /* 仮の丸い画像スペース */
-img {
+.user-image img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
