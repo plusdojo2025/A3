@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>申し込み確認</title>
+<title>結婚しなサイト｜申し込み</title>
 <link rel="stylesheet" href="<c:url value='/css/all.css' />">
 <link rel="stylesheet" href="<c:url value='/css/Apply.css' />">
 </head>

@@ -110,6 +110,9 @@ public class ApplyCompServlet extends HttpServlet {
 //		
 
 		List<AllDTO> applyList  = appdao.applyComp(userId);
+		if (remarks == null) {
+			remarks = "なし";
+		}
 		int total = 0;	
 		if (!applyList.isEmpty()) {
 			AllDTO dto = applyList.get(0);
@@ -134,6 +137,9 @@ public class ApplyCompServlet extends HttpServlet {
 		}
 		NumberFormat formatter = NumberFormat.getNumberInstance();
 		String apptotal = formatter.format(total);
+		
+		
+		
 		System.out.println(applyList.size());
 		request.setAttribute("totalPrice", apptotal);
 		request.setAttribute("appList", applyList);

@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>申し込み完了</title>
+	<title>結婚しなサイト｜申し込み完了</title>
 	<link rel="stylesheet" href="<c:url value='/css/all.css' />">
 	<link rel="stylesheet" href="<c:url value='/css/Apply.css' />">
 </head>
@@ -21,7 +21,7 @@
 			<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
 			<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
 			<%--<li> <a href="<c:url value='/SoServlet' />"> --%>
-			<li><c:url var="chatUrl" value="/SoServlet">
+			<li><c:url var="chatUrl" value="/SoServlet">チャット(Q＆A)
 				  <c:param name="one" value="${sessionScope.user.userId}" />
 				  <c:param name="two" value="${sessionScope.applyPlanner.plannerId}" />
 				 <%--  <c:param name="p_name" value="${sessionScope.applyPlanner.pName}" /> --%>
@@ -51,6 +51,9 @@
 			</div>			
 		    <div class="row">
 		    	<span class="label">オプション</span><br>
+		    	<c:if test ="${empty a.optionNames}">
+					<p>未選択</p>
+				</c:if>
 		        <c:forEach var="opt" items="${a.optionNames}" varStatus="status">
 		          ${opt}<c:if test="${!status.last}">, </c:if>
 		        </c:forEach>

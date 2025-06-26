@@ -24,6 +24,14 @@ h2 {
  text-align: center;
 }
 
+footer ul{
+	padding:20px;
+	bottom:20px;
+	text-align:right;
+	list-style:none;
+	
+}
+
 /*apply2*/
 .course{
 	margin: 10px auto;/*上右下左の順番*/
