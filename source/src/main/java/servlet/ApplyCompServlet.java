@@ -62,7 +62,9 @@ public class ApplyCompServlet extends HttpServlet {
 			    }
 			}
 		}
-		request.setAttribute("totalPrice", total);
+		NumberFormat formatter = NumberFormat.getNumberInstance();
+		String apptotal = formatter.format(total);
+		request.setAttribute("totalPrice", apptotal);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/applyhistory.jsp");
 		dispatcher.forward(request,response);
@@ -137,9 +139,7 @@ public class ApplyCompServlet extends HttpServlet {
 		}
 		NumberFormat formatter = NumberFormat.getNumberInstance();
 		String apptotal = formatter.format(total);
-		
-		
-		
+
 		System.out.println(applyList.size());
 		request.setAttribute("totalPrice", apptotal);
 		request.setAttribute("appList", applyList);

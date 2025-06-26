@@ -77,6 +77,11 @@
 		<li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
 		<li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
 		<li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
+			<c:url var="chatUrl" value="/SoServlet">チャット(Q＆A)
+				<c:param name="one" value="${sessionScope.user.userId}" />
+			 	<c:param name="two" value="${sessionScope.applyPlanner.plannerId}" />
+				 <%--  <c:param name="p_name" value="${sessionScope.applyPlanner.pName}" /> --%>
+			</c:url>
 		<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 	</ul>
    </div>
