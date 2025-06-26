@@ -17,7 +17,7 @@
 
 <body>
 <div class="logo-wrapper">
-<img src="<c:url value='/img/gouka.png'/>" class="logomain">
+<img src = "img/gouka.png" class="logomain">
 <p class="username">
 ようこそ<c:out value ="${user.fName}"></c:out><c:out value ="${user.lName}"></c:out>さん
 </p>
