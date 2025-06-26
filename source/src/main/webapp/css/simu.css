@@ -27,6 +27,12 @@ body{
  text-align: center;
 }
 
+.hed{
+	width: 100%; 
+	white-space: normal;
+  	min-width: 0;
+}
+
 .tab {
  margin: 10px auto;/*上右下左の順番*/
  text-align: center;
