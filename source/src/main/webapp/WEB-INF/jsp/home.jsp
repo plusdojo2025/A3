@@ -9,7 +9,7 @@
 <!-- ヘッダー（ここから） -->
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>結婚しなサイト｜ホーム</title>
 <link rel="stylesheet" href="css/all.css"> 
 <link rel="stylesheet" href="css/home.css"> 
 
