@@ -4,23 +4,27 @@ body {
   font-family: sans-serif;
   text-align: center;
   background-image: url(/A3/img/whiteflowerremake.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  background-attachment: fixed;
 }
-
-
 .myp {
   display: flex;
-  justify-content: center;
-  gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
+  justify-content: center; /* ← これが中央寄せの主役！ */
+  margin-top: 20px;
 }
+
 
 /* フォーム全体を2列のグリッドに */
 .form-left {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2列 */
-  gap: 20px 30px; /* 行間と列間 */
-  flex: 1;
+  gap: 24px 32px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+ 
 }
 
 /* 各入力欄（ラベル＋input）を縦並びに */
@@ -37,12 +41,22 @@ body {
   grid-column: span 2;
 }
 
-/* 画像部分 */
-.img-right{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: #fff;
-    margin: 0 auto 10px auto;
+.img-right {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
+
+.img-right img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 画像部分 */
+
 

@@ -11,8 +11,7 @@ pageEncoding="UTF-8"%>
 </head>
 
 <body>
-<%--時間表示 --%>
-<div id="theTime" class="clock"></div>
+<img src = "img/gouka.png" class="logomain">
 
 <ul id="nav">
 <li><a href="<c:url value='/PWelcomeServlet' />">ホーム</a></li>
