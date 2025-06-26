@@ -141,8 +141,15 @@ h2 {
   text-align: left;
 
 }
-.remarks{
+.aaa{
+	font-size:20px;
 	text-align:center;
+}
+.remarks{
+	background-color: #fdf6e3; 
+	height: 100px; 
+	width: 800px;
+	font-size:20px;
 }
 .return{
 	text-align:center;
@@ -150,8 +157,18 @@ h2 {
 
 /*applyconfirm*/
 .confirm{
-	text-align:center;
-	
+	text-align: center;
+	 margin: 0 auto 0 auto;
+	 border: 1px solid #ccc;
+  	border-radius: 10px;
+  	padding: 15px;
+  	background-color: rgba(251,232,211,0.5);
+  	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  	width: 60%;
+	font-size:20px;
+}
+.card_img {
+	margin-left: 20px;
 }
 
 /*applyhistory*/
@@ -163,13 +180,18 @@ h2 {
   	padding: 15px;
   	background-color: rgba(251,232,211,0.5);
   	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  	text-align: center; 
+  	width: 60%; 
 }
 .apply-card {
-  border: 1px solid #ccc;
+  
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: 6px;
+ 
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  	text-align: center; 
 }
 
 .row {
@@ -182,6 +204,7 @@ h2 {
   font-weight: bold;
   color: #333;
   margin-right: 8px;
+  text-decoration :underline;
 }
 
 .finish{

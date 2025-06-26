@@ -42,7 +42,7 @@
 			</div>
 		    <div class="row">
 		    <span class="label">希望式場</span><br>${a.sName}<br>		    
-			<img src="${pageContext.request.contextPath}/images/${a.sImage}" alt="式場画像" width="150">
+			<img src="${pageContext.request.contextPath}/images/${a.sImage}" alt="式場画像" width="550">
 			</div>
 			<div class="row">
 				<span class="label">プランナー</span><br>
@@ -59,11 +59,9 @@
 	    		<span class="label">備考</span><br> ${a.remarks}
 	    	</div>
 	    </div>	
-	 </c:forEach>
- 	<div class="row"><span class="label">合計金額：</span>${sessionScope.totalPrice} 円</div>
-	<p>DEBUG totalPrice: [${sessionScope.totalPrice}]</p>
-	
-</div>		
+	</c:forEach>
+ 	<div class="row"><span class="label">合計金額</span>：${totalPrice} 円</div>
+</div><!-- class=comp -->
 </main>
 <footer>
 <div class="footer">

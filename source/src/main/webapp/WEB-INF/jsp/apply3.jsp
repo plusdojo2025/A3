@@ -80,9 +80,9 @@
 		</div>
 	</div><!-- option_card -->
 	<br>
-	<div class="remarks">
+	<div class="aaa">
 	    <label>備考<br>
-		<textarea name="remarks" rows=4 cols=40></textarea><br></label>
+		<textarea class="remarks" name="remarks" rows=4 cols=40></textarea><br></label>
 	    <p><input type="submit" name="submit" value="申し込み確認へ"></p> 		
 	</div>
 </form>

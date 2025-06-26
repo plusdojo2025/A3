@@ -52,7 +52,9 @@ public class ApplyConfirmServlet extends HttpServlet {
 		String op = request.getParameter("option");
 		String re = request.getParameter("remarks");
 //		int opId = Integer.parseInt(op);
-		
+		if (re == null || re.trim().isEmpty()) {
+		    re = "なし";
+		}
 		//DAOをインスタンス化
 		ApplyDAO appdao = new ApplyDAO();		
 		AllDTO sikijo = appdao.getSikijo(sikijoId);

@@ -108,7 +108,7 @@ public class ApplyCompServlet extends HttpServlet {
 		appdao.insert(userId, courseId, sikijoId, plannerId, opIds, remarks);
 //		int opsum = (Integer) session.setAttribute("opsum", opsum);
 //		
-		//コースと式場の合計
+
 		List<AllDTO> applyList  = appdao.applyComp(userId);
 		int total = 0;	
 		if (!applyList.isEmpty()) {
@@ -117,12 +117,12 @@ public class ApplyCompServlet extends HttpServlet {
 		    if (dto.getcPrice() != null && !dto.getcPrice().isEmpty()) {
 		        total += Integer.parseInt(dto.getcPrice());
 		    }
+
 		    // 式場金額
 		    if (dto.getsPrice() != null && !dto.getsPrice().isEmpty()) {
 		        total += Integer.parseInt(dto.getsPrice());
 		    }
 		}
-		//オプション合計を足す
 		for (AllDTO dto : applyList) {
 		System.out.println("OptionPrices: " + dto.getOptionPrices());
 			for (String priceStr : dto.getOptionPrices()) {
@@ -132,14 +132,14 @@ public class ApplyCompServlet extends HttpServlet {
 			    }
 			}
 		}
-		//カンマつける
 		NumberFormat formatter = NumberFormat.getNumberInstance();
 		String apptotal = formatter.format(total);
-		
-		session.setAttribute("totalPrice", apptotal);
-		session.setAttribute("appList", applyList);
+		System.out.println(applyList.size());
+		request.setAttribute("totalPrice", apptotal);
+		request.setAttribute("appList", applyList);
+		System.out.println(applyList.size());
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/applyhistory.jsp");
-		dispatcher.forward(request,response);
+		dispatcher.forward(request,response);	
 	}
 }

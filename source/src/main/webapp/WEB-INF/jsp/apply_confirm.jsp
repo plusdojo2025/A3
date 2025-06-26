@@ -29,17 +29,21 @@
 		</ul>
 	</header>
 <main>
+
+<div class="hero">
+	<h2 id="regist">申し込み確認</h2>
+</div>
 <div class="confirm">
-<h2 id="regist">申し込み確認</h2>
  	<form method="POST" action="<c:url value='/ApplyCompServlet' />">
-		<p>〇選択したコース<br>${course.courseName}コース<br>${course.intro}</p>
+		<span class="label">〇選択したコース</span><br>${course.courseName}コース<br>${course.intro}</p>
 		
-		<p>〇希望式場<br>
+		<span class="label">〇希望式場</span><br>	
 		${sikijo.sName}<br>
-		<img src="${pageContext.request.contextPath}/images/${sikijo.sImage}" alt="式場画像" width="150">
-		</p>
+		<div calss="siki_img">
+		<img src="${pageContext.request.contextPath}/images/${sikijo.sImage}" alt="式場画像" width="550">
+		</div>
 		
-		<label>〇オプション</label>
+		<span class="label">〇オプション</span>
 		<c:if test ="${not empty opMsg }">
 			<p>${opMsg }</p>
 		</c:if>
@@ -47,12 +51,14 @@
 		    <li>${e.optionName} : ${e.optionPrice}万円</li>
 		</c:forEach>	
 		<%-- <p>【オプション合計金額】 ${opsum}万円</p>	 --%>	
+		<br>
 		
-		<label>〇備考<br>
+		<span class="label">〇備考</span><br>
 		${remarks }<br>
-    	</label>
+		<br>
 		
-		<p>【合計金額】${sum} 円</p>
+		<span class="label">【合計金額】</span><br>
+		${sum} 円
 		
 		<p>		
 		<input type="submit" name="submit" value="申し込む">
