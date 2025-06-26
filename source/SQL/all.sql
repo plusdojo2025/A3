@@ -17,7 +17,7 @@ create table user (
 
 INSERT INTO user VALUES (
   null,
-  'dojouser12',
+  'dojouser22',
   '#SEplus2025SEplus',
   '小尾利',
   '爪溜',
@@ -33,7 +33,7 @@ INSERT INTO user VALUES (
 
 INSERT INTO user VALUES (
   null,
-  'dojouser13',
+  'dojouser23',
   '#SEplus2025SEplus',
   '綿名',
   '画目',
@@ -49,7 +49,7 @@ INSERT INTO user VALUES (
 
 INSERT INTO user VALUES (
   null,
-  'dojouser14',
+  'dojouser24',
   '#SEplus2025SEplus',
   '亜夢',
   '彪夢',
