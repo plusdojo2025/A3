@@ -44,6 +44,7 @@
 <details>
 	<summary>
 	  <input type="radio" name="course"  value="1800000">Aコース<br>
+	  <a>和装レンタル、和風装花など、<br>日本の文化や伝統や、和の要素を<br>取り入れた和婚式スタイル</a>
 	</summary>
 		<table class="course">
 			<tr>
@@ -86,6 +87,7 @@
 				<td>
 					<label>
 					<input type="radio" name="sikijo" value="550000">トム・クルージョン<br>
+					<img src="${ pageContext.request.contextPath}/images/siki_tom.png" width="300" height="200" alt="トム・クルージョン">
 					</label>
 				</td>
 			</tr>
@@ -93,6 +95,7 @@
 				  <td>
 					  <label>
 					  <input type="radio" name="sikijo" value="120000">D4C館<br>
+					  <img src="${ pageContext.request.contextPath}/images/siki_D4c.png" width="300" height="200" alt="D4C館">
 					  </label>
 				  </td>
 			  </tr>
@@ -100,6 +103,7 @@
 				  <td>
 					  <label>
 					  <input type="radio" name="sikijo" value="520000">ドウェイン・ブラザー<br>
+					  <img src="${ pageContext.request.contextPath}/images/siki_dwein.png" width="300" height="200" alt="ドウェイン・ブラザー">
 					  </label>
 				  </td>
 			  </tr>
@@ -107,6 +111,7 @@
 				  <td>
 					  <label>
 					  <input type="radio" name="sikijo" value="290000">エマ・ワトシン<br>
+					  <img src="${ pageContext.request.contextPath}/images/siki_ema.png" width="300" height="200" alt="エマ・ワトシン">
 					  </label>
 				  </td>
 			  </tr>
@@ -118,6 +123,7 @@
 <details>
 	<summary>
 	  <input type="radio" name="course" value="2100000">Bコース<br>
+	  <a>白を基調とした厳かな挙式<br>バージンロードの入場、会場など<br>ロマンチックな雰囲気</a>
 	</summary>
 		<table class="course">
 			<tr>
@@ -160,6 +166,7 @@
 				<td>
 					<label>
 					<input type="radio" name="sikijo" value="480000">アンジェリーナ・ジョリーン<br>
+					<img src="${ pageContext.request.contextPath}/images/siki_angelina.png" width="300" height="200" alt="アンジェリーナ・ジョリーン">
 					</label>
 				</td>
 			</tr>
@@ -167,6 +174,7 @@
 				  <td>
 					  <label>
 					  <input type="radio" name="sikijo" value="550000">トム・クルージョン<br>
+					  <img src="${ pageContext.request.contextPath}/images/siki_tom.png" width="300" height="200" alt="トム・クルージョン">
 					  </label>
 				  </td>
 			  </tr>
@@ -174,6 +182,7 @@
 				  <td>
 					  <label>
 					  <input type="radio" name="sikijo" value="380000">クリムゾン・ドッピオ<br>
+					  <img src="${ pageContext.request.contextPath}/images/siki_crimson.png" width="300" height="200" alt="クリムゾン・ドッピオ">
 					  </label>
 				  </td>
 			  </tr>
@@ -181,6 +190,7 @@
 				  <td>
 					  <label>
 					  <input type="radio" name="sikijo" value="520000">ドウェイン・ブラザー<br>
+					  <img src="${ pageContext.request.contextPath}/images/siki_dwein.png" width="300" height="200" alt="ドウェイン・ブラザー">
 					  </label>
 				  </td>
 			  </tr>
@@ -188,6 +198,7 @@
 				  <td>
 					  <label>
 					  <input type="radio" name="sikijo" value="410000">テイラー２２<br>
+					  <img src="${ pageContext.request.contextPath}/images/siki_taylor.jpeg" width="300" height="200" alt="テイラー２２">
 					  </label>
 				  </td>
 			  </tr>
@@ -195,6 +206,7 @@
 				  <td>
 					  <label>
 					  <input type="radio" name="sikijo" value="290000">エマ・ワトシン<br>
+					  <img src="${ pageContext.request.contextPath}/images/siki_ema.png" width="300" height="200" alt="エマ・ワトシン">
 					  </label>
 				  </td>
 			  </tr>
@@ -206,6 +218,7 @@
 <details>
 	<summary>
 	  <input type="radio" name="course" value="2700000">Cコース<br>
+	  <a>和の伝統美と洋の華やかさが調和<br>どちらも楽しめる<br>和洋折衷ウェディング</a>
 	</summary>
 		<table class="course">
 			<tr>
@@ -248,6 +261,7 @@
 				<td>
 					<label>
 					<input type="radio" name="sikijo" value="550000">トム・クルージョン<br>
+					<img src="${ pageContext.request.contextPath}/images/siki_tom.png" width="300" height="200" alt="トム・クルージョン">
 					</label>
 				</td>
 			</tr>
@@ -255,6 +269,7 @@
 				  <td>
 					  <label>
 					  <input type="radio" name="sikijo" value="520000">ドウェイン・ブラザー<br>
+					  <img src="${ pageContext.request.contextPath}/images/siki_dwein.png" width="300" height="200" alt="ドウェイン・ブラザー">
 					  </label>
 				  </td>
 			</tr>
@@ -262,6 +277,7 @@
 				<td>
 					  <label>
 					  <input type="radio" name="sikijo" value="290000">エマ・ワトシン<br>
+					  <img src="${ pageContext.request.contextPath}/images/siki_ema.png" width="300" height="200" alt="エマ・ワトシン">
 					  </label>
 				  </td>
 			</tr>
