@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ApplyDAO;
+import dao.UserDAO;
 import dto.AllDTO;
 
 /**
@@ -144,6 +145,14 @@ public class ApplyCompServlet extends HttpServlet {
 		request.setAttribute("totalPrice", apptotal);
 		request.setAttribute("appList", applyList);
 		System.out.println(applyList.size());
+		
+		
+		//チャットを使うために、プランナーの情報をsessionに格納する
+		UserDAO dao = new UserDAO();
+		AllDTO applyPlanner = dao.searchPlanner(user.getUserId());
+			
+		//担当のプランナー情報をセット
+		session.setAttribute("applyPlanner", applyPlanner);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/applyhistory.jsp");
 		dispatcher.forward(request,response);	
