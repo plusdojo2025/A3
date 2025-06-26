@@ -60,11 +60,13 @@
 		<span class="label">【合計金額】</span><br>
 		${sum} 円
 		
-		<p>		
+		<p class="submit">		
 		<input type="submit" name="submit" value="申し込む">
 		</p>
 	</form>
+	<div class="return">
 	<button type="submit" name="return" value="戻る" onclick="history.back();">選択へ戻る</button>
+	</div>
 </div>
 </main>
 <footer>
@@ -77,8 +79,15 @@
 		<li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
 		<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 	</ul>
-   <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
-</div>
+   </div>
 </footer>
+<script>
+  window.addEventListener('pageshow', function(event) {
+    if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+      const radios = document.querySelectorAll('input[type="radio"]');
+      radios.forEach(radio => radio.checked = false);
+    }
+  });
+</script>
 </body>
 </html>

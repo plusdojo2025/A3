@@ -76,7 +76,6 @@
 		<li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li>
 		<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 	</ul>
-   <p>&copy;Copyright plusDOJO(SE plus). All rights reserved.</p>
 </div>
 </footer>
 

@@ -67,6 +67,17 @@ footer ul{
 .next{
 	text-align:center;
 }
+.next input[type="submit"]{
+    padding: 20px;
+    width: 300px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+}
+.next input[type="submit"]:hover {
+    background-color: #eee;
+}
+
 
 /*apply3*/
 .sikijo{
@@ -153,6 +164,16 @@ footer ul{
 	font-size:20px;
 	text-align:center;
 }
+.aaa input[type="submit"]{
+    padding: 20px;
+    width: 300px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+}
+.aaa input[type="submit"]:hover {
+    background-color: #eee;
+}
 .remarks{
 	background-color: #fdf6e3; 
 	height: 100px; 
@@ -161,6 +182,16 @@ footer ul{
 }
 .return{
 	text-align:center;
+}
+.return button{
+    padding: 20px;
+    width: 300px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+}
+.return button:hover {
+    background-color: #eee;
 }
 
 /*applyconfirm*/
@@ -178,7 +209,19 @@ footer ul{
 .card_img {
 	margin-left: 20px;
 }
-
+.submit{
+	text-align:center;
+}
+.submit input[type="submit"]{
+    padding: 20px;
+    width: 300px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+}
+.submit input[type="submit"]:hover {
+    background-color: #eee;
+}
 /*applyhistory*/
 .comp{
 	text-align: center;
