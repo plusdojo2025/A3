@@ -22,7 +22,7 @@
 <li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
 <li><a href="<c:url value='/SimuServlet' />">シミュレーション機能</a></li>
 <%-- <li><a href="<c:url value='/SoServlet' />">チャット(Q＆A)</a></li> --%>
-<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
+<%-- <li><a href="<c:url value='/UMypServlet' />">マイページ</a></li> --%>
 <c:url var="chatUrl" value="/SoServlet">
   <c:param name="one" value="${sessionScope.user.userId}" />
   <c:param name="two" value="${sessionScope.applyPlanner.plannerId}" />
@@ -32,6 +32,7 @@
 <li>
   <a href="${chatUrl}">チャット(Q＆A)</a>
 </li>
+<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 </ul>
 <div class="hero">
 <h2 class="herosimu">コース一覧</h2>

@@ -22,6 +22,18 @@ import dto.AllDTO;
 public class ApplySikijoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		AllDTO user = (AllDTO) session.getAttribute("user");
+		if (user == null) {
+		    response.sendRedirect(request.getContextPath() + "/LoginServlet");
+		    return;
+		}
+	}
+	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */

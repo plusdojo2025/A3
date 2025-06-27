@@ -27,7 +27,13 @@ public class ApplyConfirmServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession session = request.getSession();
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		AllDTO user = (AllDTO) session.getAttribute("user");
+		if (user == null) {
+		    response.sendRedirect(request.getContextPath() + "/LoginServlet");
+		    return;
+		}
 	}
 
 	/**
