@@ -8,7 +8,8 @@
 <title>結婚しなサイト｜新規登録</title>
 <link rel="stylesheet" href="<c:url value='/css/all.css' />">
 <link rel="stylesheet" href="<c:url value='/css/regist.css' />">
-<!-- <link rel="stylesheet" href="css/all.css"> 
+<!-- 
+<link rel="stylesheet" href="css/all.css"> 
 <link rel="stylesheet" href="css/regist.css">  -->
 </head>
 <body>
