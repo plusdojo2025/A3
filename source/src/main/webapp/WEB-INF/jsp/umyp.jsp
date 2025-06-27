@@ -54,10 +54,10 @@
 </c:forEach>
      --%>
     
+    #SEplus2025SEplus'
     
     
-    
-		<form method="get" action="/A3/UMyChangeServlet" method="get" class="umyp-form">
+		<form method="get" action="/A3/UMyChangeServlet" method="get" class="umyp-form" action="<c:url value='/UMyChangeServlet' />">
 			<button type="submit">登録情報の確認、変更</button>
 		</form>
 		
@@ -65,12 +65,12 @@
 		<button type="submit">申し込み履歴</button>
 		</form>--%>
 		
-		<form method="get" action="/A3/HomeServlet" >
+		<form method="get" action="<c:url value='/HomeServlet' />">
 		<button type="submit">ホームへ戻る</button><br>
 		</form>
 		
 		
-		<form method="get" action="/A3/CLogoutServlet" >
+		<form method="get" action="<c:url value='/CLogoutServlet' />">
 		<button type="submit">ログアウト</button><br>
 		</form>
 	</div>
