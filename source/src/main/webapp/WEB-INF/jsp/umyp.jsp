@@ -57,10 +57,10 @@
 </c:forEach>
      --%>
     
-    #SEplus2025SEplus'
+
     
     
-		<form method="get"  method="get" class="umyp-form" action="<c:url value='/UMyChangeServlet' />">
+		<form method="get"  class="umyp-form" action="<c:url value='/UMyChangeServlet' />">
 			<button type="submit">登録情報の確認、変更</button>
 		</form>
 		

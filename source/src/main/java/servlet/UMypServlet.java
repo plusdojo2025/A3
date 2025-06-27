@@ -40,7 +40,7 @@ public class UMypServlet extends HttpServlet {
     			HttpSession session = request.getSession();
     			//ユーザー情報をとってきてないってことはログインしてない状態
     			if (session.getAttribute("user") == null) {
-    				response.sendRedirect("/A3/LoginServlet");
+    				response.sendRedirect("LoginServlet");
     				return;
     			}
     	
