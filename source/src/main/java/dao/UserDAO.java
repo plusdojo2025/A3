@@ -113,7 +113,7 @@ public class UserDAO {
 					"root", "password");
 			
 			//IDとPWが既に登録されていないか確認する
-			String checkSql = "SELECT COUNT(*) FROM User WHERE id = ? OR pw = ?";
+			String checkSql = "SELECT COUNT(*) FROM user WHERE id = ? OR pw = ?";
 			try (PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
 			    checkStmt.setString(1, id);
 			    checkStmt.setString(2, pw);
@@ -126,7 +126,7 @@ public class UserDAO {
 			}
 
 			// SQL文を準備する
-			String sql = "INSERT INTO User VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO user VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
