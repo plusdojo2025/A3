@@ -35,7 +35,7 @@
 <ul class="course-list">
 <h1>●３つのコース</h1>
 <c:forEach var="e" items="${courseList}" >
-	<li><a href="SikijoServlet?course_id=${e.courseId}">${e.courseName}コース</a></li>
+	<li><a href="<c:url value='SikijoServlet?course_id=${e.courseId}' />">${e.courseName}コース</a></li>
 	<div class="course-comment">
 	<p>${e.comment}</p>
 	</div>
