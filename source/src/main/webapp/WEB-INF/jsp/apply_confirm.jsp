@@ -24,7 +24,11 @@
 				  <c:param name="one" value="${sessionScope.user.userId}" />
 				  <c:param name="two" value="${sessionScope.applyPlanner.plannerId}" />
 				 <%--  <c:param name="p_name" value="${sessionScope.applyPlanner.pName}" /> --%>
-				</c:url></li>
+				</c:url>
+				<li>
+  					<a href="${chatUrl}">チャット(Q＆A)</a>
+				</li>
+			</li>
 			<li><a href="<c:url value='/UMypServlet' />">マイページ</a></li>
 		</ul>
 	</header>
