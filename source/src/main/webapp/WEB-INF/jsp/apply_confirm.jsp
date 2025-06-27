@@ -52,7 +52,7 @@
 			<p>${opMsg }</p>
 		</c:if>
 		<c:forEach var="e" items="${options}">
-		    <li>${e.optionName} : ${e.optionPrice}万円</li>
+		    <li>${e.optionName} : ${e.optionPrice}円</li>
 		</c:forEach>	
 		<%-- <p>【オプション合計金額】 ${opsum}万円</p>	 --%>	
 		<br>
