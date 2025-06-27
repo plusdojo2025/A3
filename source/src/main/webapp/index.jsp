@@ -9,7 +9,7 @@
 <body>
 		<%
 		  // 最初にアクセスされたら LoginServlet にリダイレクト
-		  response.sendRedirect(request.getContextPath() + "/LoginServlet");
+		  response.sendRedirect(request.getContextPath() + "/HomeServlet");
 		%>
 </body>
 </html>
