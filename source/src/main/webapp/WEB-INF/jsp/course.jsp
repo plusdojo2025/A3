@@ -16,7 +16,7 @@
 ようこそ<c:out value ="${user.fName}"></c:out><c:out value ="${user.lName}"></c:out>さん
 </p>
 </div>
-<ul id="niv">
+<ul id="nov">
 <li><a href="<c:url value='/HomeServlet' />">ホーム</a></li>
 <li><a href="<c:url value='/ApplyCourseServlet' />">申し込み</a></li>
 <li><a href="<c:url value='/CourseServlet' />">式場/コース/プランナー 一覧</a></li>
